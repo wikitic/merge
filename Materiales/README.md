@@ -4,7 +4,7 @@ El kit básico se presenta en una maleta transparente que incluye en su interior
 Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el pequeño material electrónico como resistencias, diodos, etc.
 
 - [1 Placa de Arduino UNO](#arduino-uno-rev3)
-- [1 Placa Protoboard de 830 puntos](#protoboard)
+- [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
 - [50 Latiguillos](#latiguillos)
 - [3x5 Diodos Leds](#diodos-leds)
 - [10x6 Resistencias](#resistencias)
@@ -65,8 +65,21 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 
 
+## Protoboard 830 puntos
 
-## Protoboard
+![Protoboard 830 puntos](imagenes/protoboard.png)
+
+La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas, en el cual se pueden insertar componentes electrónicos y cables para el armado y prototipado de circuitos electrónicos.
+
+| Protoboard  |                 |
+| ----------- | --------------- |
+| Contactos   | 830 puntos      |
+| Serigrafías | Si, polarizadas |
+
+
+
+
+
 ## Latiguillos
 ## Diodos Leds
 ## Resistencias
