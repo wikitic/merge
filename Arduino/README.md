@@ -66,22 +66,22 @@ Nos hemos basado en la distribución **Ubuntu** para realizar esta guía de inst
 
 Para trabajar con Arduino es preciso que nuestra distribución tenga instalados los siguientes paquetes además de Arduino IDE.
 
-´´
+```
 - sun's java runtime (jre)
 - gcc-avr
 - avr-libc
-binutils-avr
-´´´
+- binutils-avr
+```
 
 Para instalar dichos paquetes vamos a necesitar la clave de administrador. A continuación abrimos un nuevo terminal o consola y ejecutamos las siguientes instrucciones:
 
-´´´
+```
 $ sudo add-apt-repository ppa:arduino-ubuntu-team
 $ sudo apt-get update
 $ sudo apt-get install arduino
-´´´
+```
 
-Para ejecutar la aplicación de Arduino IDE, basta con acceder al menú ´Aplicaciones > Programación > Arduino´.
+Para ejecutar la aplicación de Arduino IDE, basta con acceder al menú *Aplicaciones > Programación > Arduino*.
 
 
 ### Instalación en Windows
