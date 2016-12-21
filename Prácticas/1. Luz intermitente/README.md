@@ -5,7 +5,7 @@ En esta primera práctica vamos a realizar un sencillo proyecto consistente en u
 1.	[Materiales](#materiales)
 2.	[Diagrama de flujo](#diagrama-de-flujo)
 3.	[Esquema eléctrico](#esquema-eléctrico)
-4.	[Programación en S4A](#programacion-en-s4a)
+4.	[Programación en S4A](#programación-en-s4a)
 5.	[Programación en Arduino](#programación-en-arduino)
 
 

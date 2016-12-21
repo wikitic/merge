@@ -2,7 +2,7 @@
 
 En el siguiente apartado encontrarás las diferentes prácticas de programación y arduino que podrás utilizar en el aula de tu centro.
 
-1.	[Luz intermitente](Práctica 1/)
+1.	[Luz intermitente](1. Luz intermitente/)
 2.	[Aviso para invidentes](#)
 3.	[Semáforo](#)
 4.	[Semáforo con aviso para invidentes](#)
