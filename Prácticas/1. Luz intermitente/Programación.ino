@@ -1,12 +1,12 @@
 /**
- * Led Intermitente con frecuencia de 1 segundo
+ * Luz intermitente
  * 
  * @author Miguel Ángel Abellán
  * @company Programo Ergo Sum
  * @license Creative Commons. Reconocimiento CompartirIgual 4.0
  */
 
-//Se define la variable ledPin y delayTime
+//Se definen la variable ledPin y delayTime
 int ledPin = 13;
 int delayTime = 1000;
 
