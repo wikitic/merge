@@ -35,14 +35,14 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 ## Arduino UNO Rev3
 
-![Arduino UNO Rev1](imagenes/arduino-uno-rev3.png)
-
 Arduino es una plataforma de prototipos de electrónica y de código abierto (open-source) basada en hardware y software flexible y fácil de usar. Entre las ventajas de utilizar arduino encontramos:
 - **Barato**: Las placas Arduino son relativamente baratas comparadas con otras plataformas microcontroladoras.
 - **Multiplataforma**: El software de Arduino se ejecuta en sistemas operativos Windows, Macintosh OSX y GNU/Linux.
 - **Entorno de programación simple y claro**: El entorno de programación de Arduino es fácil de usar para principiantes y expertos. Está basado en el entorno de programación Processing.
 - **Código abierto**: El software Arduino está publicado como herramientas de código abierto.
 - **Hardware extensible**: Los planos para los módulos están publicados bajo licencia Creative Commons, por lo que diseñadores experimentados de circuitos pueden hacer su propia versión.
+
+![Arduino UNO Rev1](imagenes/arduino-uno-rev3.png)
 
 #### *Características*
 
@@ -67,9 +67,11 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 ## Protoboard 830 puntos
 
+La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas, en el cual se pueden insertar componentes electrónicos y cables para el armado y prototipado de circuitos electrónicos.
+
 ![Protoboard 830 puntos](imagenes/protoboard.png)
 
-La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas, en el cual se pueden insertar componentes electrónicos y cables para el armado y prototipado de circuitos electrónicos.
+#### *Características*
 
 | Protoboard  |                 |
 | ----------- | --------------- |
