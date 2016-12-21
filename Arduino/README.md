@@ -12,7 +12,7 @@ En este capítulo explicamos las características de Arduino, y como instalar lo
 	- [Instalación en Linux](#instalación-en-linux)
 	- [Instalación en Windows](#instalación-en-windows)
 	- [Instalación en Mac](#instalación-en-mac)
-	- [Hola Mundo](#hola-mundo)
+	- [Acceder a Arduino](#acceder-a-arduino)
 - [Instalar S4A](#resistencias)
 
 
@@ -59,6 +59,7 @@ Primero conectamos la tarjeta controladora a través del cable USB, y a continua
 - [Instalación en Linux](#instalación-en-linux)
 - [Instalación en Windows](#instalación-en-windows)
 - [Instalación en Mac](#instalación-en-mac)
+- [Acceder a Arduino](#acceder-a-arduino)
 
 ### Instalación en Linux
 
@@ -94,7 +95,7 @@ Descargamos el software de Arduino desde la sección de descargas de la página 
 De igual manera que en el caso de instalación en Windows, en primer lugar descargamos el software de Arduino desde la sección de descargas de la página web [Arduino.org](http://www.arduino.org/downloads) y procedemos a ejecutar el programa descargado aceptando la licencia de uso y siguiendo los pasos que aparecen en el instalador.
 
 
-### Hola Mundo
+### Acceder a Arduino
 
 El siguiente paso será ejecutar el programa de Arduino que hemos instalado. Independientemente del sistema operativo utilizado, accederemos a una ventana similar a la siguiente.
 
