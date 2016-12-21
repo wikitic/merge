@@ -46,18 +46,20 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 #### *Características*
 
-| Microprocesador | ATmega328 |
-| Tensión operativa | 5v |
-| Tensión de alimentación | 7-12v |
-| Entradas digitales | 14 |
-| Salidas digitales | 14 |
-| Entradas analógicas | 6 |
-| Memoria flash | 32Kb |
-| SRAM | 2Kb |
-| EEPROM | 1Kb |
-| Velocidad del reloj | 16MHz |
-| Máxima corriente continua para entradas | 40mA |
-| Máxima corriente continua para los pines 3.3V | 50mA |
+| ARDUINO UNO REV3          |           |
+| ------------------------- | --------- |
+| Microprocesador           | ATmega328 |
+| Tensión operativa         | 5v        |
+| Tensión de alimentación   | 7-12v     |
+| Entradas digitales        | 14        |
+| Salidas digitales         | 14        |
+| Entradas analógicas       | 6         |
+| Memoria flash             | 32Kb      |
+| SRAM                      | 2Kb       |
+| EEPROM                    | 1Kb       |
+| Velocidad del reloj       | 16MHz     |
+| Máxima VC para entradas   | 40mA      |
+| Máxima VC para pines 3.3V | 50mA      |
 
 
 
