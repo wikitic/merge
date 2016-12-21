@@ -29,7 +29,7 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 
 
-#
+=============
 
 
 
@@ -63,7 +63,7 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 
 
-#
+=============
 
 
 
@@ -82,11 +82,30 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 
 
 
-#
+=============
 
 
 
 ## Latiguillos
+
+Los latiguillos son utilizados para conectar los diferentes sensores y actuadores entre si, además de conectarlos a la placa de Arduino.
+
+![Latiguillos](imagenes/latiguillos.png)
+
+#### *Características*
+
+| Latiguillos |                           |
+| ----------- | ------------------------- |
+| Cantidad    | 50 latiguillos de colores |
+| Longitud    | 200mm                     |
+| Modo        | Macho-Macho               |
+
+
+
+=============
+
+
+
 ## Diodos Leds
 ## Resistencias
 ## Diodos 1N4007
