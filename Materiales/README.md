@@ -29,7 +29,7 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 
 
-=============
+#
 
 
 
@@ -63,6 +63,8 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 
 
+#
+
 
 
 ## Protoboard 830 puntos
@@ -79,6 +81,8 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 | Serigrafías | Si, polarizadas |
 
 
+
+#
 
 
 
