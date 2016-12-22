@@ -12,9 +12,10 @@ En los siguientes enlaces podrás descargar las diapositivas utilizadas en las s
 	- [4ª Sesión](#)
 	- [5ª Sesión](#)
 	- [6ª Sesión](#)
-- Bloque IV
 	- [7ª Sesión](#)
-- Proyetos
+- Bloque IV
+	- [8ª Sesión](#)
+- Proyectos
 
 
 
