@@ -6,7 +6,7 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 - [1 Placa de Arduino UNO](#arduino-uno-rev3)
 - [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
 - [50 Latiguillos](#latiguillos)
-- [3x5 Diodos Leds](#diodos-leds)
+- [3x5 Diodos Led](#diodos-led)
 - [10x6 Resistencias](#resistencias)
 - [10 Diodos 1N4007](#diodos-1N4007)
 - [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
@@ -35,14 +35,13 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 ## Arduino UNO Rev3
 
-Arduino es una plataforma de prototipos de electrónica y de código abierto (open-source) basada en hardware y software flexible y fácil de usar. Entre las ventajas de utilizar arduino encontramos:
+Arduino es una plataforma para prototipados de electrónica basada en hardware y software libre. Entre las ventajas de utilizar Arduino encontramos:
 - **Barato**: Las placas Arduino son relativamente baratas comparadas con otras plataformas microcontroladoras.
 - **Multiplataforma**: El software de Arduino se ejecuta en sistemas operativos Windows, Macintosh OSX y GNU/Linux.
-- **Entorno de programación simple y claro**: El entorno de programación de Arduino es fácil de usar para principiantes y expertos. Está basado en el entorno de programación Processing.
-- **Código abierto**: El software Arduino está publicado como herramientas de código abierto.
-- **Hardware extensible**: Los planos para los módulos están publicados bajo licencia Creative Commons, por lo que diseñadores experimentados de circuitos pueden hacer su propia versión.
+- **Lenguaje de programación**: Arduino está basado en el entorno de programación Processing.
+- **Código abierto**: El hardware y el software Arduino está publicado bajo licencia Creative Commons.
 
-![Arduino UNO Rev1](imagenes/arduino-uno-rev3.png)
+![Arduino UNO Rev1](imagenes/Arduino UNO Rev3.png)
 
 #### *Características*
 
@@ -69,9 +68,9 @@ Arduino es una plataforma de prototipos de electrónica y de código abierto (op
 
 ## Protoboard 830 puntos
 
-La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas, en el cual se pueden insertar componentes electrónicos y cables para el armado y prototipado de circuitos electrónicos.
+La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas en el cual se pueden insertar componentes electrónicos y cables para el prototipado de circuitos electrónicos.
 
-![Protoboard 830 puntos](imagenes/protoboard.png)
+![Protoboard 830 puntos](imagenes/Protoboard.png)
 
 #### *Características*
 
@@ -90,7 +89,7 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 
 Los latiguillos son utilizados para conectar los diferentes sensores y actuadores entre si, además de conectarlos a la placa de Arduino.
 
-![Latiguillos](imagenes/latiguillos.png)
+![Latiguillos](imagenes/Latiguillos.png)
 
 #### *Características*
 
@@ -106,9 +105,81 @@ Los latiguillos son utilizados para conectar los diferentes sensores y actuadore
 
 
 
-## Diodos Leds
+## Diodos Led
+
+Un diodo led es un componente eléctrico polarizado que emite luz al paso de corriente eléctrica. Para que circule la corriente eléctrica tenemos que conectar el polo positivo de la fuente de alimentación al ánodo de nuestro diodo led, y el polo negativo al cátodo.
+
+En el kit encontraremos 5 tipos de diodos Led diferentes:
+- Color verde
+- Color ámbar
+- Color rojo
+- Color blanco
+- Led RGB ánodo común
+
+![Diodos Led](imagenes/Diodos Led.png)
+
+#### *Características*
+
+| Diodos Led                       |                     |
+| -------------------------------- | ------------------- |
+| Diámetro                         | 5mm                 |
+| Luminosidad                      | 20.000 minicandelas |
+| Itensidad de Corriente           | 20mA                |
+| Tensión Led (verde, ámbar, rojo) | 2,2v                |
+| Tensión Led blanco               | 3,2v                |
+| Tensión Led RGB                  | 2,2v                |
+
+
+
+=============
+
+
+
 ## Resistencias
+
+La resistencia eléctrica es un componente eléctrico que se opone el paso a la corriente en un circuito. 
+
+En el kit encontramos 6 valores distintos:
+- 220Ω (rojo-rojo-marrón)
+- 330Ω (naranja-naranja-marrón)
+- 100Ω (marrón-negro-marrón)
+- 1KΩ (marrón-negro-rojo)
+- 4,7KΩ (amarillo-morado-rojo)
+- 10KΩ (marrón-negro-naranja)
+
+![Resistencias](imagenes/Resistencias.png)
+
+#### *Características*
+
+| Resistencia                      |      |
+| -------------------------------- | ---- |
+| Potencia de disipación           | 0,5W |
+| Precisión o tolerancia           | 5%   |
+
+
+
+=============
+
+
+
 ## Diodos 1N4007
+
+Un diodo es un componente eléctrico que permite el paso de la corriente en un solo sentido.
+
+![Diodos 1N4007](imagenes/Diodos 1N4007.png)
+
+#### *Características*
+
+| Diodos 1N4007                    |      |
+| -------------------------------- | ---- |
+|                                  |      |
+
+
+
+=============
+
+
+
 ## Zumbador piezoeléctrico
 ## Interruptores de palanca
 ## Sensor TSOP

@@ -17,7 +17,7 @@
 
 ## Contenido
 
-1.	[Listado de materiales](Materiales/)
+1.	[Listado de materiales](Listado de materiales/)
 2.	[Introducción a los lenguajes de Programación](Programación/)
 3.  [Introducción a la electrónica con Arduino](Arduino/)
 4.  [Sesiones de Formación CPR Murcia](Formación/)
