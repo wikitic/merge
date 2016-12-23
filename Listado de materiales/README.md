@@ -41,7 +41,7 @@ Arduino es una plataforma para prototipados de electrónica basada en hardware y
 - **Lenguaje de programación**: Arduino está basado en el entorno de programación Processing.
 - **Código abierto**: El hardware y el software Arduino está publicado bajo licencia Creative Commons.
 
-![Arduino UNO Rev1](imagenes/Arduino UNO Rev3.png)
+![Arduino UNO Rev1](Imágenes/Arduino UNO Rev3.png)
 
 #### *Características*
 
@@ -70,7 +70,7 @@ Arduino es una plataforma para prototipados de electrónica basada en hardware y
 
 La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas en el cual se pueden insertar componentes electrónicos y cables para el prototipado de circuitos electrónicos.
 
-![Protoboard 830 puntos](imagenes/Protoboard.png)
+![Protoboard 830 puntos](Imágenes/Protoboard.png)
 
 #### *Características*
 
@@ -89,7 +89,7 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 
 Los latiguillos son utilizados para conectar los diferentes sensores y actuadores entre si, además de conectarlos a la placa de Arduino.
 
-![Latiguillos](imagenes/Latiguillos.png)
+![Latiguillos](Imágenes/Latiguillos.png)
 
 #### *Características*
 
@@ -116,7 +116,7 @@ En el kit encontraremos 5 tipos de diodos Led diferentes:
 - Color blanco
 - Led RGB ánodo común
 
-![Diodos Led](imagenes/Diodos Led.png)
+![Diodos Led](Imágenes/Diodos Led.png)
 
 #### *Características*
 
@@ -147,7 +147,7 @@ En el kit encontramos 6 valores distintos:
 - 4,7KΩ (amarillo-morado-rojo)
 - 10KΩ (marrón-negro-naranja)
 
-![Resistencias](imagenes/Resistencias.png)
+![Resistencias](Imágenes/Resistencias.png)
 
 #### *Características*
 
