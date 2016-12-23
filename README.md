@@ -5,12 +5,6 @@
 
 
 
-### Normativa
-
-[Resolución de 24 de junio de 2016, de la Dirección General de Innovación Educativa y Atención a la Diversidad, por la que se convoca el Programa Educativo El Cable Amarillo, para el curso 2016/2017. (Publicado en Tablón de Anuncios 11/07/2016)](http://servicios.educarm.es/templates/portal/ficheros/websDinamicas/45/Convocatoria%20curso%202016-17%20CI%2075926%2011-07-16.pdf)
-
-
-
 ## Objetivos del programa
 
 1.	Potenciar el **razonamiento lógico-matemático** de los alumnos de la ESO mediante el uso de estructuras básicas de la programación informática.
