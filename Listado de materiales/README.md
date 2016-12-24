@@ -131,7 +131,7 @@ En el kit encontraremos 2 tipos de diodos Led:
 
 ## Resistencias
 
-La **resistencia eléctrica** es un componente eléctrico que se opone el paso de la corriente en un circuito. 
+Los **resistores** son un componente eléctrico que se oponen el paso de la corriente en un circuito. 
 
 En el kit encontramos 6 valores distintos de resistencias:
 - 220Ω (rojo-rojo-marrón)
@@ -167,7 +167,7 @@ Un **diodo** es un componente eléctrico que permite el paso de la corriente en 
 
 | Diodos 1N4007                    |       |
 | -------------------------------- | ----- |
-| Polarizado                       | Si    |
+| Polarizado                       | Sí    |
 | Tensión en polarización directa  | 1,1V  |
 | Tensión en polarización inversa  | 1000V |
 
@@ -178,6 +178,24 @@ Un **diodo** es un componente eléctrico que permite el paso de la corriente en 
 
 
 ## Zumbador piezoeléctrico
+
+Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos al paso de la corriente eléctrica sobre él.
+
+![Zumbador piezoeléctrico](imagenes/Zumbador piezoeléctrico.png)
+
+#### *Características*
+
+| Zumbador piezoeléctrico          |       |
+| -------------------------------- | ----- |
+| Polarizado                       | Sí    |
+| Tensión de trabajo               | 3-12V |
+
+
+
+=============
+
+
+
 ## Interruptores de palanca
 ## Sensor TSOP
 ## Mando a distancia
