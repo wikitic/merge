@@ -12,7 +12,7 @@ El kit contiene los siguientes materiales:
 - [10 Diodos 1N4007](#diodos-1N4007)
 - [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
 - [5 Interruptores de palanca](#interruptores-de-palanca)
-- [1 Sensor TSOP 4838](#sensor-tsop)
+- [1 Sensor TSOP 4838](#sensor-tsop-4838)
 - [1 Mando a distancia](#mando-a-distancia)
 - [1 Display LCD](#display-lcd)
 - [5 Sensor LDR foto-resistencias](#sensor-ldr)
@@ -161,7 +161,7 @@ En el kit encontramos 6 valores distintos de resistencias:
 
 Un **diodo** es un componente eléctrico que permite el paso de la corriente en un solo sentido.
 
-![Diodos 1N4007](imagenes/Diodos 1N4007.png)
+![Diodos 1N4007](Imágenes/Diodos 1N4007.png)
 
 #### *Características*
 
@@ -181,7 +181,7 @@ Un **diodo** es un componente eléctrico que permite el paso de la corriente en 
 
 Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos al paso de la corriente eléctrica sobre él.
 
-![Zumbador piezoeléctrico](imagenes/Zumbador piezoeléctrico.png)
+![Zumbador piezoeléctrico](Imágenes/Zumbador piezoeléctrico.png)
 
 #### *Características*
 
@@ -197,7 +197,42 @@ Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos 
 
 
 ## Interruptores de palanca
-## Sensor TSOP
+
+Con un **interruptor** podemos abrir o cerrar el circuito eléctrico.
+
+![Interruptores de palanca](Imágenes/Interruptores de palanca.png)
+
+#### *Características*
+
+| Interruptores de palanca         |       |
+| -------------------------------- | ----- |
+| Polarizado                       | No    |
+
+
+
+=============
+
+
+
+## Sensor TSOP 4838
+
+El **TSOP 4838** es un sensor infrarrojos utilizado para recibir la señal desde un mando a distancia.
+
+![Sensor TSOP 4838](Imágenes/Sensor TSOP 4838.png)
+
+#### *Características*
+
+| Sensor TSOP 4838                 |       |
+| -------------------------------- | ----- |
+| Polarizado                       | Sí    |
+| Distancia máxima de trabajo      | 45m   |
+
+
+
+=============
+
+
+
 ## Mando a distancia
 ## Display LCD
 ## Sensor LDR
