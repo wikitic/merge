@@ -1,9 +1,10 @@
-# Lista de materiales
+# Listado de materiales
 
 El kit básico se presenta en una maleta transparente que incluye en su interior un estuche con compartimentos, lo que facilita la localización de los componentes desde el exterior.
 Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el pequeño material electrónico como resistencias, diodos, etc.
 
-- [1 Placa de Arduino UNO](#arduino-uno-rev3)
+El kit contiene los siguientes materiales:
+- [1 Placa de Arduino UNO Rev3](#arduino-uno-rev3)
 - [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
 - [50 Latiguillos](#latiguillos)
 - [3x5 Diodos Led](#diodos-led)
@@ -35,17 +36,13 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 ## Arduino UNO Rev3
 
-Arduino es una plataforma para prototipados de electrónica basada en hardware y software libre. Entre las ventajas de utilizar Arduino encontramos:
-- **Barato**: Las placas Arduino son relativamente baratas comparadas con otras plataformas microcontroladoras.
-- **Multiplataforma**: El software de Arduino se ejecuta en sistemas operativos Windows, Macintosh OSX y GNU/Linux.
-- **Lenguaje de programación**: Arduino está basado en el entorno de programación Processing.
-- **Código abierto**: El hardware y el software Arduino está publicado bajo licencia Creative Commons.
+**Arduino** es una plataforma para prototipado de electrónica basada en hardware y software libre, es decir, podemos construir circuitos eléctricos y programarlos.
 
 ![Arduino UNO Rev1](Imágenes/Arduino UNO Rev3.png)
 
 #### *Características*
 
-| ARDUINO UNO REV3          |           |
+| Arduino UNO Rev3          |           |
 | ------------------------- | --------- |
 | Microprocesador           | ATmega328 |
 | Tensión operativa         | 5v        |
@@ -68,7 +65,7 @@ Arduino es una plataforma para prototipados de electrónica basada en hardware y
 
 ## Protoboard 830 puntos
 
-La placa de prototipado contiene orificios conectados eléctricamente entre sí de manera interna, habitualmente siguiendo patrones de líneas en el cual se pueden insertar componentes electrónicos y cables para el prototipado de circuitos electrónicos.
+Una **protoboard** es una placa para prototipar circuitos eléctricos conectandos en sus orificios sin necesidad de soldar los componentes.
 
 ![Protoboard 830 puntos](Imágenes/Protoboard.png)
 
@@ -77,7 +74,7 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 | Protoboard  |                 |
 | ----------- | --------------- |
 | Contactos   | 830 puntos      |
-| Serigrafías | Si, polarizadas |
+| Serigrafías | Sí, polarizadas |
 
 
 
@@ -87,7 +84,7 @@ La placa de prototipado contiene orificios conectados eléctricamente entre sí 
 
 ## Latiguillos
 
-Los latiguillos son utilizados para conectar los diferentes sensores y actuadores entre si, además de conectarlos a la placa de Arduino.
+Los **latiguillos** son utilizados para conectar entre si los diferentes componentes electrónicos.
 
 ![Latiguillos](Imágenes/Latiguillos.png)
 
@@ -107,14 +104,11 @@ Los latiguillos son utilizados para conectar los diferentes sensores y actuadore
 
 ## Diodos Led
 
-Un diodo led es un componente eléctrico polarizado que emite luz al paso de corriente eléctrica. Para que circule la corriente eléctrica tenemos que conectar el polo positivo de la fuente de alimentación al ánodo de nuestro diodo led, y el polo negativo al cátodo.
+Un **diodo Led** es un componente eléctrico que emite luz cuando pasa la corriente eléctrica sobre él. La corriente circula desde el polo positivo (ánodo) al polo negativo (cátodo).
 
-En el kit encontraremos 5 tipos de diodos Led diferentes:
-- Color verde
-- Color ámbar
-- Color rojo
-- Color blanco
-- Led RGB ánodo común
+En el kit encontraremos 2 tipos de diodos Led:
+- Diodos Led de color verde, ámbar, rojo y blanco.
+- Led RGB ánodo común.
 
 ![Diodos Led](Imágenes/Diodos Led.png)
 
@@ -122,8 +116,8 @@ En el kit encontraremos 5 tipos de diodos Led diferentes:
 
 | Diodos Led                       |                     |
 | -------------------------------- | ------------------- |
+| Polarizado                       | Sí                  |
 | Diámetro                         | 5mm                 |
-| Luminosidad                      | 20.000 minicandelas |
 | Itensidad de Corriente           | 20mA                |
 | Tensión Led (verde, ámbar, rojo) | 2,2v                |
 | Tensión Led blanco               | 3,2v                |
@@ -137,9 +131,9 @@ En el kit encontraremos 5 tipos de diodos Led diferentes:
 
 ## Resistencias
 
-La resistencia eléctrica es un componente eléctrico que se opone el paso a la corriente en un circuito. 
+La **resistencia eléctrica** es un componente eléctrico que se opone el paso de la corriente en un circuito. 
 
-En el kit encontramos 6 valores distintos:
+En el kit encontramos 6 valores distintos de resistencias:
 - 220Ω (rojo-rojo-marrón)
 - 330Ω (naranja-naranja-marrón)
 - 100Ω (marrón-negro-marrón)
@@ -153,6 +147,7 @@ En el kit encontramos 6 valores distintos:
 
 | Resistencia                      |      |
 | -------------------------------- | ---- |
+| Polarizado                       | No   |
 | Potencia de disipación           | 0,5W |
 | Precisión o tolerancia           | 5%   |
 
@@ -164,15 +159,17 @@ En el kit encontramos 6 valores distintos:
 
 ## Diodos 1N4007
 
-Un diodo es un componente eléctrico que permite el paso de la corriente en un solo sentido.
+Un **diodo** es un componente eléctrico que permite el paso de la corriente en un solo sentido.
 
 ![Diodos 1N4007](imagenes/Diodos 1N4007.png)
 
 #### *Características*
 
-| Diodos 1N4007                    |      |
-| -------------------------------- | ---- |
-|                                  |      |
+| Diodos 1N4007                    |       |
+| -------------------------------- | ----- |
+| Polarizado                       | Si    |
+| Tensión en polarización directa  | 1,1V  |
+| Tensión en polarización inversa  | 1000V |
 
 
 
