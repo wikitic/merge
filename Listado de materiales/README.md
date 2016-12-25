@@ -6,7 +6,7 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 El kit contiene los siguientes materiales:
 - [1 Placa de Arduino UNO Rev3](#1-placa-de-arduino-uno-rev3)
 - [1 Placa protoboard de 830 puntos](#1-placa-protoboard-de-830-puntos)
-- [50 Latiguillos](#latiguillos)
+- [50 Latiguillos macho-macho](#50-latiguillos-macho-macho)
 - [3x5 Diodos Led](#diodos-led)
 - [10x6 Resistencias](#resistencias)
 - [10 Diodos 1N4007](#diodos-1N4007)
@@ -82,7 +82,7 @@ Una **protoboard** es una placa para prototipar circuitos eléctricos conectando
 
 
 
-## Latiguillos
+## 50 Latiguillos macho-macho
 
 Los **latiguillos** son utilizados para conectar entre si los diferentes componentes electrónicos.
 
@@ -93,8 +93,7 @@ Los **latiguillos** son utilizados para conectar entre si los diferentes compone
 | Latiguillos |                           |
 | ----------- | ------------------------- |
 | Cantidad    | 50 latiguillos de colores |
-| Longitud    | 200mm                     |
-| Modo        | Macho-Macho               |
+| Longitud    | 20cm                      |
 
 
 
