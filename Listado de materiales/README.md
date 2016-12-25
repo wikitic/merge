@@ -5,7 +5,7 @@ Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el peque
 
 El kit contiene los siguientes materiales:
 - [1 Placa de Arduino UNO Rev3](#1-placa-de-arduino-uno-rev3)
-- [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
+- [1 Placa protoboard de 830 puntos](#1-placa-protoboard-de-830-puntos)
 - [50 Latiguillos](#latiguillos)
 - [3x5 Diodos Led](#diodos-led)
 - [10x6 Resistencias](#resistencias)
@@ -38,7 +38,7 @@ El kit contiene los siguientes materiales:
 
 **Arduino** es una plataforma para prototipado de electrónica basada en hardware y software libre, es decir, podemos construir circuitos eléctricos y programarlos.
 
-![Arduino UNO Rev1](Imágenes/Arduino UNO Rev3.png)
+![Arduino UNO Rev3](Imágenes/Arduino UNO Rev3.png)
 
 #### *Características*
 
@@ -63,11 +63,11 @@ El kit contiene los siguientes materiales:
 
 
 
-## Protoboard 830 puntos
+## 1 Placa protoboard de 830 puntos
 
 Una **protoboard** es una placa para prototipar circuitos eléctricos conectandos en sus orificios sin necesidad de soldar los componentes.
 
-![Protoboard 830 puntos](Imágenes/Protoboard.png)
+![Protoboard 830 puntos](Imágenes/Protoboard 830 puntos.png)
 
 #### *Características*
 
