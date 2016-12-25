@@ -17,7 +17,7 @@ El kit contiene los siguientes materiales:
 - [1 Display LCD](#display-lcd)
 - [5 Sensor LDR foto-resistencias](#sensor-ldr)
 - [2 Potenciómetros de 10KOmhios](#potenciómetro)
-- [2 Miniservos](#miniservos)
+- [2 Servo motores](#servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura)
 - [1 Sensor de humedad](#sensor-de-humedad)
@@ -279,8 +279,47 @@ Un **potenciómetro** es una resistencia variable mecánica, es decir, podemos r
 
 
 
-## Miniservos
+## Servo motores
+
+Un **miniservo** es un componente eléctrico similar a un motor capaz de girar una determinada cantidad de grados, entre 0° y 180° en este caso.
+
+![Servo motores](Imágenes/Servo motores.png)
+
+#### *Características*
+
+| Servo motores      |                  |
+| ------------------ | ---------------- |
+| Polarizado         | Sí               |
+| Rotación           | 0° a 180°        |
+| Torque estático    | 4,5V > 1,5Kg/cm  |
+
+
+
+=============
+
+
+
 ## Motor de corriente continua
+
+El **motor** genera una velocidad de giro y dirección en el rotor del motor, dependiendo de la tensión y polarización.
+
+![Motor de corriente continua](Imágenes/Motor de corriente continua.png)
+
+#### *Características*
+
+| Motor de CC        |                 |
+| ------------------ | --------------- |
+| Polarizado         | No              |
+| Tensión máxima     | 4,5V            |
+| Potencia           | 0,5W            |
+| RPM                | 9800rpm a 4,5V  |
+
+
+
+=============
+
+
+
 ## Sensor de temperatura
 ## Sensor de humedad
 ## Sensor ultrasónico
