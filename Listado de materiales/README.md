@@ -20,7 +20,7 @@ El kit contiene los siguientes materiales:
 - [2 Servo motores](#servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
-- [1 Sensor de humedad](#sensor-de-humedad)
+- [1 Sensor de temperatura y humedad](#sensor-de-temperatura-y-humedad)
 - [1 Sensor ultrasónico de proximidad](#sensor-ultrasónico)
 - [2 Sensores octoacopladores de infrarojos](#sensor-octoacoplador)
 - [1 Sensor giroscopio de 3 ejes](#sensor-giroscopio)
@@ -328,11 +328,13 @@ El **sensor de temperatura LM35** proporciona una salida de voltaje proporcional
 
 #### *Características*
 
-| Sensor de temperatura LM35 |                               |
-| -------------------------- | ----------------------------- |
-| Polarizado                 | Si                            |
-| Rango de medición          | -55°(-550mV) a 150°C (1500mV) |
-| Precisión                  | 0,5°C (10mV)                  |
+| Sensor de temperatura LM35    |               |
+| ----------------------------- | ------------- |
+| Polarizado                    | Si            |
+| Señal de salida               | Analógica     |
+| Tensión                       | 3V a 5V       |
+| Rango de medición             | -55° a 150°C  |
+| Precisión                     | ±0,5°C        |
 
 
 
@@ -340,7 +342,28 @@ El **sensor de temperatura LM35** proporciona una salida de voltaje proporcional
 
 
 
-## Sensor de humedad
+## Sensor de temperatura y humedad
+
+El **sensor de temperatura y humedad** integrado se compone de un sensor capacitivo para medir la humedad y un sensor de temperatura.
+
+![Sensor de temperatura y humedad](Imágenes/Sensor de temperatura y humedad.png)
+
+#### *Características*
+
+| Sensor de temperatura y humedad    |            |
+| ---------------------------------- | ---------- |
+| Polarizado                         | Si         |
+| Señal de salida                    | Digital    |
+| Tensión                            | 3V a 5V    |
+| Rango de medición                  | 0° a 50°C  |
+| Precisión                          | ±2°C       |
+
+
+
+=============
+
+
+
 ## Sensor ultrasónico
 ## Sensor octoacoplador
 ## Sensor giroscopio
