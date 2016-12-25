@@ -7,7 +7,7 @@ El kit contiene los siguientes materiales:
 - [1 Placa de Arduino UNO Rev3](#1-placa-de-arduino-uno-rev3)
 - [1 Placa protoboard de 830 puntos](#1-placa-protoboard-de-830-puntos)
 - [50 Latiguillos macho-macho](#50-latiguillos-macho-macho)
-- [3x5 Diodos Led](#diodos-led)
+- [3x5 Diodos Led](#3x5-diodos-led)
 - [10x6 Resistencias](#resistencias)
 - [10 Diodos 1N4007](#diodos-1N4007)
 - [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
@@ -101,26 +101,34 @@ Los **latiguillos** son utilizados para conectar entre si los diferentes compone
 
 
 
-## Diodos Led
+## 3x5 Diodos Led
 
-Un **diodo Led** es un componente eléctrico que emite luz cuando pasa la corriente eléctrica sobre él. La corriente circula desde el polo positivo (ánodo) al polo negativo (cátodo).
+Un **diodo Led** es un componente eléctrico que emite luz al paso de corriente eléctrica sobre él, desde el polo positivo (ánodo) al polo negativo (cátodo). Por otro lado, nos encontramos con un diodo Led especial de 4 patillas llamado **diodo Led RGB** (en este caso de ánodo común) lo que significa que la patilla más larga corresponde al polo positivo (ánodo).
 
-En el kit encontraremos 2 tipos de diodos Led:
-- Diodos Led de color verde, ámbar, rojo y blanco.
-- Led RGB ánodo común.
+En el kit encontraremos:
+- 12 Diodos Led de colores verde, ámbar, rojo y blanco.
+- 3 Diodos Led RGB ánodo común.
 
 ![Diodos Led](Imágenes/Diodos Led.png)
 
 #### *Características*
 
-| Diodos Led                       |                     |
-| -------------------------------- | ------------------- |
-| Polarizado                       | Sí                  |
-| Diámetro                         | 5mm                 |
-| Itensidad de Corriente           | 20mA                |
-| Tensión Led (verde, ámbar, rojo) | 2,2v                |
-| Tensión Led blanco               | 3,2v                |
-| Tensión Led RGB                  | 2,2v                |
+| Diodos Led de colores            |        |
+| -------------------------------- | ------ |
+| Polarizado                       | Sí     |
+| Diámetro                         | 5mm    |
+| Itensidad de Corriente           | 20mA   |
+| Tensión Led (verde, ámbar, rojo) | 2,1V   |
+| Tensión Led blanco               | 3,3V   |
+
+| Diodo Led RGB (ánodo común)      |        |
+| -------------------------------- | ------ |
+| Polarizado                       | Sí     |
+| Diámetro                         | 5mm    |
+| Itensidad de Corriente           | 20mA   |
+| Tensión en Led (rojo)            | 2,1V   |
+| Tensión en Led (verde)           | 3,3V   |
+| Tensión en Led (azul)            | 3,3V   |
 
 
 
