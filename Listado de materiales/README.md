@@ -19,7 +19,7 @@ El kit contiene los siguientes materiales:
 - [2 Potenciómetros de 10KOmhios](#potenciómetro)
 - [2 Servo motores](#servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
-- [3 Sensores de temperatura LM35](#sensor-de-temperatura)
+- [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
 - [1 Sensor de humedad](#sensor-de-humedad)
 - [1 Sensor ultrasónico de proximidad](#sensor-ultrasónico)
 - [2 Sensores octoacopladores de infrarojos](#sensor-octoacoplador)
@@ -320,7 +320,26 @@ El **motor** genera una velocidad de giro y dirección en el rotor del motor, de
 
 
 
-## Sensor de temperatura
+## Sensor de temperatura LM35
+
+El **sensor de temperatura LM35** proporciona una salida de voltaje proporcional a la temperatura.
+
+![Sensor de temperatura LM35](Imágenes/Sensor de temperatura LM35.png)
+
+#### *Características*
+
+| Sensor de temperatura LM35 |                               |
+| -------------------------- | ----------------------------- |
+| Polarizado                 | Si                            |
+| Rango de medición          | -55°(-550mV) a 150°C (1500mV) |
+| Precisión                  | 0,5°C (10mV)                  |
+
+
+
+=============
+
+
+
 ## Sensor de humedad
 ## Sensor ultrasónico
 ## Sensor octoacoplador
