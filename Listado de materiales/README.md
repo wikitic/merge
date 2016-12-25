@@ -4,7 +4,7 @@ El kit básico se presenta en una maleta transparente que incluye en su interior
 Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el pequeño material electrónico como resistencias, diodos, etc.
 
 El kit contiene los siguientes materiales:
-- [1 Placa de Arduino UNO Rev3](#arduino-uno-rev3)
+- [1 Placa de Arduino UNO Rev3](#1-Placa-de-Arduino-UNO-Rev3)
 - [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
 - [50 Latiguillos](#latiguillos)
 - [3x5 Diodos Led](#diodos-led)
@@ -34,7 +34,7 @@ El kit contiene los siguientes materiales:
 
 
 
-## Arduino UNO Rev3
+## 1 Placa de Arduino UNO Rev3
 
 **Arduino** es una plataforma para prototipado de electrónica basada en hardware y software libre, es decir, podemos construir circuitos eléctricos y programarlos.
 
@@ -45,8 +45,8 @@ El kit contiene los siguientes materiales:
 | Arduino UNO Rev3          |           |
 | ------------------------- | --------- |
 | Microprocesador           | ATmega328 |
-| Tensión operativa         | 5v        |
-| Tensión de alimentación   | 7-12v     |
+| Tensión operativa         | 5V        |
+| Tensión de alimentación   | 7-12V     |
 | Entradas digitales        | 14        |
 | Salidas digitales         | 14        |
 | Entradas analógicas       | 6         |
