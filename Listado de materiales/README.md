@@ -4,7 +4,7 @@ El kit básico se presenta en una maleta transparente que incluye en su interior
 Uno de los maletines es un estuche con 7 compartimentos, donde se aloja el pequeño material electrónico como resistencias, diodos, etc.
 
 El kit contiene los siguientes materiales:
-- [1 Placa de Arduino UNO Rev3](#1-Placa-de-Arduino-UNO-Rev3)
+- [1 Placa de Arduino UNO Rev3](#1-placa-de-arduino-uno-rev3)
 - [1 Placa Protoboard de 830 puntos](#protoboard-830-puntos)
 - [50 Latiguillos](#latiguillos)
 - [3x5 Diodos Led](#diodos-led)
