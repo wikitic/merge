@@ -22,7 +22,7 @@ El kit contiene los siguientes materiales:
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
 - [1 Sensor de temperatura y humedad](#sensor-de-temperatura-y-humedad)
 - [1 Sensor de proximidad HC-SR04](#sensor-de-proximidad-hc-sr04)
-- [2 Sensores octoacopladores de infrarojos](#sensor-octoacoplador)
+- [2 Sensores de infrarrojos CNY70](#sensor-de-infrarrojos-cny70)
 - [1 Sensor giroscopio de 3 ejes](#sensor-giroscopio)
 - [1 Motor paso a paso con controlador](#motor-paso-a-paso)
 - [1 Bluetooth Shield HC-06](#bluetooth)
@@ -385,7 +385,27 @@ El **sensor de proximidad HC-SR04** es un sensor ultrasónico capaz de medir dis
 
 
 
-## Sensor octoacoplador
+## Sensor de infrarrojos CNY70
+
+El **sensor de infrarrojos** es un sensor óptico capaz de detectar colores de objetos y superficies.
+
+![Sensor de infrarrojos CNY70](Imágenes/Sensor de infrarrojos CNY70.png)
+
+#### *Características*
+
+| Sensor de infrarrojos CNY70   |           |
+| ----------------------------- | --------- |
+| Polarizado                    | Si        |
+| Señal de salida               | Digital   |
+| Tensión                       | 5V        |
+| Rango de medición             | 0 a 5cm   |
+
+
+
+=============
+
+
+
 ## Sensor giroscopio
 ## Motor paso a paso
 ## Bluetooth
