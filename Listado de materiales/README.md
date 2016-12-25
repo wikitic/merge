@@ -234,7 +234,30 @@ El **TSOP 4838** es un sensor infrarrojos utilizado para recibir la señal desde
 
 
 ## Display LCD
+
+
+
+
 ## Sensor LDR
+
+El **Sensor LDR** es una resistencia sensible a la luz, es decir, cambia el valor de su resistencia según la cantidad de luz que incide sobre él.
+
+![Sensor LDR](Imágenes/Sensor LDR.png)
+
+#### *Características*
+
+| Sensor LDR                        |       |
+| --------------------------------- | ----- |
+| Polarizado                        | No    |
+| Resistencia mínima (con luz)      | 100Ω  |
+| Resistencia máxima (sin luz)      | 1MΩ   |
+
+
+
+=============
+
+
+
 ## Potenciómetro
 ## Miniservos
 ## Motor de corriente continua
