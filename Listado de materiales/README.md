@@ -149,7 +149,7 @@ En el kit encontramos 6 valores distintos de resistencias:
 | -------------------------------- | ---- |
 | Polarizado                       | No   |
 | Potencia de disipación           | 0,5W |
-| Precisión o tolerancia           | 5%   |
+| Precisión                        | 5%   |
 
 
 
@@ -198,7 +198,7 @@ Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos 
 
 ## Interruptores de palanca
 
-Con un **interruptor** podemos abrir o cerrar el circuito eléctrico.
+Con un **interruptor** podemos abrir o cerrar el circuito eléctrico accionando la palanca.
 
 ![Interruptores de palanca](Imágenes/Interruptores de palanca.png)
 
@@ -259,6 +259,26 @@ El **Sensor LDR** es una resistencia sensible a la luz, es decir, cambia el valo
 
 
 ## Potenciómetro
+
+Un **potenciómetro** es una resistencia variable mecánica, es decir, podemos regular su valor manualmente.
+
+![Potenciómetro](Imágenes/Potenciómetro.png)
+
+#### *Características*
+
+| Potenciómetro      |       |
+| ------------------ | ----- |
+| Polarizado         | No    |
+| Resistencia mínima | 0Ω    |
+| Resistencia máxima | 10KΩ  |
+| Precisión          | 5%    |
+
+
+
+=============
+
+
+
 ## Miniservos
 ## Motor de corriente continua
 ## Sensor de temperatura
