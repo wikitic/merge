@@ -15,7 +15,7 @@ El kit contiene los siguientes materiales:
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
 - [1 Display LCD 1602A](#1-display-lcd-1602a)
 - [5 fotoresistencias LDR](#5-fotoresistencias-ldr)
-- [2 Potenciómetros de 10KOmhios](#potenciómetro)
+- [2 Potenciómetros de 10KOmhios](#2-potenciómetros-de-10komhios)
 - [2 Servo motores](#servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
@@ -285,7 +285,7 @@ El **sensor LDR** es una resistencia sensible a la luz, es decir, cambia el valo
 
 
 
-## Potenciómetro
+## 2 Potenciómetros de 10KOmhios
 
 Un **potenciómetro** es una resistencia variable mecánica, es decir, podemos regular su valor manualmente.
 
@@ -295,7 +295,7 @@ Un **potenciómetro** es una resistencia variable mecánica, es decir, podemos r
 
 | Potenciómetro      |       |
 | ------------------ | ----- |
-| Polarizado         | No    |
+| Polarizado         | Sí    |
 | Resistencia mínima | 0Ω    |
 | Resistencia máxima | 10KΩ  |
 | Precisión          | 5%    |
