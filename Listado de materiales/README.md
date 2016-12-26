@@ -11,7 +11,7 @@ El kit contiene los siguientes materiales:
 - [10x6 Resistencias](#10x6-resistencias)
 - [10 Diodos 1N4007](#10-diodos-1n4007)
 - [2 Zumbadores piezo-eléctricos activos](#2-zumbadores-piezo-eléctricos-activos)
-- [5 Interruptores de palanca](#interruptores-de-palanca)
+- [5 Interruptores de palanca](#5-interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
 - [1 Mando a distancia](#mando-a-distancia)
 - [1 Display LCD](#display-lcd)
@@ -203,15 +203,15 @@ Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos 
 
 
 
-## Interruptores de palanca
+## 5 Interruptores de palanca
 
 Con un **interruptor** podemos abrir o cerrar el circuito eléctrico accionando la palanca.
 
-![Interruptores de palanca](Imágenes/Interruptores de palanca.png)
+![Interruptor de palanca](Imágenes/Interruptor de palanca.png)
 
 #### *Características*
 
-| Interruptores de palanca         |       |
+| Interruptor de palanca           |       |
 | -------------------------------- | ----- |
 | Polarizado                       | No    |
 
