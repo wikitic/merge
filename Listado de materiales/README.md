@@ -20,7 +20,7 @@ El kit contiene los siguientes materiales:
 - [1 Motor de corriente continua y polea](#1-motor-de-corriente-continua-y-polea)
 - [3 Sensores de temperatura LM35](#3-sensores-de-temperatura-lm35)
 - [1 Sensor de temperatura y humedad integrado](#1-sensor-de-temperatura-y-humedad-integrado)
-- [1 Sensor de proximidad HC-SR04](#sensor-de-proximidad-hc-sr04)
+- [1 Sensor de proximidad HC-SR04](#1-sensor-de-proximidad-hc-sr04)
 - [2 Sensores de infrarrojos CNY70](#sensor-de-infrarrojos-cny70)
 - [1 Sensor giroscopio de 3 ejes](#sensor-giroscopio)
 - [1 Motor paso a paso con controlador](#motor-paso-a-paso)
@@ -391,11 +391,11 @@ El **sensor de temperatura y humedad** integrado se compone de un sensor capacit
 
 
 
-## Sensor de proximidad HC-SR04
+## 1 Sensor de proximidad HC-SR04
 
 El **sensor de proximidad HC-SR04** es un sensor ultrasónico capaz de medir distancias pequeñas hasta un obstáculo.
 
-![Sensor de proximidad HC-SR04](Imágenes/Sensor de proximidad HC-SR04.png)
+![Sensor de proximidad](Imágenes/Sensor de proximidad.png)
 
 #### *Características*
 
