@@ -8,7 +8,7 @@ El kit contiene los siguientes materiales:
 - [1 Placa protoboard de 830 puntos](#1-placa-protoboard-de-830-puntos)
 - [50 Latiguillos macho-macho](#50-latiguillos-macho-macho)
 - [3x5 Diodos Led](#3x5-diodos-led)
-- [10x6 Resistencias](#resistencias)
+- [10x6 Resistencias](#10x6-resistencias)
 - [10 Diodos 1N4007](#diodos-1N4007)
 - [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
 - [5 Interruptores de palanca](#interruptores-de-palanca)
@@ -136,14 +136,14 @@ En el kit encontraremos:
 
 
 
-## Resistencias
+## 10x6 Resistencias
 
 Los **resistores** son un componente eléctrico que se oponen el paso de la corriente en un circuito. 
 
 En el kit encontramos 6 valores distintos de resistencias:
+- 100Ω (marrón-negro-marrón)
 - 220Ω (rojo-rojo-marrón)
 - 330Ω (naranja-naranja-marrón)
-- 100Ω (marrón-negro-marrón)
 - 1KΩ (marrón-negro-rojo)
 - 4,7KΩ (amarillo-morado-rojo)
 - 10KΩ (marrón-negro-naranja)
