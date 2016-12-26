@@ -22,7 +22,7 @@ El kit contiene los siguientes materiales:
 - [1 Sensor de temperatura y humedad integrado](#1-sensor-de-temperatura-y-humedad-integrado)
 - [1 Sensor de proximidad HC-SR04](#1-sensor-de-proximidad-hc-sr04)
 - [2 Sensores de infrarrojos CNY70](#2-sensores-de-infrarrojos-cny70)
-- [1 Sensor giroscopio de 3 ejes](#sensor-giroscopio)
+- [1 Sensor giroscopio de 3 ejes](#1-sensor-giroscopio-de-3-ejes)
 - [1 Motor paso a paso con controlador](#motor-paso-a-paso)
 - [1 Bluetooth Shield HC-06](#bluetooth)
 - [1 Placa auxiliar de aprendizaje Picnuino](#picuino)
@@ -433,7 +433,31 @@ El **sensor de infrarrojos** es un sensor óptico capaz de detectar colores de o
 
 
 
-## Sensor giroscopio
+## 1 Sensor giroscopio de 3 ejes
+
+El **giroscopio** es un sensor capaz de medir la velocidad en sus 3 ejes X, Y y Z.
+
+![Sensor giroscopio](Imágenes/Sensor giroscopio.png)
+
+#### *Características*
+
+| Sensor giroscopio |                                   |
+| ----------------- | --------------------------------- |
+| 1     VCC         | Conectado a 5V                    |
+| 2     GND         | Conectado a GND                   |
+| 3     SCL         | Pin analógico 4                   |
+| 4     SDA         | Pin analógico 5                   |
+| 5     XCL         |  |
+| 6     XDA         |  |
+| 7     ADO         |  |
+| 8     INT         |  |
+
+
+
+=============
+
+
+
 ## Motor paso a paso
 ## Bluetooth
 ## Picuino
