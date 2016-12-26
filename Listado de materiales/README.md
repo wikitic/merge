@@ -13,7 +13,6 @@ El kit contiene los siguientes materiales:
 - [2 Zumbadores piezo-eléctricos activos](#2-zumbadores-piezo-eléctricos-activos)
 - [5 Interruptores de palanca](#5-interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
-- [1 Mando a distancia](#mando-a-distancia)
 - [1 Display LCD](#display-lcd)
 - [5 Sensor LDR foto-resistencias](#sensor-ldr)
 - [2 Potenciómetros de 10KOmhios](#potenciómetro)
@@ -221,7 +220,7 @@ Con un **interruptor** podemos abrir o cerrar el circuito eléctrico accionando 
 
 
 
-## Sensor TSOP 4838 con mando a distancia
+## 1 Sensor TSOP 4838 con mando a distancia
 
 El **TSOP 4838** es un sensor infrarrojos utilizado para recibir la señal desde un mando a distancia.
 
