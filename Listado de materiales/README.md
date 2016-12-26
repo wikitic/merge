@@ -10,7 +10,7 @@ El kit contiene los siguientes materiales:
 - [3x5 Diodos Led](#3x5-diodos-led)
 - [10x6 Resistencias](#10x6-resistencias)
 - [10 Diodos 1N4007](#10-diodos-1n4007)
-- [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
+- [2 Zumbadores piezo-eléctricos activos](#2-zumbadores-piezo-eléctricos-activos)
 - [5 Interruptores de palanca](#interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
 - [1 Mando a distancia](#mando-a-distancia)
@@ -166,7 +166,7 @@ En el kit encontramos 6 valores distintos de resistencias:
 
 ## 10 Diodos 1N4007
 
-Un **diodo** es un componente eléctrico que permite el paso de la corriente en un solo sentido.
+Un **diodo** es un componente eléctrico que permite el paso de la corriente en un solo sentido, desde el polo positivo (ánodo) al polo negativo (cátodo).
 
 ![Diodo 1N4007](Imágenes/Diodo 1N4007.png)
 
@@ -184,15 +184,15 @@ Un **diodo** es un componente eléctrico que permite el paso de la corriente en 
 
 
 
-## Zumbador piezoeléctrico
+## 2 Zumbadores piezo-eléctricos activos
 
-Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos al paso de la corriente eléctrica sobre él.
+Un **zumbador** es un componente eléctrico que emite una frecuencia de sonidos al paso de la corriente eléctrica sobre él desde el polo positivo (ánodo) al polo negativo (cátodo).
 
-![Zumbador piezoeléctrico](Imágenes/Zumbador piezoeléctrico.png)
+![Zumbador](Imágenes/Zumbador.png)
 
 #### *Características*
 
-| Zumbador piezoeléctrico          |       |
+| Zumbador piezo-eléctrico         |       |
 | -------------------------------- | ----- |
 | Polarizado                       | Sí    |
 | Tensión de trabajo               | 3-12V |
