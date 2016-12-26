@@ -17,7 +17,7 @@ El kit contiene los siguientes materiales:
 - [5 fotoresistencias LDR](#5-fotoresistencias-ldr)
 - [2 Potenciómetros de 10KOmhios](#2-potenciómetros-de-10komhios)
 - [2 Servo motores](#2-servo-motores)
-- [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
+- [1 Motor de corriente continua y polea](#1-motor-de-corriente-continua-y-polea)
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
 - [1 Sensor de temperatura y humedad](#sensor-de-temperatura-y-humedad)
 - [1 Sensor de proximidad HC-SR04](#sensor-de-proximidad-hc-sr04)
@@ -326,20 +326,20 @@ Un **miniservo** es un componente eléctrico similar a un motor capaz de girar u
 
 
 
-## Motor de corriente continua
+## 1 Motor de corriente continua y polea
 
-El **motor** genera una velocidad de giro y dirección en el rotor del motor, dependiendo de la tensión y polarización.
+El **motor** genera una velocidad de giro y dirección en el rotor del motor, dependiendo de la tensión y polarización del mismo.
 
 ![Motor de corriente continua](Imágenes/Motor de corriente continua.png)
 
 #### *Características*
 
-| Motor de CC        |                 |
-| ------------------ | --------------- |
-| Polarizado         | No              |
-| Tensión máxima     | 4,5V            |
-| Potencia           | 0,5W            |
-| RPM                | 9800rpm a 4,5V  |
+| Motor de corriente continua        |                 |
+| ---------------------------------- | --------------- |
+| Polarizado                         | No              |
+| Tensión máxima                     | 4,5V            |
+| Potencia                           | 0,5W            |
+| RPM                                | 9800rpm a 4,5V  |
 
 
 
