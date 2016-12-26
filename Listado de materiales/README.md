@@ -18,7 +18,7 @@ El kit contiene los siguientes materiales:
 - [2 Potenciómetros de 10KOmhios](#2-potenciómetros-de-10komhios)
 - [2 Servo motores](#2-servo-motores)
 - [1 Motor de corriente continua y polea](#1-motor-de-corriente-continua-y-polea)
-- [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
+- [3 Sensores de temperatura LM35](#3-sensores-de-temperatura-lm35)
 - [1 Sensor de temperatura y humedad](#sensor-de-temperatura-y-humedad)
 - [1 Sensor de proximidad HC-SR04](#sensor-de-proximidad-hc-sr04)
 - [2 Sensores de infrarrojos CNY70](#sensor-de-infrarrojos-cny70)
@@ -347,7 +347,7 @@ El **motor** genera una velocidad de giro y dirección en el rotor del motor, de
 
 
 
-## Sensor de temperatura LM35
+## 3 Sensores de temperatura LM35
 
 El **sensor de temperatura LM35** proporciona una salida de voltaje proporcional a la temperatura.
 
