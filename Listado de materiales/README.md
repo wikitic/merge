@@ -9,7 +9,7 @@ El kit contiene los siguientes materiales:
 - [50 Latiguillos macho-macho](#50-latiguillos-macho-macho)
 - [3x5 Diodos Led](#3x5-diodos-led)
 - [10x6 Resistencias](#10x6-resistencias)
-- [10 Diodos 1N4007](#diodos-1N4007)
+- [10 Diodos 1N4007](#10-diodos-1n4007)
 - [2 Zumbadores piezo-eléctricos activos](#zumbador-piezoeléctrico)
 - [5 Interruptores de palanca](#interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
@@ -164,15 +164,15 @@ En el kit encontramos 6 valores distintos de resistencias:
 
 
 
-## Diodos 1N4007
+## 10 Diodos 1N4007
 
 Un **diodo** es un componente eléctrico que permite el paso de la corriente en un solo sentido.
 
-![Diodos 1N4007](Imágenes/Diodos 1N4007.png)
+![Diodo 1N4007](Imágenes/Diodo 1N4007.png)
 
 #### *Características*
 
-| Diodos 1N4007                    |       |
+| Diodo 1N4007                    |       |
 | -------------------------------- | ----- |
 | Polarizado                       | Sí    |
 | Tensión en polarización directa  | 1,1V  |
