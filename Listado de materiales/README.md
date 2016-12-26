@@ -13,7 +13,7 @@ El kit contiene los siguientes materiales:
 - [2 Zumbadores piezo-eléctricos activos](#2-zumbadores-piezo-eléctricos-activos)
 - [5 Interruptores de palanca](#5-interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
-- [1 Display LCD](#display-lcd)
+- [1 Display LCD 1602A](#1-display-lcd-1602a)
 - [5 Sensor LDR foto-resistencias](#sensor-ldr)
 - [2 Potenciómetros de 10KOmhios](#potenciómetro)
 - [2 Servo motores](#servo-motores)
@@ -239,8 +239,29 @@ El **TSOP 4838** es un sensor infrarrojos utilizado para recibir la señal desde
 
 
 
-## Display LCD
+## 1 Display LCD 1602A
 
+Con un **display LCD** podemos mostrar por pantalla caracteres alfanuméricos, como mensajes de texto.
+
+![Display LCD](Imágenes/Display LCD.png)
+
+#### *Características*
+
+| Display LCD 1602A |                                   |
+| ----------------- | --------------------------------- |
+| 1     VSS         | Conectado a GND                   |
+| 2     VDD         | Conectado a 5V                    |
+| 3     NC          | Contraste del LCD                 |
+| 4     RS          | Selector de comandos / registros  |
+| 5     RW          | Selector de Lectura / Escritura   |
+| 6     E           | Habilitado recibir información    |
+| 7-14  DB0-DB7     | Bus de datos                      |
+| 15    A           | Luz de fondo del LCD - 5V         |
+| 16    K           | Luz de fondo del LCD - GND        |
+
+
+
+=============
 
 
 
