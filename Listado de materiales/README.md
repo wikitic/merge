@@ -14,7 +14,7 @@ El kit contiene los siguientes materiales:
 - [5 Interruptores de palanca](#5-interruptores-de-palanca)
 - [1 Sensor TSOP 4838 con mando a distancia](#sensor-tsop-4838-con-mando-a-distancia)
 - [1 Display LCD 1602A](#1-display-lcd-1602a)
-- [5 Sensor LDR foto-resistencias](#sensor-ldr)
+- [5 fotoresistencias LDR](#5-fotoresistencias-ldr)
 - [2 Potenciómetros de 10KOmhios](#potenciómetro)
 - [2 Servo motores](#servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
@@ -265,9 +265,9 @@ Con un **display LCD** podemos mostrar por pantalla caracteres alfanuméricos, c
 
 
 
-## Sensor LDR
+## 5 fotoresistencias LDR
 
-El **Sensor LDR** es una resistencia sensible a la luz, es decir, cambia el valor de su resistencia según la cantidad de luz que incide sobre él.
+El **sensor LDR** es una resistencia sensible a la luz, es decir, cambia el valor de su resistencia según la cantidad de luz que incide sobre él.
 
 ![Sensor LDR](Imágenes/Sensor LDR.png)
 
