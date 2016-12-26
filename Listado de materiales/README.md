@@ -16,7 +16,7 @@ El kit contiene los siguientes materiales:
 - [1 Display LCD 1602A](#1-display-lcd-1602a)
 - [5 fotoresistencias LDR](#5-fotoresistencias-ldr)
 - [2 Potenciómetros de 10KOmhios](#2-potenciómetros-de-10komhios)
-- [2 Servo motores](#servo-motores)
+- [2 Servo motores](#2-servo-motores)
 - [1 Motor de corriente continua y polea](#motor-de-corriente-continua)
 - [3 Sensores de temperatura LM35](#sensor-de-temperatura-lm35)
 - [1 Sensor de temperatura y humedad](#sensor-de-temperatura-y-humedad)
@@ -306,11 +306,11 @@ Un **potenciómetro** es una resistencia variable mecánica, es decir, podemos r
 
 
 
-## Servo motores
+## 2 Servo motores
 
 Un **miniservo** es un componente eléctrico similar a un motor capaz de girar una determinada cantidad de grados, entre 0° y 180° en este caso.
 
-![Servo motores](Imágenes/Servo motores.png)
+![Servomotor](Imágenes/Servomotor.png)
 
 #### *Características*
 
