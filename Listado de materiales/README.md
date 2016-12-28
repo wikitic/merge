@@ -478,6 +478,23 @@ Un **motor paso a paso** es componente similar al motor de corriente continua co
 
 
 ## 1 Bluetooth Shield HC-06
+
+El **bluetooth** es un componente con el cual podemos conectar nuestra placa de arduino a nuestro smartphone.
+
+![Bluetooth HC-06](Imágenes/Bluetooth HC-06.png)
+
+#### *Características*
+
+| Bluetooth HC-06    |                  |
+| ------------------ | ---------------- |
+| Polarizado         | Sí               |
+
+
+
+=============
+
+
+
 ## 1 Placa de aprendizaje Picnuino
 
 
