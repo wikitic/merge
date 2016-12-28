@@ -481,7 +481,7 @@ Un **motor paso a paso** es componente similar al motor de corriente continua co
 
 El **bluetooth** es un componente con el cual podemos conectar nuestra placa de arduino a nuestro smartphone.
 
-![Bluetooth HC-06](Imágenes/Bluetooth HC-06.png)
+![Bluetooth HC-06](Imágenes/Bluetooth HC06.png)
 
 #### *Características*
 
