@@ -497,7 +497,14 @@ El **bluetooth** es un componente con el cual podemos conectar nuestra placa de 
 
 ## 1 Placa de aprendizaje Picnuino
 
+El panel de control **Picuino PC42** es un componente electrónico que permite a una placa Arduino mostrar y recibir información por parte del usuario con luces led, pulsadores, sonidos, etc. Se compone de los siguientes componentes:
+- 6 pulsadores normalmente abierto
+- 5 diodos Led
+- 1 diodo Led RGB
+- 1 zumbador
+- 1 display de 4 dígitos
 
+Puedes encontrar más información del proyecto en la web [http://www.picuino.com/](http://www.picuino.com/)
 
 =============
 
