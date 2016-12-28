@@ -23,9 +23,9 @@ El kit contiene los siguientes materiales:
 - [1 Sensor de proximidad HC-SR04](#1-sensor-de-proximidad-hc-sr04)
 - [2 Sensores de infrarrojos CNY70](#2-sensores-de-infrarrojos-cny70)
 - [1 Sensor giroscopio de 3 ejes](#1-sensor-giroscopio-de-3-ejes)
-- [1 Motor paso a paso con controlador](#motor-paso-a-paso)
-- [1 Bluetooth Shield HC-06](#bluetooth)
-- [1 Placa auxiliar de aprendizaje Picnuino](#picuino)
+- [1 Motor paso a paso con controlador](#1-motor-paso-a-paso-con-controlador)
+- [1 Bluetooth Shield HC-06](#1-bluetooth-shield-hc-06)
+- [1 Placa de aprendizaje Picnuino](#1-placa-de-aprendizaje-picnuino)
 
 
 
@@ -458,9 +458,27 @@ El **giroscopio** es un sensor capaz de medir la velocidad en sus 3 ejes X, Y y 
 
 
 
-## Motor paso a paso
-## Bluetooth
-## Picuino
+## 1 Motor paso a paso con controlador
+
+Un **motor paso a paso** es componente similar al motor de corriente continua con la peculiaridad de ser capaz de girar una determinada cantidad de pasos o grados dependiendo de sus entradas.
+
+![Motor paso a paso](Imágenes/Motor paso a paso.png)
+
+#### *Características*
+
+| Motor paso a paso  |                  |
+| ------------------ | ---------------- |
+| Polarizado         | Sí               |
+| Tensión            | 5-12V            |
+
+
+
+=============
+
+
+
+## 1 Bluetooth Shield HC-06
+## 1 Placa de aprendizaje Picnuino
 
 
 
