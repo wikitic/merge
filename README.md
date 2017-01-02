@@ -5,6 +5,10 @@
 
 
 
+***
+
+
+
 ## Objetivos del programa
 
 1.	Potenciar el **razonamiento lógico-matemático** de los alumnos de la ESO mediante el uso de estructuras básicas de la programación informática.
@@ -17,15 +21,16 @@
 
 ## Contenido
 
-1.	[Listado de materiales](Listado de materiales/)
-2.	[Introducción a los lenguajes de Programación](Programación/)
-3.  [Introducción a la electrónica con Arduino](Arduino/)
-4.  [Sesiones de Formación CPR Murcia](Formación/)
-5.  [Prácticas para realizar en el aula](Prácticas/)
+1.	[Listado de materiales](https://github.com/ElCableAmarillo/Listado-de-materiales)
+2.	[Introducción a Arduino](https://github.com/ElCableAmarillo/Introduccion-a-Arduino)
+3.  [Introducción a la programación](#)
+4.  [Prácticas de programación con arduino](#)
 
 
 
-=============
+***
+
+
 
 #### Licencia
 
