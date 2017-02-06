@@ -1,6 +1,6 @@
 # Programa Educativo "El Cable Amarillo"
 
-<img src="logotipos.png" /><br>
+<img src="ElCableAmarillo.png" /><br>
 *Fondo Europeo de Desarrollo Regional - Una manera de hacer Europa*
 
 
@@ -23,8 +23,8 @@
 
 1.	[Listado de materiales](https://github.com/ElCableAmarillo/Listado-de-materiales)
 2.	[Introducción a Arduino](https://github.com/ElCableAmarillo/Introduccion-a-Arduino)
-3.  [Introducción a la programación](#)
-4.  [Prácticas de programación con arduino](#)
+3.  [Introducción a la programación](https://github.com/ElCableAmarillo/Introduccion-a-la-programacion)
+4.  [Listado de prácticas](https://github.com/ElCableAmarillo/Listado-de-practicas)
 
 
 
