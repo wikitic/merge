@@ -3,7 +3,10 @@
 Iniciativa sin ánimo de lucro para acercar la Programación y Robótica a todas las edades.
 ```
 
+
+
 <br>
+
 
 
 ### Realidad Aumentada y control de volumen con Scratch
@@ -18,7 +21,9 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 - [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PLGlS7vMgjN7XmsaXKt3ZzPa4qt3SV7veo)
 
 
+
 <br><hr><br>
+
 
 
 ### Gráficas del sonido con Realidad Aumentada y Scratch
@@ -26,8 +31,14 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 
 [![Gráfica del sonido](Gráfica-del-sonido/preview.gif)](https://scratch.mit.edu/projects/159798128/)
 
+#### Enlaces 
+- Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/159798128/)
+- [Curso completo en Programo Ergo Sum](http://www.programoergosum.com/cursos-online/programacion-para-docentes/227-graficas-de-audio-con-realidad-aumentada-y-scratch)
+- [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PLGlS7vMgjN7U6or-jRzWpAaZ54a-cwla4)
 
 
+
+<br>
 ***
 #### Licencia
 
