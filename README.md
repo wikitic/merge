@@ -12,6 +12,11 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 
 [![Bajar el volumen en clase](Bajar-el-volumen-en-clase/preview.gif)](https://scratch.mit.edu/projects/159779241/)
 
+#### Enlaces 
+- Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/159779241/)
+- [Curso completo en Programo Ergo Sum](http://www.programoergosum.com/cursos-online/programacion-para-docentes/225-realidad-aumentada-y-control-de-volumen-con-scratch)
+- [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PLGlS7vMgjN7XmsaXKt3ZzPa4qt3SV7veo)
+
 
 <br><hr><br>
 
