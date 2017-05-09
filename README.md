@@ -19,7 +19,7 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 ### Gráfica del sonido
 Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y sensibilizar a los niños para que bajen el volumen.
 
-[![Gráfica del sonido](Realidad-Aumentada/Gráfica-del-sonido/preview.gif)](https://scratch.mit.edu/projects/159798128/)
+[![Gráfica del sonido](Gráfica-del-sonido/preview.gif)](https://scratch.mit.edu/projects/159798128/)
 
 
 
