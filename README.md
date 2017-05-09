@@ -1,11 +1,16 @@
 <img src="logo.png" /><br>
 ```
-*Iniciativa sin ánimo de lucro para acercar la Programación y Robótica a todas las edades.*
+Iniciativa sin ánimo de lucro para acercar la Programación y Robótica a todas las edades.
 ```
 
 <br>
 
 
+### Realidad Aumentada y control de volumen con Scratch
+
+Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y sensibilizar a los niños para que bajen el volumen.
+
+[![Bajar el volumen en clase](Bajar-el-volumen-en-clase/preview.gif)](https://scratch.mit.edu/projects/159779241/)
 
 
 ***
