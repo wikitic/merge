@@ -61,10 +61,10 @@ Proyecto de Realidad Aumentada con Scratch para conseguir puntos comiendo comida
 ### Nieve
 Proyecto de Realidad Aumentada con Scratch simulando copos de nieve que se detienen en nuestro pelo.
 
-[![Nieve](Nieve/preview.gif)](https://scratch.mit.edu/projects/159885713/)
+[![Nieve](Nieve/preview.gif)](https://scratch.mit.edu/projects/147157528/)
 
 #### Enlaces 
-- Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/159885713/)
+- Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/147157528/)
 
 
 <br>
