@@ -43,14 +43,28 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 
 
 ### Comida saludable con Realidad Aumentada y Scratch
-Proyecto de Realidad Aumentada con Scratch para conseguir puntos comiendo comida saludable. La comida menos saludable resta vidas
+Proyecto de Realidad Aumentada con Scratch para conseguir puntos comiendo comida saludable. La comida menos saludable resta vidas.
 
-[![Comida-saludable](Comida-saludable/preview.gif)](https://scratch.mit.edu/projects/159798128/)
+[![Comida-saludable](Comida-saludable/preview.gif)](https://scratch.mit.edu/projects/159885713/)
 
 #### Enlaces 
 - Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/159885713/)
 - [Curso completo en Programo Ergo Sum](http://www.programoergosum.com/cursos-online/scratch/167-pokemon-go-programado-con-scratch-y-realidad-aumentada)
 - [Lista de reproducción en YouTube](https://www.youtube.com/playlist?list=PLGlS7vMgjN7Vb6j5DAcq6v-PyPYofcUL6)
+
+
+
+<br><hr><br>
+
+
+
+### Nieve
+Proyecto de Realidad Aumentada con Scratch simulando copos de nieve que se detienen en nuestro pelo.
+
+[![Nieve](Nieve/preview.gif)](https://scratch.mit.edu/projects/159885713/)
+
+#### Enlaces 
+- Proyecto compartido en la web de [Scratch](https://scratch.mit.edu/projects/159885713/)
 
 
 <br>
