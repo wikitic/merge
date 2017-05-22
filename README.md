@@ -2,7 +2,7 @@
 
 <img src="logo.png" /><br>
 
-Iniciativa sin ánimo de lucro para acercar la Programación Informática de VideoJuegos, Aplicaciones y Robótica a todas las edades.
+*Iniciativa sin ánimo de lucro para acercar la Programación de VideoJuegos, Aplicaciones y Robótica a todas las edades.*
 
 
 ***

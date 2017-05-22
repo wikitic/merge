@@ -8,9 +8,11 @@ Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murc
 
 ## Realidad Aumentada con Scratch
 
+*En el Taller de Realidad Aumentada con Scratch, se va a proporcionar a los docentes recursos educativos y conocimientos necesarios para realizar diferentes tipos de videojuegos y aplicaciones para utilizar en el aula. *
+
 <br>
 
-### Bajar el Volumen en clase
+## Bajar el Volumen en clase
 
 Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y sensibilizar a los niños para que bajen el volumen.
 
@@ -27,7 +29,7 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 
 
 
-### Gráficas del sonido
+## Gráficas del sonido
 Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y sensibilizar a los niños para que bajen el volumen.
 
 [![Gráfica del sonido](Gráfica-del-sonido/preview.gif)](https://scratch.mit.edu/projects/159798128/)
@@ -43,7 +45,7 @@ Proyecto de Realidad Aumentada con Scratch para detectar el audio de la clase y 
 
 
 
-### Comida saludable
+## Comida saludable
 Proyecto de Realidad Aumentada con Scratch para conseguir puntos comiendo comida saludable. La comida menos saludable resta vidas.
 
 [![Comida-saludable](Comida-saludable/preview.gif)](https://scratch.mit.edu/projects/159885713/)
@@ -59,7 +61,7 @@ Proyecto de Realidad Aumentada con Scratch para conseguir puntos comiendo comida
 
 
 
-### Nieve
+## Nieve
 Proyecto de Realidad Aumentada con Scratch simulando copos de nieve que se detienen en nuestro pelo.
 
 [![Nieve](Nieve/preview.gif)](https://scratch.mit.edu/projects/147157528/)
