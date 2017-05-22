@@ -8,7 +8,7 @@ Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murc
 
 ## Realidad Aumentada con Scratch
 
-*En el Taller de Realidad Aumentada con Scratch, se va a proporcionar a los docentes recursos educativos y conocimientos necesarios para realizar diferentes tipos de videojuegos y aplicaciones para utilizar en el aula. *
+*En el Taller de Realidad Aumentada con Scratch, se va a proporcionar a los docentes recursos educativos y conocimientos necesarios para realizar diferentes tipos de videojuegos y aplicaciones para utilizar en el aula.*
 
 <br>
 

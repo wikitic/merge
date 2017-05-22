@@ -18,6 +18,8 @@ Jornadas para comunicar y compartir experiencias, tendencias metodológicas y bu
 
 La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc. 
 
+![Educación Primaria](Educación-Primaria/preview.gif)
+
 #### Enlaces 
 - [Code.org](https://code.org)
 - [Scratch](https://scratch.mit.edu)
@@ -32,6 +34,8 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
 ## Educación Secundaria
 
 El objetivo principal del proyecto Aprende Programando es fomentar el uso de la programación informática para el desarrollo de la creatividad y del pensamiento científico y, en particular, el pensamiento matemático, y evolucionar distintas competencias en el mundo de la educación gracias a un software sencillo y completamente intuitivo.
+
+![Educación Secundaria](Educación-Secundaria/preview.gif)
 
 #### Enlaces 
 - [Aprende Programando](http://www.aprendeprogramando.es)
