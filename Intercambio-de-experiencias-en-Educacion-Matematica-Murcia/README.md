@@ -14,30 +14,16 @@ Jornadas para comunicar y compartir experiencias, tendencias metodológicas y bu
 
 <br>
 
+- [Educación Primaria](#educación-primaria)
+- [Educación Secundaria](#educación-secundaria)
+
+***
+
 ## Educación Primaria
 
 La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc.
 
 ### Code.org 
-
-- **Curso 1: Desde 4 años**
-    - **Etapa 4**: Secuencias
-        - [Puzzle 1](https://studio.code.org/s/course1/stage/4/puzzle/1)
-        - [Puzzle 3](https://studio.code.org/s/course1/stage/4/puzzle/3)
-        - [Puzzle 5](https://studio.code.org/s/course1/stage/4/puzzle/5)
-        - [Puzzle 7](https://studio.code.org/s/course1/stage/4/puzzle/7)
-        - [Puzzle 9](https://studio.code.org/s/course1/stage/4/puzzle/9)
-        - [Puzzle 11](https://studio.code.org/s/course1/stage/4/puzzle/11)
-    - **Etapa 7**: Secuencias
-        - [Puzzle 1](https://studio.code.org/s/course1/stage/7/puzzle/1)
-        - [Puzzle 7](https://studio.code.org/s/course1/stage/7/puzzle/7)
-    - **Etapa 10**: Formas geométricas
-        - [Puzzle 10](https://studio.code.org/s/course1/stage/10/puzzle/10)
-    - **Etapa 13**: Bucles
-        - [Puzzle 1](https://studio.code.org/s/course1/stage/13/puzzle/1)
-        - [Puzzle 2](https://studio.code.org/s/course1/stage/13/puzzle/2)
-        - [Puzzle 5](https://studio.code.org/s/course1/stage/13/puzzle/5)
-        - [Puzzle 10](https://studio.code.org/s/course1/stage/13/puzzle/10)
 
 - **Curso 2: Desde 6 años**
     - **Etapa 3**: Secuencias
@@ -50,42 +36,51 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
 - **Curso 3: Desde 8 años**
     - **Etapa 2**: Secuencias
         - [Puzzle 1](https://studio.code.org/s/course3/stage/2/puzzle/1)
-        - [Puzzle 3](https://studio.code.org/s/course3/stage/2/puzzle/3)
         - [Puzzle 5](https://studio.code.org/s/course3/stage/2/puzzle/5)
-        - [Puzzle 7](https://studio.code.org/s/course3/stage/2/puzzle/7)
-        - [Puzzle 9](https://studio.code.org/s/course3/stage/2/puzzle/9)
         - [Puzzle 11](https://studio.code.org/s/course3/stage/2/puzzle/11)
     - **Etapa 6**: Bucles
         - [Puzzle 1](https://studio.code.org/s/course3/stage/6/puzzle/1) (10 bloques)
     - **Etapa 7**: Condiciones
         - [Puzzle 1](https://studio.code.org/s/course3/stage/7/puzzle/1)
-        - [Puzzle 2](https://studio.code.org/s/course3/stage/7/puzzle/2)
         - [Puzzle 3](https://studio.code.org/s/course3/stage/7/puzzle/3)
         - [Puzzle 5](https://studio.code.org/s/course3/stage/7/puzzle/5)
     - **Etapa 12**: Bucles avanzados
         - [Puzzle 1](https://studio.code.org/s/course3/stage/12/puzzle/1)
-        - [Puzzle 3](https://studio.code.org/s/course3/stage/12/puzzle/3)
         - [Puzzle 5](https://studio.code.org/s/course3/stage/12/puzzle/5)
-        - [Puzzle 7](https://studio.code.org/s/course3/stage/12/puzzle/7)
         - [Puzzle 9](https://studio.code.org/s/course3/stage/12/puzzle/9) (9 bloques)
         
+<br><hr><br>
         
-![Educación Primaria](Educación-Primaria/preview.gif)
-
 #### Scratch
 
 - [Scratch](https://scratch.mit.edu)
+
+<br><hr><br>
  
 #### Aprende Programando
 
 [![Educación Primaria](Educación-Primaria/preview.gif)](http://www.aprendeprogramando.es)
 
-- [Acceder a www.aprendeprogramando.es](http://www.aprendeprogramando.es)
+- Programando las matemáticas [AprendeProgramando](http://www.aprendeprogramando.es)
+    - [Matemáticas 1](http://www.aprendeprogramando.es/blockly/lessons/matematicas-1)
+    - [Matemáticas 2](http://www.aprendeprogramando.es/blockly/lessons/matematicas-2)
+    - [Matemáticas 3](http://www.aprendeprogramando.es/blockly/lessons/matematicas-3)
+    - [Problemas 1](http://www.aprendeprogramando.es/blockly/lessons/problemas-1)
+    - [Problemas 2](http://www.aprendeprogramando.es/blockly/lessons/problemas-2)
 
-
+- **Retos: 4º, 5º y 6º**
+    - [Sumando números enteros](http://www.aprendeprogramando.es/challenge/blockly/0fc2e77f1265a025d7ca0cf9e37a0df0)
+    - [El número posterior](http://www.aprendeprogramando.es/challenge/blockly/7ba79d8e74a6c4068a5ced86bd9b86a8)
+    - [Calculando cuadrados](http://www.aprendeprogramando.es/challenge/blockly/1b2a27830e81188cc33aa8ed9ea82b2b)
+    - [Horas a segundos](http://www.aprendeprogramando.es/challenge/blockly/ef1202910bbf550c031bfaf39bd43d8d)
+    - [Vueltas por minuto de un Spinner](http://www.aprendeprogramando.es/challenge/blockly/1190071bb5b20ca6083ddb1bd0c86a92)
+    - [Números mayores que 10](http://www.aprendeprogramando.es/challenge/blockly/caf554af263045e5c774c1318f0cd5e6)
 
 <br><hr><br>
 
+***
+
+<br><hr><br>
 
 
 ## Educación Secundaria
