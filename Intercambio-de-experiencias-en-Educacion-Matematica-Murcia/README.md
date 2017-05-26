@@ -16,14 +16,71 @@ Jornadas para comunicar y compartir experiencias, tendencias metodológicas y bu
 
 ## Educación Primaria
 
-La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc. 
+La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc.
 
+### Code.org 
+
+- **Curso 1: Desde 4 años**
+    - **Etapa 4**: Secuencias
+        - [Puzzle 1](https://studio.code.org/s/course1/stage/4/puzzle/1)
+        - [Puzzle 3](https://studio.code.org/s/course1/stage/4/puzzle/3)
+        - [Puzzle 5](https://studio.code.org/s/course1/stage/4/puzzle/5)
+        - [Puzzle 7](https://studio.code.org/s/course1/stage/4/puzzle/7)
+        - [Puzzle 9](https://studio.code.org/s/course1/stage/4/puzzle/9)
+        - [Puzzle 11](https://studio.code.org/s/course1/stage/4/puzzle/11)
+    - **Etapa 7**: Secuencias
+        - [Puzzle 1](https://studio.code.org/s/course1/stage/7/puzzle/1)
+        - [Puzzle 7](https://studio.code.org/s/course1/stage/7/puzzle/7)
+    - **Etapa 10**: Formas geométricas
+        - [Puzzle 10](https://studio.code.org/s/course1/stage/10/puzzle/10)
+    - **Etapa 13**: Bucles
+        - [Puzzle 1](https://studio.code.org/s/course1/stage/13/puzzle/1)
+        - [Puzzle 2](https://studio.code.org/s/course1/stage/13/puzzle/2)
+        - [Puzzle 5](https://studio.code.org/s/course1/stage/13/puzzle/5)
+        - [Puzzle 10](https://studio.code.org/s/course1/stage/13/puzzle/10)
+
+- **Curso 2: Desde 6 años**
+    - **Etapa 3**: Secuencias
+        - [Puzzle 1](https://studio.code.org/s/course2/stage/3/puzzle/1)
+        - [Puzzle 6](https://studio.code.org/s/course2/stage/3/puzzle/6)
+    - **Etapa 6**: Bucles
+        - [Puzzle 8](https://studio.code.org/s/course2/stage/6/puzzle/8) (5 bloques)
+        - [Puzzle 9](https://studio.code.org/s/course2/stage/6/puzzle/9) (9 bloques)
+
+- **Curso 3: Desde 8 años**
+    - **Etapa 2**: Secuencias
+        - [Puzzle 1](https://studio.code.org/s/course3/stage/2/puzzle/1)
+        - [Puzzle 3](https://studio.code.org/s/course3/stage/2/puzzle/3)
+        - [Puzzle 5](https://studio.code.org/s/course3/stage/2/puzzle/5)
+        - [Puzzle 7](https://studio.code.org/s/course3/stage/2/puzzle/7)
+        - [Puzzle 9](https://studio.code.org/s/course3/stage/2/puzzle/9)
+        - [Puzzle 11](https://studio.code.org/s/course3/stage/2/puzzle/11)
+    - **Etapa 6**: Bucles
+        - [Puzzle 1](https://studio.code.org/s/course3/stage/6/puzzle/1) (10 bloques)
+    - **Etapa 7**: Condiciones
+        - [Puzzle 1](https://studio.code.org/s/course3/stage/7/puzzle/1)
+        - [Puzzle 2](https://studio.code.org/s/course3/stage/7/puzzle/2)
+        - [Puzzle 3](https://studio.code.org/s/course3/stage/7/puzzle/3)
+        - [Puzzle 5](https://studio.code.org/s/course3/stage/7/puzzle/5)
+    - **Etapa 12**: Bucles avanzados
+        - [Puzzle 1](https://studio.code.org/s/course3/stage/12/puzzle/1)
+        - [Puzzle 3](https://studio.code.org/s/course3/stage/12/puzzle/3)
+        - [Puzzle 5](https://studio.code.org/s/course3/stage/12/puzzle/5)
+        - [Puzzle 7](https://studio.code.org/s/course3/stage/12/puzzle/7)
+        - [Puzzle 9](https://studio.code.org/s/course3/stage/12/puzzle/9) (9 bloques)
+        
+        
 ![Educación Primaria](Educación-Primaria/preview.gif)
 
-#### Enlaces 
-- [Code.org](https://code.org)
+#### Scratch
+
 - [Scratch](https://scratch.mit.edu)
-- [Aprende Programando](http://www.aprendeprogramando.es)
+ 
+#### Aprende Programando
+
+[![Educación Primaria](Educación-Primaria/preview.gif)](http://www.aprendeprogramando.es)
+
+- [Acceder a www.aprendeprogramando.es](http://www.aprendeprogramando.es)
 
 
 
@@ -35,10 +92,45 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
 
 El objetivo principal del proyecto Aprende Programando es fomentar el uso de la programación informática para el desarrollo de la creatividad y del pensamiento científico y, en particular, el pensamiento matemático, y evolucionar distintas competencias en el mundo de la educación gracias a un software sencillo y completamente intuitivo.
 
-![Educación Secundaria](Educación-Secundaria/preview.gif)
 
-#### Enlaces 
-- [Aprende Programando](http://www.aprendeprogramando.es)
+### Code.org 
+
+- **Curso acelerado: Desde 12 años**
+    - **Etapa 2**: Secuencias
+        - [Puzzle 1](https://studio.code.org/s/20-hour/stage/2/puzzle/1)
+        - [Puzzle 5](https://studio.code.org/s/20-hour/stage/2/puzzle/5)
+        - [Puzzle 10](https://studio.code.org/s/20-hour/stage/2/puzzle/10)
+        - [Puzzle 15](https://studio.code.org/s/20-hour/stage/2/puzzle/15)
+        - [Puzzle 20](https://studio.code.org/s/20-hour/stage/2/puzzle/20)
+    - **Etapa 9**: Bucles y condiciones
+        - [Puzzle 1](https://studio.code.org/s/20-hour/stage/9/puzzle/1)
+        - [Puzzle 2](https://studio.code.org/s/20-hour/stage/9/puzzle/2)
+        - [Puzzle 4](https://studio.code.org/s/20-hour/stage/9/puzzle/4)
+        - [Puzzle 5](https://studio.code.org/s/20-hour/stage/9/puzzle/5)
+        - [Puzzle 6](https://studio.code.org/s/20-hour/stage/9/puzzle/6)
+        - [Puzzle 10](https://studio.code.org/s/20-hour/stage/9/puzzle/10)
+        - [Puzzle 11](https://studio.code.org/s/20-hour/stage/9/puzzle/11)
+    - **Etapa 13**: Funciones
+        - [Puzzle 1](https://studio.code.org/s/20-hour/stage/13/puzzle/1)
+        - [Puzzle 2](https://studio.code.org/s/20-hour/stage/13/puzzle/2)
+        - [Puzzle 3](https://studio.code.org/s/20-hour/stage/13/puzzle/3)
+        - [Puzzle 4](https://studio.code.org/s/20-hour/stage/13/puzzle/4)
+        - [Puzzle 6](https://studio.code.org/s/20-hour/stage/13/puzzle/6)
+        - [Puzzle 9](https://studio.code.org/s/20-hour/stage/13/puzzle/9)
+        - [Puzzle 10](https://studio.code.org/s/20-hour/stage/13/puzzle/10)       
+    - **Etapa 17**: Depuración
+        - [Puzzle 1](https://studio.code.org/s/20-hour/stage/17/puzzle/1)
+        - [Puzzle 3](https://studio.code.org/s/20-hour/stage/17/puzzle/3)
+        - [Puzzle 7](https://studio.code.org/s/20-hour/stage/17/puzzle/7)
+        - [Puzzle 8](https://studio.code.org/s/20-hour/stage/17/puzzle/8)
+        - [Puzzle 9](https://studio.code.org/s/20-hour/stage/17/puzzle/9)
+
+
+#### Aprende Programando
+
+[![Educación Secundaria](Educación-Secundaria/preview.gif)](http://www.aprendeprogramando.es)
+
+- [Acceder a www.aprendeprogramando.es](http://www.aprendeprogramando.es)
 
 
 
