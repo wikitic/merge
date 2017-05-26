@@ -2,24 +2,18 @@
 
 Jornadas para comunicar y compartir experiencias, tendencias metodológicas y buenas prácticas sobre una determinada materia o competencia docente, dirigidas al profesorado de la Región de Mucia, durante los días **26 y 27 de Mayo de 2017** en la **Facultad de Matemáticas de la Universidad de Murcia**. 
 
-
-***
-
+<br>
 
 ## Programando las matemáticas
 
-*En los últimos años se han conocido iniciativas que tratan de potenciar la enseñanza de la programación informática desde edades tempranas. La comunidad educativa y científica ha colaborado en el desarrollo de estudios que demuestran que los niños que aprenden a programar obtienen mejores resultados en pruebas matemáticas, de razonamiento y de resolución de problemas. Desde la Iniciativa Programo Ergo Sum, se ha creado el proyecto Aprende Programando, una plataforma online de aprendizaje guiado hacia las STEM utilizando la programación informática como medio de aprendizaje y destinado principalmente a docentes de Educación Secundaria para su uso en el aula.*
-
-[Ver Comunicación completa](Secundaria_abellan_ferriz_miguel_angel.pdf)
-
-<br>
+*En los últimos años se han conocido iniciativas que tratan de potenciar la enseñanza de la programación informática desde edades tempranas. La comunidad educativa y científica ha colaborado en el desarrollo de estudios que demuestran que los niños que aprenden a programar obtienen mejores resultados en pruebas matemáticas, de razonamiento y de resolución de problemas. Desde la Iniciativa Programo Ergo Sum, se ha creado el proyecto Aprende Programando, una plataforma online de aprendizaje guiado hacia las STEM utilizando la programación informática como medio de aprendizaje y destinado principalmente a docentes de Educación Secundaria para su uso en el aula.* [Ver Comunicación completa](Secundaria_abellan_ferriz_miguel_angel.pdf)
 
 - [Educación Primaria](#educación-primaria)
 - [Educación Secundaria](#educación-secundaria)
 
 ***
 
-## Educación Primaria
+# Educación Primaria
 
 La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc.
 
@@ -76,11 +70,11 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
     - [Vueltas por minuto de un Spinner](http://www.aprendeprogramando.es/challenge/blockly/1190071bb5b20ca6083ddb1bd0c86a92)
     - [Números mayores que 10](http://www.aprendeprogramando.es/challenge/blockly/caf554af263045e5c774c1318f0cd5e6)
 
-<br><hr><br>
+<br><br><br>
 
 ***
 
-<br><hr><br>
+<br><br><br>
 
 
 ## Educación Secundaria
