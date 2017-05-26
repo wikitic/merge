@@ -11,13 +11,21 @@ Jornadas para comunicar y compartir experiencias, tendencias metodológicas y bu
 - [Educación Primaria](#educación-primaria)
 - [Educación Secundaria](#educación-secundaria)
 
-***
+
+
+<br><hr><br>
+
+
 
 # Educación Primaria
 
 La aplicación de los lenguajes de programación por bloques permiten una presentación visual del paradigma y metodología de la programación informática permitiendo centrarse en la lógica de la programación dejando a un lado la sintaxis propia de los lenguajes de programación como puntos y comas, paréntesis, etc.
 
-### Code.org 
+<br>
+
+## Code.org 
+
+Code.org es una organización sin fines de lucro dedicada a expandir la participación de la educación en Ciencias de la Computación llevándola a las escuelas y centros educativos.
 
 - **Curso 2: Desde 6 años**
     - **Etapa 3**: Secuencias
@@ -43,26 +51,34 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
         - [Puzzle 5](https://studio.code.org/s/course3/stage/12/puzzle/5)
         - [Puzzle 9](https://studio.code.org/s/course3/stage/12/puzzle/9) (9 bloques)
         
-<br><hr><br>
         
-#### Scratch
+<br><br>
+        
+        
+## Scratch
+
+Scratch es una aplicación informática destinada principalmente a los niños y les permite explorar y experimentar con los conceptos de programación de ordenadores mediante el uso de una sencilla interfaz gráfica. Scratch en el aula sirve entre otras cosas para: Desarrollar el pensamiento lógico y algorítmico.
 
 - [Scratch](https://scratch.mit.edu)
 
-<br><hr><br>
+
+<br><br>
  
-#### Aprende Programando
+ 
+## Aprende Programando
 
-[![Educación Primaria](Educación-Primaria/preview.gif)](http://www.aprendeprogramando.es)
+El proyecto Aprende Programando es una iniciativa desarrollada por la Asociación Programo Ergo Sum destinada principalmente a maestros y profesores interesados en introducir la programación informática en el aula como medio de aprendizaje hacia otras competencias.
 
-- Programando las matemáticas [AprendeProgramando](http://www.aprendeprogramando.es)
+![Educación Primaria](Educación-Primaria/preview.gif)
+
+- Aprender matemáticas con Blockly
     - [Matemáticas 1](http://www.aprendeprogramando.es/blockly/lessons/matematicas-1)
     - [Matemáticas 2](http://www.aprendeprogramando.es/blockly/lessons/matematicas-2)
     - [Matemáticas 3](http://www.aprendeprogramando.es/blockly/lessons/matematicas-3)
     - [Problemas 1](http://www.aprendeprogramando.es/blockly/lessons/problemas-1)
     - [Problemas 2](http://www.aprendeprogramando.es/blockly/lessons/problemas-2)
 
-- **Retos: 4º, 5º y 6º**
+- Retos matemáticos con Blockly: 4º, 5º y 6º EP
     - [Sumando números enteros](http://www.aprendeprogramando.es/challenge/blockly/0fc2e77f1265a025d7ca0cf9e37a0df0)
     - [El número posterior](http://www.aprendeprogramando.es/challenge/blockly/7ba79d8e74a6c4068a5ced86bd9b86a8)
     - [Calculando cuadrados](http://www.aprendeprogramando.es/challenge/blockly/1b2a27830e81188cc33aa8ed9ea82b2b)
@@ -70,19 +86,25 @@ La aplicación de los lenguajes de programación por bloques permiten una presen
     - [Vueltas por minuto de un Spinner](http://www.aprendeprogramando.es/challenge/blockly/1190071bb5b20ca6083ddb1bd0c86a92)
     - [Números mayores que 10](http://www.aprendeprogramando.es/challenge/blockly/caf554af263045e5c774c1318f0cd5e6)
 
-<br><br><br>
+
+
+<br><br>
 
 ***
 
-<br><br><br>
+<br><br>
 
 
-## Educación Secundaria
+
+# Educación Secundaria
 
 El objetivo principal del proyecto Aprende Programando es fomentar el uso de la programación informática para el desarrollo de la creatividad y del pensamiento científico y, en particular, el pensamiento matemático, y evolucionar distintas competencias en el mundo de la educación gracias a un software sencillo y completamente intuitivo.
 
+<br>
 
-### Code.org 
+## Code.org
+ 
+Code.org es una organización sin fines de lucro dedicada a expandir la participación de la educación en Ciencias de la Computación llevándola a las escuelas y centros educativos.
 
 - **Curso acelerado: Desde 12 años**
     - **Etapa 2**: Secuencias
@@ -115,11 +137,30 @@ El objetivo principal del proyecto Aprende Programando es fomentar el uso de la 
         - [Puzzle 9](https://studio.code.org/s/20-hour/stage/17/puzzle/9)
 
 
-#### Aprende Programando
+<br><br>
 
-[![Educación Secundaria](Educación-Secundaria/preview.gif)](http://www.aprendeprogramando.es)
 
-- [Acceder a www.aprendeprogramando.es](http://www.aprendeprogramando.es)
+## Scratch
+
+Scratch es una aplicación informática destinada principalmente a los niños y les permite explorar y experimentar con los conceptos de programación de ordenadores mediante el uso de una sencilla interfaz gráfica. Scratch en el aula sirve entre otras cosas para: Desarrollar el pensamiento lógico y algorítmico.
+
+- [Scratch](https://scratch.mit.edu)
+
+
+<br><br>
+
+
+## Aprende Programando
+
+El proyecto Aprende Programando es una iniciativa desarrollada por la Asociación Programo Ergo Sum destinada principalmente a maestros y profesores interesados en introducir la programación informática en el aula como medio de aprendizaje hacia otras competencias.
+
+![Educación Seundaria](Educación-Seundaria/preview.gif)
+
+- Aprender matemáticas y programación
+    - [Lenguaje de bloques](http://www.aprendeprogramando.es/blockly/modules)
+    - [Lenguaje JavaScript](http://www.aprendeprogramando.es/javascript/modules)
+
+- [Retos mateáticos](http://www.aprendeprogramando.es/challenges)
 
 
 
