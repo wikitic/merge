@@ -60,7 +60,12 @@ Code.org es una organización sin fines de lucro dedicada a expandir la particip
 Scratch es una aplicación informática destinada principalmente a los niños y les permite explorar y experimentar con los conceptos de programación de ordenadores mediante el uso de una sencilla interfaz gráfica. Scratch en el aula sirve entre otras cosas para: Desarrollar el pensamiento lógico y algorítmico.
 
 - [Scratch](https://scratch.mit.edu)
-
+    - [Programo Ergo Sum](https://scratch.mit.edu/users/programoergosum/)
+        - [Operaciones matemáticas](https://scratch.mit.edu/projects/163267232/)
+        - [Los números primos](https://scratch.mit.edu/projects/163267594/)
+    - [ABN con Anuska72](https://scratch.mit.edu/users/Anuska72/)
+    - [ExceLuisABN](https://scratch.mit.edu/users/ExceLuisABN/)
+    
 
 <br><br>
  
@@ -145,6 +150,8 @@ Code.org es una organización sin fines de lucro dedicada a expandir la particip
 Scratch es una aplicación informática destinada principalmente a los niños y les permite explorar y experimentar con los conceptos de programación de ordenadores mediante el uso de una sencilla interfaz gráfica. Scratch en el aula sirve entre otras cosas para: Desarrollar el pensamiento lógico y algorítmico.
 
 - [Scratch](https://scratch.mit.edu)
+    - [Operaciones matemáticas](https://scratch.mit.edu/projects/163267232/)
+    - [Los números primos](https://scratch.mit.edu/projects/163267594/)
 
 
 <br><br>
@@ -154,7 +161,7 @@ Scratch es una aplicación informática destinada principalmente a los niños y 
 
 El proyecto Aprende Programando es una iniciativa desarrollada por la Asociación Programo Ergo Sum destinada principalmente a maestros y profesores interesados en introducir la programación informática en el aula como medio de aprendizaje hacia otras competencias.
 
-![Educación Seundaria](Educación-Seundaria/preview.gif)
+![Educación Secundaria](Educación-Secundaria/preview.gif)
 
 - Aprender matemáticas y programación
     - [Lenguaje de bloques](http://www.aprendeprogramando.es/blockly/modules)
