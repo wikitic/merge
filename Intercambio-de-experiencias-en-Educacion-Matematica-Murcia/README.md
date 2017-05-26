@@ -159,16 +159,23 @@ Scratch es una aplicación informática destinada principalmente a los niños y 
 
 ## Aprende Programando
 
-El proyecto Aprende Programando es una iniciativa desarrollada por la Asociación Programo Ergo Sum destinada principalmente a maestros y profesores interesados en introducir la programación informática en el aula como medio de aprendizaje hacia otras competencias.
+El proyecto Aprende Programando es una iniciativa desarrollada por la *Asociación Programo Ergo Sum* **destinada a maestros y profesores** interesados en introducir la programación informática en el aula como medio de aprendizaje hacia otras competencias STEM.
+
+Programando las matemáticas a través del lenguaje de programación Blockly
+
+![Educación Primaria](Educación-Primaria/preview.gif)
+
+<br>
+
+Programando las matemáticas a través del lenguaje de programación JavaScript
 
 ![Educación Secundaria](Educación-Secundaria/preview.gif)
 
-- Aprender matemáticas y programación
-    - [Lenguaje de bloques](http://www.aprendeprogramando.es/blockly/modules)
-    - [Lenguaje JavaScript](http://www.aprendeprogramando.es/javascript/modules)
+<br>
 
+- [Lenguaje de bloques](http://www.aprendeprogramando.es/blockly/modules)
+- [Lenguaje JavaScript](http://www.aprendeprogramando.es/javascript/modules)
 - [Retos mateáticos](http://www.aprendeprogramando.es/challenges)
-
 
 
 <br>
