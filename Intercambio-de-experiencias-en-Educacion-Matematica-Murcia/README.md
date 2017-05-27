@@ -61,11 +61,10 @@ Scratch es una aplicación informática destinada principalmente a los niños y 
 
 - [Scratch](https://scratch.mit.edu)
     - [Programo Ergo Sum](https://scratch.mit.edu/users/programoergosum/)
-        - [Operaciones matemáticas](https://scratch.mit.edu/projects/163267232/)
-        - [Los números primos](https://scratch.mit.edu/projects/163267594/)
     - [ABN con Anuska72](https://scratch.mit.edu/users/Anuska72/)
     - [ExceLuisABN](https://scratch.mit.edu/users/ExceLuisABN/)
-    
+    - [GorkaProfe](https://scratch.mit.edu/users/Gorkaw/)
+    - [A bordo con Irene](http://abordoconirene.blogspot.com.es/p/recursos-interactivos_25.html)
 
 <br><br>
  
@@ -82,15 +81,7 @@ El proyecto Aprende Programando es una iniciativa desarrollada por la Asociació
     - [Matemáticas 3](http://www.aprendeprogramando.es/blockly/lessons/matematicas-3)
     - [Problemas 1](http://www.aprendeprogramando.es/blockly/lessons/problemas-1)
     - [Problemas 2](http://www.aprendeprogramando.es/blockly/lessons/problemas-2)
-
-- Retos matemáticos con Blockly: 4º, 5º y 6º EP
-    - [Sumando números enteros](http://www.aprendeprogramando.es/challenge/blockly/0fc2e77f1265a025d7ca0cf9e37a0df0)
-    - [El número posterior](http://www.aprendeprogramando.es/challenge/blockly/7ba79d8e74a6c4068a5ced86bd9b86a8)
-    - [Calculando cuadrados](http://www.aprendeprogramando.es/challenge/blockly/1b2a27830e81188cc33aa8ed9ea82b2b)
-    - [Horas a segundos](http://www.aprendeprogramando.es/challenge/blockly/ef1202910bbf550c031bfaf39bd43d8d)
-    - [Vueltas por minuto de un Spinner](http://www.aprendeprogramando.es/challenge/blockly/1190071bb5b20ca6083ddb1bd0c86a92)
-    - [Números mayores que 10](http://www.aprendeprogramando.es/challenge/blockly/caf554af263045e5c774c1318f0cd5e6)
-
+    
 
 
 <br><br>
