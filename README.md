@@ -15,11 +15,8 @@ Cada una de las prácticas está compuesta por el enunciado de la misma, esquema
 
 ## Manual elaborado por
 
-* ![](https://avatars0.githubusercontent.com/u/12022187?s=20) Miguel Ángel Abellán ([GitHub](https://github.com/migueabellan) | [Twitter](https://twitter.com/migueabellan))
-* ...
-* ..
+* ![](https://avatars0.githubusercontent.com/u/12022187?s=20) [Miguel Ángel Abellán](https://github.com/migueabellan)
 
-Ayúdanos en la elaboración del manual y aparecerás como autor
 
 
 <br><br>

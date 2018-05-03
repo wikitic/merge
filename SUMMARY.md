@@ -3,35 +3,13 @@
 * [Introducción](README.md)
 
 
-## TEORÍA
+## PRÁCTICAS
 
 
-* [¿Qué es Arduino?](Teoria/README.md)
-    * [Hardware](Teoria/Hardware/README.md)
-        * [Salidas digitales](Teoria/Hardware/Salidas-digitales.md)
-        * [Salidas analógicas](Teoria/Hardware/Salidas-analogicas.md)
-        * [Entradas digitales](Teoria/Hardware/Entradas-digitales.md)
-        * [Entradas analógicas](Teoria/Hardware/Entradas-analogicas.md)
-    * [Software](Teoria/Software/README.md)
-        * [mBlock](Teoria/Software/mBlock.md)
-        * [Arduino IDE](Teoria/Software/Arduino-ide.md)
-
-* [Electrónica](Teoria/Electronica/Componentes.md)
-    * [Ley de Ohm](Teoria/Electronica/Ley-de-ohm.md)
-
-
-
-## VIDEOJUEGOS
-
-
-* [Nivel 1/5 (Muy Fácil)](Videojuegos/mBlock.md)
+* [Videojuegos mBlock](Videojuegos/mBlock.md)
     * [Make a Wish](Videojuegos/Make-a-wish/README.md)
     * [Evita a los fantasmas](Videojuegos/Evita-a-los-fantasmas/README.md)
     * [Juego de Simón](Videojuegos/Juego-de-simon/README.md)
-
-
-
-## PRÁCTICAS
 
 
 * [Nivel 1/5 (Muy Fácil)](Practicas/Nivel-1.md)
