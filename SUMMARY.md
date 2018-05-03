@@ -11,7 +11,6 @@
     * [Evita a los fantasmas](Videojuegos/Evita-a-los-fantasmas/README.md)
     * [Juego de Simón](Videojuegos/Juego-de-simon/README.md)
 
-
 * [Nivel 1/5 (Muy Fácil)](Practicas/Nivel-1.md)
     * [Hola mundo](Practicas/Hola-mundo/README.md)
     * [Luz intermitente](Practicas/Luz-intermitente/README.md)
@@ -34,7 +33,6 @@
     * [Sensor de aparcamiento LED](Practicas/Sensor-de-aparcamiento-led/README.md)
     * [Semáforo con pulsador](Practicas/Semaforo-con-pulsador/README.md)
 
-
 * [Nivel 2/5 (Fácil)](Practicas/Nivel-2.md)
     * [Coche fantástico](Practicas/Coche-fantastico/README.md)
     * [Pulsador simple](Practicas/Pulsador-simple/README.md)
@@ -43,16 +41,13 @@
     * [Luces de feria](Practicas/Luces-de-feria/README.md)
     * [Extractor con sensor de temperatura](Practicas/Extractor-con-sensor-de-temperatura/README.md)
 
-
 * [Nivel 3/5 (Medio)](Practicas/Nivel-3.md)
     * [La Guerra de las Galaxias](Practicas/La-guerra-de-las-galaxias/README.md)
     * [Cubo de LEDs 2x2x2](Practicas/Cubo-de-leds-2x2x2/README.md)
     * [Máquina para dibujar](Practicas/Maquina-para-dibujar/README.md)
     * [Semáforo con micrófono](/Practicas/Semaforo-con-microfono/README.md)
 
-
 * [Nivel 4/5 (Difícil)](Practicas/Nivel-4.md)
-
 
 * [Nivel 5/5 (Muy Difícil)](Practicas/Nivel-5.md)
 
