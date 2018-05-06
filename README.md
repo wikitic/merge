@@ -32,6 +32,16 @@ Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murc
 
 
 
+## III Jornadas sobre Robótica Educativa (Murcia)
+
+Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murcia, fundamentalmente a maestros y profesores que imparten la asignatura de Robótica, así como al resto de docentes interesados en su aprendizaje, el **9 de Mayo de 2018** en la **Facultad de Informática de la Universidad de Murcia**.
+
+
+
+<br><br>
+
+
+
 ***
 
 #### Licencia
