@@ -10,7 +10,7 @@ Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murc
 
 Presentación de la plataforma de cursos online gratuitos MOOCs de programación, electrónica y robótica.
 
-[Programo Ergo Sum](https://www.programoergosum.com/)
+- [Programo Ergo Sum](https://www.programoergosum.com/)
 
 <br>
 
@@ -18,7 +18,7 @@ Presentación de la plataforma de cursos online gratuitos MOOCs de programación
 
 Presentación de la plataforma guiada para aprender a programar diferentes lenguajes de programación utilizando las matemáticas, física, tecnología, etc. STEM.
 
-[Aprende Programando](https://www.aprendeprogramando.es/)
+- [Aprende Programando](https://www.aprendeprogramando.es/)
 
 <br>
 
@@ -26,7 +26,7 @@ Presentación de la plataforma guiada para aprender a programar diferentes lengu
 
 Presentación del libro de prácticas educativas con Arduino realizadas por y para docentes.
 
-[El Cable Amarillo](http://www.elcableamarillo.cc/)
+- [El Cable Amarillo](http://www.elcableamarillo.cc/)
 
 <br>
 
