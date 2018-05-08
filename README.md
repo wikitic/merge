@@ -8,6 +8,18 @@
 ***
 
 
+
+## III Jornadas sobre Robótica Educativa (Murcia)
+
+Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murcia, fundamentalmente a maestros y profesores que imparten la asignatura de Robótica, así como al resto de docentes interesados en su aprendizaje, el **9 de Mayo de 2018** en la **Facultad de Informática de la Universidad de Murcia**.
+
+- [III Jornadas sobre Robótica Educativa (Murcia)](III-Jornadas-sobre-Robotica-Educativa-Murcia)
+
+
+<br><br>
+
+
+
 ## Intercambio de experiencias en Educación Matemática (Murcia)
 
 Jornadas para comunicar y compartir experiencias, tendencias metodológicas y buenas prácticas sobre una determinada materia o competencia docente, dirigidas al profesorado de la Región de Mucia, durante los días **26 y 27 de Mayo de 2017** en la **Facultad de Matemáticas de la Universidad de Murcia**. 
@@ -29,17 +41,6 @@ Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murc
 
 
 <br><br>
-
-
-
-## III Jornadas sobre Robótica Educativa (Murcia)
-
-Jornadas sobre Robótica Educativa dirigidas al profesorado de la Region de Murcia, fundamentalmente a maestros y profesores que imparten la asignatura de Robótica, así como al resto de docentes interesados en su aprendizaje, el **9 de Mayo de 2018** en la **Facultad de Informática de la Universidad de Murcia**.
-
-
-
-<br><br>
-
 
 
 ***
