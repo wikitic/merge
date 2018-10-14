@@ -70,7 +70,7 @@ Envíanos tu práctica y aparecerás como autor
 
 * 1ª Edición: Enero, 2017: [Proyecto El Cable Amarillo](https://github.com/ElCableAmarillo/Listado-de-practicas). Financiado por el Fondo Europeo de Desarrollo Regional de la Región de Murcia. 
 * 2ª Edición: Febrero, 2018: Nueva documentación teórica sobre programación y electrónica. Adaptaciones mejoradas sobre las prácticas de la Edición 2017 y nuevas prácticas incorporadas al repositorio.
-* 2ª Edición: Octubre, 2018: Nuevas prácticas añadidas al repositorio de la Edición 2017.
+* 3ª Edición: Octubre, 2018: Nuevas prácticas añadidas al repositorio de la Edición 2017.
 
 <br>
 
