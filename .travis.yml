@@ -2,8 +2,15 @@ language: php
 sudo: false
 dist: trusty
 
+branches:
+  only:
+    - master
+
 php:
   - 7.2
+
+services:
+  - mysql
 
 cache:
   apt: true
@@ -12,6 +19,11 @@ cache:
     - $HOME/.yarn-cache
     - vendor
     - ./bin/.phpunit
+
+env:
+  global:
+    - APP_ENV: test
+    - DATABASE_URL: mysql://root:@127.0.0.1:3306/test
 
 before_install:
   - composer self-update
@@ -22,12 +34,18 @@ install:
   - composer install
   - yarn encore production
   - ./bin/phpunit install
+  - mysql -e 'create database test;'
+
+before_script:
+  - php bin/console doctrine:database:create
+  - php bin/console doctrine:schema:update --force
+  - php bin/console doctrine:fixtures:load --no-interaction
 
 script:
-  - ./bin/phpunit
+  - php bin/phpunit
 
-  - ./bin/console lint:yaml config
-  - ./bin/console lint:twig templates
-  - ./bin/console lint:xliff translations
-  - ./bin/console security:check
-  - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
+  - php bin/console lint:yaml config
+  - php bin/console lint:twig templates
+  - php bin/console lint:xliff translations
+  - php bin/console security:check
+  - php bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction

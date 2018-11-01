@@ -29,7 +29,7 @@ class DefaultControllerTest extends WebTestCase
     }
     public function provide_GET_url()
     {
-        yield ['/',         Response::HTTP_OK];
-        yield ['/BAD-URL',  Response::HTTP_NOT_FOUND];
+        yield ['/',         Response::HTTP_OK];         // 200
+        yield ['/BAD-URL',  Response::HTTP_NOT_FOUND];  // 400
     }
 }
