@@ -1,11 +1,14 @@
 {
+    "name": "programoergosum/asociacion",
+    "license": "MIT",
     "type": "project",
-    "license": "proprietary",
+    "description": "Partners control application",
     "require": {
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.1",
+        "sensiolabs/security-checker": "^5.0",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/expression-language": "*",
@@ -59,7 +62,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
