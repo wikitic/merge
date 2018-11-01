@@ -2,21 +2,22 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class AdminController extends AbstractController
+/**
+ * @Route("/admin")
+ */
+class SecurityController extends AbstractController
 {
     /**
-     * @Route("/admin/login", name="admin_login")
+     * @Route("/login", name="admin_login")
      */
     public function login(AuthenticationUtils $authenticationUtils) : Response
     {
-        if($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY'))
+        if($this->getUser())
             return $this->redirectToRoute('sonata_admin_redirect');
 
         return $this->render('Admin/login.html.twig', array(
@@ -26,17 +27,17 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/login_check", name="admin_login_check")
+     * @Route("/login_check", name="admin_login_check")
      */
-    public function loginCheck() : Response
+    public function loginCheck() : void
     {
         // el "login check" lo hace Symfony automáticamente
     }
 
     /**
-     * @Route("/admin/logout", name="admin_logout")
+     * @Route("/logout", name="admin_logout")
      */
-    public function logout() : Response
+    public function logout() : void
     {
         // el logout lo hace Symfony automáticamente
     }

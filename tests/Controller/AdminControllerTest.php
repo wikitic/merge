@@ -73,7 +73,7 @@ class AdminControllerTest extends WebTestCase
     public function provide_GET_url()
     {
         yield ['/admin',                    Response::HTTP_MOVED_PERMANENTLY];  // 301
-        yield ['/admin/login',              Response::HTTP_FOUND];              // 302
+        yield ['/admin/login',              Response::HTTP_OK];                 // 200
         yield ['/admin/logout',             Response::HTTP_FOUND];              // 302
         yield ['/admin/dashboard',          Response::HTTP_OK];                 // 200
     }
