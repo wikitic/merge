@@ -30,5 +30,4 @@ script:
   - ./bin/console lint:twig templates
   - ./bin/console lint:xliff translations
   - ./bin/console security:check
-  - composer validate --strict
   - ./bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
