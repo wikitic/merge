@@ -34,7 +34,7 @@ install:
   - composer install
   - yarn encore production
   - ./bin/phpunit install
-  - mysql -e 'create database test;'
+  #- mysql -e 'create database test;'
 
 before_script:
   - php bin/console doctrine:database:create
