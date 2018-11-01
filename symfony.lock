@@ -188,8 +188,20 @@
     "sonata-project/datagrid-bundle": {
         "version": "2.4.0"
     },
+    "sonata-project/doctrine-orm-admin-bundle": {
+        "version": "3.6.3"
+    },
     "sonata-project/exporter": {
         "version": "1.9.1"
+    },
+    "sonata-project/translation-bundle": {
+        "version": "2.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.3",
+            "ref": "00e821cb362f00c6893f7183311893267330ecfe"
+        }
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.3"
