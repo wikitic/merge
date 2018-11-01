@@ -1,25 +1,22 @@
 language: php
 sudo: false
+dist: trusty
+
+php:
+  - 7.2
 
 cache:
+  apt: true
   directories:
-    - $HOME/.composer/cache/files
+    - $HOME/.composer/cache
     - $HOME/.yarn-cache
+    - vendor
     - ./bin/.phpunit
-
-env:
-  global:
-    - SYMFONY_PHPUNIT_DIR=./bin/.phpunit
-
-matrix:
-  fast_finish: true
-  include:
-    - php: 7.2
 
 before_install:
   - composer self-update
-  - sudo apt-get update -qq
-  - sudo apt-get install -y -qq yarn
+  - node -v && yarn -V
+  - travis_retry yarn
 
 install:
   - composer install
