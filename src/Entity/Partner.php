@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -11,7 +12,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="partners")
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  * @ORM\HasLifecycleCallbacks()
- * @UniqueEntity("email", message="El email ya existe")
+ * @UniqueEntity(fields={"code"}, message="El código ya existe")
+ * @UniqueEntity(fields={"email"}, message="El email ya existe")
  */
 class Partner
 {
@@ -29,8 +31,8 @@ class Partner
 
     /**
      * @var string
-     * 
-     * @ORM\Column(name="code", type="string", length=6)
+     * @Assert\Length( min=6, max=6 )
+     * @ORM\Column(name="code", type="string", length=6, unique=true)
      */
     private $code;
 
@@ -50,7 +52,7 @@ class Partner
 
     /**
      * @var string
-     * 
+     * @Assert\Length( min=6, max=255 )
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
