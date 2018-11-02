@@ -26,7 +26,7 @@ class AdminFixtures extends Fixture
     {
         yield [
                 'username' => 'admin', 
-                'password' => password_hash('pa$$w0rd', PASSWORD_BCRYPT, ['cost' => 4]),
+                'password' => 'pa$$w0rd',
                 'salt' => md5(uniqid()),
                 'role' => Admin::ROLE_SUPER_ADMIN
             ];
