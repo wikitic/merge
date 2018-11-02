@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -98,7 +99,8 @@ class PartnerAdmin extends AbstractAdmin
             )
             ->add('active', 'boolean', 
                 [
-                    'editable' => true, 'label' => 'Habilitado',
+                    //'editable' => true, 
+                    'label' => 'Habilitado',
                     'header_style' => 'width: 100px; text-align: center',
                     'row_align' => 'center'
                 ]
@@ -106,7 +108,7 @@ class PartnerAdmin extends AbstractAdmin
             ->add('cdate', 'datetime', 
                 [
                     'format' => 'd-m-Y H:i',
-                    'editable' => true, 'label' => 'Creado',
+                    'label' => 'Creado',
                     'header_style' => 'width: 140px; text-align: center',
                     'row_align' => 'center'
                 ]
@@ -114,7 +116,7 @@ class PartnerAdmin extends AbstractAdmin
             ->add('mdate', 'datetime', 
                 [
                     'format' => 'd-m-Y H:i',
-                    'editable' => true, 'label' => 'Modificado',
+                    'label' => 'Modificado',
                     'header_style' => 'width: 140px; text-align: center',
                     'row_align' => 'center'
                 ]
@@ -130,6 +132,67 @@ class PartnerAdmin extends AbstractAdmin
                     'row_align' => 'center'
                 ]
             )
+        ;
+    }
+
+
+
+    protected function configureShowFields(ShowMapper $showMapper)
+    {
+        $showMapper
+            ->with('General', ['class' => 'col-md-8'])
+                ->add('code', null, 
+                    [
+                        'label' => 'Código',
+                    ]
+                )
+                ->add('name', null, 
+                    [
+                        'label' => 'Nombre',
+                    ]
+                )
+                ->add('surname', null, 
+                    [
+                        'label' => 'Apellidos',
+                    ]
+                )
+                ->add('email', null, 
+                    [
+                        'label' => 'Email',
+                    ]
+                )
+            ->end()
+        ;
+
+        $showMapper
+            ->with('Configuración', ['class' => 'col-md-4'])
+                ->add('role', 'choice', 
+                    [
+                        'choices' => [
+                            '0' => 'User',
+                            '1' => 'Premium',
+                        ],
+                        'label' => 'Rol',
+                    ]
+                )
+                ->add('active', 'boolean', 
+                    [
+                        'label' => 'Habilitado',
+                    ]
+                )
+                ->add('cdate', 'datetime', 
+                    [
+                        'format' => 'd-m-Y H:i',
+                        'label' => 'Creado',
+                    ]
+                )
+                ->add('mdate', 'datetime', 
+                    [
+                        'format' => 'd-m-Y H:i',
+                        'label' => 'Modificado',
+                    ]
+                )
+            ->end()
         ;
     }
 
