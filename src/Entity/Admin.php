@@ -16,6 +16,8 @@ class Admin implements UserInterface
     const ROLE_SUPER_ADMIN = 999;
 
     /**
+     * @var int
+     * 
      * @ORM\Column(name="id_admin", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -23,21 +25,29 @@ class Admin implements UserInterface
     private $id;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="username", type="string", length=255)
      */
     private $username;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="salt", type="string", length=255)
      */
     private $salt;
 
     /**
+     * @var int
+     * 
      * @ORM\Column(name="role", type="integer")
      */
     private $role = 999;
@@ -87,7 +97,8 @@ class Admin implements UserInterface
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        //$this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
     }

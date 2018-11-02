@@ -13,42 +13,17 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class AdminAdmin extends AbstractAdmin
 {
+    public function toString($object)
+    {
+        return $object instanceof Admin ? $object->getUsername() : 'Admin';
+    }
+
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->clearExcept(['list', 'edit']);
     }
 
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $formMapper
-            ->with('General')
-                ->add('username', TextType::class, 
-                    [
-                        'label'=>'Username'
-                    ]
-                )
-                ->add('password', RepeatedType::class, 
-                    [
-                        'type' => PasswordType::class,
-                        'invalid_message' => 'The password fields must match.',
-                        'options' => ['attr' => ['class' => 'password-field']],
-                        'required' => true,
-                        'first_options'  => array('label' => 'Contraseña'),
-                        'second_options' => array('label' => 'Repite Contraseña'),
-                        
-                    ]
-                )
-            ->end()
-        ;
-    }
 
-    public function preValidate($entity)
-    {
-        $em = $this->getModelManager()->getEntityManager($this->getClass());
-        $entity->setPassword(password_hash($entity->getPassword(), PASSWORD_BCRYPT, ['cost' => 4]));   
-        $em->persist($entity);
-        $em->flush();
-    }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
@@ -94,13 +69,35 @@ class AdminAdmin extends AbstractAdmin
                         'edit' => []
                     ],
                     'header_style' => 'width: 100px; text-align: center',
+                    'row_align' => 'center'
                 ]
             )
         ;
     }
 
-    public function toString($object)
+
+
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        return $object instanceof Admin ? $object->getUsername() : 'Admin';
+        $formMapper
+            ->with('General')
+                ->add('username', TextType::class, 
+                    [
+                        'label'=>'Username'
+                    ]
+                )
+                ->add('password', RepeatedType::class, 
+                    [
+                        'type' => PasswordType::class,
+                        'invalid_message' => 'The password fields must match.',
+                        'options' => ['attr' => ['class' => 'password-field']],
+                        'first_options'  => array('label' => 'Contraseña'),
+                        'second_options' => array('label' => 'Repite Contraseña'),
+                        
+                    ]
+                )
+            ->end()
+        ;
     }
+    
 }

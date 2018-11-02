@@ -38,3 +38,12 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
         public: true
+    
+    admin.partner:
+        class: App\Admin\PartnerAdmin
+        arguments: [~, App\Entity\Partner, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Socios, label: Socios, pager_type: "simple" }
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+        public: true

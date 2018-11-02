@@ -19,32 +19,13 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
-//    /**
-//     * @return Partner[] Returns an array of Partner objects
-//     */
-    /*
-    public function findByExampleField($value)
+    public function findUniqueCode(): ?String
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        do {
+            $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
+            $exist_code = $this->findOneBy(['code'=>$code]);
+        } while ($exist_code!=null);
 
-    /*
-    public function findOneBySomeField($value): ?Partner
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        return $code;
     }
-    */
 }

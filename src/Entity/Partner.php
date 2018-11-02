@@ -3,18 +3,25 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Partner
  *
  * @ORM\Table(name="partners")
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"code"}, message="El código ya existe")
+ * @UniqueEntity(fields={"email"}, message="El email ya existe")
  */
 class Partner
 {
+    const ROLE_USER  = 0;
     const ROLE_PREMIUM  = 1;
 
     /**
+     * @var int
+     * 
      * @ORM\Column(name="id_partner", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -22,51 +29,71 @@ class Partner
     private $id;
 
     /**
-     * @ORM\Column(name="code", type="string", length=6)
+     * @var string
+     * 
+     * @ORM\Column(name="code", type="string", length=6, unique=true)
      */
     private $code;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
 
     /**
-     * @ORM\Column(name="email", type="string", length=255)
+     * @var string
+     * 
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
     /**
+     * @var string
+     * 
      * @ORM\Column(name="salt", type="string", length=255)
      */
     private $salt;
 
     /**
+     * @var int
+     * 
      * @ORM\Column(name="role", type="integer")
      */
     private $role = 1;
 
     /**
+     * @var int
+     * 
      * @ORM\Column(name="active", type="integer")
      */
     private $active = 1;
 
     /**
+     * @var \DateTime
+     * 
      * @ORM\Column(name="cdate", type="datetime")
      */
     private $cdate;
 
     /**
+     * @var \DateTime
+     * 
      * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
@@ -75,7 +102,18 @@ class Partner
 
     public function __construct()
     {
-        $this->cdate = new \DateTime();
+        $this->salt     = md5(uniqid());
+        $this->cdate    = new \DateTime();
+        $this->mdate    = new \DateTime();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        $this->salt     = md5(uniqid());
+        $this->mdate    = new \DateTime();
     }
 
     public function getId(): ?int
@@ -138,7 +176,8 @@ class Partner
 
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        //$this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
     }
