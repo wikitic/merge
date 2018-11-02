@@ -11,7 +11,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="partners")
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  * @ORM\HasLifecycleCallbacks()
- * @UniqueEntity("code", message="El código ya existe")
  * @UniqueEntity("email", message="El email ya existe")
  */
 class Partner
@@ -31,7 +30,7 @@ class Partner
     /**
      * @var string
      * 
-     * @ORM\Column(name="code", type="string", length=6, unique=true)
+     * @ORM\Column(name="code", type="string", length=6)
      */
     private $code;
 
