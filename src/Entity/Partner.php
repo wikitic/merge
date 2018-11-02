@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
@@ -31,7 +30,7 @@ class Partner
 
     /**
      * @var string
-     * @Assert\Length( min=6, max=6 )
+     * 
      * @ORM\Column(name="code", type="string", length=6, unique=true)
      */
     private $code;
@@ -52,8 +51,8 @@ class Partner
 
     /**
      * @var string
-     * @Assert\Length( min=6, max=255 )
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * 
+     * @ORM\Column(name="email", type="string", length=50, unique=true)
      */
     private $email;
 
