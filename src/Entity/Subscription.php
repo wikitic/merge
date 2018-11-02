@@ -24,16 +24,6 @@ class Subscription
     private $id;
 
     /**
-     * @var \Partner
-     *
-     * @ORM\ManyToOne(targetEntity="Partner")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner")
-     * })
-     */
-    private $partner;
-
-    /**
      * @var \DateTime
      * 
      * @ORM\Column(name="in_date", type="datetime")
@@ -61,7 +51,13 @@ class Subscription
      */
     private $price;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
+     * @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
+     */
+    private $partner;
 
+    
 
     public function getId(): ?int
     {
@@ -127,4 +123,13 @@ class Subscription
 
         return $this;
     }
+
+    function __toString() {
+        if(!$this->getId())
+            return '';
+
+        return $this->getInDate()->format('d-m-Y').' - '.$this->getOutDate()->format('d-m-Y').'  >  '.$this->getInfo();
+    }
+
+    
 }

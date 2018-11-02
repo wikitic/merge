@@ -3,6 +3,7 @@
 namespace App\Admin;
 
 use App\Entity\Partner;
+use App\Entity\Subscription;
 
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Route\RouteCollection;
@@ -16,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Sonata\CoreBundle\Form\Type\CollectionType;
 
 class PartnerAdmin extends AbstractAdmin
 {
@@ -97,10 +99,20 @@ class PartnerAdmin extends AbstractAdmin
                     'row_align' => 'center'
                 ]
             )
+            /*
             ->add('active', 'boolean', 
                 [
                     //'editable' => true, 
                     'label' => 'Habilitado',
+                    'header_style' => 'width: 100px; text-align: center',
+                    'row_align' => 'center'
+                ]
+            )
+            */
+            ->add('getNumSubscriptions', 'integer', 
+                [
+                    //'editable' => true, 
+                    'label' => 'Suscripciones',
                     'header_style' => 'width: 100px; text-align: center',
                     'row_align' => 'center'
                 ]
@@ -194,7 +206,18 @@ class PartnerAdmin extends AbstractAdmin
                 )
             ->end()
         ;
+
+        $showMapper
+            ->with('Suscripciones', ['class' => 'col-md-12'])
+                ->add('subscriptions', 'collection',
+                    [
+                        'label' => 'Suscripciones',
+                    ]
+                )
+            ->end()
+        ;        
     }
+
 
 
 
@@ -295,7 +318,27 @@ class PartnerAdmin extends AbstractAdmin
                 )
                 */
             ->end()
-        ; 
+        ;
+
+        $formMapper
+            ->with('Suscripciones', ['class' => 'col-md-12'])
+                ->add('subscriptions', CollectionType::class, 
+                    [
+                        'label' => 'Suscripciones',
+                        'by_reference' => false,
+                        'type_options' => [
+                            'delete' => true,
+                        ]  
+                    ],
+                    [
+                        'edit' => 'inline',
+                        'inline' => 'table',
+                        'sortable' => 'position',
+                    ]
+                )
+            ->end()
+        ;
+
     }
 
 }
