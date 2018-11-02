@@ -11,8 +11,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="partners")
  * @ORM\Entity(repositoryClass="App\Repository\PartnerRepository")
  * @ORM\HasLifecycleCallbacks()
- * @UniqueEntity(fields={"code"}, message="El código ya existe")
- * @UniqueEntity(fields={"email"}, message="El email ya existe")
+ * @UniqueEntity("code", message="El código ya existe")
+ * @UniqueEntity("email", message="El email ya existe")
  */
 class Partner
 {
