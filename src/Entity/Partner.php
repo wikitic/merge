@@ -52,7 +52,7 @@ class Partner
     /**
      * @var string
      * 
-     * @ORM\Column(name="email", type="string", length=50, unique=true)
+     * @ORM\Column(name="email", type="string", length=100, unique=true)
      */
     private $email;
 
