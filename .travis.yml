@@ -33,7 +33,7 @@ before_install:
 install:
   - composer install
   - yarn encore production
-  - ./bin/phpunit install
+  - php bin/phpunit install
   #- mysql -e 'create database test;'
 
 before_script:
