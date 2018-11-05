@@ -34,7 +34,6 @@ install:
   - composer install
   - yarn encore production
   - php bin/phpunit install
-  #- mysql -e 'create database test;'
 
 before_script:
   - php bin/console doctrine:database:drop --if-exists --force
