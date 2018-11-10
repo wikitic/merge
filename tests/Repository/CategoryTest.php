@@ -28,7 +28,10 @@ class CategoryTest extends WebTestCase
 
     public function testGetLastOrdering()
     {
-        $this->assertEquals(4, $this->em->getRepository(Category::class)->getLastOrdering());
+        $categories = $this->em->getRepository(Category::class)->findAll();
+        $last_ordering = $this->em->getRepository(Category::class)->getLastOrdering();
+
+        $this->assertEquals(count($categories), $last_ordering);
     }
 
 
