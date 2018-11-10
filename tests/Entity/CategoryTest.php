@@ -34,6 +34,8 @@ class CategoryTest extends WebTestCase
 
     public function test_addCategory()
     {
+        $next_ordering  = $this->er->getNextOrdering();
+
         $category = new Category();
         $category->setTitle('Nueva categoría');
         $category->setAlias('nueva-categoria');
@@ -52,6 +54,6 @@ class CategoryTest extends WebTestCase
         $this->em->persist($category);
         $this->em->flush();
 
-        $this->assertEquals(5, $category->getOrdering());
+        $this->assertEquals($next_ordering, $category->getOrdering());
     }
 }

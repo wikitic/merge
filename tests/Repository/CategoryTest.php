@@ -9,26 +9,26 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CategoryTest extends WebTestCase
 {
-    /**
-     * @var \Doctrine\ORM\EntityManager
-     */
+    private $client;
     private $em;
-
-    /**
-     * @var \Doctrine\ORM\EntityRepository
-     */
     private $er;
 
-
-    /**
-     * {@inheritDoc}
-     */
     protected function setUp()
     {
         $kernel = self::bootKernel();
 
-        $this->em = $kernel->getContainer()->get('doctrine')->getManager();
+        $this->client = $this->createClient(['environment' => 'test']);
+        $this->client->disableReboot();
+
+        $this->em = $this->client->getContainer()->get('doctrine.orm.entity_manager');
+        $this->em->beginTransaction();
+
         $this->er = $this->em->getRepository(Category::class);
+    }
+
+    protected function tearDown()
+    {
+        $this->em->rollback();
     }
 
 
@@ -47,18 +47,5 @@ class CategoryTest extends WebTestCase
         $next_ordering  = $this->er->getNextOrdering();
 
         $this->assertEquals(count($categories) + 1, $next_ordering);
-    }
-
-
-
-    /**
-     * {@inheritDoc}
-     */
-    protected function tearDown()
-    {
-        parent::tearDown();
-
-        $this->em->close();
-        $this->em = null; // avoid memory leaks
     }
 }
