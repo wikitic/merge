@@ -102,9 +102,17 @@ class Category
 
 
     public function __construct()
-    {
+    { 
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function PrePersist(LifecycleEventArgs $event)
+    {
+        $this->cdate    = new \DateTime();
     }
 
     /**
