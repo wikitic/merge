@@ -15,6 +15,12 @@ class CategoryTest extends WebTestCase
     private $em;
 
     /**
+     * @var \Doctrine\ORM\EntityRepository
+     */
+    private $er;
+
+
+    /**
      * {@inheritDoc}
      */
     protected function setUp()
@@ -22,14 +28,15 @@ class CategoryTest extends WebTestCase
         $kernel = self::bootKernel();
 
         $this->em = $kernel->getContainer()->get('doctrine')->getManager();
+        $this->er = $this->em->getRepository(Category::class);
     }
 
 
 
     public function testGetLastOrdering()
     {
-        $categories = $this->em->getRepository(Category::class)->findAll();
-        $last_ordering = $this->em->getRepository(Category::class)->getLastOrdering();
+        $categories     = $this->er->findAll();
+        $last_ordering  = $this->er->getLastOrdering();
 
         $this->assertEquals(count($categories), $last_ordering);
     }
