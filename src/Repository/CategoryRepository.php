@@ -30,4 +30,12 @@ class CategoryRepository extends ServiceEntityRepository
 
         return $query;
     }
+
+    /**
+     * @return Integer
+     */
+    public function getNextOrdering() : ?int
+    {
+        return $this->getLastOrdering() + 1;
+    }
 }

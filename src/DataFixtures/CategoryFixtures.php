@@ -20,17 +20,16 @@ class CategoryFixtures extends Fixture
             $category->setMetadesc($v['metadesc']);
             $category->setMetakey($v['metakey']);
             $category->setMetaimage($v['metaimage']);
-            $category->setActive($v['active']);
-            $category->setOrdering($v['ordering']);
-            $category->setCdate($v['cdate']);
-            $category->setMdate($v['mdate']);
+            //$category->setActive($v['active']);
+            //$category->setOrdering($v['ordering']);
+            //$category->setCdate($v['cdate']);
+            //$category->setMdate($v['mdate']);
 
             $this->addReference($v['alias'], $category);
 
             $manager->persist($category);
+            $manager->flush();
         }
-    
-        $manager->flush();
     }
     private function getData()
     {

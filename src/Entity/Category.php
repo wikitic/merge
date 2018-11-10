@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 
 /**
  * Category
@@ -110,8 +111,12 @@ class Category
     /**
      * @ORM\PrePersist
      */
-    public function PrePersist()
+    public function PrePersist(LifecycleEventArgs $event)
     {
+        $em = $event->getEntityManager();
+        $er = $em->getRepository(Category::class);
+
+        $this->ordering = $er->getNextOrdering();
         $this->cdate    = new \DateTime();
     }
 
