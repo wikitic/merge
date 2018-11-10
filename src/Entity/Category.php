@@ -110,7 +110,7 @@ class Category
     /**
      * @ORM\PrePersist
      */
-    public function PrePersist(LifecycleEventArgs $event)
+    public function PrePersist()
     {
         $this->cdate    = new \DateTime();
     }
