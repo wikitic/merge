@@ -48,7 +48,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 2',
             'metakey' => 'meta, palabras, categoría, 2',
             'metaimage' => 'categoria.png',
-            'active' => true
+            'active' => false
         ];
         yield [  
             'title' => 'Categoría 3',

@@ -114,12 +114,8 @@ class Category
     /**
      * @ORM\PrePersist
      */
-    public function PrePersist(LifecycleEventArgs $event)
+    public function PrePersist()
     {
-        $em = $event->getEntityManager();
-        $er = $em->getRepository(Category::class);
-
-        $this->position = $er->getNextPosition();
         $this->cdate    = new \DateTime();
     }
 

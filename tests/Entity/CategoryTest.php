@@ -34,22 +34,19 @@ class CategoryTest extends WebTestCase
 
     public function test_addCategory()
     {
-        $next_position  = $this->er->getNextPosition();
-
         $category = new Category();
         $category->setTitle('Nueva categoría');
         $category->setAlias('nueva-categoria');
         $category->setDescription('Description');
-
         $category->setMetatitle('Metatitle');
         $category->setMetadesc('Metadesc');
         $category->setMetakey('Metakey');
         $category->setMetaimage('Metaimage');
-        $category->setPosition(true);
-
+        $category->setActive(true);
         $this->em->persist($category);
         $this->em->flush();
 
-        $this->assertEquals($next_position, $category->getPosition());
+        $num_categories = count($this->er->findAll());
+        $this->assertEquals($num_categories - 1, $category->getPosition());
     }
 }

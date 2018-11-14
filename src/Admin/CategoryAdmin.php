@@ -59,6 +59,13 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('id', null, 
+                [
+                    'label' => '#id',
+                    'header_style' => 'width: 50px; text-align: center;',
+                    'row_align' => 'center'
+                ]
+            )
             ->add('title', null, 
                 [
                     'label' => 'Título',
@@ -163,11 +170,6 @@ class CategoryAdmin extends AbstractAdmin
 
         $showMapper
             ->with('Configuración', ['class' => 'col-md-4'])
-                ->add('position', 'integer', 
-                    [
-                        'label' => 'Posición',
-                    ]
-                )
                 ->add('active', 'boolean', 
                     [
                         'label' => 'Habilitado',
@@ -219,13 +221,14 @@ class CategoryAdmin extends AbstractAdmin
 
         $formMapper
             ->with('Configuración', ['class' => 'col-md-4'])
+                /*
                 ->add('position', TextType::class, 
                     [
                         'label' => 'Posición',
-                        'empty_data' => $er->getNextPosition(),
                         'disabled' => true
                     ]
                 )
+                */
                 ->add('active', ChoiceType::class, 
                     [
                         'choices' => [
