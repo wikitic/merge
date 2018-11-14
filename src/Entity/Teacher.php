@@ -109,6 +109,8 @@ class Teacher implements UserInterface
 
     public function __construct()
     {
+        $this->salt     = md5(uniqid());
+        $this->role     = self::ROLE_TEACHER;
         $this->active   = false;
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
@@ -127,6 +129,7 @@ class Teacher implements UserInterface
      */
     public function preUpdate()
     {
+        $this->salt     = md5(uniqid());
         $this->mdate    = new \DateTime();
     }
 
