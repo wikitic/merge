@@ -34,9 +34,9 @@ class CategoryFixtures extends Fixture
             'title' => 'Categoría 1',
             'alias' => 'categoria-1',
             'description' => 'Descripción 1',
-            'metatitle' => 'Meta título de la categoría 1',
+            'metatitle' => 'Meta título de la categoría',
             'metadesc' => 'Meta descripción de la categoría 1',
-            'metakey' => 'meta, palabras, categoría, 1',
+            'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => true
         ];
@@ -46,7 +46,7 @@ class CategoryFixtures extends Fixture
             'description' => 'Descripción 2',
             'metatitle' => 'Meta título de la categoría 2',
             'metadesc' => 'Meta descripción de la categoría 2',
-            'metakey' => 'meta, palabras, categoría, 2',
+            'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => false
         ];
@@ -56,7 +56,7 @@ class CategoryFixtures extends Fixture
             'description' => 'Descripción 3',
             'metatitle' => 'Meta título de la categoría 3',
             'metadesc' => 'Meta descripción de la categoría 3',
-            'metakey' => 'meta, palabras, categoría, 3',
+            'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => true
         ];
@@ -66,7 +66,7 @@ class CategoryFixtures extends Fixture
             'description' => 'Descripción 4',
             'metatitle' => 'Meta título de la categoría 4',
             'metadesc' => 'Meta descripción de la categoría 4',
-            'metakey' => 'meta, palabras, categoría, 4',
+            'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => true
         ];
