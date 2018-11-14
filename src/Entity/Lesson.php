@@ -76,7 +76,7 @@ class Lesson
     private $video;
 
     /**
-     * @var array
+     * @var text
      *
      * @ORM\Column(name="files", type="json_array", nullable=true)
      */
