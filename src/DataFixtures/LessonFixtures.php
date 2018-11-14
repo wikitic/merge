@@ -1,0 +1,56 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Lesson;
+use App\DataFixtures\CourseFixtures;
+use App\DataFixtures\TeacherFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+
+class LessonFixtures extends Fixture implements DependentFixtureInterface
+{
+    public function load(ObjectManager $manager)
+    {
+        foreach ($this->getData() as $k=>$v) {
+            $lesson = new Lesson();
+            $lesson->setCourse($v['course']);
+            $lesson->setTeacher($v['teacher']);
+            $lesson->setTitle($v['title']);
+            $lesson->setAlias($v['alias']);
+            $lesson->setDescription($v['description']);
+            $lesson->setVideo($v['video']);
+            $lesson->setFiles($v['files']);
+            $lesson->setScore($v['score']);
+            $lesson->setActive($v['active']);
+
+            $manager->persist($lesson);
+            $manager->flush();
+        }
+    }
+    private function getData()
+    {
+        yield [
+            'course' => $this->getReference('course-1-1'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 1 1',
+            'alias' => 'leccion-1-1-1',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true
+        ];
+        
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            CourseFixtures::class,
+            TeacherFixtures::class,
+        ];
+    }
+}
