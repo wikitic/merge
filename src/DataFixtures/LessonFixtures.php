@@ -33,7 +33,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
     private function getData()
     {
         yield [
-            'course' => $this->getReference('course-1-1'),
+            'course' => $this->getReference('curso-1-1'),
             'teacher' => $this->getReference('teacher@teacher.es'),
             'title' => 'Lección 1 1 1',
             'alias' => 'leccion-1-1-1',
