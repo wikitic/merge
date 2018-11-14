@@ -68,7 +68,7 @@ class Teacher implements UserInterface
      *
      * @ORM\Column(name="social", type="json_array", nullable=true)
      */
-    private $social = array();
+    private $social;
 
     /**
      * @var string
@@ -218,7 +218,10 @@ class Teacher implements UserInterface
 
     public function getSocial()
     {
-        return $this->social;
+        if($this->social == null || is_array($this->social))
+            return $this->social;
+
+        return json_decode($this->social);
     }
 
     public function setSocial($social): self
