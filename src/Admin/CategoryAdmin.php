@@ -123,10 +123,11 @@ class CategoryAdmin extends AbstractAdmin
                     'actions' => 
                     [
                         'move' => [
-                            'template' => '@PixSortableBehavior/Default/_sort.html.twig'
+                            'template' => '@PixSortableBehavior/Default/_sort_drag_drop.html.twig',
+                            'enable_top_bottom_buttons' => false
                         ],
                     ],
-                    'header_style' => 'width: 150px; text-align: center',
+                    'header_style' => 'width: 80px; text-align: center',
                     'row_align' => 'center'
                 ]
             )

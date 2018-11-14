@@ -9,6 +9,11 @@ sonata_admin:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
 
+    assets:
+        extra_javascripts:
+            - bundles/pixsortablebehavior/js/jquery-ui.min.js // if you haven't got jQuery UI yet.
+            - bundles/pixsortablebehavior/js/init.js
+
 sonata_block:
     blocks:
         sonata.admin.block.admin_list:
