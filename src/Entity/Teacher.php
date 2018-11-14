@@ -22,7 +22,7 @@ class Teacher implements UserInterface
     /**
      * @var integer
      * 
-     * @ORM\Column(name="id_admin", type="integer")
+     * @ORM\Column(name="id_teacher", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
