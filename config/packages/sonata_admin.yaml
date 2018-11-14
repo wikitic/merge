@@ -1,0 +1,15 @@
+sonata_admin:
+    title: 'Programo Ergo Sum'
+    title_logo: logo.svg
+    search: false
+    show_mosaic_button: false
+    persist_filters: true
+
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
