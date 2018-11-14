@@ -171,7 +171,7 @@ class CourseAdmin extends AbstractAdmin
                         'label' => 'Alias',
                     ]
                 )
-                ->add('description', null, 
+                ->add('introtext', null, 
                     [
                         'label' => 'Descripción',
                     ]
@@ -222,7 +222,7 @@ class CourseAdmin extends AbstractAdmin
                         'label'=>'Alias', 
                     ]
                 )
-                ->add('description', TextareaType::class, 
+                ->add('introtext', TextareaType::class, 
                     [
                         'label'=>'Descripción', 
                     ]
@@ -247,6 +247,16 @@ class CourseAdmin extends AbstractAdmin
                             'Desactivado' => false,
                         ],
                         'label' => 'Estado'
+                    ]
+                )
+                ->add('level', TextType::class, 
+                    [
+                        'label' => 'Nivel'
+                    ]
+                )
+                ->add('imageIntro', TextType::class, 
+                    [
+                        'label' => 'Imagen'
                     ]
                 )
             ->end()
