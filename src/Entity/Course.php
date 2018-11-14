@@ -28,9 +28,10 @@ class Course
     /**
      * @var \Category
      *
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Category")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category")
+     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category", nullable=false)
      * })
      */
     private $category;
@@ -108,6 +109,7 @@ class Course
     /**
      * @var integer
      *
+     * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
      */
     private $position;
@@ -122,7 +124,7 @@ class Course
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="mdate", type="datetime", nullable=true)
+     * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
 
