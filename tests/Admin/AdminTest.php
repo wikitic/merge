@@ -11,11 +11,20 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 class AdminTest extends WebTestCase
 {
     private $client = null;
+    private $em;
 
     protected function setUp()
-	{
-        $this->client = static::createClient();
+    {
+        $kernel = self::bootKernel();
+
+        $this->client = $this->createClient(['environment' => 'test']);
+        $this->client->disableReboot();
+
+        $this->em = $this->client->getContainer()->get('doctrine.orm.entity_manager');
+        $this->em->beginTransaction();
     }
+
+
 
     private function logIn()
     {
@@ -92,5 +101,11 @@ class AdminTest extends WebTestCase
         yield ['/admin/app/category/1/show',         Response::HTTP_OK];                // 200
         yield ['/admin/app/category/1/edit',         Response::HTTP_OK];                // 200
         yield ['/admin/app/category/1/delete',       Response::HTTP_NOT_FOUND];         // 404
+
+        yield ['/admin/app/course/list',             Response::HTTP_OK];                // 200
+        yield ['/admin/app/course/create',           Response::HTTP_OK];                // 200
+        yield ['/admin/app/course/1/show',           Response::HTTP_OK];                // 200
+        yield ['/admin/app/course/1/edit',           Response::HTTP_OK];                // 200
+        yield ['/admin/app/course/1/delete',         Response::HTTP_NOT_FOUND];         // 404
     }
 }
