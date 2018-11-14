@@ -24,7 +24,7 @@ class CategoryAdmin extends AbstractAdmin
     protected $datagridValues = [
         '_page' => 1,
         '_sort_order' => 'ASC',
-        '_sort_by' => 'ordering',
+        '_sort_by' => 'position',
     ];
 
     public function toString($object)
@@ -42,6 +42,7 @@ class CategoryAdmin extends AbstractAdmin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->clearExcept(['list', 'show', 'create', 'edit']);
+        $collection->add('move', $this->getRouterIdParameter().'/move/{position}');
     }
 
 
@@ -66,7 +67,7 @@ class CategoryAdmin extends AbstractAdmin
             ->add('alias', null, 
                 [
                     'label' => 'Alias',
-                    'header_style' => 'width: 100px;',
+                    'header_style' => 'width: 200px;',
                 ]
             )
             /*
@@ -77,12 +78,6 @@ class CategoryAdmin extends AbstractAdmin
                 ]
             )
             */
-            ->add('ordering', null, 
-                [
-                    'label' => 'Orden',
-                    'header_style' => 'width: 100px;',
-                ]
-            )
             ->add('active', 'boolean', 
                 [
                     //'editable' => true, 
@@ -91,6 +86,7 @@ class CategoryAdmin extends AbstractAdmin
                     'row_align' => 'center'
                 ]
             )
+            /*
             ->add('cdate', 'datetime', 
                 [
                     'format' => 'd-m-Y H:i',
@@ -99,6 +95,7 @@ class CategoryAdmin extends AbstractAdmin
                     'row_align' => 'center'
                 ]
             )
+            */
             ->add('mdate', 'datetime', 
                 [
                     'format' => 'd-m-Y H:i',
@@ -107,12 +104,31 @@ class CategoryAdmin extends AbstractAdmin
                     'row_align' => 'center'
                 ]
             )
+            ->add('position', null, 
+                [
+                    'label' => 'Posición',
+                    'header_style' => 'width: 80px; text-align: center',
+                    'row_align' => 'center'
+                ]
+            )
+            ->add('_ordering', 'actions', 
+                [
+                    'actions' => 
+                    [
+                        'move' => [
+                            'template' => '@PixSortableBehavior/Default/_sort.html.twig'
+                        ],
+                    ],
+                    'header_style' => 'width: 150px; text-align: center',
+                    'row_align' => 'center'
+                ]
+            )
             ->add('_action', 'actions', 
                 [
                     'actions' => 
                     [
                         'show' => [],
-                        'edit' => []
+                        'edit' => [],
                     ],
                     'header_style' => 'width: 180px; text-align: center',
                     'row_align' => 'center'
@@ -147,9 +163,9 @@ class CategoryAdmin extends AbstractAdmin
 
         $showMapper
             ->with('Configuración', ['class' => 'col-md-4'])
-                ->add('ordering', 'integer', 
+                ->add('position', 'integer', 
                     [
-                        'label' => 'Orden',
+                        'label' => 'Posición',
                     ]
                 )
                 ->add('active', 'boolean', 
@@ -170,21 +186,8 @@ class CategoryAdmin extends AbstractAdmin
                     ]
                 )
             ->end()
-        ;
-
-        /*
-        $showMapper
-            ->with('Suscripciones', ['class' => 'col-md-12'])
-                ->add('subscriptions', 'collection',
-                    [
-                        'label' => 'Suscripciones',
-                    ]
-                )
-            ->end()
-        ;
-        */       
+        ;     
     }
-
 
 
 
@@ -193,8 +196,6 @@ class CategoryAdmin extends AbstractAdmin
         $object = $this->getSubject();
         $em = $this->getModelManager()->getEntityManager($this->getClass());
         $er = $em->getRepository($this->getClass());
-
-        //$code = $object->getCode() ? $object->getCode() : $er->findUniqueCode();
 
         $formMapper
             ->with('General', ['class' => 'col-md-8']) 
@@ -218,9 +219,11 @@ class CategoryAdmin extends AbstractAdmin
 
         $formMapper
             ->with('Configuración', ['class' => 'col-md-4'])
-                ->add('ordering', TextType::class, 
+                ->add('position', TextType::class, 
                     [
-                        'label' => 'Orden'
+                        'label' => 'Posición',
+                        'empty_data' => $er->getNextPosition(),
+                        'disabled' => true
                     ]
                 )
                 ->add('active', ChoiceType::class, 

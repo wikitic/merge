@@ -34,7 +34,7 @@ class CategoryTest extends WebTestCase
 
     public function test_addCategory()
     {
-        $next_ordering  = $this->er->getNextOrdering();
+        $next_position  = $this->er->getNextPosition();
 
         $category = new Category();
         $category->setTitle('Nueva categoría');
@@ -45,15 +45,11 @@ class CategoryTest extends WebTestCase
         $category->setMetadesc('Metadesc');
         $category->setMetakey('Metakey');
         $category->setMetaimage('Metaimage');
-
-        //$category->setOrdering(0);
-        //$category->setActive(1);
-        //$category->setCdate(\new Datetime());
-        //$category->setMdate(\new Datetime());
+        $category->setPosition(true);
 
         $this->em->persist($category);
         $this->em->flush();
 
-        $this->assertEquals($next_ordering, $category->getOrdering());
+        $this->assertEquals($next_position, $category->getPosition());
     }
 }

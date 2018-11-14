@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
@@ -77,14 +78,15 @@ class Category
      *
      * @ORM\Column(name="active", type="integer")
      */
-    private $active = 1;
+    private $active;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="ordering", type="integer")
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer")
      */
-    private $ordering;
+    private $position;
 
 	/**
      * @var \DateTime
@@ -96,14 +98,15 @@ class Category
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="mdate", type="datetime")
+     * @ORM\Column(name="mdate", type="datetime", nullable=true)
      */
     private $mdate;
 
 
 
     public function __construct()
-    { 
+    {
+        $this->active   = false;
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -116,7 +119,7 @@ class Category
         $em = $event->getEntityManager();
         $er = $em->getRepository(Category::class);
 
-        $this->ordering = $er->getNextOrdering();
+        $this->position = $er->getNextPosition();
         $this->cdate    = new \DateTime();
     }
 
@@ -231,14 +234,14 @@ class Category
         return $this;
     }
 
-    public function getOrdering(): ?int
+    public function getPosition(): ?int
     {
-        return $this->ordering;
+        return $this->position;
     }
 
-    public function setOrdering(int $ordering): self
+    public function setPosition(int $position): self
     {
-        $this->ordering = $ordering;
+        $this->position = $position;
 
         return $this;
     }

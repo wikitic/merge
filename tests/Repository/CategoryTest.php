@@ -33,19 +33,19 @@ class CategoryTest extends WebTestCase
 
 
 
-    public function test_getLastOrdering()
+    public function test_getLastPosition()
     {
         $categories     = $this->er->findAll();
-        $last_ordering  = $this->er->getLastOrdering();
+        $last_position  = $this->er->getLastPosition();
 
-        $this->assertEquals(count($categories), $last_ordering);
+        $this->assertEquals(count($categories), $last_position);
     }
 
-    public function test_getNextOrdering()
+    public function test_getNextPosition()
     {
         $categories     = $this->er->findAll();
-        $next_ordering  = $this->er->getNextOrdering();
+        $next_position  = $this->er->getNextPosition();
 
-        $this->assertEquals(count($categories) + 1, $next_ordering);
+        $this->assertEquals(count($categories) + 1, $next_position);
     }
 }

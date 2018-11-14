@@ -20,10 +20,7 @@ class CategoryFixtures extends Fixture
             $category->setMetadesc($v['metadesc']);
             $category->setMetakey($v['metakey']);
             $category->setMetaimage($v['metaimage']);
-            //$category->setActive($v['active']);
-            //$category->setOrdering($v['ordering']);
-            //$category->setCdate($v['cdate']);
-            //$category->setMdate($v['mdate']);
+            $category->setActive($v['active']);
 
             $this->addReference($v['alias'], $category);
 
@@ -41,10 +38,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 1',
             'metakey' => 'meta, palabras, categoría, 1',
             'metaimage' => 'categoria.png',
-            'active' => '1',
-            'ordering' => '1',
-            'cdate' => new \DateTime('2018-11-01'),
-            'mdate' => new \DateTime('2018-11-01')
+            'active' => true
         ];
         yield [  
             'title' => 'Categoría 2',
@@ -54,10 +48,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 2',
             'metakey' => 'meta, palabras, categoría, 2',
             'metaimage' => 'categoria.png',
-            'active' => '1',
-            'ordering' => '2',
-            'cdate' => new \DateTime('2018-11-01'),
-            'mdate' => new \DateTime('2018-11-01')
+            'active' => true
         ];
         yield [  
             'title' => 'Categoría 3',
@@ -67,10 +58,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 3',
             'metakey' => 'meta, palabras, categoría, 3',
             'metaimage' => 'categoria.png',
-            'active' => '1',
-            'ordering' => '3',
-            'cdate' => new \DateTime('2018-11-01'),
-            'mdate' => new \DateTime('2018-11-01')
+            'active' => true
         ];
         yield [  
             'title' => 'Categoría 4',
@@ -80,10 +68,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 4',
             'metakey' => 'meta, palabras, categoría, 4',
             'metaimage' => 'categoria.png',
-            'active' => '1',
-            'ordering' => '4',
-            'cdate' => new \DateTime('2018-11-01'),
-            'mdate' => new \DateTime('2018-11-01')
+            'active' => true
         ];
     }
 }

@@ -22,10 +22,10 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * @return Integer
      */
-    public function getLastOrdering() : ?int
+    public function getLastPosition() : ?int
     {
         $query = $this->createQueryBuilder('c')
-            ->select('max(c.ordering)')
+            ->select('max(c.position)')
             ->getQuery()->getSingleScalarResult();
 
         return $query;
@@ -34,8 +34,8 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * @return Integer
      */
-    public function getNextOrdering() : ?int
+    public function getNextPosition() : ?int
     {
-        return $this->getLastOrdering() + 1;
+        return $this->getLastPosition() + 1;
     }
 }
