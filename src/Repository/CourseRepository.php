@@ -19,4 +19,23 @@ class CourseRepository extends ServiceEntityRepository
         parent::__construct($registry, Course::class);
     }
 
+    /**
+      * @return Course[] Returns an array of Course objects
+      */
+    public function findBySearch($search = null)
+    {
+        $query = $this->createQueryBuilder('c');
+
+        $search = explode(' ', trim($search));
+        foreach ($search as $v) {
+            $query->orWhere('c.title like :search')->setParameter('search', '%' . trim($v) . '%');
+            $query->orWhere('c.introtext like :search')->setParameter('search', '%' . trim($v) . '%');
+            $query->orWhere('c.metakey like :search')->setParameter('search', '%' . trim($v) . '%');
+        }
+        $query->andWhere('c.active = 1');
+        $query->orderBy('c.mdate', 'DESC');
+
+        return $query->getQuery()->getResult();
+    }
+
 }
