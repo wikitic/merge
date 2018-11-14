@@ -98,7 +98,7 @@ class Category
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="mdate", type="datetime", nullable=true)
+     * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
 
