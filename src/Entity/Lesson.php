@@ -76,11 +76,11 @@ class Lesson
     private $video;
 
     /**
-     * @var text
+     * @var string
      *
-     * @ORM\Column(name="files", type="json_array", nullable=true)
+     * @ORM\Column(name="files", type="string", nullable=true)
      */
-    private $files = array();
+    private $files;
 	
 	/**
      * @var integer
