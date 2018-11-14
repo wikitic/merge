@@ -7,7 +7,7 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Category
+ * Course
  *
  * @ORM\Table(name="courses")
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
