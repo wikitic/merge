@@ -88,24 +88,22 @@ class AdminTest extends WebTestCase
         // yield ['/admin/logout',                     Response::HTTP_FOUND];              // 302
         yield ['/admin/dashboard',                  Response::HTTP_OK];                 // 200
 
-        /*
-        yield ['/admin/app/admin/list',             Response::HTTP_OK];                 // 200
-        yield ['/admin/app/admin/create',           Response::HTTP_NOT_FOUND];          // 404
-        yield ['/admin/app/admin/1/show',           Response::HTTP_NOT_FOUND];          // 404
-        yield ['/admin/app/admin/1/delete',         Response::HTTP_NOT_FOUND];          // 404
-        yield ['/admin/app/admin/1/edit',           Response::HTTP_OK];                 // 200
-        */
+        yield ['/admin/app/teacher/list',           Response::HTTP_OK];                 // 200
+        yield ['/admin/app/teacher/create',         Response::HTTP_OK];                 // 200
+        yield ['/admin/app/teacher/1/show',         Response::HTTP_NOT_FOUND];          // 404
+        yield ['/admin/app/teacher/1/delete',       Response::HTTP_NOT_FOUND];          // 404
+        yield ['/admin/app/teacher/1/edit',         Response::HTTP_OK];                 // 200
 
-        yield ['/admin/app/category/list',           Response::HTTP_OK];                // 200
-        yield ['/admin/app/category/create',         Response::HTTP_OK];                // 200
-        yield ['/admin/app/category/1/show',         Response::HTTP_OK];                // 200
-        yield ['/admin/app/category/1/edit',         Response::HTTP_OK];                // 200
-        yield ['/admin/app/category/1/delete',       Response::HTTP_NOT_FOUND];         // 404
+        yield ['/admin/app/category/list',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/category/create',        Response::HTTP_OK];                 // 200
+        yield ['/admin/app/category/1/show',        Response::HTTP_OK];                 // 200
+        yield ['/admin/app/category/1/edit',        Response::HTTP_OK];                 // 200
+        yield ['/admin/app/category/1/delete',      Response::HTTP_NOT_FOUND];          // 404
 
-        yield ['/admin/app/course/list',             Response::HTTP_OK];                // 200
-        yield ['/admin/app/course/create',           Response::HTTP_OK];                // 200
-        yield ['/admin/app/course/1/show',           Response::HTTP_OK];                // 200
-        yield ['/admin/app/course/1/edit',           Response::HTTP_OK];                // 200
-        yield ['/admin/app/course/1/delete',         Response::HTTP_NOT_FOUND];         // 404
+        yield ['/admin/app/course/list',            Response::HTTP_OK];                 // 200
+        yield ['/admin/app/course/create',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/course/1/show',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/course/1/edit',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/course/1/delete',        Response::HTTP_NOT_FOUND];          // 404
     }
 }
