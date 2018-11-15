@@ -235,7 +235,12 @@ class LessonAdmin extends AbstractAdmin
                         'label'=>'Alias', 
                     ]
                 )
-                ->add('introtext', TextareaType::class, 
+                ->add('video', TextType::class, 
+                    [
+                        'label'=>'Video', 
+                    ]
+                )
+                ->add('description', TextareaType::class, 
                     [
                         'label'=>'Descripción', 
                     ]
@@ -262,41 +267,11 @@ class LessonAdmin extends AbstractAdmin
                         'label' => 'Estado'
                     ]
                 )
-                ->add('level', TextType::class, 
+                ->add('score', TextType::class, 
                     [
-                        'label' => 'Nivel'
+                        'label' => 'Puntos'
                     ]
                 )
-                ->add('imageIntro', TextType::class, 
-                    [
-                        'label' => 'Imagen'
-                    ]
-                )
-            ->end()
-        ;
-
-        $formMapper
-            ->with('SEO', ['class' => 'col-md-4'])
-                ->add('metatitle', TextType::class, 
-                    [
-                        'label' => 'Meta-Título'
-                    ]
-                )
-                ->add('metadesc', TextareaType::class, 
-                    [
-                        'label' => 'Meta-Descripción'
-                    ]
-                )
-                ->add('metakey', TextareaType::class, 
-                    [
-                        'label' => 'Meta-Key'
-                    ]
-                )
-                ->add('metaimage', TextType::class, 
-                    [
-                        'label' => 'Meta-Imagen'
-                    ]
-                )                
             ->end()
         ;
 
