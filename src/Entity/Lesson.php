@@ -30,6 +30,7 @@ class Lesson
     /**
      * @var \Course
      *
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Course")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_course", referencedColumnName="id_course", nullable=false)

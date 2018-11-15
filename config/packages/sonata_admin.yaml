@@ -11,7 +11,6 @@ sonata_admin:
 
     assets:
         extra_javascripts:
-            - bundles/pixsortablebehavior/js/jquery-ui.min.js // if you haven't got jQuery UI yet.
             - bundles/pixsortablebehavior/js/init.js
 
 sonata_block:

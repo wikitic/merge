@@ -25,6 +25,7 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             $lesson->setFiles($v['files']);
             $lesson->setScore($v['score']);
             $lesson->setActive($v['active']);
+            $lesson->setAccess($v['access']);
 
             $manager->persist($lesson);
             $manager->flush();
@@ -40,10 +41,106 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'description' => 'Descripción 1',
             'video' => '',
             'files' => '',
-            'score' => 0,
-            'active' => true
+            'score' => 1,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
         ];
-        
+        yield [
+            'course' => $this->getReference('curso-1-1'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 1 2',
+            'alias' => 'leccion-1-1-2',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 1,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-1'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 1 3',
+            'alias' => 'leccion-1-1-3',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 1,
+            'active' => false,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-1'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 1 4',
+            'alias' => 'leccion-1-1-4',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 2,
+            'active' => true,
+            'access' => Lesson::ACCESS_PREMIUM
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-2'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 2 1',
+            'alias' => 'leccion-1-2-1',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-2'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 2 2',
+            'alias' => 'leccion-1-2-2',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-2'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 2 3',
+            'alias' => 'leccion-1-2-3',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-2'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 2 4',
+            'alias' => 'leccion-1-2-4',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-2'),
+            'teacher' => $this->getReference('teacher@teacher.es'),
+            'title' => 'Lección 1 2 5',
+            'alias' => 'leccion-1-2-5',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_PREMIUM
+        ];
     }
 
     public function getDependencies(): array

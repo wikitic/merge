@@ -63,3 +63,12 @@ services:
         calls:
             - [ setTranslationDomain, [AppBundle]]
         public: true
+
+    admin.lesson:
+        class: App\Admin\LessonAdmin
+        arguments: [~, App\Entity\Lesson, 'PixSortableBehaviorBundle:SortableAdmin']
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Cursos, label: Lecciones, pager_type: "simple" }
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
+        public: true
