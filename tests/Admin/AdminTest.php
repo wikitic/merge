@@ -105,5 +105,11 @@ class AdminTest extends WebTestCase
         yield ['/admin/app/course/1/show',          Response::HTTP_OK];                 // 200
         yield ['/admin/app/course/1/edit',          Response::HTTP_OK];                 // 200
         yield ['/admin/app/course/1/delete',        Response::HTTP_NOT_FOUND];          // 404
+
+        yield ['/admin/app/lesson/list',            Response::HTTP_OK];                 // 200
+        yield ['/admin/app/lesson/create',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/lesson/1/show',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/lesson/1/edit',          Response::HTTP_OK];                 // 200
+        yield ['/admin/app/lesson/1/delete',        Response::HTTP_NOT_FOUND];          // 404
     }
 }
