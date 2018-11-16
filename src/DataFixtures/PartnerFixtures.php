@@ -19,11 +19,9 @@ class PartnerFixtures extends Fixture
             $partner->setSurname($v['surname']);
             $partner->setEmail($v['email']);
             $partner->setPassword($v['password']);
-            $partner->setSalt($v['salt']);
             $partner->setActive($v['active']);
             $partner->setRole($v['role']);
             $partner->setCDate($v['cdate']);
-            $partner->setMDate($v['mdate']);
     
             $this->addReference($v['code'], $partner);
 
@@ -36,27 +34,27 @@ class PartnerFixtures extends Fixture
     {
         yield [
                 'code' => 'AAAAAA', 'name' => 'Name 1', 'surname' => 'Surname 1','email' => 'email1@email.com',
-                'password' => 'AAAAAA','salt' => md5(uniqid()),
+                'password' => 'AAAAAA',
                 'active' => 1, 'role' => Partner::ROLE_PREMIUM, 
-                'cdate' => new \DateTime('2015-01-01'), 'mdate' => new \DateTime('2015-01-01')
+                'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'BBBBBB', 'name' => 'Name 2', 'surname' => 'Surname 2','email' => 'email2@email.com',
-                'password' => 'BBBBBB','salt' => md5(uniqid()),
+                'password' => 'BBBBBB',
                 'active' => 1, 'role' => Partner::ROLE_PREMIUM, 
-                'cdate' => new \DateTime('2015-01-01'), 'mdate' => new \DateTime('2015-01-01')
+                'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'CCCCCC', 'name' => 'Name 3', 'surname' => 'Surname 3','email' => 'email3@email.com',
-                'password' => 'CCCCCC','salt' => md5(uniqid()),
+                'password' => 'CCCCCC',
                 'active' => 1, 'role' => Partner::ROLE_USER, 
-                'cdate' => new \DateTime('2015-01-01'), 'mdate' => new \DateTime('2015-01-01')
+                'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'DDDDDD', 'name' => 'Name 4', 'surname' => 'Surname 4','email' => 'email4@email.com',
-                'password' => 'DDDDDD','salt' => md5(uniqid()),
+                'password' => 'DDDDDD',
                 'active' => 0, 'role' => Partner::ROLE_PREMIUM, 
-                'cdate' => new \DateTime('2015-01-01'), 'mdate' => new \DateTime('2015-01-01')
+                'cdate' => new \DateTime('2015-01-01')
             ];
     }
 }
