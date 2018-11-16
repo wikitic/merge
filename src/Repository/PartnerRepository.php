@@ -19,12 +19,16 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
+    public function existCode(string $code = ''): ?bool
+    {
+        return (bool)$this->findOneBy(['code'=>$code]);
+    }
+
     public function findUniqueCode(): ?String
     {
         do {
             $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
-            $exist_code = $this->findOneBy(['code'=>$code]);
-        } while ($exist_code!=null);
+        } while ($this->existCode($code));
 
         return $code;
     }
