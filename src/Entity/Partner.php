@@ -125,7 +125,7 @@ class Partner
     /**
      * @ORM\PrePersist
      */
-    public function PrePersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args)
     {
         if(!$this->code){
             $em = $args->getEntityManager();
