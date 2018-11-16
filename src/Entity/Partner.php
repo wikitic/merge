@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
 /**
  * Partner
@@ -118,6 +119,19 @@ class Partner
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
         $this->subscriptions = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function PrePersist(LifecycleEventArgs $args)
+    {
+        $em = $args->getEntityManager();
+        $er = $em->getRepository(get_class($this));
+
+        $this->code = $er->getUniqueCode();
+        $this->setPassword($this->code);
+        $this->cdate    = new \DateTime();
     }
 
     /**

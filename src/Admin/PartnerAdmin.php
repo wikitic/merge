@@ -14,9 +14,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Sonata\CoreBundle\Form\Type\CollectionType;
 
 class PartnerAdmin extends AbstractAdmin
@@ -223,18 +221,18 @@ class PartnerAdmin extends AbstractAdmin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+        /*
         $object = $this->getSubject();
         $em = $this->getModelManager()->getEntityManager($this->getClass());
         $er = $em->getRepository($this->getClass());
-
-        $code = $object->getCode() ? $object->getCode() : $er->findUniqueCode();
+        $code = $object->getCode() ? $object->getCode() : $er->getUniqueCode();
+        */
 
         $formMapper
             ->with('General', ['class' => 'col-md-8'])
                 ->add('code', TextType::class, 
                     [
                         'label'=>'Código',
-                        'data' => $code,
                         'attr' => [
                             'readonly' => true,
                         ]
@@ -250,36 +248,11 @@ class PartnerAdmin extends AbstractAdmin
                         'label'=>'Apellidos', 
                     ]
                 )
-                ->add('email', TextType::class, 
+                ->add('email', EmailType::class, 
                     [
                         'label'=>'Email', 
                     ]
                 )
-                /*
-                ->add('password', RepeatedType::class, 
-                    [
-                        'type' => PasswordType::class,
-                        'invalid_message' => 'Las contraseñas deben coincidir.',
-                        'options' => 
-                            [
-                                'attr' => ['class' => 'password-field']
-                            ],
-                        'first_options'  => ['label' => 'Contraseña'],
-                        'second_options' => ['label' => 'Repite Contraseña']
-                    ]
-                )
-                */ 
-                ;
-                if ($this->isCurrentRoute('create')) {
-                    $formMapper
-                        ->add('password', HiddenType::class, 
-                            [
-                                'label' => 'Contraseña',
-                                'data' => $code
-                            ]
-                        );
-                }
-        $formMapper
             ->end()
         ;
 

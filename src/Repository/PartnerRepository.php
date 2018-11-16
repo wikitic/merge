@@ -24,7 +24,7 @@ class PartnerRepository extends ServiceEntityRepository
         return (bool)$this->findOneBy(['code'=>$code]);
     }
 
-    public function findUniqueCode(): ?String
+    public function getUniqueCode(): ?String
     {
         do {
             $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);

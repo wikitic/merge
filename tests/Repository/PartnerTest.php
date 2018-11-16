@@ -37,9 +37,9 @@ class PartnerTest extends WebTestCase
         $this->assertEquals(false, $this->er->existCode('ZZZZZZ'));
     }
 
-    public function test_findUniqueCode()
+    public function test_getUniqueCode()
     {
-        $code = $this->er->findUniqueCode();
+        $code = $this->er->getUniqueCode();
 
         $this->assertEquals(6, strlen($code));
     }
