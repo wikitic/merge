@@ -113,6 +113,7 @@ class Partner
 
     public function __construct()
     {
+        $this->code     = null;
         $this->role     = self::ROLE_PREMIUM;
         $this->active   = true;
         $this->salt     = md5(uniqid());
@@ -126,10 +127,12 @@ class Partner
      */
     public function PrePersist(LifecycleEventArgs $args)
     {
-        $em = $args->getEntityManager();
-        $er = $em->getRepository(get_class($this));
-
-        $this->code = $er->getUniqueCode();
+        if(!$this->code){
+            $em = $args->getEntityManager();
+            $er = $em->getRepository(get_class($this));
+            $this->code = $er->getUniqueCode();
+        }
+        
         $this->setPassword($this->code);
         $this->cdate    = new \DateTime();
     }
