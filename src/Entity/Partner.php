@@ -22,7 +22,7 @@ class Partner
     const ROLE_PREMIUM  = 1;
 
     /**
-     * @var int
+     * @var integer
      * 
      * @ORM\Column(name="id_partner", type="integer")
      * @ORM\Id
@@ -73,18 +73,18 @@ class Partner
     private $salt;
 
     /**
-     * @var int
+     * @var integer
      * 
      * @ORM\Column(name="role", type="integer")
      */
-    private $role = 1;
+    private $role;
 
     /**
-     * @var int
+     * @var integer
      * 
      * @ORM\Column(name="active", type="integer")
      */
-    private $active = 1;
+    private $active;
 
     /**
      * @var \DateTime
@@ -112,6 +112,8 @@ class Partner
 
     public function __construct()
     {
+        $this->role     = self::ROLE_PREMIUM;
+        $this->active   = true;
         $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
@@ -126,6 +128,8 @@ class Partner
         $this->salt     = md5(uniqid());
         $this->mdate    = new \DateTime();
     }
+
+
 
     public function getId(): ?int
     {
