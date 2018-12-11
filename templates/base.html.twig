@@ -6,7 +6,7 @@
         
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{{ "Bienvenido :)" | trans }}{% endblock %}</title>
         
         <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
         {% block stylesheets %}{% endblock %}
