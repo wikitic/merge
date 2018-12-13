@@ -19,6 +19,12 @@ Encore
      */
     .addEntry('css/app', './assets/css/app.scss')
     .addEntry('js/app', './assets/js/app.js')
+    //.addEntry('page1', './assets/js/page1.js')
+    //.addEntry('page2', './assets/js/page2.js')
+
+    // will require an extra script tag for runtime.js
+    // but, you probably want this, unless you're building a single-page app
+    .enableSingleRuntimeChunk()
 
     /*
      * FEATURE CONFIG
@@ -41,6 +47,10 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+
+    // uncomment if you use API Platform Admin (composer req api-admin)
+    //.enableReactPreset()
+    //.addEntry('admin', './assets/js/admin.js')
 ;
 
 module.exports = Encore.getWebpackConfig();
