@@ -27,6 +27,7 @@ env:
 
 before_install:
   - composer self-update
+  - composer diagnose
   - node -v && yarn -V
   - travis_retry yarn
 
