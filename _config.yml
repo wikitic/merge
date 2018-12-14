@@ -1,0 +1,10 @@
+# Site settings
+title: "El Cable Amarillo"
+description: "Proyecto educativo de código abierto para fomentar el uso de la programación y robótica en los centros educativos."
+keywords: "programación, robótica, murcia, primaria, secundaria, educación, centros educativos"
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
