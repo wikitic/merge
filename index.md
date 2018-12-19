@@ -16,7 +16,7 @@ layout: base
 ## Autores
 
 <ul>
-    {% assign practicas = site.practicas | group_by: 'authors' %}
+    {% assign practicas = site.secundaria | group_by: 'authors' %}
     {% for practica in practicas %}
         {% for author in practica.items.first.authors %}
             <li>{{ author }} ({{ practica.size }} prácticas)</li>
