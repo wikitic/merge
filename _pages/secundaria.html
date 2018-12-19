@@ -1,0 +1,19 @@
+---
+layout: base
+permalink: /practicas/secundaria/
+---
+
+<article class="practica">
+
+  Listado de prácticas en secundaria
+
+  <ul>
+      {% assign practicas = site.practicas | where: 'category', 'secundaria'  %}
+      {% for practica in practicas %}
+        <li>
+          <a href="{{ practica.url }}">{{ practica.title }}</a> 
+        </li>
+      {% endfor %}
+  </ul>
+
+</article>
