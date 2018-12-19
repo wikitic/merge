@@ -33,11 +33,11 @@
                 {% for group in practicas %}
                 <li class="nav-item top-level {% if group.name contains page.nivel %}current{% endif %}">
                         {% assign items = group.items %}
-                        <a href="{{ site.baseurl }}{{ items.first.url }}">Nivel {{ group.name }}</a>
+                        <a href="{{ items.first.url | remove:'index.html' }}">Nivel {{ group.name }}</a>
                         <ul>
                             {% for item in items %}
                             <li class="nav-item {% if item.url == page.url %}current{% endif %}">
-                                <a href="{{ item.url | prepend: site.baseurl }}">{{ item.title }}</a>
+                                <a href="{{ item.url | remove:'index.html' }}">{{ item.title }}</a>
                             </li>
                             {% endfor %}
                         </ul>
