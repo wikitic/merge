@@ -28,7 +28,7 @@ layout: base
 
 ## Ediciones
 
-* **4ª Edición: Noviembre, 2018**: Realización de la página web www.elcableamarillo.cc elaborada por la [Miguel Ángel Abellán](https://www.github.com/migueabellan).
+* **4ª Edición: Noviembre, 2018**: Realización de la página web www.elcableamarillo.cc elaborada por [Miguel Ángel Abellán](https://www.github.com/migueabellan).
 * **3ª Edición: Octubre, 2018**: Nuevas prácticas incorporadas al repositorio de la 2ª Edición. Colaboran docentes de educación secundaria a través del curso de Robótica en Secundaria impartido a través del CPR Murcia.
 * **2ª Edición: Febrero, 2018**: Nuevas prácticas incorporadas al repositorio de la 1ª Edición. Colaboran docentes de educación secundaria a través del curso de Robótica en Secundaria impartido a través del CPR Murcia.
 * **1ª Edición: Enero, 2017**: [Proyecto El Cable Amarillo](https://github.com/ElCableAmarillo/Listado-de-practicas). Financiado por el Fondo Europeo de Desarrollo Regional de la Región de Murcia.
