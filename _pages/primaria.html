@@ -1,6 +1,6 @@
 ---
 layout: base
-permalink: /practicas/
+permalink: /practicas/primaria/
 ---
 
 <article class="practica">
@@ -8,15 +8,6 @@ permalink: /practicas/
   Listado de prácticas para primaria
   <ul>
       {% for practica in site.primaria %}
-        <li>
-          <a href="{{ practica.url }}">{{ practica.title }}</a> 
-        </li>
-      {% endfor %}
-  </ul>
-
-  Listado de prácticas para secundaria
-  <ul>
-      {% for practica in site.secundaria %}
         <li>
           <a href="{{ practica.url }}">{{ practica.title }}</a> 
         </li>
