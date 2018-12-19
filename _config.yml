@@ -6,12 +6,10 @@ keywords: "programación, robótica, murcia, primaria, secundaria, educación, c
 # Collections
 collections:
   primaria:
-    # permalink: /:path:output_ext
-    permalink: /practicas/primaria/:title
+    permalink: /practicas/primaria/:path:output_ext
     output: true
   secundaria:
-    # permalink: /:path:output_ext
-    permalink: /practicas/secundaria/:title
+    permalink: /practicas/secundaria/:path:output_ext
     output: true
 
 include:
