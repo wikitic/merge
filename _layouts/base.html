@@ -29,8 +29,8 @@
 
         <nav class="full-navigation">
             <ul>
-                {% assign grouped = site.practicas | group_by: 'nivel'  %}
-                {% for group in grouped %}
+                {% assign practicas = site.secundaria | group_by: 'nivel'  %}
+                {% for group in practicas %}
                 <li class="nav-item top-level {% if group.name contains page.nivel %}current{% endif %}">
                         {% assign items = group.items %}
                         <a href="{{ site.baseurl }}{{ items.first.url }}">Nivel {{ group.name }}</a>
