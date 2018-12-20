@@ -5,15 +5,11 @@ layout: base
 <img class="align-center" src="images/logo.png">
 
 
-<h1 class="align-center"> Proyecto educativo de código abierto para fomentar el uso de la <strong>programación y robótica</strong> en los centros educativos.</h1>
+<h1 class="align-center"> Proyecto educativo de código abierto para fomentar el uso de la <strong>programación y robótica</strong> en los centros educativos utilizando herramientas de <strong>software y hardware libre</strong>.</h1>
 
 <br>
 
-> Este manual está desarrollado por y para docentes interesados en introducir la **programación y robótica en el aula**.
-
-<br>
-
-## Autores
+## Autores de las prácticas
 
 <ul>
     {% assign practicas = site.secundaria | group_by: 'authors' %}
@@ -28,7 +24,7 @@ layout: base
 
 ## Ediciones
 
-* **3ª Edición: Octubre, 2018**: Nuevas prácticas realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia. Realización de la página web www.elcableamarillo.cc elaborada por [Miguel Ángel Abellán](https://www.github.com/migueabellan).
+* **3ª Edición: Octubre, 2018**: Nuevas prácticas realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia. Realización de la página web por [Miguel Ángel Abellán](https://www.github.com/migueabellan).
 * **2ª Edición: Febrero, 2018**: Nuevas prácticas incorporadas al repositorio de la 1ª Edición realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia.
 * **1ª Edición: Enero, 2017**: [Proyecto El Cable Amarillo](https://github.com/ElCableAmarillo). Financiado por el Fondo Europeo de Desarrollo Regional de la Región de Murcia.
 
