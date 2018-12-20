@@ -5,7 +5,7 @@ title: ¡Hola Mundo!
 
 authors: ['Miguel Ángel Abellán']
 
-nivel: 1 
+nivel: 1
 ---
 
 # Hola Mundo
