@@ -5,7 +5,7 @@ title: Detector de aparcamiento con ultrasonidos
 
 authors: ['Miguel Ángel Abellán']
 
-nivel: 1
+nivel: 2
 ---
 
 # Detector de aparcamiento con ultrasonidos
