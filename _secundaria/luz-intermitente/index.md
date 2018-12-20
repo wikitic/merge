@@ -5,7 +5,7 @@ title: Luz intermitente
 
 authors: ['Miguel Ángel Abellán']
 
-nivel: 1 
+nivel: 1
 ---
 
 # Luz intermitente
