@@ -5,7 +5,7 @@ title: Sensor de temperatura
 
 authors: ['Miguel Ángel Abellán']
 
-nivel: 1
+nivel: 2
 ---
 
 # Sensor de temperatura
