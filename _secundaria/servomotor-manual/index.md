@@ -5,7 +5,7 @@ title: Servomotor con potenciómetro
 
 authors: ['Miguel Ángel Abellán']
 
-nivel: 2
+nivel: 1
 ---
 
 # Servomotor con potenciómetro
