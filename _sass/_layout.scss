@@ -292,10 +292,17 @@ blockquote {
 	}
 }
 
-
+.practica {
+	blockquote {
+		margin: 0 0 90px;
+	}
+	h2 {
+		margin: 90px 0 0;
+	}
+}
 
 footer { 
-	margin: 50px 0 0;
+	margin: 90px 0 0;
 	padding: 20px;
 	background: #3D3D3D;
 	color: #fff;
