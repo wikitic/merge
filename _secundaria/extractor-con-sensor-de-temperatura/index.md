@@ -1,7 +1,7 @@
 ---
 layout: practica
 
-title: Luces de feria
+title: Extractor con sensor de temperatura
 
 authors: ['Gerónimo Carbonell Capel', 'Pascual Banegas Gil']
 
