@@ -13,10 +13,13 @@ pre, code {
 	table { 
 		width: 100%;
 		display: block;
+		margin: 0;
+		padding: 0;
 		td {
 			width: auto;
 			margin: 0;
 			padding: 10px;
+			border: none;
 		}
 		td.rouge-gutter {
 			width: auto;

@@ -299,6 +299,27 @@ blockquote {
 	h2 {
 		margin-top: 90px;
 	}
+	p + pre {
+		padding: 20px;
+		background: #f0f0f0;
+		color: #333;
+	}
+}
+
+table {
+	margin: 10px 0 30px;
+	border: 1px solid #f0f0f0;
+	tr {
+		th {
+			padding: 10px;
+			background: #f0f0f0;
+			text-align: left;
+		}
+		td {
+			padding: 10px;
+			border: 1px solid #f0f0f0;
+		}
+	}
 }
 
 footer { 
