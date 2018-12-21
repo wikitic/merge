@@ -5,7 +5,7 @@ title: Plantagoshi
 
 authors: ['Luis Zurita Herrera', 'Antonio Soto Galian']
 
-nivel: 1
+nivel: 3
 ---
 
 # Preguntar con arduino
