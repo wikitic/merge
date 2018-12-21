@@ -8,7 +8,7 @@ authors: ['Luis Zurita Herrera', 'Antonio Soto Galian']
 nivel: 3
 ---
 
-# Preguntar con arduino
+# Plantagoshi
 
 La plantagoshi conecta una maceta a su entorno. Avisa al dueño mediante scratch de cuando tiene que regar, abrigar o cambiar su iluminación.
 
