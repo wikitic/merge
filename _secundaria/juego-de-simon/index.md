@@ -3,7 +3,7 @@ layout: practica
 
 title: Juego de Simón
 
-authors: ['Ana María García Caparrós', 'Guillermo José Gómez Espuny']
+authors: ['Ana María García Caparrós', 'Guillermo José Gómez Espuny', 'David Pérez Díaz', 'Gheorghe Sofletea Motoc']
 
 nivel: 1
 ---
