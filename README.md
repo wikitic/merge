@@ -9,7 +9,7 @@
 
 ```sh
 $ php bin/console --version
-Symfony 4.1.6
+Symfony 4.2.1
 ```
 
 ## Requirements
@@ -41,7 +41,7 @@ $ yarn encore dev --watch
 
 Execute this command to run tests
 ```sh
-$ ./bin/phpunit
+$ php bin/phpunit tests
 ```
 
 Compile application
