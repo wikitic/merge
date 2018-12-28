@@ -14,6 +14,6 @@ class DefaultController extends AbstractController
      */
     public function index(Request $request) : Response
     {
-        return $this->render('login.html.twig');
+        return $this->render('base.html.twig');
     }
 }

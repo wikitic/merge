@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use function Safe\password_hash;
 
 /**
  * Partner
@@ -113,9 +114,9 @@ class Partner
 
     public function __construct()
     {
-        $this->code     = null;
+        $this->code     = '';
         $this->role     = self::ROLE_PREMIUM;
-        $this->active   = true;
+        $this->active   = 1;
         $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
@@ -125,22 +126,24 @@ class Partner
     /**
      * @ORM\PrePersist
      */
-    public function prePersist(LifecycleEventArgs $args)
+    public function prePersist(LifecycleEventArgs $args): void
     {
+        /*
         if (!$this->code) {
             $em = $args->getEntityManager();
             $er = $em->getRepository(get_class($this));
             $this->code = $er->getUniqueCode();
         }
-        
+
         $this->setPassword($this->code);
+        */
         $this->cdate    = new \DateTime();
     }
 
     /**
      * @ORM\PreUpdate()
      */
-    public function preUpdate()
+    public function preUpdate(): void
     {
         $this->salt     = md5(uniqid());
         $this->mdate    = new \DateTime();
@@ -208,7 +211,6 @@ class Partner
 
     public function setPassword(string $password): self
     {
-        //$this->password = $password;
         $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
@@ -250,24 +252,24 @@ class Partner
         return $this;
     }
 
-    public function getCdate(): ?\DateTimeInterface
+    public function getCdate(): ?\DateTime
     {
         return $this->cdate;
     }
 
-    public function setCdate(\DateTimeInterface $cdate): self
+    public function setCdate(\DateTime $cdate): self
     {
         $this->cdate = $cdate;
 
         return $this;
     }
 
-    public function getMdate(): ?\DateTimeInterface
+    public function getMdate(): ?\DateTime
     {
         return $this->mdate;
     }
 
-    public function setMdate(\DateTimeInterface $mdate): self
+    public function setMdate(\DateTime $mdate): self
     {
         $this->mdate = $mdate;
 

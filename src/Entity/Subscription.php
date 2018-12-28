@@ -57,31 +57,31 @@ class Subscription
      */
     private $partner;
 
-    
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getInDate(): ?\DateTimeInterface
+    public function getInDate(): ?\DateTime
     {
         return $this->inDate;
     }
 
-    public function setInDate(\DateTimeInterface $inDate): self
+    public function setInDate(\DateTime $inDate): self
     {
         $this->inDate = $inDate;
 
         return $this;
     }
 
-    public function getOutDate(): ?\DateTimeInterface
+    public function getOutDate(): ?\DateTime
     {
         return $this->outDate;
     }
 
-    public function setOutDate(\DateTimeInterface $outDate): self
+    public function setOutDate(\DateTime $outDate): self
     {
         $this->outDate = $outDate;
 
@@ -100,12 +100,12 @@ class Subscription
         return $this;
     }
 
-    public function getPrice()
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice($price): self
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
@@ -122,14 +122,5 @@ class Subscription
         $this->partner = $partner;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        if (!$this->getId()) {
-            return '';
-        }
-
-        return $this->getInDate()->format('d-m-Y').' - '.$this->getOutDate()->format('d-m-Y').'  >  '.$this->getInfo();
     }
 }

@@ -25,10 +25,12 @@
         "symfony/validator": "4.2.*",
         "symfony/web-link": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.0",
-        "symfony/yaml": "4.2.*"
+        "symfony/yaml": "4.2.*",
+        "thecodingmachine/safe": "^0.1.8"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "phpstan/phpstan": "^0.10.7",
         "squizlabs/php_codesniffer": "^3.4",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
@@ -36,7 +38,9 @@
         "symfony/phpunit-bridge": "*",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "*"
+        "symfony/web-server-bundle": "*",
+        "thecodingmachine/phpstan-safe-rule": "^0.1.0",
+        "thecodingmachine/phpstan-strict-rules": "^0.10.7"
     },
     "config": {
         "preferred-install": {
@@ -65,6 +69,7 @@
     "scripts": {
         "cscheck": "phpcs --ignore=bin/*,public/*,src/Migrations/**",
         "csfix": "phpcbf --ignore=bin/*,public/*,src/Migrations/**",
+        "phpstan": "phpstan analyse src/ -c phpstan.neon --level=7 --no-progress -vvv --memory-limit=1024M",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",

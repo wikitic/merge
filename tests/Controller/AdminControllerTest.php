@@ -49,7 +49,7 @@ class AdminControllerTest extends WebTestCase
     }
     public function provideNonAuthenticated()
     {
-        yield ['/',                 Response::HTTP_OK];      // 200
+        yield ['/',                 Response::HTTP_FOUND];      // 302
         /*
         yield ['/login',            Response::HTTP_OK];         // 200
         yield ['/dashboard',        Response::HTTP_FOUND];      // 302
@@ -75,10 +75,10 @@ class AdminControllerTest extends WebTestCase
     }
     public function provideGetUrl()
     {
-        yield ['/',                           Response::HTTP_OK];  // 200
-        /*
+        yield ['/',                           Response::HTTP_OK];                 // 200
         yield ['/login',                      Response::HTTP_OK];                 // 200
         yield ['/logout',                     Response::HTTP_FOUND];              // 302
+        /*
         yield ['/dashboard',                  Response::HTTP_OK];                 // 200
 
         yield ['/app/admin/list',             Response::HTTP_OK];                 // 200

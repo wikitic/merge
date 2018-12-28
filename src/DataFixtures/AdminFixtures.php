@@ -22,7 +22,11 @@ class AdminFixtures extends Fixture
     
         $manager->flush();
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
                 'username' => 'admin',

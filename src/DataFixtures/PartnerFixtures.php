@@ -29,7 +29,11 @@ class PartnerFixtures extends Fixture
     
         $manager->flush();
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
                 'code' => 'AAAAAA', 'name' => 'Name 1', 'surname' => 'Surname 1','email' => 'email1@email.com',

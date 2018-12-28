@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use function Safe\password_hash;
 
 /**
  * Admin
@@ -59,7 +60,7 @@ class Admin implements UserInterface
      *
      * @return integer
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -67,11 +68,11 @@ class Admin implements UserInterface
     /**
      * Set username
      *
-     * @param integer $role
+     * @param string $username
      *
-     * @return User
+     * @return Admin
      */
-    public function setUsername($username)
+    public function setUsername(string $username): self
     {
         $this->username = $username;
 
@@ -79,11 +80,11 @@ class Admin implements UserInterface
     }
 
     /**
-     * Get role
+     * Get username
      *
-     * @return integer
+     * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -93,11 +94,10 @@ class Admin implements UserInterface
      *
      * @param string $password
      *
-     * @return User
+     * @return Admin
      */
-    public function setPassword($password)
+    public function setPassword(string $password): self
     {
-        //$this->password = $password;
         $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
@@ -108,7 +108,7 @@ class Admin implements UserInterface
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -118,9 +118,9 @@ class Admin implements UserInterface
      *
      * @param string $salt
      *
-     * @return User
+     * @return Admin
      */
-    public function setSalt($salt)
+    public function setSalt(string $salt): self
     {
         $this->salt = $salt;
 
@@ -132,7 +132,7 @@ class Admin implements UserInterface
      *
      * @return string
      */
-    public function getSalt()
+    public function getSalt(): string
     {
         return $this->salt;
     }
@@ -146,9 +146,9 @@ class Admin implements UserInterface
      *
      * @param integer $role
      *
-     * @return User
+     * @return Admin
      */
-    public function setRole($role)
+    public function setRole(int $role): self
     {
         $this->role = $role;
 
@@ -160,7 +160,7 @@ class Admin implements UserInterface
      *
      * @return integer
      */
-    public function getRole()
+    public function getRole(): int
     {
         return $this->role;
     }

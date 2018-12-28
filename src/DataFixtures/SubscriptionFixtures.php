@@ -28,7 +28,11 @@ class SubscriptionFixtures extends Fixture implements DependentFixtureInterface
     
         $manager->flush();
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
                 'partner' => $this->getReference('AAAAAA'), 'info' => 'Suscripción 1', 'price' => '1.11',

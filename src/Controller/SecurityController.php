@@ -14,8 +14,9 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils) : Response
     {
-        //if($this->getUser())
-            //return $this->redirectToRoute('sonata_admin_redirect');
+        if ($this->getUser()) {
+            return $this->redirectToRoute('index');
+        }
 
         return $this->render('login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
