@@ -16,7 +16,7 @@ class Subscription
 {
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="id_subscription", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -25,28 +25,28 @@ class Subscription
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="in_date", type="datetime")
      */
     private $inDate;
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="out_date", type="datetime")
      */
     private $outDate;
-	
-	/**
+    
+    /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="info", type="string", length=255)
      */
     private $info;
 
     /**
      * @var float
-     * 
+     *
      * @ORM\Column(name="price", type="decimal", scale=2)
      */
     private $price;
@@ -124,12 +124,12 @@ class Subscription
         return $this;
     }
 
-    function __toString() {
-        if(!$this->getId())
+    public function __toString()
+    {
+        if (!$this->getId()) {
             return '';
+        }
 
         return $this->getInDate()->format('d-m-Y').' - '.$this->getOutDate()->format('d-m-Y').'  >  '.$this->getInfo();
     }
-
-    
 }

@@ -11,7 +11,7 @@ class AdminFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as $k=>$v) {
+        foreach ($this->getData() as $k => $v) {
             $admin = new Admin();
             $admin->setUsername($v['username']);
             $admin->setPassword($v['password']);
@@ -25,7 +25,7 @@ class AdminFixtures extends Fixture
     private function getData()
     {
         yield [
-                'username' => 'admin', 
+                'username' => 'admin',
                 'password' => 'pa$$w0rd',
                 'salt' => md5(uniqid()),
                 'role' => Admin::ROLE_SUPER_ADMIN

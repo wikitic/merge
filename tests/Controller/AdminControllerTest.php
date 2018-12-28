@@ -13,7 +13,7 @@ class AdminControllerTest extends WebTestCase
     private $client = null;
 
     protected function setUp()
-	{
+    {
         $this->client = static::createClient();
     }
 
@@ -35,9 +35,9 @@ class AdminControllerTest extends WebTestCase
 
 
     /**
-     * @dataProvider provide_NON_authenticated
+     * @dataProvider provideNonAuthenticated
      */
-    public function test_NON_authenticated($url = null, $http_code = null)
+    public function testNonAuthenticated($url = null, $http_code = null)
     {
         $client = $this->client;
         $client->request('GET', $url);
@@ -47,7 +47,7 @@ class AdminControllerTest extends WebTestCase
 
         $this->assertEquals($http_code, $response->getStatusCode());
     }
-    public function provide_NON_authenticated()
+    public function provideNonAuthenticated()
     {
         yield ['/',                 Response::HTTP_OK];      // 200
         /*
@@ -59,9 +59,9 @@ class AdminControllerTest extends WebTestCase
 
 
     /**
-     * @dataProvider provide_GET_url
+     * @dataProvider provideGetUrl
      */
-    public function test_GET_url($url = null, $http_code = null)
+    public function testGetUrl($url = null, $http_code = null)
     {
         $this->logIn();
 
@@ -73,7 +73,7 @@ class AdminControllerTest extends WebTestCase
 
         $this->assertEquals($http_code, $response->getStatusCode());
     }
-    public function provide_GET_url()
+    public function provideGetUrl()
     {
         yield ['/',                           Response::HTTP_OK];  // 200
         /*

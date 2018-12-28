@@ -17,7 +17,7 @@ class Admin implements UserInterface
 
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="id_admin", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -26,28 +26,28 @@ class Admin implements UserInterface
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="username", type="string", length=255)
      */
     private $username;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="salt", type="string", length=255)
      */
     private $salt;
 
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="role", type="integer")
      */
     private $role = 999;
@@ -137,9 +137,8 @@ class Admin implements UserInterface
         return $this->salt;
     }
 
-    function eraseCredentials()
+    public function eraseCredentials()
     {
-
     }
 
     /**
@@ -171,11 +170,11 @@ class Admin implements UserInterface
      *
      * @return array
      */
-    function getRoles()
+    public function getRoles()
     {
-        switch ($this->role){
-            case self::ROLE_SUPER_ADMIN: return array('ROLE_SUPER_ADMIN');
+        switch ($this->role) {
+            case self::ROLE_SUPER_ADMIN:
+                return array('ROLE_SUPER_ADMIN');
         }
     }
-
 }

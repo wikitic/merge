@@ -24,7 +24,7 @@ class Partner
 
     /**
      * @var integer
-     * 
+     *
      * @ORM\Column(name="id_partner", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -33,77 +33,77 @@ class Partner
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="code", type="string", length=6, unique=true)
      */
     private $code;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="surname", type="string", length=255)
      */
     private $surname;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="email", type="string", length=100, unique=true)
      */
     private $email;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
 
     /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="salt", type="string", length=255)
      */
     private $salt;
 
     /**
      * @var integer
-     * 
+     *
      * @ORM\Column(name="role", type="integer")
      */
     private $role;
 
     /**
      * @var integer
-     * 
+     *
      * @ORM\Column(name="active", type="integer")
      */
     private $active;
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="cdate", type="datetime")
      */
     private $cdate;
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
 
     /**
      * @var Subscription[]|ArrayCollection
-     * 
+     *
      * @ORM\OneToMany(targetEntity="Subscription", mappedBy="partner", cascade={"persist"}, orphanRemoval=true)
      * @ORM\OrderBy({"inDate" = "DESC"})
      */
@@ -127,7 +127,7 @@ class Partner
      */
     public function prePersist(LifecycleEventArgs $args)
     {
-        if(!$this->code){
+        if (!$this->code) {
             $em = $args->getEntityManager();
             $er = $em->getRepository(get_class($this));
             $this->code = $er->getUniqueCode();

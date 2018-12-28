@@ -15,7 +15,7 @@ class SubscriptionFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as $k=>$v) {
+        foreach ($this->getData() as $k => $v) {
             $subscription = new Subscription();
             $subscription->setPartner($v['partner']);
             $subscription->setInDate($v['indate']);
