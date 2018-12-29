@@ -85,8 +85,9 @@
 </script>
 
 <style lang="scss" scoped>
+    $color: #ff0000;
     h1 {
-        color: #ff0000;
+        color: $color;
         font-size: 100px !important;
     }
 </style>

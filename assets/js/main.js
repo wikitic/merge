@@ -5,6 +5,8 @@ import store from './store';
 
 Vue.config.productionTip = false
 
+require('../scss/app.scss');
+
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
