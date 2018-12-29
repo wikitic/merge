@@ -25,6 +25,7 @@ let router = new VueRouter({
               isPublic: true
             }
         },
+        { path: '/dashboard', component: Partners, meta: { requiresAuth: true } },
         { path: '/partners', component: Partners, meta: { requiresAuth: true } },
         { path: '*', redirect: '/login' }
     ],

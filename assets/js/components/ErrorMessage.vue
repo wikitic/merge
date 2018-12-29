@@ -1,5 +1,5 @@
 <template>
-    <v-alert :value="true" color="error" icon="warning" outline>
+    <v-alert :value="true" color="error" icon="warning">
         {{ error.response.data.error }}
     </v-alert>
 </template>

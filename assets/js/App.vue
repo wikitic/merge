@@ -1,14 +1,14 @@
 <template>
     <v-app>
 
-        <v-navigation-drawer v-if="isAuthenticated" app></v-navigation-drawer>
+        <v-navigation-drawer v-if="isAuthenticated" app>
+            <navigation></navigation>
+        </v-navigation-drawer>
 
         <v-toolbar v-if="isAuthenticated" app></v-toolbar>
 
         <v-content>
-            <v-container fluid>
-                <router-view></router-view>
-            </v-container>
+            <router-view></router-view>
         </v-content>
 
         <v-footer v-if="isAuthenticated" color="primary">
@@ -47,9 +47,13 @@
 
 <script>
     import axios from 'axios';
+    import Navigation from './components/Navigation';
 
     export default {
         name: 'app',
+        components: {
+            Navigation,
+        },
         created () {
             let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
                 roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
