@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
-import Home from '../views/Home';
 import Login from '../views/Login';
 import Partners from '../views/Partners';
 
