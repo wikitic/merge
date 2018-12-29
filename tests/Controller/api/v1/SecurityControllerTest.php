@@ -40,6 +40,8 @@ class SecurityControllerTest extends WebTestCase
         yield ['POST',  '/api/v1/login',    Response::HTTP_UNAUTHORIZED,        json_encode(['username'=>'BAD','password'=>'BAD'])          ];  // 401
 
         yield ['POST',  '/api/v1/login',    Response::HTTP_OK,                  json_encode(['username'=>'admin','password'=>'pa$$w0rd'])   ];  // 200
+
+        yield ['POST',  '/api/v1/logout',   Response::HTTP_FOUND                                                                            ];  // 302
     }
 
 }
