@@ -31,11 +31,13 @@
         },
         created () {
             let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
+                username = JSON.parse(this.$parent.$el.attributes['data-username'].value),
                 roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
 
-            let payload = { isAuthenticated: isAuthenticated, roles: roles };
+            let payload = { isAuthenticated: isAuthenticated, username: username, roles: roles };
             this.$store.dispatch('security/onRefresh', payload);
 
+            /*
             axios.interceptors.response.use(undefined, (err) => {
                 return new Promise(() => {
                     if (err.response.status === 403) {
@@ -48,6 +50,7 @@
                     throw err;
                 });
             });
+            */
         },
         computed: {
             isAuthenticated () {

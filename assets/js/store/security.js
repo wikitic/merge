@@ -3,14 +3,22 @@ import SecurityAPI from '../api/security';
 export default {
     namespaced: true,
     state: {
-        isLoading: false,
-        error: null,
         isAuthenticated: false,
+        username: null,
         roles: [],
+        error: null,
     },
     getters: {
-        isLoading (state) {
-            return state.isLoading;
+        isAuthenticated (state) {
+            return state.isAuthenticated;
+        },
+        username (state) {
+            return state.username;
+        },
+        hasRole (state) {
+            return role => {
+                return state.roles.indexOf(role) !== -1;
+            }
         },
         hasError (state) {
             return state.error !== null;
@@ -18,39 +26,31 @@ export default {
         error (state) {
             return state.error;
         },
-        isAuthenticated (state) {
-            return state.isAuthenticated;
-        },
-        hasRole (state) {
-            return role => {
-                return state.roles.indexOf(role) !== -1;
-            }
-        },
     },
     mutations: {
         ['AUTHENTICATING'](state) {
-            state.isLoading = true;
-            state.error = null;
             state.isAuthenticated = false;
+            state.username = null;
             state.roles = [];
-        },
-        ['AUTHENTICATING_SUCCESS'](state, roles) {
-            state.isLoading = false;
             state.error = null;
+        },
+        ['AUTHENTICATING_SUCCESS'](state, data) {
             state.isAuthenticated = true;
-            state.roles = roles;
+            state.username = data.username;
+            state.roles = data.roles;
+            state.error = null;
         },
         ['AUTHENTICATING_ERROR'](state, error) {
-            state.isLoading = false;
-            state.error = error;
             state.isAuthenticated = false;
+            state.username = null;
             state.roles = [];
+            state.error = error;
         },
         ['PROVIDING_DATA_ON_REFRESH_SUCCESS'](state, payload) {
-            state.isLoading = false;
-            state.error = null;
             state.isAuthenticated = payload.isAuthenticated;
+            state.username = payload.username;
             state.roles = payload.roles;
+            state.error = null;
         },
     },
     actions: {

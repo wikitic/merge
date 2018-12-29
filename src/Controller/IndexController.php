@@ -21,6 +21,7 @@ class IndexController extends AbstractController
             'base.html.twig',
             [
                 'isAuthenticated' => json_encode(!empty($user)),
+                'username' => json_encode(!empty($user) ? $user->getUsername() : []),
                 'roles' => json_encode(!empty($user) ? $user->getRoles() : []),
             ]
         );

@@ -27,13 +27,8 @@
 </template>
 
 <script>
-    import Partner from '../components/Partner';
-
     export default {
         name: 'partners',
-        components: {
-            Partner,
-        },
         data () {
             return {
                 search: '',
