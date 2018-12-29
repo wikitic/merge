@@ -23,9 +23,7 @@
         </div>
 
         <div v-else-if="hasError" class="row col">
-            <div class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
+            <error-message :error="error"></error-message>
         </div>
 
         <div v-else-if="!hasPartners" class="row col">
@@ -40,11 +38,13 @@
 
 <script>
     import Partner from '../components/Partner';
+    import ErrorMessage from '../components/ErrorMessage';
 
     export default {
         name: 'partners',
         components: {
-            Partner
+            Partner,
+            ErrorMessage,
         },
         data () {
             return {

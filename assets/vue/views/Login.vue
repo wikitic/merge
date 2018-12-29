@@ -25,16 +25,19 @@
         </div>
 
         <div v-else-if="hasError" class="row col">
-            <div class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
+            <error-message :error="error"></error-message>
         </div>
     </div>
 </template>
 
 <script>
+    import ErrorMessage from '../components/ErrorMessage';
+
     export default {
         name: 'login',
+        components: {
+            ErrorMessage,
+        },
         data () {
             return {
                 username: '',
