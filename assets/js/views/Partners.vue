@@ -1,54 +1,51 @@
 <template>
-    <div>
-        <div class="row col">
-            <h1>Partners</h1>
-        </div>
-        <!--
-        <div class="row col">
-            <form>
-                <div class="form-row">
-                    <div class="col-8">
-                        <input v-model="message" type="text" class="form-control">
-                    </div>
-                    <div class="col-4">
-                        <button @click="createPost()" :disabled="message.length === 0 || isLoading" type="button" class="btn btn-primary">Create</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        -->
-
-        <div v-if="isLoading" class="row col">
-            <p>Loading...</p>
-        </div>
-
-        <div v-else-if="hasError" class="row col">
-            <error-message :error="error"></error-message>
-        </div>
-
-        <div v-else-if="!hasPartners" class="row col">
-            No partners!
-        </div>
-
-        <div v-else v-for="partner in partners" :key="partner.id" class="row col">
-            <partner :name="partner.name"></partner>
-        </div>
-    </div>
+    <v-container fluid>
+        <v-card>
+            <v-card-title>
+                <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
+            </v-card-title>
+            <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" >
+                <template slot="items" slot-scope="props">
+                    <tr @click="props.expanded = !props.expanded">
+                        <td>{{ props.item.code }}</td>
+                        <td>{{ props.item.name }}</td>
+                        <td>{{ props.item.surname }}</td>
+                        <td>{{ props.item.email }}</td>
+                        <td>{{ props.item.role }}</td>
+                        <td>{{ props.item.cdate }}</td>
+                        <td>{{ props.item.mdate }}</td>
+                    </tr>
+                </template>
+                <template slot="expand" slot-scope="props">
+                    <v-card flat>
+                        <v-card-text>{{ props.item.subscriptions }}</v-card-text>
+                    </v-card>
+                </template>
+            </v-data-table>
+        </v-card>
+    </v-container>
 </template>
 
 <script>
     import Partner from '../components/Partner';
-    import ErrorMessage from '../components/ErrorMessage';
 
     export default {
         name: 'partners',
         components: {
             Partner,
-            ErrorMessage,
         },
         data () {
             return {
-                name: '',
+                search: '',
+                headers: [
+                    { text: 'Código', value: 'code', sortable: false },
+                    { text: 'Nombre', value: 'name'},
+                    { text: 'Apellidos',  value: 'surname' },
+                    { text: 'Email', value: 'email' },
+                    { text: 'Rol', value: 'role' },
+                    { text: 'CDate', value: 'cdate' },
+                    { text: 'MDate', value: 'mdate' }
+                ],
             };
         },
         created () {
