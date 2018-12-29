@@ -32,7 +32,7 @@
             No partners!
         </div>
 
-        <div v-else v-for="partner in partners" class="row col">
+        <div v-else v-for="partner in partners" :key="partner.id" class="row col">
             <partner :name="partner.name"></partner>
         </div>
     </div>

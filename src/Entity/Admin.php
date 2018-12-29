@@ -137,7 +137,10 @@ class Admin implements UserInterface
         return $this->salt;
     }
 
-    public function eraseCredentials()
+    /**
+     * @return void
+     */
+    public function eraseCredentials(): void
     {
     }
 

@@ -5,6 +5,7 @@ namespace App\Controller\api\v1;
 use App\Service\PartnerService;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +14,13 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\Serializer\SerializerInterface;
 
 /**
- * Partner controller.
+ * Partner controller
  *
  * @Route("/api/v1")
+ * @package App\Controller
+ * @IsGranted("IS_AUTHENTICATED_FULLY")
  */
-class PartnerController extends AbstractController
+final class PartnerController extends AbstractController
 {
     /** @var SerializerInterface */
     private $serializer;
