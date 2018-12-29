@@ -19,12 +19,11 @@ final class SecurityController extends AbstractController
      * @Route("/login", name="login")
      * @return JsonResponse
      */
-    public function loginAction(): JsonResponse
+    public function login(): JsonResponse
     {
-        /** @var Admin $user */
         $user = $this->getUser();
-        $response = new JsonResponse($user->getRoles());
-        return $response;
+
+        return new JsonResponse($user->getRoles());
     }
 
     /**
@@ -32,7 +31,7 @@ final class SecurityController extends AbstractController
      * @return void
      * @throws \RuntimeException
      */
-    public function logoutAction(): void
+    public function logout(): void
     {
         throw new \RuntimeException('This should not be reached!');
     }

@@ -13,6 +13,9 @@
                     <router-link class="nav-item" tag="li" to="/partners" active-class="active">
                         <a class="nav-link">Partners</a>
                     </router-link>
+                    <li class="nav-item" v-if="isAuthenticated">
+                        <a class="nav-link" href="/api/v1/logout">Logout</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -22,7 +25,30 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'app',
+        created () {
+            let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
+                roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
+
+            let payload = { isAuthenticated: isAuthenticated, roles: roles };
+            this.$store.dispatch('security/onRefresh', payload);
+
+            axios.interceptors.response.use(undefined, (err) => {
+                return new Promise(() => {
+                    if (err.response.status === 403) {
+                        this.$router.push({path: '/login'})
+                    }
+                    throw err;
+                });
+            });
+        },
+        computed: {
+            isAuthenticated () {
+                return this.$store.getters['security/isAuthenticated']
+            },
+        },
     }
 </script>

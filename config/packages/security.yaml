@@ -5,7 +5,7 @@ security:
             algorithm: bcrypt
     providers:
         in_memory: { memory: ~ }
-        pdo:
+        AdminLogin:
             entity:
                 class: App\Entity\Admin
                 property: username
@@ -16,7 +16,7 @@ security:
         main:
             anonymous: true
 
-            provider: pdo
+            provider: AdminLogin
 
             json_login:
                 check_path: /api/v1/login
