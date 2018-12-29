@@ -37,10 +37,10 @@ class AdminControllerTest extends WebTestCase
     /**
      * @dataProvider provideNonAuthenticated
      */
-    public function testNonAuthenticated($url = null, $http_code = null)
+    public function testNonAuthenticated($method = null, $url = null, $http_code = null)
     {
         $client = $this->client;
-        $client->request('GET', $url);
+        $client->request($method, $url);
 
         $response = $client->getResponse();
         $content = $response->getContent();
@@ -49,7 +49,7 @@ class AdminControllerTest extends WebTestCase
     }
     public function provideNonAuthenticated()
     {
-        yield ['/',                 Response::HTTP_FOUND];      // 302
+        yield ['GET',   '/',        Response::HTTP_OK];      // 200
         /*
         yield ['/login',            Response::HTTP_OK];         // 200
         yield ['/dashboard',        Response::HTTP_FOUND];      // 302
@@ -76,28 +76,11 @@ class AdminControllerTest extends WebTestCase
     public function provideGetUrl()
     {
         yield ['/',                           Response::HTTP_OK];                 // 200
-        yield ['/login',                      Response::HTTP_OK];                 // 200
-        yield ['/logout',                     Response::HTTP_FOUND];              // 302
+        //yield ['/login',                      Response::HTTP_OK];                 // 200
+        //yield ['/logout',                     Response::HTTP_FOUND];              // 302
         /*
         yield ['/dashboard',                  Response::HTTP_OK];                 // 200
 
-        yield ['/app/admin/list',             Response::HTTP_OK];                 // 200
-        yield ['/app/admin/create',           Response::HTTP_NOT_FOUND];          // 404
-        yield ['/app/admin/1/show',           Response::HTTP_NOT_FOUND];          // 404
-        yield ['/app/admin/1/delete',         Response::HTTP_NOT_FOUND];          // 404
-        yield ['/app/admin/1/edit',           Response::HTTP_OK];                 // 200
-
-        yield ['/app/partner/list',           Response::HTTP_OK];                 // 200
-        yield ['/app/partner/create',         Response::HTTP_OK];                 // 200
-        yield ['/app/partner/1/show',         Response::HTTP_OK];                 // 200
-        yield ['/app/partner/1/edit',         Response::HTTP_OK];                 // 200
-        yield ['/app/partner/1/delete',       Response::HTTP_OK];                 // 200
-
-        yield ['/app/subscription/list',      Response::HTTP_OK];                 // 200
-        yield ['/app/subscription/create',    Response::HTTP_OK];                 // 200
-        yield ['/app/subscription/1/show',    Response::HTTP_OK];                 // 200
-        yield ['/app/subscription/1/edit',    Response::HTTP_OK];                 // 200
-        yield ['/app/subscription/1/delete',  Response::HTTP_OK];                 // 200
         */
     }
 }

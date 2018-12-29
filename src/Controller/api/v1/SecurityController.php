@@ -7,6 +7,9 @@ use App\Entity\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use FOS\RestBundle\Controller\Annotations as Rest;
+
+use FOS\RestBundle\View\View;
 
 /**
  * Security controller
@@ -16,14 +19,19 @@ use Symfony\Component\Routing\Annotation\Route;
 final class SecurityController extends AbstractController
 {
     /**
-     * @Route("/login", name="login")
+     * @Rest\Post("/login", name="login")
      * @return JsonResponse
      */
     public function login(): JsonResponse
     {
         $user = $this->getUser();
 
-        return new JsonResponse($user->getRoles());
+        return new JsonResponse(
+            [
+                'username' => $user->getUsername(),
+                'roles' => $user->getRoles()
+            ]
+        );
     }
 
     /**
