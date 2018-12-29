@@ -83,3 +83,10 @@
         },
     }
 </script>
+
+<style lang="scss" scoped>
+    h1 {
+        color: #ff0000;
+        font-size: 100px !important;
+    }
+</style>

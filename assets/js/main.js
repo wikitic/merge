@@ -3,9 +3,13 @@ import App from './App';
 import router from './router';
 import store from './store';
 
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
 new Vue({
-    template: '<App/>',
-    components: { App },
+    el: '#app',
     router,
     store,
-}).$mount('#app');
+    components: { App },
+    template: '<App/>'
+})
