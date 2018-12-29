@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
 import Login from '../views/Login';
+import Dashboard from '../views/Dashboard';
 import Partners from '../views/Partners';
 
 Vue.use(VueRouter);
@@ -11,29 +12,36 @@ let router = new VueRouter({
     routes: [
         {
             path: '/login',
-            name: 'login',
-            component: resolve => require(['../views/Login'], resolve),
-            beforeEnter: (to, from, next) => {
-              if (store.getters['security/isAuthenticated']) {
-                next('/partners')
-              } else {
-                next()
-              }
-            },
+            component: Login,
             meta: {
-              isPublic: true
+                guest: true
+            },
+        },
+        { 
+            path: '/dashboard',
+            component: Dashboard, 
+            meta: { 
+                requiresAuth: true 
+            } 
+        },
+        { 
+            path: '/partners',
+            component: Partners,
+            meta: {
+                requiresAuth: true
             }
         },
-        { path: '/dashboard', component: Partners, meta: { requiresAuth: true } },
-        { path: '/partners', component: Partners, meta: { requiresAuth: true } },
-        { path: '*', redirect: '/login' }
+        { 
+            path: '*',
+            redirect: '/dashboard'
+        }
     ],
 });
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
         // this route requires auth, check if logged in
-        // if not, redirect to login page.        
+        // if not, redirect to login page.
         if (store.getters['security/isAuthenticated']) {
             next();
         } else {

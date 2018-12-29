@@ -13,7 +13,7 @@
                             <error-message v-if="hasError" :error="error"></error-message>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn type="submit" :disabled="isDisabled" :loading="isLoading" color="primary">Ok</v-btn>
+                                <v-btn type="submit" :disabled="isDisabled" color="primary">Ok</v-btn>
                             </v-card-actions>
                         </form>
                     </v-card-text>
@@ -37,23 +37,18 @@
                 password: ''
             };
         },
+        /*
         created () {
-            let redirect = this.$route.query.redirect;
+            let redirect = this.$route.query.redirect || '/partners';
 
             if (this.$store.getters['security/isAuthenticated']) {
-                if (typeof redirect !== 'undefined') {
-                    this.$router.push({path: redirect});
-                } else {
-                    this.$router.push({path: '/home'});
-                }
+                this.$router.push({path: redirect});
             }
         },
+        */
         computed: {
             isDisabled () {
                 return this.username.length === 0 || this.password.length === 0;
-            },
-            isLoading () {
-                return this.$store.getters['security/isLoading'];
             },
             hasError () {
                 return this.$store.getters['security/hasError'];
@@ -65,15 +60,11 @@
         methods: {
             login () {
                 let payload = { username: this.$data.username, password: this.$data.password },
-                    redirect = this.$route.query.redirect;
+                    redirect = this.$route.query.redirect || '';
 
                 this.$store.dispatch('security/login', payload)
                     .then(() => {
-                        if (typeof redirect !== 'undefined') {
-                            this.$router.push({path: redirect});
-                        } else {
-                            this.$router.push({path: '/partners'});
-                        }
+                        this.$router.push({path: redirect});
                     });
             },
         },
