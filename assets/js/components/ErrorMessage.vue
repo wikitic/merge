@@ -1,7 +1,7 @@
 <template>
-    <div class="alert alert-danger" role="alert">
+    <v-alert :value="true" color="error" icon="warning" outline>
         {{ error.response.data.error }}
-    </div>
+    </v-alert>
 </template>
 
 <script>
@@ -10,3 +10,6 @@
         props: ['error'],
     }
 </script>
+
+
+

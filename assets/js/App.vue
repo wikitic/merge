@@ -1,4 +1,24 @@
 <template>
+    <v-app>
+
+        <v-navigation-drawer v-if="isAuthenticated" app></v-navigation-drawer>
+
+        <v-toolbar v-if="isAuthenticated" app></v-toolbar>
+
+        <v-content>
+            <v-container fluid>
+                <router-view></router-view>
+            </v-container>
+        </v-content>
+
+        <v-footer v-if="isAuthenticated" color="primary">
+            <v-layout justify-center>
+                <span class="white--text">&copy;{{ new Date().getFullYear() }} — <strong>Asociación Programo Ergo Sum</strong></span>
+            </v-layout>
+        </v-footer>
+
+    </v-app>
+    <!--
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <router-link class="navbar-brand" to="/home">App</router-link>
@@ -22,6 +42,7 @@
 
         <router-view></router-view>
     </div>
+    -->
 </template>
 
 <script>

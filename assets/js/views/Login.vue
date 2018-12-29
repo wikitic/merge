@@ -1,33 +1,30 @@
 <template>
-    <div>
-        <div class="row col">
-            <h1>Login</h1>
-        </div>
-
-        <div class="row col">
-            <form>
-                <div class="form-row">
-                    <div class="col-4">
-                        <input v-model="username" type="text" class="form-control">
-                    </div>
-                    <div class="col-4">
-                        <input v-model="password" type="password" class="form-control">
-                    </div>
-                    <div class="col-4">
-                        <button @click="performLogin()" :disabled="username.length === 0 || password.length === 0 || isLoading" type="button" class="btn btn-primary">Login</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <div v-if="isLoading" class="row col">
-            <p>Loading...</p>
-        </div>
-
-        <div v-else-if="hasError" class="row col">
-            <error-message :error="error"></error-message>
-        </div>
-    </div>
+    <v-app>
+        <v-content>
+            <v-container fluid fill-height>
+                <v-layout align-center justify-center>
+                    <v-flex xs12 sm8 md4>
+                        <v-card class="elevation-12">
+                            <v-toolbar dark color="primary">
+                                <v-toolbar-title>Acceso</v-toolbar-title>
+                            </v-toolbar>
+                            <v-card-text>
+                                <form @submit.prevent="login">
+                                    <v-text-field v-model="username" prepend-icon="person" name="username" label="Usuario" type="text"></v-text-field>
+                                    <v-text-field v-model="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
+                                    <error-message v-if="hasError" :error="error"></error-message>
+                                    <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn type="submit" :disabled="isDisabled" :loading="isLoading" color="primary">Ok</v-btn>
+                                    </v-card-actions>
+                                </form>
+                            </v-card-text>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
@@ -41,7 +38,7 @@
         data () {
             return {
                 username: '',
-                password: '',
+                password: ''
             };
         },
         created () {
@@ -56,6 +53,9 @@
             }
         },
         computed: {
+            isDisabled () {
+                return this.username.length === 0 || this.password.length === 0;
+            },
             isLoading () {
                 return this.$store.getters['security/isLoading'];
             },
@@ -67,7 +67,7 @@
             },
         },
         methods: {
-            performLogin () {
+            login () {
                 let payload = { username: this.$data.username, password: this.$data.password },
                     redirect = this.$route.query.redirect;
 
@@ -76,7 +76,7 @@
                         if (typeof redirect !== 'undefined') {
                             this.$router.push({path: redirect});
                         } else {
-                            this.$router.push({path: '/home'});
+                            this.$router.push({path: '/partners'});
                         }
                     });
             },
@@ -85,9 +85,5 @@
 </script>
 
 <style lang="scss" scoped>
-    $color: #ff0000;
-    h1 {
-        color: $color;
-        font-size: 100px !important;
-    }
+
 </style>
