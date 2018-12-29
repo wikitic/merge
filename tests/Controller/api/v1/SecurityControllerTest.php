@@ -43,5 +43,4 @@ class SecurityControllerTest extends WebTestCase
 
         yield ['POST',  '/api/v1/logout',   Response::HTTP_FOUND                                                                            ];  // 302
     }
-
 }
