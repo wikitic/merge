@@ -5,7 +5,7 @@ security:
             algorithm: bcrypt
     providers:
         in_memory: { memory: ~ }
-        AdminLogin:
+        BackOffice:
             entity:
                 class: App\Entity\Admin
                 property: username
@@ -16,7 +16,7 @@ security:
         main:
             anonymous: true
 
-            provider: AdminLogin
+            provider: BackOffice
 
             json_login:
                 check_path: /api/v1/login

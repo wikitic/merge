@@ -5,9 +5,6 @@ namespace App\Tests\Controller\api\v1;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-
 class SecurityControllerTest extends WebTestCase
 {
     /**
