@@ -52,7 +52,7 @@ class Subscription
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity="Partner")
      * @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
      */
     private $partner;
