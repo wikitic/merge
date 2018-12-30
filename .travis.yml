@@ -44,7 +44,7 @@ before_script:
 script:
   - php bin/phpunit
 
-  - composer csfix
+  #- composer csfix
   - composer cscheck
   - composer phpstan
 
