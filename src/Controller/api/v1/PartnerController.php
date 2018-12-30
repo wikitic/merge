@@ -2,53 +2,59 @@
 
 namespace App\Controller\api\v1;
 
-use App\Service\PartnerService;
+use App\Entity\Partner;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Serializer\SerializerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Partner controller
  *
  * @Route("/api/v1")
- * @package App\Controller
+ *
  * @IsGranted("IS_AUTHENTICATED_FULLY")
  */
 final class PartnerController extends AbstractController
 {
+    /** @var EntityManagerInterface */
+    private $em;
+    private $er;
+
     /** @var SerializerInterface */
     private $serializer;
 
-    /** @var PartnerService */
-    private $partnerService;
-
     /**
-     * ApiPostController constructor.
+     * @param EntityManagerInterface $em
      * @param SerializerInterface $serializer
-     * @param PartnerService $partnerService
      */
-    public function __construct(SerializerInterface $serializer, PartnerService $partnerService)
+    public function __construct(EntityManagerInterface $em, SerializerInterface $serializer)
     {
+        $this->em = $em;
+        $this->er = $em->getRepository(Partner::class);
         $this->serializer = $serializer;
-        $this->partnerService = $partnerService;
     }
 
 
-     /**
+    /**
      * @Rest\Get("/partners", name="getPartners")
      * @return JsonResponse
      */
     public function getPartners(): JsonResponse
     {
-        $partnerService = $this->partnerService->getAll();
-        $data = $this->serializer->serialize($partnerService, 'json');
+        $partners = $this->er->findBy([]);
 
-        return new JsonResponse($data, Response::HTTP_OK, [], true);
+        return new JsonResponse(
+            $this->serializer->serialize($partners, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
     }
 }
