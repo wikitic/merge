@@ -5,9 +5,6 @@ namespace App\Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response;
 
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-
 class IndexControllerTest extends WebTestCase
 {
     /**
@@ -19,7 +16,7 @@ class IndexControllerTest extends WebTestCase
         $client->request($method, $url);
 
         $response = $client->getResponse();
-        $content = $response->getContent();
+        //$content = $response->getContent();
 
         $this->assertEquals($http_code, $response->getStatusCode());
     }
