@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import store from '../store';
 import Login from '../views/Login';
 import Logout from '../views/Logout';
+import Profile from '../views/Profile';
 import Dashboard from '../views/Dashboard';
 import Partners from '../views/Partners';
 
@@ -26,6 +27,14 @@ let router = new VueRouter({
             meta: {
                 requiresAuth: true
             },
+        },
+        { 
+            path: '/profile',
+            name: 'Profile',
+            component: Profile, 
+            meta: { 
+                requiresAuth: true 
+            } 
         },
         { 
             path: '/dashboard',
