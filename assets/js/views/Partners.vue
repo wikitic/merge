@@ -4,14 +4,13 @@
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
-            <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" >
+            <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" :pagination.sync="pagination">
                 <template slot="items" slot-scope="props">
                     <tr @click="props.expanded = !props.expanded">
                         <td>{{ props.item.code }}</td>
                         <td>{{ props.item.name }}</td>
                         <td>{{ props.item.surname }}</td>
                         <td>{{ props.item.email }}</td>
-                        <td>{{ props.item.role }}</td>
                         <td>{{ props.item.cdate }}</td>
                         <td>{{ props.item.mdate }}</td>
                     </tr>
@@ -32,12 +31,14 @@
         data () {
             return {
                 search: '',
+                pagination: {
+                    rowsPerPage: 10
+                },
                 headers: [
                     { text: 'Código', value: 'code', sortable: false },
                     { text: 'Nombre', value: 'name'},
                     { text: 'Apellidos',  value: 'surname' },
                     { text: 'Email', value: 'email' },
-                    { text: 'Rol', value: 'role' },
                     { text: 'CDate', value: 'cdate' },
                     { text: 'MDate', value: 'mdate' }
                 ],
