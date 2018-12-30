@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store';
 import Login from '../views/Login';
+import Logout from '../views/Logout';
 import Dashboard from '../views/Dashboard';
 import Partners from '../views/Partners';
 
@@ -12,13 +13,23 @@ let router = new VueRouter({
     routes: [
         {
             path: '/login',
+            name: 'Login',
             component: Login,
             meta: {
                 guest: true
             },
         },
+        {
+            path: '/logout',
+            name: 'Logout',
+            component: Logout,
+            meta: {
+                requiresAuth: true
+            },
+        },
         { 
             path: '/dashboard',
+            name: 'Dashboard',
             component: Dashboard, 
             meta: { 
                 requiresAuth: true 

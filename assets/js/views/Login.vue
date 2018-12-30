@@ -38,8 +38,10 @@
             };
         },
         created () {
+            let redirect = this.$route.query.redirect || '/';
+            
             if (this.$store.getters['security/isAuthenticated']) {
-                this.$router.push({path: '/'});
+                this.$router.push({path: redirect});
             }
         },
         computed: {
@@ -56,7 +58,7 @@
         methods: {
             login () {
                 let payload = { username: this.$data.username, password: this.$data.password },
-                    redirect = this.$route.query.redirect || '';
+                    redirect = this.$route.query.redirect || '/';
 
                 this.$store.dispatch('security/login', payload)
                     .then(() => {

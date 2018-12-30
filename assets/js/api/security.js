@@ -8,6 +8,11 @@ export default {
                 username: username,
                 password: password
             }
-        );
+        )
+    },
+    logout () {
+        return axios.get(
+            '/api/v1/logout'
+        )
     },
 }

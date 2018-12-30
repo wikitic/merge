@@ -63,5 +63,9 @@ export default {
         onRefresh({commit}, payload) {
             commit('PROVIDING_DATA_ON_REFRESH_SUCCESS', payload);
         },
-    },
+        logout ({commit}) {
+            commit('AUTHENTICATING');
+            return SecurityAPI.logout();
+        }
+    }
 }
