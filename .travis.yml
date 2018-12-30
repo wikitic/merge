@@ -5,6 +5,7 @@ dist: trusty
 branches:
   only:
     - develop
+    - master
 
 php:
   - 7.2
