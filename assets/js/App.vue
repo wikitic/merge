@@ -9,9 +9,9 @@
             <router-view></router-view>
         </v-content>
 
-        <v-footer v-if="isAuthenticated" color="primary">
+        <v-footer v-if="isAuthenticated">
             <v-layout justify-center>
-                <span class="white--text">&copy;{{ new Date().getFullYear() }} — <strong>Asociación Programo Ergo Sum</strong></span>
+                &copy;{{ new Date().getFullYear() }} — <strong>Asociación Programo Ergo Sum</strong>
             </v-layout>
         </v-footer>
 

@@ -4,8 +4,16 @@ import App from './App';
 import router from './router';
 import store from './store';
 
-Vue.use(Vuetify)
-import 'vuetify/dist/vuetify.min.css' 
+import 'vuetify/dist/vuetify.min.css'
+
+Vue.use(Vuetify, {
+    theme: {
+      primary: '#E65100',
+      //secondary: '#b0bec5',
+      //accent: '#8c9eff',
+      //error: '#b71c1c'
+    }
+  });
 
 Vue.config.productionTip = false
 

@@ -1,10 +1,10 @@
 <template>
-    <v-toolbar color="primary" fixed dark app>
+    <v-toolbar color="primary" fixed app :clipped-left="clipped">
         <v-spacer></v-spacer>
         <v-menu offset-y origin="center center" :nudge-bottom="10" transition="scale-transition">
             <v-btn icon large flat slot="activator">
                 <v-avatar size="30px">
-                    <img src="https://cdn.vuetifyjs.com/images/logos/logo.svg" />
+                    <img src="../../images/icono.jpg" />
                 </v-avatar>
             </v-btn>
             <v-list class="pa-0">
