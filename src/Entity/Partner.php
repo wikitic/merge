@@ -24,7 +24,7 @@ class Partner
     const ROLE_PREMIUM  = 1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id_partner", type="integer")
      * @ORM\Id
@@ -75,14 +75,14 @@ class Partner
     private $salt;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="role", type="integer")
      */
     private $role;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="active", type="integer")
      */
@@ -142,16 +142,33 @@ class Partner
 
 
 
-    public function getId(): ?int
+    /**
+     * Get idPartner
+     *
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getCode(): ?string
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return Partner
+     */
     public function setCode(string $code): self
     {
         $this->code = $code;
@@ -159,11 +176,23 @@ class Partner
         return $this;
     }
 
-    public function getName(): ?string
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Partner
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -171,11 +200,23 @@ class Partner
         return $this;
     }
 
-    public function getSurname(): ?string
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname(): string
     {
         return $this->surname;
     }
 
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     *
+     * @return Partner
+     */
     public function setSurname(string $surname): self
     {
         $this->surname = $surname;
@@ -183,11 +224,23 @@ class Partner
         return $this;
     }
 
-    public function getEmail(): ?string
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail(): string
     {
         return $this->email;
     }
 
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Partner
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -195,11 +248,23 @@ class Partner
         return $this;
     }
 
-    public function getPassword(): ?string
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword(): string
     {
         return $this->password;
     }
 
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Partner
+     */
     public function setPassword(string $password): self
     {
         $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
@@ -207,11 +272,23 @@ class Partner
         return $this;
     }
 
-    public function getSalt(): ?string
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt(): string
     {
         return $this->salt;
     }
 
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Partner
+     */
     public function setSalt(string $salt): self
     {
         $this->salt = $salt;
@@ -219,11 +296,23 @@ class Partner
         return $this;
     }
 
-    public function getRole(): ?int
+    /**
+     * Get role
+     *
+     * @return int
+     */
+    public function getRole(): int
     {
         return $this->role;
     }
 
+    /**
+     * Set role
+     *
+     * @param int $role
+     *
+     * @return Partner
+     */
     public function setRole(int $role): self
     {
         $this->role = $role;
@@ -231,11 +320,23 @@ class Partner
         return $this;
     }
 
-    public function getActive(): ?int
+    /**
+     * Get active
+     *
+     * @return int
+     */
+    public function getActive(): int
     {
         return $this->active;
     }
 
+    /**
+     * Set active
+     *
+     * @param int $active
+     *
+     * @return Partner
+     */
     public function setActive(int $active): self
     {
         $this->active = $active;
@@ -243,11 +344,23 @@ class Partner
         return $this;
     }
 
-    public function getCdate(): ?\DateTime
+    /**
+     * Get Cdate
+     *
+     * @return \DateTime
+     */
+    public function getCdate(): \DateTime
     {
         return $this->cdate;
     }
 
+    /**
+     * Set Cdate
+     *
+     * @param \DateTime $cdate
+     *
+     * @return Partner
+     */
     public function setCdate(\DateTime $cdate): self
     {
         $this->cdate = $cdate;
@@ -255,11 +368,23 @@ class Partner
         return $this;
     }
 
-    public function getMdate(): ?\DateTime
+    /**
+     * Get Mdate
+     *
+     * @return \DateTime
+     */
+    public function getMdate(): \DateTime
     {
         return $this->mdate;
     }
 
+    /**
+     * Set Mdate
+     *
+     * @param \DateTime $mdate
+     *
+     * @return Partner
+     */
     public function setMdate(\DateTime $mdate): self
     {
         $this->mdate = $mdate;
