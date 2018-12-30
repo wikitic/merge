@@ -51,5 +51,5 @@ script:
   - php bin/console lint:yaml config
   - php bin/console lint:twig templates
   #- php bin/console lint:xliff translations
-  #- php bin/console security:check
+  - php bin/console security:check
   - php bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction
