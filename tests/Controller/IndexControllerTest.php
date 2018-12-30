@@ -8,38 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-class AdminControllerTest extends WebTestCase
+class IndexControllerTest extends WebTestCase
 {
-    private $client = null;
-
-    protected function setUp()
-    {
-        $this->client = static::createClient();
-    }
-
-    private function logIn()
-    {
-        $session = $this->client->getContainer()->get('session');
-
-        $firewallName = 'BackOffice';
-        $firewallContext = 'BackOffice';
-
-        $token = new UsernamePasswordToken('admin', null, $firewallName, ['ROLE_SUPER_ADMIN']);
-        $session->set('_security_'.$firewallContext, serialize($token));
-        $session->save();
-
-        $cookie = new Cookie($session->getName(), $session->getId());
-        $this->client->getCookieJar()->set($cookie);
-    }
-
-
-
     /**
-     * @dataProvider provideNonAuthenticated
+     * @dataProvider provideUrls
      */
-    public function testNonAuthenticated($method = null, $url = null, $http_code = null)
+    public function testUrls($method = null, $url = null, $http_code = null)
     {
-        $client = $this->client;
+        $client = static::createClient();
         $client->request($method, $url);
 
         $response = $client->getResponse();
@@ -47,40 +23,14 @@ class AdminControllerTest extends WebTestCase
 
         $this->assertEquals($http_code, $response->getStatusCode());
     }
-    public function provideNonAuthenticated()
+    public function provideUrls()
     {
-        yield ['GET',   '/',        Response::HTTP_OK];      // 200
-        /*
-        yield ['/login',            Response::HTTP_OK];         // 200
-        yield ['/dashboard',        Response::HTTP_FOUND];      // 302
-        yield ['/BAD-URL',          Response::HTTP_NOT_FOUND];  // 400
-        */
-    }
+        yield ['GET',   '/',                Response::HTTP_OK];         // 200
+        yield ['GET',   '/ANY-URL-TO-VUE',  Response::HTTP_OK];         // 200
 
-
-    /**
-     * @dataProvider provideGetUrl
-     */
-    public function testGetUrl($url = null, $http_code = null)
-    {
-        $this->logIn();
-
-        $client = $this->client;
-        $client->request('GET', $url);
-
-        $response = $client->getResponse();
-        $content = $response->getContent();
-
-        $this->assertEquals($http_code, $response->getStatusCode());
-    }
-    public function provideGetUrl()
-    {
-        yield ['/',                           Response::HTTP_OK];                 // 200
-        //yield ['/login',                      Response::HTTP_OK];                 // 200
-        //yield ['/logout',                     Response::HTTP_FOUND];              // 302
-        /*
-        yield ['/dashboard',                  Response::HTTP_OK];                 // 200
-
-        */
+        yield ['GET',   '/api',             Response::HTTP_NOT_FOUND];  // 404
+        yield ['GET',   '/api/BAD-URL',     Response::HTTP_NOT_FOUND];  // 404
+        yield ['GET',   '/api/v1/',         Response::HTTP_NOT_FOUND];  // 404
+        yield ['GET',   '/api/v1/BAD-URL',  Response::HTTP_NOT_FOUND];  // 404
     }
 }

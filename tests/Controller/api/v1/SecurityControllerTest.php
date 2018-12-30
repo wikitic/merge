@@ -10,19 +10,12 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class SecurityControllerTest extends WebTestCase
 {
-    private $client = null;
-
-    protected function setUp()
-    {
-        $this->client = static::createClient();
-    }
-
     /**
      * @dataProvider provideAuthentication
      */
     public function testAuthentication($method = null, $url = null, $http_code = null, $data = null)
     {
-        $client = $this->client;
+        $client = static::createClient();
         $client->request($method, $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $client->getResponse();
@@ -33,6 +26,7 @@ class SecurityControllerTest extends WebTestCase
     public function provideAuthentication()
     {
         yield ['GET',   '/api/v1/login',    Response::HTTP_METHOD_NOT_ALLOWED                                                               ];  // 405
+        
         yield ['POST',  '/api/v1/login',    Response::HTTP_BAD_REQUEST                                                                      ];  // 400
         yield ['POST',  '/api/v1/login',    Response::HTTP_BAD_REQUEST,         json_encode([])                                             ];  // 400
         yield ['POST',  '/api/v1/login',    Response::HTTP_BAD_REQUEST,         json_encode(['username'=>'BAD'])                            ];  // 400
