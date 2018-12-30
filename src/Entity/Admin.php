@@ -58,7 +58,7 @@ class Admin implements UserInterface
     /**
      * Get idAdmin
      *
-     * @return integer
+     * @return int
      */
     public function getId(): int
     {
@@ -147,7 +147,7 @@ class Admin implements UserInterface
     /**
      * Set role
      *
-     * @param integer $role
+     * @param int $role
      *
      * @return Admin
      */
@@ -161,7 +161,7 @@ class Admin implements UserInterface
     /**
      * Get role
      *
-     * @return integer
+     * @return int
      */
     public function getRole(): int
     {
