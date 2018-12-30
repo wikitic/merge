@@ -391,4 +391,14 @@ class Partner
 
         return $this;
     }
+
+    /**
+     * Get fullname
+     *
+     * @return string
+     */
+    public function getFullname(): string
+    {
+        return $this->name . ' ' . $this->surname;
+    }
 }
