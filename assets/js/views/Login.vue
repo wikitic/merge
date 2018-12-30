@@ -37,15 +37,11 @@
                 password: ''
             };
         },
-        /*
         created () {
-            let redirect = this.$route.query.redirect || '/partners';
-
             if (this.$store.getters['security/isAuthenticated']) {
-                this.$router.push({path: redirect});
+                this.$router.push({path: '/'});
             }
         },
-        */
         computed: {
             isDisabled () {
                 return this.username.length === 0 || this.password.length === 0;
