@@ -125,9 +125,10 @@ class Partner
             $er = $em->getRepository(get_class($this));
             $this->code = $er->getUniqueCode();
         }
-
-        $this->setPassword($this->code);
         */
+        
+        $this->setPassword($this->code);
+        
         $this->cdate    = new \DateTime();
     }
 

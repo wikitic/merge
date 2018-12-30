@@ -9,11 +9,12 @@ use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 class PartnerControllerTest extends WebTestCase
-{    
+{
+
     private $client = null;
     
     protected function setUp()
-	{
+    {
         $this->client = static::createClient();
     }
 
