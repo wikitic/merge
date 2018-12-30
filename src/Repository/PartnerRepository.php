@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Partner;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use function Safe\substr;
 
 /**
  * @method Partner|null find($id, $lockMode = null, $lockVersion = null)

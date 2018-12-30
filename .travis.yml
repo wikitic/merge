@@ -44,6 +44,10 @@ before_script:
 script:
   - php bin/phpunit
 
+  #- composer csfix
+  - composer cscheck
+  - composer phpstan
+
   - php bin/console lint:yaml config
   - php bin/console lint:twig templates
   - php bin/console lint:xliff translations
