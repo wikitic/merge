@@ -24,7 +24,7 @@ class Subscription
     private $id;
 
     /**
-     * @var \Partner
+     * @var Partner
      *
      * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
      * @ORM\JoinColumns({
@@ -62,17 +62,33 @@ class Subscription
     private $price;
 
 
-
-    public function getId(): ?int
+    /**
+     * Get idSubscription
+     *
+     * @return int
+     */
+    public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * Get Indate
+     *
+     * @return \DateTime
+     */
     public function getInDate(): ?\DateTime
     {
         return $this->inDate;
     }
 
+    /**
+     * Set Indate
+     *
+     * @param \DateTime $inDate
+     *
+     * @return Subscription
+     */
     public function setInDate(\DateTime $inDate): self
     {
         $this->inDate = $inDate;
@@ -80,11 +96,23 @@ class Subscription
         return $this;
     }
 
+    /**
+     * Get Outdate
+     *
+     * @return \DateTime
+     */
     public function getOutDate(): ?\DateTime
     {
         return $this->outDate;
     }
 
+    /**
+     * Set Outdate
+     *
+     * @param \DateTime $outDate
+     *
+     * @return Subscription
+     */
     public function setOutDate(\DateTime $outDate): self
     {
         $this->outDate = $outDate;
@@ -92,11 +120,23 @@ class Subscription
         return $this;
     }
 
+    /**
+     * Get Info
+     *
+     * @return string
+     */
     public function getInfo(): ?string
     {
         return $this->info;
     }
 
+    /**
+     * Set Info
+     *
+     * @param string $info
+     *
+     * @return Subscription
+     */
     public function setInfo(string $info): self
     {
         $this->info = $info;
@@ -104,24 +144,49 @@ class Subscription
         return $this;
     }
 
-    public function getPrice(): ?float
+    /**
+     * Get Price
+     *
+     * @return float
+     */
+    public function getPrice(): float
     {
         return $this->price;
     }
 
+    /**
+     * Set Price
+     *
+     * @param float $price
+     *
+     * @return Subscription
+     */
     public function setPrice(float $price): self
     {
         $this->price = $price;
 
         return $this;
     }
-/*
-    public function getPartner(): ?Partner
+
+    /**
+     * Get Partner
+     *
+     * @return Partner
+     */
+    public function getPartner(): Partner
     {
+        //return null;
         return $this->partner;
     }
-*/
-    public function setPartner(?Partner $partner): self
+
+    /**
+     * Set Parter
+     *
+     * @param Partner $partner
+     *
+     * @return Subscription
+     */
+    public function setPartner(Partner $partner): self
     {
         $this->partner = $partner;
 

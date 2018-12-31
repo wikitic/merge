@@ -105,7 +105,7 @@ class Partner
     /**
      * @var Subscription[]|ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="partner")
+     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="partner", cascade={"persist"}, orphanRemoval=true)
      * @ORM\OrderBy({"inDate" = "DESC"})
      */
     private $subscriptions;
@@ -439,7 +439,7 @@ class Partner
             $this->subscriptions->removeElement($subscription);
             // set the owning side to null (unless already changed)
             if ($subscription->getPartner() === $this) {
-                $subscription->setPartner(null);
+                //$subscription->setPartner(null);
             }
         }
 
