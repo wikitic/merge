@@ -62,8 +62,9 @@ class Subscription
     private $price;
 
 
+
     /**
-     * Get idSubscription
+     * Get id
      *
      * @return int
      */
@@ -73,17 +74,17 @@ class Subscription
     }
 
     /**
-     * Get Indate
+     * Get indate
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getInDate(): ?\DateTime
+    public function getInDate(): string
     {
-        return $this->inDate;
+        return $this->inDate->format(\DateTime::ISO8601);
     }
 
     /**
-     * Set Indate
+     * Set indate
      *
      * @param \DateTime $inDate
      *
@@ -97,17 +98,17 @@ class Subscription
     }
 
     /**
-     * Get Outdate
+     * Get outdate
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getOutDate(): ?\DateTime
+    public function getOutDate(): string
     {
-        return $this->outDate;
+        return $this->outDate->format(\DateTime::ISO8601);
     }
 
     /**
-     * Set Outdate
+     * Set outdate
      *
      * @param \DateTime $outDate
      *
@@ -121,7 +122,7 @@ class Subscription
     }
 
     /**
-     * Get Info
+     * Get info
      *
      * @return string
      */
@@ -131,7 +132,7 @@ class Subscription
     }
 
     /**
-     * Set Info
+     * Set info
      *
      * @param string $info
      *
@@ -145,7 +146,7 @@ class Subscription
     }
 
     /**
-     * Get Price
+     * Get price
      *
      * @return float
      */
@@ -155,7 +156,7 @@ class Subscription
     }
 
     /**
-     * Set Price
+     * Set price
      *
      * @param float $price
      *
@@ -169,7 +170,7 @@ class Subscription
     }
 
     /**
-     * Get Partner
+     * Get partner
      *
      * @return Partner
      */
@@ -180,7 +181,7 @@ class Subscription
     }
 
     /**
-     * Set Parter
+     * Set parter
      *
      * @param Partner $partner
      *

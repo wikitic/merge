@@ -154,7 +154,7 @@ class Partner
 
 
     /**
-     * Get idPartner
+     * Get id
      *
      * @return int
      */
@@ -356,17 +356,17 @@ class Partner
     }
 
     /**
-     * Get Cdate
+     * Get cdate
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCdate(): \DateTime
+    public function getCdate(): string
     {
-        return $this->cdate;
+        return $this->cdate->format(\DateTime::ISO8601);
     }
 
     /**
-     * Set Cdate
+     * Set cdate
      *
      * @param \DateTime $cdate
      *
@@ -380,17 +380,17 @@ class Partner
     }
 
     /**
-     * Get Mdate
+     * Get mdate
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getMdate(): \DateTime
+    public function getMdate(): string
     {
-        return $this->mdate;
+        return $this->mdate->format(\DateTime::ISO8601);
     }
 
     /**
-     * Set Mdate
+     * Set mdate
      *
      * @param \DateTime $mdate
      *
@@ -413,9 +413,9 @@ class Partner
         return $this->name . ' ' . $this->surname;
     }
 
-
-
     /**
+     * Get subscriptions
+     *
      * @return Collection|Subscription[]
      */
     public function getSubscriptions(): Collection
@@ -423,6 +423,13 @@ class Partner
         return $this->subscriptions;
     }
 
+    /**
+     * Add subscription
+     *
+     * @param Subscription $subscription
+     *
+     * @return Partner
+     */
     public function addSubscription(Subscription $subscription): self
     {
         if (!$this->subscriptions->contains($subscription)) {
@@ -433,6 +440,13 @@ class Partner
         return $this;
     }
 
+    /**
+     * Remove subscription
+     *
+     * @param Subscription $subscription
+     *
+     * @return Partner
+     */
     public function removeSubscription(Subscription $subscription): self
     {
         if ($this->subscriptions->contains($subscription)) {
