@@ -24,6 +24,16 @@ class Subscription
     private $id;
 
     /**
+     * @var \Partner
+     *
+     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
+     * })
+     */
+    private $partner;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
@@ -50,12 +60,6 @@ class Subscription
      * @ORM\Column(name="price", type="decimal", scale=2)
      */
     private $price;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Partner")
-     * @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
-     */
-    private $partner;
 
 
 
@@ -111,12 +115,12 @@ class Subscription
 
         return $this;
     }
-
+/*
     public function getPartner(): ?Partner
     {
         return $this->partner;
     }
-
+*/
     public function setPartner(?Partner $partner): self
     {
         $this->partner = $partner;

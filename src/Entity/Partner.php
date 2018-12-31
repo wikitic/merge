@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 use function Safe\password_hash;
@@ -102,6 +102,13 @@ class Partner
      */
     private $mdate;
 
+    /**
+     * @var Subscription[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="partner")
+     * @ORM\OrderBy({"inDate" = "DESC"})
+     */
+    private $subscriptions;
     
 
     public function __construct()
@@ -112,7 +119,10 @@ class Partner
         $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
+        $this->subscriptions = new ArrayCollection();
     }
+
+
 
     /**
      * @ORM\PrePersist
@@ -401,5 +411,38 @@ class Partner
     public function getFullname(): string
     {
         return $this->name . ' ' . $this->surname;
+    }
+
+
+
+    /**
+     * @return Collection|Subscription[]
+     */
+    public function getSubscriptions(): Collection
+    {
+        return $this->subscriptions;
+    }
+
+    public function addSubscription(Subscription $subscription): self
+    {
+        if (!$this->subscriptions->contains($subscription)) {
+            $this->subscriptions[] = $subscription;
+            $subscription->setPartner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubscription(Subscription $subscription): self
+    {
+        if ($this->subscriptions->contains($subscription)) {
+            $this->subscriptions->removeElement($subscription);
+            // set the owning side to null (unless already changed)
+            if ($subscription->getPartner() === $this) {
+                $subscription->setPartner(null);
+            }
+        }
+
+        return $this;
     }
 }

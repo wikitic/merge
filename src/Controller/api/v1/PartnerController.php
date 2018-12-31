@@ -3,6 +3,7 @@
 namespace App\Controller\api\v1;
 
 use App\Entity\Partner;
+use App\Entity\Subscription;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -13,6 +14,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
+
+
+
+
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 /**
  * Partner controller
@@ -38,6 +46,7 @@ final class PartnerController extends AbstractController
     {
         $this->em = $em;
         $this->er = $em->getRepository(Partner::class);
+        
         $this->serializer = $serializer;
     }
 
