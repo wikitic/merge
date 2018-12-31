@@ -7,6 +7,7 @@
             <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" :pagination.sync="pagination">
                 <template slot="items" slot-scope="props">
                     <tr @click="props.expanded = !props.expanded">
+                        <td>{{ props.item.numSubscriptions }}</td>
                         <td>
                             <v-chip label small :color="getColorByStatus(props.item.active)" text-color="white" >
                                 {{ props.item.code }}
@@ -26,20 +27,7 @@
                 <template slot="expand" slot-scope="props">
                     <v-card flat>
                         <v-card-text>
-                            
-                            {{ props.item.subscriptions }}
-
-                            <v-data-table :items="props.item.subscriptions" item-key="props.item.subscriptions.id">
-                                <template slot="items" slot-scope="props">
-                                    <tr>
-                                        <td>{{ props.item.info }}</td>
-                                        <td>{{ props.item.inDate }}</td>
-                                        <td>{{ props.item.outDate }}</td>
-                                        <td>{{ props.item.price }}</td>
-                                    </tr>
-                                </template>
-                            </v-data-table>
-
+                            <subscriptions :subscriptions="props.item.subscriptions"></subscriptions>
                         </v-card-text>
                     </v-card>
                 </template>
@@ -49,8 +37,13 @@
 </template>
 
 <script>
+    import Subscriptions from '../components/Partners/Subscriptions';
+
     export default {
         name: 'partners',
+        components: {
+            Subscriptions,
+        },
         data () {
             return {
                 search: '',
@@ -58,6 +51,7 @@
                     rowsPerPage: 10
                 },
                 headers: [
+                    { text: 'Suscripciones', value: 'numSubscriptions' },
                     { text: 'Código', value: 'code', sortable: false },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
                     { text: 'Email', value: 'email' },
