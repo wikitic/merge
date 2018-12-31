@@ -4,6 +4,7 @@ dist: trusty
 
 branches:
   only:
+    - develop
     - master
 
 php:
@@ -44,8 +45,12 @@ before_script:
 script:
   - php bin/phpunit
 
+  #- composer csfix
+  - composer cscheck
+  - composer phpstan
+
   - php bin/console lint:yaml config
   - php bin/console lint:twig templates
-  - php bin/console lint:xliff translations
+  #- php bin/console lint:xliff translations
   - php bin/console security:check
   - php bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction

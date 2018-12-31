@@ -12,7 +12,7 @@ class PartnerFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        foreach ($this->getData() as $k=>$v) {
+        foreach ($this->getData() as $k => $v) {
             $partner = new Partner();
             $partner->setCode($v['code']);
             $partner->setName($v['name']);
@@ -29,26 +29,30 @@ class PartnerFixtures extends Fixture
     
         $manager->flush();
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
                 'code' => 'AAAAAA', 'name' => 'Name 1', 'surname' => 'Surname 1','email' => 'email1@email.com',
-                'active' => 1, 'role' => Partner::ROLE_PREMIUM, 
+                'active' => 1, 'role' => Partner::ROLE_PREMIUM,
                 'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'BBBBBB', 'name' => 'Name 2', 'surname' => 'Surname 2','email' => 'email2@email.com',
-                'active' => 1, 'role' => Partner::ROLE_PREMIUM, 
+                'active' => 1, 'role' => Partner::ROLE_PREMIUM,
                 'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'CCCCCC', 'name' => 'Name 3', 'surname' => 'Surname 3','email' => 'email3@email.com',
-                'active' => 1, 'role' => Partner::ROLE_USER, 
+                'active' => 1, 'role' => Partner::ROLE_USER,
                 'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
                 'code' => 'DDDDDD', 'name' => 'Name 4', 'surname' => 'Surname 4','email' => 'email4@email.com',
-                'active' => 0, 'role' => Partner::ROLE_PREMIUM, 
+                'active' => 0, 'role' => Partner::ROLE_PREMIUM,
                 'cdate' => new \DateTime('2015-01-01')
             ];
     }

@@ -2,6 +2,7 @@
 
 > Under construction
 
+[![Build Status](https://travis-ci.org/ProgramoErgoSum/asociacion.svg?branch=develop)](https://travis-ci.org/ProgramoErgoSum/asociacion)
 [![Build Status](https://travis-ci.org/ProgramoErgoSum/asociacion.svg?branch=master)](https://travis-ci.org/ProgramoErgoSum/asociacion)
 
 
@@ -36,7 +37,7 @@ $ yarn install
 Run application in dev mode <http://localhost:8000>
 ```sh
 $ php bin/console server:run
-$ yarn encore dev --watch
+$ yarn encore dev-server --hot
 ```
 
 Execute this command to run tests

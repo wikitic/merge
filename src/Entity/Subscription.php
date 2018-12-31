@@ -16,7 +16,7 @@ class Subscription
 {
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="id_subscription", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -24,75 +24,120 @@ class Subscription
     private $id;
 
     /**
+     * @var Partner
+     *
+     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
+     * })
+     */
+    private $partner;
+
+    /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="in_date", type="datetime")
      */
     private $inDate;
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="out_date", type="datetime")
      */
     private $outDate;
-	
-	/**
+    
+    /**
      * @var string
-     * 
+     *
      * @ORM\Column(name="info", type="string", length=255)
      */
     private $info;
 
     /**
      * @var float
-     * 
+     *
      * @ORM\Column(name="price", type="decimal", scale=2)
      */
     private $price;
 
+
+
     /**
-     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
-     * @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
+     * Get id
+     *
+     * @return int
      */
-    private $partner;
-
-    
-
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getInDate(): ?\DateTimeInterface
+    /**
+     * Get indate
+     *
+     * @return string
+     */
+    public function getInDate(): string
     {
-        return $this->inDate;
+        return $this->inDate->format(\DateTime::ISO8601);
     }
 
-    public function setInDate(\DateTimeInterface $inDate): self
+    /**
+     * Set indate
+     *
+     * @param \DateTime $inDate
+     *
+     * @return Subscription
+     */
+    public function setInDate(\DateTime $inDate): self
     {
         $this->inDate = $inDate;
 
         return $this;
     }
 
-    public function getOutDate(): ?\DateTimeInterface
+    /**
+     * Get outdate
+     *
+     * @return string
+     */
+    public function getOutDate(): string
     {
-        return $this->outDate;
+        return $this->outDate->format(\DateTime::ISO8601);
     }
 
-    public function setOutDate(\DateTimeInterface $outDate): self
+    /**
+     * Set outdate
+     *
+     * @param \DateTime $outDate
+     *
+     * @return Subscription
+     */
+    public function setOutDate(\DateTime $outDate): self
     {
         $this->outDate = $outDate;
 
         return $this;
     }
 
+    /**
+     * Get info
+     *
+     * @return string
+     */
     public function getInfo(): ?string
     {
         return $this->info;
     }
 
+    /**
+     * Set info
+     *
+     * @param string $info
+     *
+     * @return Subscription
+     */
     public function setInfo(string $info): self
     {
         $this->info = $info;
@@ -100,36 +145,52 @@ class Subscription
         return $this;
     }
 
-    public function getPrice()
+    /**
+     * Get price
+     *
+     * @return float
+     */
+    public function getPrice(): float
     {
         return $this->price;
     }
 
-    public function setPrice($price): self
+    /**
+     * Set price
+     *
+     * @param float $price
+     *
+     * @return Subscription
+     */
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
         return $this;
     }
 
-    public function getPartner(): ?Partner
+    /**
+     * Get partner
+     *
+     * @return Partner
+     */
+    public function getPartner(): Partner
     {
+        //return null;
         return $this->partner;
     }
 
-    public function setPartner(?Partner $partner): self
+    /**
+     * Set parter
+     *
+     * @param Partner $partner
+     *
+     * @return Subscription
+     */
+    public function setPartner(Partner $partner): self
     {
         $this->partner = $partner;
 
         return $this;
     }
-
-    function __toString() {
-        if(!$this->getId())
-            return '';
-
-        return $this->getInDate()->format('d-m-Y').' - '.$this->getOutDate()->format('d-m-Y').'  >  '.$this->getInfo();
-    }
-
-    
 }
