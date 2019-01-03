@@ -61,7 +61,15 @@ export default {
             return PartnerAPI.getPartners()
                 .then(res => commit('FETCHING_PARTNERS_SUCCESS', res.data))
                 .catch(err => commit('FETCHING_PARTNERS_ERROR', err));
-        },        
+        },
+        postPartners ({commit}, partner) {
+            //commit('CREATING_PARTNER');
+            return PartnerAPI.postPartners(partner)
+                .then(res => res.data)
+                .catch(err => err);
+                //.then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
+                //.catch(err => commit('CREATING_PARTNER_ERROR', err));
+        },
         patchPartners ({commit}, partner) {
             //commit('CREATING_PARTNER');
             return PartnerAPI.patchPartners(partner)

@@ -4,14 +4,16 @@
 
         <v-card>
             <v-card-title>
-                <span class="headline">Socio</span>
+                <span class="headline">Nuevo socio</span>
             </v-card-title>
             <v-card-text>
                 <v-container grid-list-md>
                     <v-layout wrap>
+                        <!--
                         <v-flex xs12>
                             <v-text-field label="Código" v-model="partner.code" disabled></v-text-field>
                         </v-flex>
+                        -->
                         <v-flex xs12>
                             <v-text-field label="Nombre*" v-model="partner.name" required></v-text-field>
                         </v-flex>
@@ -44,22 +46,24 @@
 
 
 <script>
-  export default {
-    name: 'partner-new',
-    data () {
-      return {
-        dialog: false,
-        partner: {
+    export default {
+        name: 'partner-new',
+        data () {
+            return {
+                dialog: false,
+                partner: {
+                    name: null,
+                    surname: null,
+                    email: null
+                }
+            }
+        },
+        methods: {
+            save () {
+                this.$store.dispatch('partner/postPartners', this.partner)
+                .then(() => console.log(res))
+                //.then(() => dialog = false)
+            }
         }
-      }
-    },
-    methods: {
-      save () {
-        alert('save')
-        //console.log(this.partner.name)
-        //this.$store.dispatch('partner/patchPartners', this.partner)
-            //.then(() => dialog = false)
-      }
     }
-  }
 </script>
