@@ -23,7 +23,7 @@
                         <td>{{ toDate(props.item.cdate) }}</td>
                         <td class="text-xs-right">
                             <partner-edit :partner="props.item"></partner-edit>
-                            <v-icon small>delete</v-icon>
+                            <partner-delete :partner="props.item"></partner-delete>
                         </td>
                     </tr>
                 </template>
@@ -39,6 +39,7 @@
 <script>
     import PartnerNew from '../components/Partners/PartnerNew';
     import PartnerEdit from '../components/Partners/PartnerEdit';
+    import PartnerDelete from '../components/Partners/PartnerDelete';
     import Subscriptions from '../components/Partners/Subscriptions';
 
     export default {
@@ -46,6 +47,7 @@
         components: {
             PartnerNew,
             PartnerEdit,
+            PartnerDelete,
             Subscriptions
         },
         data () {
