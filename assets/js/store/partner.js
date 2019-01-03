@@ -56,14 +56,12 @@ export default {
         },
     },
     actions: {
-        fetchPartners ({commit}) {
+        getPartners ({commit}) {
             commit('FETCHING_PARTNERS');
             return PartnerAPI.getPartners()
                 .then(res => commit('FETCHING_PARTNERS_SUCCESS', res.data))
                 .catch(err => commit('FETCHING_PARTNERS_ERROR', err));
-        },
-
-        
+        },        
         patchPartners ({commit}, partner) {
             //commit('CREATING_PARTNER');
             return PartnerAPI.patchPartners(partner)

@@ -67,6 +67,9 @@ final class PartnerController extends AbstractController
     {
         $partners = $this->er->findBy([]);
 
+
+        //$partners = $this->er->findAllGreaterThanSubscriptions();
+
         return new JsonResponse(
             $this->serializer->serialize($partners, 'json'),
             Response::HTTP_OK,
@@ -77,6 +80,8 @@ final class PartnerController extends AbstractController
 
     /**
      * @Rest\Patch("/partners/{id_partner}", name="patchPartners")
+     * 
+     * @param string $id_partner
      * @return JsonResponse
      */
     public function patchPartners(string $id_partner = null): JsonResponse

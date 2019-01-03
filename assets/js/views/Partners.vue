@@ -7,16 +7,16 @@
             <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" :pagination.sync="pagination">
                 <template slot="items" slot-scope="props">
                     <tr @click="props.expanded = !props.expanded">
-                        <td>{{ props.item.numSubscriptions }}</td>
                         <td>
-                            <v-chip label small :color="getColorByStatus(props.item.active)" text-color="white" >
+                            <v-chip label small :color="getColorByStatus(props.item.subscriptions)" text-color="white" >
                                 {{ props.item.code }}
                             </v-chip>
                         </td>
                         <td>{{ props.item.fullname }}</td>
                         <td>{{ props.item.email }}</td>
+                        <td>{{ props.item.numSubscriptions }}</td>
+                        <td>{{ toDate(props.item.cdate) }}</td>
                         <!--
-                        <td>{{ props.item.cdate }}</td>
                         <td>{{ props.item.mdate }}</td>
                         -->
                         <td class="text-xs-right">
@@ -53,11 +53,11 @@
                     rowsPerPage: 10
                 },
                 headers: [
-                    { text: 'Suscripciones', value: 'numSubscriptions' },
                     { text: 'Código', value: 'code', sortable: false },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
                     { text: 'Email', value: 'email' },
-                    //{ text: 'CDate', value: 'cdate' },
+                    { text: 'Suscripciones', value: 'numSubscriptions' },
+                    { text: 'Registro', value: 'cdate' },
                     //{ text: 'MDate', value: 'mdate' }
                 ],
                 colors: {
@@ -67,30 +67,40 @@
             };
         },
         created () {
-            this.$store.dispatch('partner/fetchPartners');
+            this.$store.dispatch('partner/getPartners');
         },
         computed: {
-            /*
-            isLoading () {
-                return this.$store.getters['partner/isLoading'];
-            },
-            hasError () {
-                return this.$store.getters['partner/hasError'];
-            },
-            error () {
-                return this.$store.getters['partner/error'];
-            },
-            hasPartners () {
-                return this.$store.getters['partner/hasPartners'];
-            },
-            */
             partners () {
                 return this.$store.getters['partner/partners'];
             },
         },
         methods: {
-            getColorByStatus (status) {
-                return this.colors[status];
+            toDate (datetime) {
+                let date = datetime ? new Date(datetime) : null
+                return date && date.toISOString().split('T')[0]
+            },
+            getStatus (subscriptions) {
+                let now = new Date()
+                let inDate, outDate
+                let first = subscriptions[0]
+                let last = subscriptions[subscriptions.length-1]
+
+                if(first === undefined || last === undefined)
+                    return 0
+
+                inDate = new Date(first.inDate)
+                outDate = new Date(first.outDate)
+
+                console.log(inDate)
+                console.log(outDate)
+
+                if(now > inDate && now < outDate)
+                    return 1
+                else
+                    return 0
+            },
+            getColorByStatus (subscriptions) {
+                return this.colors[this.getStatus(subscriptions)]
             }
         }
     }

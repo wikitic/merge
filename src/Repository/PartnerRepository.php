@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Partner;
+use App\Entity\Subscription;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use function Safe\substr;
@@ -24,6 +26,30 @@ class PartnerRepository extends ServiceEntityRepository
     {
         return (bool)$this->findOneBy(['code'=>$code]);
     }
+
+
+    /**
+     * @param int $numSubscriptions
+     * @return Partner[]
+     */
+    public function findAllGreaterThanSubscriptions(int $numSubscriptions = 0): array
+    {
+        $qb = $this->createQueryBuilder('p')
+
+            //->addSelect('p.subscriptions')
+
+            //->andWhere('p.id > :id')
+            //->setParameter('id', $numSubscriptions)
+
+            //->having('count(p.subscriptions) > 3')
+            //->orderBy('p.subscriptions', 'ASC')
+            ->getQuery();
+
+        return $qb->execute();
+    }
+
+
+
 
     public function getUniqueCode(): ?String
     {
