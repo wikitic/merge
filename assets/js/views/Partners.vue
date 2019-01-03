@@ -1,6 +1,11 @@
 <template>
     <v-container fluid>
         <v-card>
+            <v-toolbar flat color="white">
+                <v-toolbar-title>Socios</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <partner-new></partner-new>
+            </v-toolbar>
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
@@ -16,38 +21,36 @@
                         <td>{{ props.item.email }}</td>
                         <td>{{ props.item.numSubscriptions }}</td>
                         <td>{{ toDate(props.item.cdate) }}</td>
-                        <!--
-                        <td>{{ props.item.mdate }}</td>
-                        -->
                         <td class="text-xs-right">
                             <partner-edit :partner="props.item"></partner-edit>
+                            <v-icon small>delete</v-icon>
                         </td>
                     </tr>
                 </template>
                 <template slot="expand" slot-scope="props">
-                    <v-card flat>
-                        <v-card-text>
-                            <subscriptions :subscriptions="props.item.subscriptions"></subscriptions>
-                        </v-card-text>
-                    </v-card>
+                    <subscriptions :subscriptions="props.item.subscriptions"></subscriptions>
                 </template>
             </v-data-table>
         </v-card>
+
     </v-container>
 </template>
 
 <script>
+    import PartnerNew from '../components/Partners/PartnerNew';
     import PartnerEdit from '../components/Partners/PartnerEdit';
     import Subscriptions from '../components/Partners/Subscriptions';
 
     export default {
         name: 'partners',
         components: {
+            PartnerNew,
             PartnerEdit,
             Subscriptions
         },
         data () {
             return {
+                dialog: false,
                 search: '',
                 pagination: {
                     rowsPerPage: 10
@@ -90,9 +93,6 @@
 
                 inDate = new Date(first.inDate)
                 outDate = new Date(first.outDate)
-
-                console.log(inDate)
-                console.log(outDate)
 
                 if(now > inDate && now < outDate)
                     return 1

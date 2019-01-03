@@ -1,5 +1,5 @@
 <template>
-    <v-data-table :headers="headers" :items="subscriptions" item-key="id" :pagination.sync="pagination">
+    <v-data-table :headers="headers" :items="subscriptions" item-key="id" :pagination.sync="pagination" hide-actions>
         <template slot="items" slot-scope="props">
             <tr>
                 <td>

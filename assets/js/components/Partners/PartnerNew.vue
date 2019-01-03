@@ -1,8 +1,6 @@
 <template>
     <v-dialog v-model="dialog" persistent max-width="600px">
-        <v-btn slot="activator" flat icon color="grey">
-            <v-icon>edit</v-icon>
-        </v-btn>
+        <v-btn slot="activator" color="primary">Nuevo</v-btn>
 
         <v-card>
             <v-card-title>
@@ -38,7 +36,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="darken-1" flat @click="dialog = false">Cerrar</v-btn>
-                <v-btn color="orange" flat @click="patchPartners()">Guardar</v-btn>
+                <v-btn color="orange" flat @click="save()">Guardar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -46,22 +44,22 @@
 
 
 <script>
-    export default {
-        name: 'partner-edit',
-        props: ['partner'],
-        data () {
-            return {
-                dialog: false,
-                role: ['Socio', 'Usuario'],
-                status: ['Activado', 'Desactivado']
-            }
-        },
-        methods: {
-            patchPartners () {
-                //console.log(this.partner.name)
-                this.$store.dispatch('partner/patchPartners', this.partner)
-                    //.then(() => dialog = false)
-           }
+  export default {
+    name: 'partner-new',
+    data () {
+      return {
+        dialog: false,
+        partner: {
         }
+      }
+    },
+    methods: {
+      save () {
+        alert('save')
+        //console.log(this.partner.name)
+        //this.$store.dispatch('partner/patchPartners', this.partner)
+            //.then(() => dialog = false)
+      }
     }
+  }
 </script>
