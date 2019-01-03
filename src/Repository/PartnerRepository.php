@@ -27,6 +27,15 @@ class PartnerRepository extends ServiceEntityRepository
         return (bool)$this->findOneBy(['code'=>$code]);
     }
 
+    public function getUniqueCode(): ?String
+    {
+        do {
+            $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
+        } while ($this->existCode($code));
+
+        return $code;
+    }
+
 
     /**
      * @param int $numSubscriptions
@@ -46,17 +55,5 @@ class PartnerRepository extends ServiceEntityRepository
             ->getQuery();
 
         return $qb->execute();
-    }
-
-
-
-
-    public function getUniqueCode(): ?String
-    {
-        do {
-            $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
-        } while ($this->existCode($code));
-
-        return $code;
     }
 }
