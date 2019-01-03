@@ -3,14 +3,10 @@ import PartnerAPI from '../api/partner';
 export default {
     namespaced: true,
     state: {
-        isLoading: false,
         error: null,
         partners: [],
     },
     getters: {
-        isLoading (state) {
-            return state.isLoading;
-        },
         hasError (state) {
             return state.error !== null;
         },
@@ -25,34 +21,41 @@ export default {
         },
     },
     mutations: {
+        ['INITIALIZING'](state) {
+            state.error = null;
+        },
+
         ['CREATING_PARTNER'](state) {
-            state.isLoading = true;
             state.error = null;
         },
         ['CREATING_PARTNER_SUCCESS'](state, partner) {
-            state.isLoading = false;
             state.error = null;
             state.partners.unshift(partner);
         },
         ['CREATING_PARTNER_ERROR'](state, error) {
-            state.isLoading = false;
             state.error = error;
             state.partners = [];
         },
         ['FETCHING_PARTNERS'](state) {
-            state.isLoading = true;
             state.error = null;
             state.partners = [];
         },
         ['FETCHING_PARTNERS_SUCCESS'](state, partners) {
-            state.isLoading = false;
             state.error = null;
             state.partners = partners;
         },
         ['FETCHING_PARTNERS_ERROR'](state, error) {
-            state.isLoading = false;
             state.error = error;
             state.partners = [];
+        },
+
+        // DELETE
+        ['DELETE_PARTNERS_SUCCESS'](state, partners) {
+            state.error = null;
+            state.partners.splice(state.partners.indexOf(partners), 1);
+        },
+        ['DELETE_PARTNERS_ERROR'](state, error) {
+            state.error = error;
         },
     },
     actions: {
@@ -75,7 +78,14 @@ export default {
             return PartnerAPI.patchPartners(partner)
                 //.then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
                 .catch(err => commit('CREATING_PARTNER_ERROR', err));
-        }
-        
+        },
+
+
+        deletePartners ({commit}, partner) {
+            commit('INITIALIZING');
+            return PartnerAPI.deletePartners(partner)
+                .then(() => commit('DELETE_PARTNERS_SUCCESS', partner))
+                .catch(error => commit('DELETE_PARTNERS_ERROR', error));
+        }        
     }
 }

@@ -14,5 +14,8 @@ export default {
     },
     patchPartners (partner) {
         return axios.patch('/api/v1/partners/' + partner.id);
-    }
+    },
+    deletePartners (partner) {
+        return axios.delete('/api/v1/partners/' + partner.id);
+    }    
 }

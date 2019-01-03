@@ -8,14 +8,19 @@
                 <span class="headline">Borrar socio</span>
             </v-card-title>
             <v-card-text>
-                <v-alert :value="true" type="warning">¿Seguro que quieres borrar a <b>{{ partner.fullname }}</b>?</v-alert>
+                <v-alert v-if="!isDisabled" :value="true" type="warning">
+                    ¿Seguro que quieres borrar a <b>{{ partner.fullname }}</b>?
+                </v-alert>
+                <v-alert v-if="hasError" :value="true" color="error" icon="warning">
+                    {{ error.response.status }} {{ error.response.statusText }}
+                </v-alert>
                 <v-container grid-list-md>
                     <v-layout wrap>
                         <v-flex xs12>
                             <v-text-field label="Código" v-model="partner.code" disabled></v-text-field>
                         </v-flex>
                         <v-flex xs12>
-                            <v-text-field label="Confirma código*" v-model="confirm.code" required></v-text-field>
+                            <v-text-field label="Confirma código*" v-model="confirm.code" required maxlength="6" counter="6"></v-text-field>
                         </v-flex>
                     </v-layout>
                 </v-container>
@@ -24,7 +29,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="darken-1" flat @click="dialog = false">Cerrar</v-btn>
-                <v-btn color="orange" flat @click="deletePartner()">Borrar</v-btn>
+                <v-btn color="orange" :disabled="isDisabled" class="primary" @click="deletePartner()">Borrar</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
@@ -43,14 +48,23 @@
                 }
             }
         },
+        computed: {
+            isDisabled () {
+                return this.partner.code !== this.confirm.code
+            },
+            hasError () {
+                return this.$store.getters['partner/hasError'];
+            },
+            error () {
+                return this.$store.getters['partner/error'];
+            },
+        },
         methods: {
             deletePartner () {
-                alert(this.partner.code === this.confirm.code)
-                    
-                //console.log(this.partner.name)
-                //this.$store.dispatch('partner/patchPartners', this.partner)
-                    //.then(() => dialog = false)
-           }
+                this.$store.dispatch('partner/deletePartners', this.partner)
+                    //.then(res => /*this.dialog = false*/ console.log(res))
+                    //.catch(err => console.log(res))
+            }
         }
     }
 </script>

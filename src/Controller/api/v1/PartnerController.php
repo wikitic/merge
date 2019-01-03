@@ -3,6 +3,7 @@
 namespace App\Controller\api\v1;
 
 use App\Entity\Partner;
+use App\Entity\Subscription;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -101,12 +102,12 @@ final class PartnerController extends AbstractController
 
 
     /**
-     * @Rest\Patch("/partners/{id_partner}", name="patchPartners")
+     * @Route("/partners/{id_partner}", methods={"PATCH"})
      *
      * @param string $id_partner
      * @return JsonResponse
      */
-    public function patchPartners(string $id_partner = null): JsonResponse
+    public function patchPartners(string $id_partner = ''): JsonResponse
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
@@ -122,6 +123,47 @@ final class PartnerController extends AbstractController
 
         return new JsonResponse(
             $this->serializer->serialize($partner, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
+    /**
+     * @Route("/partners/{id_partner}", methods={"DELETE"})
+     *
+     * @param string $id_partner
+     * @return JsonResponse
+     */
+    public function deletePartners(string $id_partner = ''): JsonResponse
+    {        
+        $partner = $this->er->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            return new JsonResponse(
+                $this->serializer->serialize(null, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        // Comprobar si tiene subscripciones
+        $subscriptions = $this->em->getRepository(Subscription::class)->findBy(['partner' => $partner->getId()]);
+        if($subscriptions){
+            return new JsonResponse(
+                $this->serializer->serialize(null, 'json'),
+                Response::HTTP_NOT_ACCEPTABLE,
+                [],
+                true
+            );
+        }
+
+        $this->em->remove($partner);
+        $this->em->flush();
+        
+        return new JsonResponse(
+            $this->serializer->serialize(null, 'json'),
             Response::HTTP_OK,
             [],
             true
