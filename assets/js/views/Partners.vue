@@ -15,12 +15,12 @@
                         </td>
                         <td>{{ props.item.fullname }}</td>
                         <td>{{ props.item.email }}</td>
+                        <!--
                         <td>{{ props.item.cdate }}</td>
                         <td>{{ props.item.mdate }}</td>
+                        -->
                         <td class="text-xs-right">
-                            <v-btn flat icon color="grey">
-                                <v-icon>edit</v-icon>
-                            </v-btn>
+                            <partner-edit :partner="props.item"></partner-edit>
                         </td>
                     </tr>
                 </template>
@@ -37,12 +37,14 @@
 </template>
 
 <script>
+    import PartnerEdit from '../components/Partners/PartnerEdit';
     import Subscriptions from '../components/Partners/Subscriptions';
 
     export default {
         name: 'partners',
         components: {
-            Subscriptions,
+            PartnerEdit,
+            Subscriptions
         },
         data () {
             return {
@@ -55,8 +57,8 @@
                     { text: 'Código', value: 'code', sortable: false },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
                     { text: 'Email', value: 'email' },
-                    { text: 'CDate', value: 'cdate' },
-                    { text: 'MDate', value: 'mdate' }
+                    //{ text: 'CDate', value: 'cdate' },
+                    //{ text: 'MDate', value: 'mdate' }
                 ],
                 colors: {
                     1: 'green',
@@ -90,14 +92,6 @@
             getColorByStatus (status) {
                 return this.colors[status];
             }
-        },
-        /*
-        methods: {
-            createPost () {
-                this.$store.dispatch('post/createPost', this.$data.message)
-                    .then(() => this.$data.message = '')
-            },
-        },
-        */
+        }
     }
 </script>

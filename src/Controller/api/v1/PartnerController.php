@@ -74,4 +74,30 @@ final class PartnerController extends AbstractController
             true
         );
     }
+
+    /**
+     * @Rest\Patch("/partners/{id_partner}", name="patchPartners")
+     * @return JsonResponse
+     */
+    public function patchPartners(string $id_partner = null): JsonResponse
+    {
+        $partner = $this->er->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            return new JsonResponse(
+                $this->serializer->serialize(null, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        // Update
+
+        return new JsonResponse(
+            $this->serializer->serialize($partner, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
 }

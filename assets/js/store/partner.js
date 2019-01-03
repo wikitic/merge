@@ -56,19 +56,20 @@ export default {
         },
     },
     actions: {
-        /*
-        createPartner ({commit}, message) {
-            commit('CREATING_PARTNER');
-            return PartnerAPI.create(message)
-                .then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
-                .catch(err => commit('CREATING_PARTNER_ERROR', err));
-        },
-        */
         fetchPartners ({commit}) {
             commit('FETCHING_PARTNERS');
             return PartnerAPI.getPartners()
                 .then(res => commit('FETCHING_PARTNERS_SUCCESS', res.data))
                 .catch(err => commit('FETCHING_PARTNERS_ERROR', err));
         },
-    },
+
+        
+        patchPartners ({commit}, partner) {
+            //commit('CREATING_PARTNER');
+            return PartnerAPI.patchPartners(partner)
+                //.then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
+                .catch(err => commit('CREATING_PARTNER_ERROR', err));
+        }
+        
+    }
 }
