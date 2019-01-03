@@ -12,6 +12,7 @@
             <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" :pagination.sync="pagination">
                 <template slot="items" slot-scope="props">
                     <tr @click="props.expanded = !props.expanded">
+                        <td>{{ props.item.id }}</td>
                         <td>
                             <v-chip label small :color="getColorByStatus(props.item.subscriptions)" text-color="white" >
                                 {{ props.item.code }}
@@ -58,6 +59,7 @@
                     rowsPerPage: 10
                 },
                 headers: [
+                    { text: '#', value: 'id' },
                     { text: 'Código', value: 'code', sortable: false },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
                     { text: 'Email', value: 'email' },

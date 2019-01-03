@@ -14,8 +14,15 @@ class PartnerControllerTest extends WebTestCase
     private $client = null;
     
     protected function setUp()
+	{
+        $this->client = $this->createClient(['environment' => 'test']);
+        $this->client->disableReboot();
+        $this->em = $this->client->getContainer()->get('doctrine.orm.entity_manager');
+        $this->em->beginTransaction();
+    }
+    protected function tearDown()
     {
-        $this->client = static::createClient();
+        $this->em->rollback();
     }
 
     private function logIn()
@@ -44,7 +51,7 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideUnauthorized()
     {
-        yield ['GET',   '/api/v1/partners',    Response::HTTP_UNAUTHORIZED]; // 401
+        yield ['GET',   '/api/v1/partners',     Response::HTTP_UNAUTHORIZED]; // 401
     }
 
 
@@ -67,5 +74,10 @@ class PartnerControllerTest extends WebTestCase
     public function provideAuthorized()
     {
         yield ['GET',   '/api/v1/partners',    Response::HTTP_OK];      // 200
+
+        yield ['DELETE',   '/api/v1/partners',      Response::HTTP_BAD_REQUEST];        // 406
+        yield ['DELETE',   '/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];        // 406
+        yield ['DELETE',   '/api/v1/partners/1',    Response::HTTP_NOT_ACCEPTABLE];     // 406
+        yield ['DELETE',   '/api/v1/partners/4',    Response::HTTP_OK];                 // 406
     }
 }

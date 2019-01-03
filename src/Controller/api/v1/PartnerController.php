@@ -86,7 +86,7 @@ final class PartnerController extends AbstractController
     public function postPartners(Request $request): JsonResponse
     {
         $partner = $this->serializer->deserialize($request->getContent(), Partner::class, 'json');
-        $partner->setCode($this->er->getUniqueCode());
+        //$partner->setCode($this->er->getUniqueCode());
 
         $this->em->persist($partner);
         $this->em->flush();
@@ -137,7 +137,7 @@ final class PartnerController extends AbstractController
      * @return JsonResponse
      */
     public function deletePartners(string $id_partner = ''): JsonResponse
-    {        
+    {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
             return new JsonResponse(
@@ -150,7 +150,7 @@ final class PartnerController extends AbstractController
 
         // Comprobar si tiene subscripciones
         $subscriptions = $this->em->getRepository(Subscription::class)->findBy(['partner' => $partner->getId()]);
-        if($subscriptions){
+        if ($subscriptions) {
             return new JsonResponse(
                 $this->serializer->serialize(null, 'json'),
                 Response::HTTP_NOT_ACCEPTABLE,
