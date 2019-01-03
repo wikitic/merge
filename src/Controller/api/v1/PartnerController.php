@@ -80,7 +80,7 @@ final class PartnerController extends AbstractController
 
     /**
      * @Rest\Patch("/partners/{id_partner}", name="patchPartners")
-     * 
+     *
      * @param string $id_partner
      * @return JsonResponse
      */
