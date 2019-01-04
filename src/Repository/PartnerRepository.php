@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Partner;
-use App\Entity\Subscription;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -36,31 +35,48 @@ class PartnerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param array $data
+     * @param Partner $partner
      * @return bool
      */
-    public function isPostValid(array $data = null): bool
+    public function isPostValid(Partner $partner): bool
     {
-        if (!isset($data['name']) || !isset($data['surname']) || !isset($data['email'])) {
+        if ($partner->getName() == '') {
+            return false;
+        }
+                    
+        if ($partner->getSurname() == '') {
+            return false;
+        }
+                    
+        if (!filter_var($partner->getEmail(), FILTER_VALIDATE_EMAIL) ||
+            $this->findOneBy(['email'=>$partner->getEmail()])) {
             return false;
         }
 
-        foreach ($data as $key => $value) {
-            switch ($key) {
-                case 'name':
-                case 'surname':
-                    if (empty($value)) {
-                        return false;
-                    }
-                    break;
-                case 'email':
-                    if (!filter_var($value, FILTER_VALIDATE_EMAIL) || $this->findOneBy(['email'=>$data['email']])) {
-                        return false;
-                    }
-                    break;
-            }
+        return true;
+    }
+
+    /**
+     * @param Partner $partner
+     * @return Partner
+     */
+    public function postValidate(Partner $partner): ?Partner
+    {
+        $partner->setCode($this->getUniqueCode());
+
+        if ($partner->getName() == '') {
+            return null;
+        }
+                    
+        if ($partner->getSurname() == '') {
+            return null;
+        }
+                    
+        if (!filter_var($partner->getEmail(), FILTER_VALIDATE_EMAIL) ||
+            $this->findOneBy(['email'=>$partner->getEmail()])) {
+            return null;
         }
 
-        return true;
+        return $partner;
     }
 }

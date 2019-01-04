@@ -82,9 +82,10 @@ final class PartnerController extends AbstractController
      */
     public function postPartners(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = $this->serializer->deserialize($request->getContent(), Partner::class, 'json');
 
-        if (!$this->er->isPostValid($data)) {
+        $partner = $this->er->postValidate($data);
+        if ($partner === null) {
             return new JsonResponse(
                 $this->serializer->serialize(null, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -93,11 +94,6 @@ final class PartnerController extends AbstractController
             );
         }
 
-        $partner = new Partner();
-        $partner->setName($data['name']);
-        $partner->setSurname($data['surname']);
-        $partner->setEmail($data['email']);
-        $partner->setCode($this->er->getUniqueCode());
         $this->em->persist($partner);
         $this->em->flush();
         
