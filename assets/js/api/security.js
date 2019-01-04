@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
     login (username, password) {
@@ -14,5 +14,5 @@ export default {
         return axios.get(
             '/api/v1/logout'
         )
-    },
+    }
 }

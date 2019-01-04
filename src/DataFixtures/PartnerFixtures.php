@@ -36,24 +36,29 @@ class PartnerFixtures extends Fixture
     private function getData() : iterable
     {
         yield [
-                'code' => 'AAAAAA', 'name' => 'Name 1', 'surname' => 'Surname 1','email' => 'email1@email.com',
-                'active' => 1, 'role' => Partner::ROLE_PREMIUM,
-                'cdate' => new \DateTime('2015-01-01')
+            'code' => 'AAAAAA', 'name' => 'Name 1', 'surname' => 'Surname 1','email' => 'email1@email.com',
+            'active' => 1, 'role' => Partner::ROLE_PREMIUM,
+            'cdate' => new \DateTime('2015-01-01')
             ];
         yield [
-                'code' => 'BBBBBB', 'name' => 'Name 2', 'surname' => 'Surname 2','email' => 'email2@email.com',
-                'active' => 1, 'role' => Partner::ROLE_PREMIUM,
-                'cdate' => new \DateTime('2015-01-01')
+            'code' => 'BBBBBB', 'name' => 'Name 2', 'surname' => 'Surname 2','email' => 'email2@email.com',
+            'active' => 1, 'role' => Partner::ROLE_PREMIUM,
+            'cdate' => new \DateTime('2016-01-01')
             ];
         yield [
-                'code' => 'CCCCCC', 'name' => 'Name 3', 'surname' => 'Surname 3','email' => 'email3@email.com',
-                'active' => 1, 'role' => Partner::ROLE_USER,
-                'cdate' => new \DateTime('2015-01-01')
+            'code' => 'CCCCCC', 'name' => 'Name 3', 'surname' => 'Surname 3','email' => 'email3@email.com',
+            'active' => 1, 'role' => Partner::ROLE_USER,
+            'cdate' => new \DateTime('2017-01-01')
             ];
         yield [
-                'code' => 'DDDDDD', 'name' => 'Name 4', 'surname' => 'Surname 4','email' => 'email4@email.com',
-                'active' => 0, 'role' => Partner::ROLE_PREMIUM,
-                'cdate' => new \DateTime('2015-01-01')
+            'code' => 'DDDDDD', 'name' => 'Name 4', 'surname' => 'Surname 4','email' => 'email4@email.com',
+            'active' => 1, 'role' => Partner::ROLE_PREMIUM,
+            'cdate' => new \DateTime('2018-01-01')
+            ];
+        yield [
+            'code' => 'EEEEEE', 'name' => 'Name 5', 'surname' => 'Surname 5','email' => 'email5@email.com',
+            'active' => 0, 'role' => Partner::ROLE_PREMIUM,
+            'cdate' => new \DateTime('2019-01-01')
             ];
     }
 }

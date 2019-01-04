@@ -1,74 +1,49 @@
-import PartnerAPI from '../api/partner';
+import PartnerAPI from '../api/partner'
 
 export default {
     namespaced: true,
     state: {
-        isLoading: false,
-        error: null,
-        partners: [],
+        partners: []
     },
     getters: {
-        isLoading (state) {
-            return state.isLoading;
-        },
-        hasError (state) {
-            return state.error !== null;
-        },
-        error (state) {
-            return state.error;
-        },
         hasPartners (state) {
-            return state.partners.length > 0;
+            return state.partners.length > 0
         },
         partners (state) {
-            return state.partners;
+            return state.partners
         },
     },
     mutations: {
-        ['CREATING_PARTNER'](state) {
-            state.isLoading = true;
-            state.error = null;
+        ['GET_PARTNERS_SUCCESS'](state, partners) {
+            state.partners = partners
         },
-        ['CREATING_PARTNER_SUCCESS'](state, partner) {
-            state.isLoading = false;
-            state.error = null;
-            state.partners.unshift(partner);
+        ['POST_PARTNERS_SUCCESS'](state, partner) {
+            state.partners.push(partner)
         },
-        ['CREATING_PARTNER_ERROR'](state, error) {
-            state.isLoading = false;
-            state.error = error;
-            state.partners = [];
+        ['PATCH_PARTNERS_SUCCESS'](state, partner) {
+            state.partners.splice(state.partners.indexOf(partner), 1)
+            state.partners.push(partner)
         },
-        ['FETCHING_PARTNERS'](state) {
-            state.isLoading = true;
-            state.error = null;
-            state.partners = [];
-        },
-        ['FETCHING_PARTNERS_SUCCESS'](state, partners) {
-            state.isLoading = false;
-            state.error = null;
-            state.partners = partners;
-        },
-        ['FETCHING_PARTNERS_ERROR'](state, error) {
-            state.isLoading = false;
-            state.error = error;
-            state.partners = [];
-        },
+        ['DELETE_PARTNERS_SUCCESS'](state, partner) {
+            state.partners.splice(state.partners.indexOf(partner), 1)
+        }
     },
     actions: {
-        /*
-        createPartner ({commit}, message) {
-            commit('CREATING_PARTNER');
-            return PartnerAPI.create(message)
-                .then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
-                .catch(err => commit('CREATING_PARTNER_ERROR', err));
-        },
-        */
-        fetchPartners ({commit}) {
-            commit('FETCHING_PARTNERS');
+        getPartners ({commit}) {
             return PartnerAPI.getPartners()
-                .then(res => commit('FETCHING_PARTNERS_SUCCESS', res.data))
-                .catch(err => commit('FETCHING_PARTNERS_ERROR', err));
+                .then(res => commit('GET_PARTNERS_SUCCESS', res.data))
         },
-    },
+        postPartners ({commit}, partner) {
+            return PartnerAPI.postPartners(partner)
+                .then(res => commit('POST_PARTNERS_SUCCESS', res.data))
+        },
+        patchPartners ({commit}, partner) {
+            return PartnerAPI.patchPartners(partner)
+                .then(res => commit('PATCH_PARTNERS_SUCCESS', res.data))
+        },
+        deletePartners ({commit}, partner) {
+            return PartnerAPI.deletePartners(partner)
+                .then(() => commit('DELETE_PARTNERS_SUCCESS', partner))
+        }        
+    }
 }

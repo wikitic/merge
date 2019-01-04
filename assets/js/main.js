@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify'
+import Vuelidate from 'vuelidate'
 import App from './App';
 import router from './router';
 import store from './store';
@@ -14,6 +15,8 @@ Vue.use(Vuetify, {
       //error: '#b71c1c'
     }
   });
+
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 

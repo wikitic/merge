@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Partner;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use function Safe\substr;
@@ -20,17 +21,47 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
-    public function existCode(string $code = ''): ?bool
-    {
-        return (bool)$this->findOneBy(['code'=>$code]);
-    }
-
-    public function getUniqueCode(): ?String
+    /**
+     * @return string
+     */
+    public function getUniqueCode(): string
     {
         do {
             $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
-        } while ($this->existCode($code));
+            $exist = $this->findOneBy(['code'=>$code]);
+        } while ($exist!==null);
 
         return $code;
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    public function requestValidate(array $data = null, string $method = 'POST'): bool
+    {
+        if ($method === 'POST') {
+            if (!isset($data['name']) || !isset($data['surname']) || !isset($data['email'])) {
+                return false;
+            }
+        }
+
+        foreach ((array)$data as $key => $value) {
+            switch ($key) {
+                case 'name':
+                case 'surname':
+                    if (empty($value)) {
+                        return false;
+                    }
+                    break;
+                case 'email':
+                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                        return false;
+                    }
+                    break;
+            }
+        }
+        
+        return true;
     }
 }

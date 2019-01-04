@@ -1,6 +1,6 @@
 <template>
     <v-app>
-
+        
         <v-navigation-drawer v-if="isAuthenticated" v-model="drawer" app fixed>
             <v-toolbar flat>
                 <v-avatar size="120px">
@@ -9,18 +9,24 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-list>
-                <v-list-tile v-for="item in navigation" :key="item.title" :to="item.link">
-                    <v-list-tile-action>
-                        <v-icon>
-                            {{ item.icon }}
-                        </v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>
-                            {{ item.title }}
-                        </v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
+                <v-list-group v-for="item in navigation" :key="item.title" :to="item.link">
+                    <v-list-tile slot="activator">
+                        <v-list-tile-action>
+                            <v-icon v-text="item.icon"></v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile v-for="subitem in item.items" :key="subitem.title" :to="subitem.link">
+                        <v-list-tile-action>
+                            <v-icon></v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title v-text="subitem.title"></v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list-group>
             </v-list>
         </v-navigation-drawer>
 
@@ -37,10 +43,10 @@
                 <v-list class="pa-0">
                     <v-list-tile v-for="item in toolbar" :key="item.title" :to="item.href">
                         <v-list-tile-action v-if="item.icon">
-                            <v-icon>{{ item.icon }}</v-icon>
+                            <v-icon v-text="item.icon"></v-icon>
                         </v-list-tile-action>
                         <v-list-tile-content>
-                            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
@@ -69,8 +75,17 @@
             return {
                 drawer: null,
                 navigation: [
-                    { title: 'Dashboard', icon: 'home', link: '/dashboard' },
-                    { title: 'Socios', icon: 'account_circle', link: '/partners' },
+                    { title: 'Dashboard', icon: 'home', link: '/dashboard',
+                        items: [
+                            { title: 'Dashboard', link: '/dashboard' },
+                        ]
+                    },
+                    { title: 'Socios', icon: 'account_circle', link: '/partners',
+                        items: [
+                            { title: 'Todos', link: '/partners' },
+                            { title: 'Activos', link: '/partners?active=true' }
+                        ]
+                    }
                 ],
                 toolbar: [
                     { title: 'Profile', icon: 'account_circle', href: '/profile' },
