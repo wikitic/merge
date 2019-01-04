@@ -22,21 +22,6 @@ class PartnerRepository extends ServiceEntityRepository
         parent::__construct($registry, Partner::class);
     }
 
-    public function existCode(string $code = ''): ?bool
-    {
-        return (bool)$this->findOneBy(['code'=>$code]);
-    }
-
-    public function getUniqueCode(): ?String
-    {
-        do {
-            $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
-        } while ($this->existCode($code));
-
-        return $code;
-    }
-
-
     /**
      * @param int $numSubscriptions
      * @return Partner[]
@@ -56,4 +41,52 @@ class PartnerRepository extends ServiceEntityRepository
 
         return $qb->execute();
     }
+
+    /**
+     * @param string $code
+     * @return bool
+     */
+    public function existCode(string $code = ''): bool
+    {
+        return (bool)$this->findOneBy(['code'=>$code]);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUniqueCode(): string
+    {
+        do {
+            $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
+        } while ($this->existCode($code));
+
+        return $code;
+    }
+
+    /**
+     * @param $request
+     * @return bool
+     */
+    public function isPostValid($data): bool
+    {
+        if(!isset($data['name']) || !isset($data['surname']) || !isset($data['email']))
+            return false;
+
+        foreach($data as $key => $value){
+            switch($key){
+                case 'name':
+                case 'surname':
+                    if(empty($value))
+                        return false;
+                    break;
+                case 'email':
+                    if(!strpos($value, "@") || !strpos($value, ".") || $this->findByEmail(['email'=>$data['email']])) 
+                        return false;
+                    break;
+            }
+        }
+
+        return true;
+    }
+
 }

@@ -77,6 +77,32 @@ class PartnerControllerTest extends WebTestCase
     }
 
 
+    /**
+     * @dataProvider provideAuthorizedPost
+     */
+    public function testAuthorizedPost($http_code = null, $data = null)
+    {
+        $this->logIn();
+        
+        $client = $this->client;
+        $client->request('POST', '/api/v1/partners', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+
+        $response = $client->getResponse();
+        $content = $response->getContent();
+
+        $this->assertEquals($http_code, $response->getStatusCode());
+    }
+    public function provideAuthorizedPost()
+    {
+        yield [Response::HTTP_BAD_REQUEST, json_encode([])];                                                                // 400
+        yield [Response::HTTP_BAD_REQUEST, json_encode([               'surname'=>'surname','email'=>'BAD_EMAIL'])];        // 400
+        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name'                     ,'email'=>'BAD_EMAIL'])];        // 400
+        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname'                     ])];        // 400
+        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname','email'=>'email1@email.com'])]; // 400
+        yield [Response::HTTP_OK,          json_encode(['name'=>'name','surname'=>'surname','email'=>'GOOD@EMAIL.com'])];   // 200
+    }
+
+
 
     /**
      * @dataProvider provideAuthorizedDelete
