@@ -91,7 +91,6 @@
                     this.$store.dispatch('partner/patchPartners', this.partner)
                         .then(() => { this.dialog = false })
                         .catch(error => this.error = error.response )
-                        
                 }
             }
         }
