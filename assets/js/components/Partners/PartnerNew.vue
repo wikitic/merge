@@ -9,6 +9,7 @@
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>
+                        <error-message v-if="hasError" :error="error"></error-message>
                         <v-layout wrap>
                             <v-flex xs12>
                                 <v-text-field label="Nombre *" v-model="partner.name" :error-messages="nameErrors"></v-text-field>
@@ -37,9 +38,13 @@
 
     import { validationMixin } from 'vuelidate'
     import { required, maxLength, email } from 'vuelidate/lib/validators'
+    import ErrorMessage from '../ErrorMessage'
 
     export default {
         name: 'partner-new',
+        components: {
+            ErrorMessage
+        },
         mixins: [validationMixin],
         validations: {
             partner: {
@@ -75,6 +80,12 @@
                 !this.$v.partner.email.email && errors.push('El email no es válido')
                 !this.$v.partner.email.required && errors.push('El email es requerido')
                 return errors
+            },
+            hasError () {
+                return this.$store.getters['partner/hasError']
+            },
+            error () {
+                return this.$store.getters['partner/error']
             }
         },
         methods: {

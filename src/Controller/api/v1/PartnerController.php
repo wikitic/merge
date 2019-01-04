@@ -86,8 +86,9 @@ final class PartnerController extends AbstractController
 
         $partner = $this->er->postValidate($data);
         if ($partner === null) {
+            $error = ['error' => 'Bad request'];
             return new JsonResponse(
-                $this->serializer->serialize(null, 'json'),
+                $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
                 [],
                 true
@@ -117,8 +118,9 @@ final class PartnerController extends AbstractController
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
+            $error = ['error' => 'Bad request'];
             return new JsonResponse(
-                $this->serializer->serialize(null, 'json'),
+                $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
                 [],
                 true
@@ -146,8 +148,9 @@ final class PartnerController extends AbstractController
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
+            $error = ['error' => 'Bad request'];
             return new JsonResponse(
-                $this->serializer->serialize(null, 'json'),
+                $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
                 [],
                 true
@@ -157,8 +160,9 @@ final class PartnerController extends AbstractController
         // Si tiene subscripciones impedimos borrar
         $subscriptions = $this->em->getRepository(Subscription::class)->findBy(['partner' => $partner->getId()]);
         if ($subscriptions) {
+            $error = ['error' => 'Not Acceptable'];
             return new JsonResponse(
-                $this->serializer->serialize(null, 'json'),
+                $this->serializer->serialize($error, 'json'),
                 Response::HTTP_NOT_ACCEPTABLE,
                 [],
                 true

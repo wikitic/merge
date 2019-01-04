@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
     getPartners () {
-        return axios.get('/api/v1/partners');
+        return axios.get('/api/v1/partners')
     },
     postPartners (partner) {
         return axios.post('/api/v1/partners',
@@ -10,12 +10,12 @@ export default {
                 name: partner.name,
                 surname: partner.surname,
                 email: partner.email
-            });
+            })
     },
     patchPartners (partner) {
-        return axios.patch('/api/v1/partners/' + partner.id);
+        return axios.patch('/api/v1/partners/' + partner.id)
     },
     deletePartners (partner) {
-        return axios.delete('/api/v1/partners/' + partner.id);
+        return axios.delete('/api/v1/partners/' + partner.id)
     }    
 }
