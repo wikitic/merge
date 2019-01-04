@@ -73,7 +73,7 @@ export default {
             commit('INITIALIZING')
             return PartnerAPI.postPartners(partner)
                 .then(res => commit('POST_PARTNERS_SUCCESS', res.data))
-                .catch(error => commit('POST_PARTNERS_ERROR', error))
+                //.catch(error => commit('POST_PARTNERS_ERROR', error))
         },
         patchPartners ({commit}, partner) {
             commit('INITIALIZING')
