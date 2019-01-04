@@ -57,23 +57,25 @@ class PartnerControllerTest extends WebTestCase
 
 
     /**
-     * @dataProvider provideAuthorized
+     * @dataProvider provideAuthorizedGet
      */
-    public function testAuthorized($method = null, $url = null, $http_code = null, $data = null)
+    public function testAuthorizedGet($url = null, $http_code = null)
     {
         $this->logIn();
         
         $client = $this->client;
-        $client->request($method, $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $client->request('GET', $url);
 
         $response = $client->getResponse();
         $content = $response->getContent();
 
         $this->assertEquals($http_code, $response->getStatusCode());
     }
-    public function provideAuthorized()
+    public function provideAuthorizedGet()
     {
-        yield ['GET',   '/api/v1/partners',    Response::HTTP_OK];      // 200
+        yield ['/api/v1/partners',      Response::HTTP_OK];             // 200
+        yield ['/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];    // 400
+        yield ['/api/v1/partners/1',    Response::HTTP_OK];             // 200
     }
 
 

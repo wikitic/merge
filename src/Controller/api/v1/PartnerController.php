@@ -58,7 +58,8 @@ final class PartnerController extends AbstractController
 
 
     /**
-     * @Rest\Get("/partners", name="getPartners")
+     * @Route("/partners", methods={"GET"})
+     * 
      * @return JsonResponse
      */
     public function getPartners(): JsonResponse
@@ -73,10 +74,37 @@ final class PartnerController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/partners/{id_partner}", methods={"GET"})
+     * 
+     * @param string $id_partner
+     * @return JsonResponse
+     */
+    public function getPartnersId(string $id_partner = ''): JsonResponse
+    {
+        $partner = $this->er->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        return new JsonResponse(
+            $this->serializer->serialize($partner, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
 
 
     /**
-     * @Route("/partners", name="postPartners" , methods={"POST"})
+     * @Route("/partners", name="postPartners", methods={"POST"})
      *
      * @param Request $request
      * @return JsonResponse
