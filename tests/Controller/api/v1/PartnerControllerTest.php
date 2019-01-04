@@ -107,12 +107,12 @@ class PartnerControllerTest extends WebTestCase
     /**
      * @dataProvider provideAuthorizedDelete
      */
-    public function testAuthorizedDelete($method = null, $url = null, $http_code = null, $data = null)
+    public function testAuthorizedDelete($url = null, $http_code = null)
     {
         $this->logIn();
         
         $client = $this->client;
-        $client->request($method, $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+        $client->request('DELETE', $url);
 
         $response = $client->getResponse();
         $content = $response->getContent();
@@ -121,9 +121,9 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideAuthorizedDelete()
     {
-        yield ['DELETE',   '/api/v1/partners',      Response::HTTP_BAD_REQUEST];        // 406
-        yield ['DELETE',   '/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];        // 406
-        yield ['DELETE',   '/api/v1/partners/1',    Response::HTTP_NOT_ACCEPTABLE];     // 406
-        yield ['DELETE',   '/api/v1/partners/4',    Response::HTTP_OK];                 // 406
+        yield ['/api/v1/partners',      Response::HTTP_BAD_REQUEST];        // 406
+        yield ['/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];        // 406
+        yield ['/api/v1/partners/1',    Response::HTTP_NOT_ACCEPTABLE];     // 406
+        yield ['/api/v1/partners/4',    Response::HTTP_OK];                 // 200
     }
 }
