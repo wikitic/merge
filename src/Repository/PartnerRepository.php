@@ -23,70 +23,44 @@ class PartnerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $numSubscriptions
-     * @return Partner[]
-     */
-    public function findAllGreaterThanSubscriptions(int $numSubscriptions = 0): array
-    {
-        $qb = $this->createQueryBuilder('p')
-
-            //->addSelect('p.subscriptions')
-
-            //->andWhere('p.id > :id')
-            //->setParameter('id', $numSubscriptions)
-
-            //->having('count(p.subscriptions) > 3')
-            //->orderBy('p.subscriptions', 'ASC')
-            ->getQuery();
-
-        return $qb->execute();
-    }
-
-    /**
-     * @param string $code
-     * @return bool
-     */
-    public function existCode(string $code = ''): bool
-    {
-        return (bool)$this->findOneBy(['code'=>$code]);
-    }
-
-    /**
      * @return string
      */
     public function getUniqueCode(): string
     {
         do {
             $code = substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 6)), 0, 6);
-        } while ($this->existCode($code));
+            $exist = $this->findOneBy(['code'=>$code]);
+        } while ($exist!==null);
 
         return $code;
     }
 
     /**
-     * @param $request
+     * @param array $data
      * @return bool
      */
-    public function isPostValid($data): bool
+    public function isPostValid(array $data = null): bool
     {
-        if(!isset($data['name']) || !isset($data['surname']) || !isset($data['email']))
+        if (!isset($data['name']) || !isset($data['surname']) || !isset($data['email'])) {
             return false;
+        }
 
-        foreach($data as $key => $value){
-            switch($key){
+        foreach ($data as $key => $value) {
+            switch ($key) {
                 case 'name':
                 case 'surname':
-                    if(empty($value))
+                    if (empty($value)) {
                         return false;
+                    }
                     break;
                 case 'email':
-                    if(!strpos($value, "@") || !strpos($value, ".") || $this->findByEmail(['email'=>$data['email']])) 
+                    if (!filter_var($value, FILTER_VALIDATE_EMAIL) || $this->findOneBy(['email'=>$data['email']])) {
                         return false;
+                    }
                     break;
             }
         }
 
         return true;
     }
-
 }

@@ -64,9 +64,6 @@ final class PartnerController extends AbstractController
     {
         $partners = $this->er->findBy([]);
 
-
-        //$partners = $this->er->findAllGreaterThanSubscriptions();
-
         return new JsonResponse(
             $this->serializer->serialize($partners, 'json'),
             Response::HTTP_OK,
@@ -86,7 +83,8 @@ final class PartnerController extends AbstractController
     public function postPartners(Request $request): JsonResponse
     {
         $data = json_decode($request->getContent(), true);
-        if(!$this->er->isPostValid($data)){
+
+        if (!$this->er->isPostValid($data)) {
             return new JsonResponse(
                 $this->serializer->serialize(null, 'json'),
                 Response::HTTP_BAD_REQUEST,

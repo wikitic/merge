@@ -28,15 +28,6 @@ class PartnerTest extends WebTestCase
         $this->em->rollback();
     }
 
-
-    public function testExistCode()
-    {
-        $this->assertEquals(true, $this->er->existCode('AAAAAA'));
-
-        $this->assertEquals(false, $this->er->existCode());
-        $this->assertEquals(false, $this->er->existCode('ZZZZZZ'));
-    }
-
     public function testGetUniqueCode()
     {
         $code = $this->er->getUniqueCode();
