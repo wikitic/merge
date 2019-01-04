@@ -16,6 +16,9 @@
                                 {{ toDate(props.item.outDate) }}
                             </v-chip>
                         </td>
+                        <td>
+                            <subscription-edit :subscription="props.item"></subscription-edit>
+                        </td>
                     </tr>
                 </template>
             </v-data-table>
@@ -24,9 +27,14 @@
 </template>
 
 <script>
+    import SubscriptionEdit from './SubscriptionEdit'
+
     export default {
         name: 'subscriptions',
         props: ['subscriptions'],
+        components: {
+            SubscriptionEdit
+        },
         data () {
             return {
                 headers: [
