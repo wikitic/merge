@@ -11,7 +11,7 @@
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>
-                        <error-message v-if="hasError" :error="error"></error-message>
+                        <alert v-if="hasError" :error="error"></alert>
                         <v-layout wrap>
                             <v-flex xs12>
                                 <v-text-field label="Nombre *" v-model="partner.name" :error-messages="nameErrors"></v-text-field>
@@ -40,13 +40,13 @@
 
     import { validationMixin } from 'vuelidate'
     import { required, maxLength, email } from 'vuelidate/lib/validators'
-    import ErrorMessage from '../ErrorMessage'
+    import Alert from '../Alert'
 
     export default {
         name: 'partner-edit',
         props: ['partner'],
         components: {
-            ErrorMessage
+            Alert
         },
         mixins: [validationMixin],
         validations: {
@@ -58,11 +58,7 @@
         },
         data: () => ({
             dialog: false,
-            partner: {
-                name: '',
-                surname: '',
-                email: ''
-            }
+            error: null
         }),
         computed: {
             nameErrors () {
@@ -85,21 +81,17 @@
                 return errors
             },
             hasError () {
-                return this.$store.getters['partner/hasError']
-            },
-            error () {
-                return this.$store.getters['partner/error']
+                return this.error !== null
             }
         },
         methods: {
             submit () {
                 this.$v.$touch()
                 if (!this.$v.$invalid) {
-                    alert("OK")
-                    /*
                     this.$store.dispatch('partner/patchPartners', this.partner)
                         .then(() => { this.dialog = false })
-                        */
+                        .catch(error => this.error = error.response )
+                        
                 }
             }
         }

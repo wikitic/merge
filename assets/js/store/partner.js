@@ -46,7 +46,7 @@ export default {
         // PATCH
         ['PATCH_PARTNERS_SUCCESS'](state, partner) {
             state.error = null
-            state.partners.splice(state.partners.indexOf(partners), 1)
+            state.partners.splice(state.partners.indexOf(partner), 1)
             state.partners.push(partner)
         },
         ['PATCH_PARTNERS_ERROR'](state, error) {
@@ -54,9 +54,9 @@ export default {
         },
 
         // DELETE
-        ['DELETE_PARTNERS_SUCCESS'](state, partners) {
+        ['DELETE_PARTNERS_SUCCESS'](state, partner) {
             state.error = null
-            state.partners.splice(state.partners.indexOf(partners), 1)
+            state.partners.splice(state.partners.indexOf(partner), 1)
         },
         ['DELETE_PARTNERS_ERROR'](state, error) {
             state.error = error
@@ -78,8 +78,8 @@ export default {
         patchPartners ({commit}, partner) {
             commit('INITIALIZING')
             return PartnerAPI.patchPartners(partner)
-                .then(res => commit('PATCH_PARTNER_SUCCESS', res.data))
-                .catch(err => commit('PATCH_PARTNER_ERROR', err))
+                .then(res => commit('PATCH_PARTNERS_SUCCESS', res.data))
+                //.catch(err => commit('PATCH_PARTNERS_ERROR', err))
         },
         deletePartners ({commit}, partner) {
             commit('INITIALIZING')
