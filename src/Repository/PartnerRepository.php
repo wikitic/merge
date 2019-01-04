@@ -35,58 +35,17 @@ class PartnerRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Partner $partner
-     * @return bool
-     */
-    public function isPostValid(Partner $partner): bool
-    {
-        if ($partner->getName() == '') {
-            return false;
-        }
-                    
-        if ($partner->getSurname() == '') {
-            return false;
-        }
-                    
-        if (!filter_var($partner->getEmail(), FILTER_VALIDATE_EMAIL) ||
-            $this->findOneBy(['email'=>$partner->getEmail()])) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * @param Partner $partner
-     * @return Partner
-     */
-    public function postValidate(Partner $partner): ?Partner
-    {
-        $partner->setCode($this->getUniqueCode());
-
-        if ($partner->getName() == '') {
-            return null;
-        }
-                    
-        if ($partner->getSurname() == '') {
-            return null;
-        }
-                    
-        if (!filter_var($partner->getEmail(), FILTER_VALIDATE_EMAIL) ||
-            $this->findOneBy(['email'=>$partner->getEmail()])) {
-            return null;
-        }
-
-        return $partner;
-    }
-
-
-    /**
      * @param array $data
      * @return bool
      */
-    public function requestValidate(array $data = null): bool
+    public function requestValidate(array $data = null, string $method = 'POST'): bool
     {
+        if ($method === 'POST') {
+            if (!isset($data['name']) || !isset($data['surname']) || !isset($data['email'])) {
+                return false;
+            }
+        }
+
         foreach ((array)$data as $key => $value) {
             switch ($key) {
                 case 'name':
