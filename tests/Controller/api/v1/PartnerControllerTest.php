@@ -105,6 +105,35 @@ class PartnerControllerTest extends WebTestCase
 
 
     /**
+     * @dataProvider provideAuthorizedPatch
+     */
+    public function testAuthorizedPatch($url = null, $http_code = null, $data = null)
+    {
+        $this->logIn();
+        
+        $client = $this->client;
+        $client->request('PATCH', $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+
+        $response = $client->getResponse();
+        $content = $response->getContent();
+
+        $this->assertEquals($http_code, $response->getStatusCode());
+    }
+    public function provideAuthorizedPatch()
+    {
+        yield ['/api/v1/partners/0', Response::HTTP_BAD_REQUEST, json_encode([])]; // 400
+        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode([])]; // 200
+        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['name'=>'nuevo'])]; // 200
+        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['surname'=>'nuevo'])]; // 200
+        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['email'=>'good@email.com'])]; // 200
+        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['email'=>'email1@email.com'])]; // 200
+        yield ['/api/v1/partners/1', Response::HTTP_BAD_REQUEST, json_encode(['email'=>'BAD_EMAIL'])]; // 400
+        yield ['/api/v1/partners/1', Response::HTTP_BAD_REQUEST, json_encode(['email'=>'email2@email.com'])]; // 400
+    }
+
+
+
+    /**
      * @dataProvider provideAuthorizedDelete
      */
     public function testAuthorizedDelete($url = null, $http_code = null)

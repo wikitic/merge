@@ -17,7 +17,7 @@ class PartnerType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {        
 		$builder
 			->add('name', TextType::class)
             ->add('surname', TextType::class)

@@ -128,14 +128,32 @@ final class PartnerController extends AbstractController
                 true
             );
         }
+
+        $data = json_decode($request->getContent(), true);
+        if (!$this->er->requestValidate($data)) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
         
         $form = $this->createForm(PartnerType::class, $partner);
-        $data = json_decode($request->getContent(), true);
         $form->submit($data, false);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->em->persist($partner);
-            $this->em->flush();
+        if (!$form->isValid()) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
         }
+
+        $this->em->persist($partner);
+        $this->em->flush();
 
         return new JsonResponse(
             $this->serializer->serialize($partner, 'json'),
