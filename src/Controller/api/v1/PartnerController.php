@@ -4,6 +4,7 @@ namespace App\Controller\api\v1;
 
 use App\Entity\Partner;
 use App\Entity\Subscription;
+use App\Form\PartnerType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -109,12 +110,13 @@ final class PartnerController extends AbstractController
 
 
     /**
-     * @Route("/partners/{id_partner}", methods={"PATCH"})
+     * @Route("/partners/{id_partner}", methods={"PATCH", "PUT"})
      *
+     * @param Request $request
      * @param string $id_partner
      * @return JsonResponse
      */
-    public function patchPartners(string $id_partner = ''): JsonResponse
+    public function patchPartners(Request $request, string $id_partner = ''): JsonResponse
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
@@ -126,8 +128,14 @@ final class PartnerController extends AbstractController
                 true
             );
         }
-
-        // Update
+        
+        $form = $this->createForm(PartnerType::class, $partner);
+        $data = json_decode($request->getContent(), true);
+        $form->submit($data, false);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->em->persist($partner);
+            $this->em->flush();
+        }
 
         return new JsonResponse(
             $this->serializer->serialize($partner, 'json'),
