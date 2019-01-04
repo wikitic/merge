@@ -3,66 +3,87 @@
         <v-btn slot="activator" color="primary">Nuevo</v-btn>
 
         <v-card>
-            <v-card-title>
-                <span class="headline">Nuevo socio</span>
-            </v-card-title>
+            <v-toolbar color="orange darken-2" dark>
+                <v-toolbar-title>Nuevo Socio</v-toolbar-title>
+            </v-toolbar>
             <v-card-text>
-                <v-container grid-list-md>
-                    <v-layout wrap>
-                        <!--
-                        <v-flex xs12>
-                            <v-text-field label="Código" v-model="partner.code" disabled></v-text-field>
-                        </v-flex>
-                        -->
-                        <v-flex xs12>
-                            <v-text-field label="Nombre*" v-model="partner.name" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                            <v-text-field label="Apellidos*" v-model="partner.surname" required></v-text-field>
-                        </v-flex>
-                        <v-flex xs12>
-                            <v-text-field label="Email*" v-model="partner.email" required></v-text-field>
-                        </v-flex>
-                        <!--
-                        <v-flex xs12 sm6>
-                            <v-select :options="role" :value="partner.role" label="Rol*" required></v-select>
-                        </v-flex>
-                        <v-flex xs12 sm6>
-                            <v-select :items="status" v-model="partner.status" label="Estado*" required></v-select>
-                        </v-flex>
-                        -->
-                    </v-layout>
-                </v-container>
-                <small>* Campos obligatorios</small>
+                <form @submit.prevent="submit">
+                    <v-container grid-list-md>
+                        <v-layout wrap>
+                            <v-flex xs12>
+                                <v-text-field label="Nombre *" v-model="partner.name" :error-messages="nameErrors"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12>
+                                <v-text-field label="Apellidos *" v-model="partner.surname" :error-messages="surnameErrors"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12>
+                                <v-text-field label="Email *" v-model="partner.email" :error-messages="emailErrors"></v-text-field>
+                            </v-flex>
+                        </v-layout>
+                    </v-container>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn flat @click="dialog = false">Cerrar</v-btn>
+                        <v-btn type="submit" color="primary">Guardar</v-btn>
+                    </v-card-actions>
+                </form>
             </v-card-text>
-            <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="darken-1" flat @click="dialog = false">Cerrar</v-btn>
-                <v-btn color="orange" flat @click="save()">Guardar</v-btn>
-            </v-card-actions>
         </v-card>
     </v-dialog>
 </template>
 
 
 <script>
+
+    import { validationMixin } from 'vuelidate'
+    import { required, maxLength, email } from 'vuelidate/lib/validators'
+
     export default {
         name: 'partner-new',
-        data () {
-            return {
-                dialog: false,
-                partner: {
-                    name: null,
-                    surname: null,
-                    email: null
-                }
+        mixins: [validationMixin],
+        validations: {
+            partner: {
+                name: { required },
+                surname: { required },
+                email: { required, email }
+            }
+        },
+        data: () => ({
+            dialog: false,
+            partner: {
+                name: '',
+                surname: '',
+                email: ''
+            }
+        }),
+        computed: {
+            nameErrors () {
+                const errors = []
+                if (!this.$v.partner.name.$dirty) return errors
+                !this.$v.partner.name.required && errors.push('El nombre es requerido')
+                return errors
+            },
+            surnameErrors () {
+                const errors = []
+                if (!this.$v.partner.surname.$dirty) return errors
+                !this.$v.partner.surname.required && errors.push('El apellido es requerido')
+                return errors
+            },
+            emailErrors () {
+                const errors = []
+                if (!this.$v.partner.email.$dirty) return errors
+                !this.$v.partner.email.email && errors.push('El email no es válido')
+                !this.$v.partner.email.required && errors.push('El email es requerido')
+                return errors
             }
         },
         methods: {
-            save () {
-                this.$store.dispatch('partner/postPartners', this.partner)
-                .then(() => console.log(res))
-                //.then(() => dialog = false)
+            submit () {
+                this.$v.$touch()
+                if (!this.$v.$invalid) {
+                    this.$store.dispatch('partner/postPartners', this.partner)
+                        .then(() => { this.dialog = false })
+                }
             }
         }
     }
