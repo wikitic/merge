@@ -59,7 +59,7 @@ final class PartnerController extends AbstractController
 
     /**
      * @Route("/partners", methods={"GET"})
-     * 
+     *
      * @return JsonResponse
      */
     public function getPartners(): JsonResponse
@@ -76,7 +76,7 @@ final class PartnerController extends AbstractController
 
     /**
      * @Route("/partners/{id_partner}", methods={"GET"})
-     * 
+     *
      * @param string $id_partner
      * @return JsonResponse
      */
