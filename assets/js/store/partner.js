@@ -25,17 +25,13 @@ export default {
             state.error = null
         },
 
-        ['FETCHING_PARTNERS'](state) {
-            state.error = null
-            state.partners = []
-        },
-        ['FETCHING_PARTNERS_SUCCESS'](state, partners) {
+        // GET
+        ['GET_PARTNERS_SUCCESS'](state, partners) {
             state.error = null
             state.partners = partners
         },
-        ['FETCHING_PARTNERS_ERROR'](state, error) {
+        ['GET_PARTNERS_ERROR'](state, error) {
             state.error = error
-            state.partners = []
         },
 
         // POST
@@ -44,6 +40,16 @@ export default {
             state.partners.push(partner)
         },
         ['POST_PARTNERS_ERROR'](state, error) {
+            state.error = error
+        },
+
+        // PATCH
+        ['PATCH_PARTNERS_SUCCESS'](state, partner) {
+            state.error = null
+            state.partners.splice(state.partners.indexOf(partners), 1)
+            state.partners.push(partner)
+        },
+        ['PATCH_PARTNERS_ERROR'](state, error) {
             state.error = error
         },
 
@@ -58,27 +64,23 @@ export default {
     },
     actions: {
         getPartners ({commit}) {
-            commit('FETCHING_PARTNERS')
+            commit('INITIALIZING')
             return PartnerAPI.getPartners()
-                .then(res => commit('FETCHING_PARTNERS_SUCCESS', res.data))
-                .catch(err => commit('FETCHING_PARTNERS_ERROR', err))
+                .then(res => commit('GET_PARTNERS_SUCCESS', res.data))
+                .catch(err => commit('GET_PARTNERS_ERROR', err))
         },
-
         postPartners ({commit}, partner) {
             commit('INITIALIZING')
             return PartnerAPI.postPartners(partner)
                 .then(res => commit('POST_PARTNERS_SUCCESS', res.data))
                 .catch(error => commit('POST_PARTNERS_ERROR', error))
         },
-
         patchPartners ({commit}, partner) {
-            //commit('CREATING_PARTNER')
+            commit('INITIALIZING')
             return PartnerAPI.patchPartners(partner)
-                //.then(res => commit('CREATING_PARTNER_SUCCESS', res.data))
-                .catch(err => commit('CREATING_PARTNER_ERROR', err))
+                .then(res => commit('PATCH_PARTNER_SUCCESS', res.data))
+                .catch(err => commit('PATCH_PARTNER_ERROR', err))
         },
-
-
         deletePartners ({commit}, partner) {
             commit('INITIALIZING')
             return PartnerAPI.deletePartners(partner)

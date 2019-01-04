@@ -13,7 +13,12 @@ export default {
             })
     },
     patchPartners (partner) {
-        return axios.patch('/api/v1/partners/' + partner.id)
+        return axios.patch('/api/v1/partners/' + partner.id,
+            {
+                name: partner.name,
+                surname: partner.surname,
+                email: partner.email
+            })
     },
     deletePartners (partner) {
         return axios.delete('/api/v1/partners/' + partner.id)
