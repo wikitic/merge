@@ -129,7 +129,7 @@ final class PartnerController extends AbstractController
             );
         }
 
-        $data = json_decode($request->getContent(), true);
+        $data = json_decode((string)$request->getContent(), true);
         if (!$this->er->requestValidate($data)) {
             $error = ['error' => 'Bad request'];
             return new JsonResponse(
