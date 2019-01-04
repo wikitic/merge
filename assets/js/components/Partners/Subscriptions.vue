@@ -1,19 +1,26 @@
 <template>
-    <v-data-table :headers="headers" :items="subscriptions" item-key="id" :pagination.sync="pagination" hide-actions>
-        <template slot="items" slot-scope="props">
-            <tr>
-                <td>
-                    <v-chip label small :color="getColorByActive(isActive(props.item.inDate, props.item.outDate))" text-color="white" >
-                        Ok
-                    </v-chip>
-                </td>
-                <td>{{ props.item.info }}</td>
-                <td>{{ props.item.price }}</td>
-                <td>{{ toDate(props.item.inDate) }}</td>
-                <td>{{ toDate(props.item.outDate) }}</td>
-            </tr>
-        </template>
-    </v-data-table>
+    <v-card color="orange lighten-4" class="white--text">
+        <v-container fluid grid-list-lg>
+            <v-data-table :headers="headers" :items="subscriptions" item-key="id" :pagination.sync="pagination" hide-actions>
+                <template slot="items" slot-scope="props">
+                    <tr>
+                        <td>{{ props.item.info }}</td>
+                        <td>{{ props.item.price }}</td>
+                        <td>
+                            <v-chip :color="getColorByActive(isActive(props.item.inDate, props.item.outDate))" outline>
+                                {{ toDate(props.item.inDate) }}
+                            </v-chip>
+                        </td>
+                        <td>
+                            <v-chip :color="getColorByActive(isActive(props.item.inDate, props.item.outDate))" outline>
+                                {{ toDate(props.item.outDate) }}
+                            </v-chip>
+                        </td>
+                    </tr>
+                </template>
+            </v-data-table>
+        </v-container>
+    </v-card>
 </template>
 
 <script>
@@ -23,11 +30,10 @@
         data () {
             return {
                 headers: [
-                    { text: 'Active', value: '', sortable: false },
                     { text: 'Info', value: 'info', sortable: false },
                     { text: 'Price', value: 'price', sortable: false },
                     { text: 'Inicio', value: 'inDate', sortable: false },
-                    { text: 'Fin', value: 'outDate', sortable: false },
+                    { text: 'Fin', value: 'outDate', sortable: false }
                 ],
                 colors: {
                     true: 'green',
