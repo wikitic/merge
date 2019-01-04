@@ -9,7 +9,7 @@
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
-            <v-data-table :headers="headers" :items="partners" :search="search" item-key="id" :pagination.sync="pagination">
+            <v-data-table :headers="headers" :items="partners" item-key="id" :search="search" :pagination.sync="pagination">
                 <template slot="items" slot-scope="props">
                     <tr @click="props.expanded = !props.expanded">
                         <td>{{ props.item.id }}</td>
@@ -20,9 +20,19 @@
                         </td>
                         <td>{{ props.item.fullname }}</td>
                         <td>{{ props.item.email }}</td>
-                        <td>{{ props.item.numSubscriptions }}</td>
+                        <td class="text-xs-center">{{ props.item.numSubscriptions }}</td>
                         <td>{{ toDate(props.item.cdate) }}</td>
-                        <td class="text-xs-right">
+                        <td>
+                            <v-chip v-if="getAlta(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
+                                {{ getAlta(props.item.subscriptions) }}
+                            </v-chip>
+                        </td>
+                        <td>
+                            <v-chip v-if="getBaja(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
+                                {{ getBaja(props.item.subscriptions) }}
+                            </v-chip>
+                        </td>
+                        <td>
                             <partner-edit :partner="props.item"></partner-edit>
                             <partner-delete :partner="props.item"></partner-delete>
                         </td>
@@ -38,10 +48,10 @@
 </template>
 
 <script>
-    import PartnerNew from '../components/Partners/PartnerNew';
-    import PartnerEdit from '../components/Partners/PartnerEdit';
-    import PartnerDelete from '../components/Partners/PartnerDelete';
-    import Subscriptions from '../components/Partners/Subscriptions';
+    import PartnerNew from '../components/Partners/PartnerNew'
+    import PartnerEdit from '../components/Partners/PartnerEdit'
+    import PartnerDelete from '../components/Partners/PartnerDelete'
+    import Subscriptions from '../components/Partners/Subscriptions'
 
     export default {
         name: 'partners',
@@ -56,16 +66,20 @@
                 dialog: false,
                 search: '',
                 pagination: {
+                    sortBy: 'cdate',
+                    descending: true,
                     rowsPerPage: 10
                 },
                 headers: [
-                    { text: '#', value: 'id' },
-                    { text: 'Código', value: 'code', sortable: false },
+                    { text: '#', value: 'id', width: 10 },
+                    { text: 'Código', value: 'code', sortable: false, width: 50 },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
-                    { text: 'Email', value: 'email' },
-                    { text: 'Suscripciones', value: 'numSubscriptions' },
-                    { text: 'Registro', value: 'cdate' },
-                    //{ text: 'MDate', value: 'mdate' }
+                    { text: 'Email', value: 'email', sortable: false, width: 200 },
+                    { text: 'Suscripciones', value: 'numSubscriptions', width:50, align: 'center' },
+                    { text: 'Registro', value: 'cdate', width:100 },
+                    { text: 'Alta', sortable: false, width:100 },
+                    { text: 'Baja', sortable: false, width:100 },
+                    { text: '', sortable: false, width: 160 }
                 ],
                 colors: {
                     1: 'green',
@@ -74,17 +88,35 @@
             };
         },
         created () {
-            this.$store.dispatch('partner/getPartners');
+            this.$store.dispatch('partner/getPartners')
         },
         computed: {
             partners () {
-                return this.$store.getters['partner/partners'];
-            },
+                return this.$store.getters['partner/partners']
+            }
         },
         methods: {
             toDate (datetime) {
-                let date = datetime ? new Date(datetime) : null
-                return date && date.toISOString().split('T')[0]
+                let date = new Date(datetime)
+                return date.toLocaleDateString("es-ES") //eu-ES
+            },
+            getAlta (subscriptions) {
+                let subs = subscriptions[subscriptions.length-1]
+                
+                if(subs === undefined)
+                    return null
+                
+                return this.toDate(new Date(subs.inDate))
+
+            },
+            getBaja (subscriptions) {
+                let subs = subscriptions[0]
+                
+                if(subs === undefined)
+                    return null
+                
+                return this.toDate(new Date(subs.outDate))
+
             },
             getStatus (subscriptions) {
                 let now = new Date()

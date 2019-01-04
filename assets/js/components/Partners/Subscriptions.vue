@@ -40,8 +40,8 @@
         },
         methods: {
             toDate (datetime) {
-                let date = datetime ? new Date(datetime) : null
-                return date && date.toISOString().split('T')[0]
+                let date = new Date(datetime)
+                return date.toLocaleDateString("es-ES") //eu-ES
             },
             isActive(inDate, outDate) {
                 let now = new Date()

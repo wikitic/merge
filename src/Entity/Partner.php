@@ -139,7 +139,9 @@ class Partner
         
         $this->setPassword($this->code);
         
-        $this->cdate    = new \DateTime();
+        if ($this->cdate === null) {
+            $this->cdate    = new \DateTime();
+        }
     }
 
     /**

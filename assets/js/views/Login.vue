@@ -24,48 +24,46 @@
 </template>
 
 <script>
-    import ErrorMessage from '../components/ErrorMessage';
+    import ErrorMessage from '../components/ErrorMessage'
 
     export default {
         name: 'login',
         components: {
-            ErrorMessage,
+            ErrorMessage
         },
         data () {
             return {
                 username: '',
                 password: ''
-            };
+            }
         },
         created () {
-            let redirect = this.$route.query.redirect || '/';
+            let redirect = this.$route.query.redirect || '/'
             
             if (this.$store.getters['security/isAuthenticated']) {
-                this.$router.push({path: redirect});
+                this.$router.push({path: redirect})
             }
         },
         computed: {
             isDisabled () {
-                return this.username.length === 0 || this.password.length === 0;
+                return this.username.length === 0 || this.password.length === 0
             },
             hasError () {
-                return this.$store.getters['security/hasError'];
+                return this.$store.getters['security/hasError']
             },
             error () {
-                return this.$store.getters['security/error'];
-            },
+                return this.$store.getters['security/error']
+            }
         },
         methods: {
             login () {
                 let payload = { username: this.$data.username, password: this.$data.password },
-                    redirect = this.$route.query.redirect || '/';
+                    redirect = this.$route.query.redirect || '/'
 
                 this.$store.dispatch('security/login', payload)
-                    .then(() => {
-                        this.$router.push({path: redirect});
-                    });
-            },
-        },
+                    .then(() => { this.$router.push({path: redirect}) })
+            }
+        }
     }
 </script>
 

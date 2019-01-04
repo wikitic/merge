@@ -148,7 +148,7 @@ final class PartnerController extends AbstractController
             );
         }
 
-        // Comprobar si tiene subscripciones
+        // Si tiene subscripciones impedimos borrar
         $subscriptions = $this->em->getRepository(Subscription::class)->findBy(['partner' => $partner->getId()]);
         if ($subscriptions) {
             return new JsonResponse(

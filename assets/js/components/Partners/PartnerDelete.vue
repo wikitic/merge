@@ -1,6 +1,6 @@
 <template>
     <v-dialog v-model="dialog" persistent max-width="600px">
-        <v-btn slot="activator" flat icon color="grey">
+        <v-btn v-if="hasSubscriptions" slot="activator" flat icon color="grey">
             <v-icon>delete</v-icon>
         </v-btn>
         <v-card>
@@ -49,6 +49,9 @@
             }
         },
         computed: {
+            hasSubscriptions () {
+                return this.partner.subscriptions.length === 0
+            },
             isDisabled () {
                 return this.partner.code !== this.confirm.code
             },
@@ -62,8 +65,6 @@
         methods: {
             deletePartner () {
                 this.$store.dispatch('partner/deletePartners', this.partner)
-                    //.then(res => /*this.dialog = false*/ console.log(res))
-                    //.catch(err => console.log(res))
             }
         }
     }
