@@ -1,4 +1,5 @@
 import PartnerAPI from '../api/partner'
+import SubscriptionAPI from '../api/subscription'
 
 export default {
     namespaced: true,
@@ -26,7 +27,12 @@ export default {
         },
         ['DELETE_PARTNERS_SUCCESS'](state, partner) {
             state.partners.splice(state.partners.indexOf(partner), 1)
-        }
+        },
+
+        ['POST_SUBSCRIPTIONS_SUCCESS'](state, partner) {
+            state.partners.splice(state.partners.indexOf(partner), 1)
+            state.partners.push(partner)
+        },
     },
     actions: {
         getPartners ({commit}) {
@@ -44,6 +50,11 @@ export default {
         deletePartners ({commit}, partner) {
             return PartnerAPI.deletePartners(partner)
                 .then(() => commit('DELETE_PARTNERS_SUCCESS', partner))
-        }        
+        },
+        
+        postSubscriptions ({commit}, subscription) {
+            return SubscriptionAPI.postSubscriptions(subscription)
+                .then(res => commit('POST_SUBSCRIPTIONS_SUCCESS', res.data))
+        }
     }
 }

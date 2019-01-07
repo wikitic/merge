@@ -40,7 +40,7 @@
                         </tr>
                     </template>
                     <template slot="expand" slot-scope="props">
-                        <partners-subscriptions :subscriptions="props.item.subscriptions"></partners-subscriptions>
+                        <partners-subscriptions :partner="props.item"></partners-subscriptions>
                     </template>
                 </v-data-table>
             </v-card-text>

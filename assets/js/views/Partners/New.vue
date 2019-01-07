@@ -74,8 +74,8 @@
             emailErrors () {
                 const errors = []
                 if (!this.$v.partner.email.$dirty) return errors
-                !this.$v.partner.email.email && errors.push('El email no es válido')
                 !this.$v.partner.email.required && errors.push('El email es requerido')
+                !this.$v.partner.email.email && errors.push('El email no es válido')
                 return errors
             },
             hasError () {
