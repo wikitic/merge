@@ -34,17 +34,13 @@
 </template>
 
 
-<script>
 
+<script>
     import { validationMixin } from 'vuelidate'
-    import { required, maxLength, email } from 'vuelidate/lib/validators'
-    import Alert from '../../components/Alert'
+    import { required, email } from 'vuelidate/lib/validators'
 
     export default {
         name: 'partners-new',
-        components: {
-            Alert
-        },
         mixins: [validationMixin],
         validations: {
             partner: {
