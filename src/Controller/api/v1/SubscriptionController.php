@@ -2,7 +2,9 @@
 
 namespace App\Controller\api\v1;
 
+use App\Entity\Partner;
 use App\Entity\Subscription;
+use App\Form\SubscriptionType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -17,6 +19,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use function Safe\json_decode;
 
 /**
  * Subscription controller
@@ -72,16 +75,79 @@ final class SubscriptionController extends AbstractController
     }
     
     /**
-     * @Rest\Get("/partners/{id_partner}/subscriptions", name="getSubscriptions")
+     * @Route("/partners/{id_partner}/subscriptions", methods={"GET"})
+     *
      * @param string $id_partner
      * @return JsonResponse
      */
-    public function getPartnersSubscriptions(string $id_partner = null): JsonResponse
+    public function getPartnersSubscriptions(string $id_partner = ''): JsonResponse
     {
         $subscriptions = $this->er->findBy(['partner' => $id_partner], ['inDate' => 'DESC']);
 
         return new JsonResponse(
             $this->serializer->serialize($subscriptions, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
+
+    /**
+     * @Route("/partners/{id_partner}/subscriptions", methods={"POST"})
+     *
+     * @param Request $request
+     * @param string $id_partner
+     * @return JsonResponse
+     */
+    public function postSubscriptions(Request $request, string $id_partner = ''): JsonResponse
+    {
+        $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $data = json_decode((string)$request->getContent(), true);
+        $data['partner'] = $id_partner;
+        /*
+        if (!$this->er->requestValidate($data, 'POST')) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+        */
+
+        $subscription = new Subscription();
+        $form = $this->createForm(SubscriptionType::class, $subscription);
+        $form->submit($data, true);
+        if (!$form->isValid()) {
+            dump((string) $form->getErrors(true, false));
+            die;
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $this->em->persist($subscription);
+        $this->em->flush();
+        
+        return new JsonResponse(
+            $this->serializer->serialize($subscription, 'json'),
             Response::HTTP_OK,
             [],
             true

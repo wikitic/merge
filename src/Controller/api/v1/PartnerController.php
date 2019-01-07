@@ -104,7 +104,7 @@ final class PartnerController extends AbstractController
 
 
     /**
-     * @Route("/partners", name="postPartners", methods={"POST"})
+     * @Route("/partners", methods={"POST"})
      *
      * @param Request $request
      * @return JsonResponse

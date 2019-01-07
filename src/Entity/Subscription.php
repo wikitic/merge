@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Partner;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Subscription
@@ -37,6 +38,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
+     * @Assert\NotNull
+     * @Assert\DateTime
      */
     private $inDate;
 
@@ -44,6 +47,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="out_date", type="datetime")
+     * @Assert\NotNull
+     * @Assert\DateTime
      */
     private $outDate;
     
@@ -51,6 +56,7 @@ class Subscription
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
+     * @Assert\NotBlank
      */
     private $info;
 
@@ -58,6 +64,7 @@ class Subscription
      * @var float
      *
      * @ORM\Column(name="price", type="decimal", scale=2)
+     * @Assert\NotBlank
      */
     private $price;
 
@@ -76,11 +83,12 @@ class Subscription
     /**
      * Get indate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getInDate(): string
+    public function getInDate(): ?\DateTime
     {
-        return $this->inDate->format(\DateTime::ISO8601);
+        return $this->inDate;
+        //return $this->inDate->format(\DateTime::ISO8601);
     }
 
     /**
@@ -90,7 +98,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setInDate(\DateTime $inDate): self
+    public function setInDate(?\DateTime $inDate): self
     {
         $this->inDate = $inDate;
 
@@ -100,11 +108,12 @@ class Subscription
     /**
      * Get outdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getOutDate(): string
+    public function getOutDate(): ?\DateTime
     {
-        return $this->outDate->format(\DateTime::ISO8601);
+        return $this->outDate;
+        //return $this->outDate->format(\DateTime::ISO8601);
     }
 
     /**
@@ -114,7 +123,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setOutDate(\DateTime $outDate): self
+    public function setOutDate(?\DateTime $outDate): self
     {
         $this->outDate = $outDate;
 
@@ -150,7 +159,7 @@ class Subscription
      *
      * @return float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
@@ -174,9 +183,8 @@ class Subscription
      *
      * @return Partner
      */
-    public function getPartner(): Partner
+    public function getPartner(): ?Partner
     {
-        //return null;
         return $this->partner;
     }
 
