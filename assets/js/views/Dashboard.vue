@@ -10,7 +10,7 @@
                 <h3>Socios</h3>
             </v-card-title>
             <v-card-text>
-                <v-sparkline :labels="labels" :value="value" color="black" line-width="1" padding="20"></v-sparkline>
+                <v-sparkline :labels="labels" :value="value" color="black" line-width="0.5" padding="20" ></v-sparkline>
             </v-card-text>
         </v-card>
     </v-container>

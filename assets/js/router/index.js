@@ -5,7 +5,7 @@ import Login from '../views/Login'
 import Logout from '../views/Logout'
 import Profile from '../views/Profile'
 import Dashboard from '../views/Dashboard'
-import Partners from '../views/Partners'
+import Partners from '../views/Partners/List'
 import Subscriptions from '../views/Subscriptions'
 
 Vue.use(VueRouter)

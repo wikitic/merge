@@ -34,7 +34,7 @@
 
 <script>
     export default {
-        name: 'partner-edit',
+        name: 'partners-edit',
         props: ['partner'],
         data: () => ({
             dialog: false,

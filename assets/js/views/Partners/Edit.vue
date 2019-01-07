@@ -40,10 +40,10 @@
 
     import { validationMixin } from 'vuelidate'
     import { required, maxLength, email } from 'vuelidate/lib/validators'
-    import Alert from '../Alert'
+    import Alert from '../../components/Alert'
 
     export default {
-        name: 'partner-edit',
+        name: 'partners-edit',
         props: ['partner'],
         components: {
             Alert
