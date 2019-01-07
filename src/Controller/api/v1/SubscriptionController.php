@@ -19,6 +19,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use function Safe\json_decode;
 
 /**
@@ -49,7 +50,7 @@ final class SubscriptionController extends AbstractController
         // Evitar "A circular reference has been detected when serializing the object of class"
         $normalizer = new ObjectNormalizer();
         $normalizer->setIgnoredAttributes(['subscriptions']);
-        $serializer = new Serializer([$normalizer], [new JsonEncoder()]);
+        $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
         // Evitar ...
         
         $this->serializer = $serializer;

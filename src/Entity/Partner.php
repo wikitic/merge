@@ -365,11 +365,11 @@ class Partner
     /**
      * Get cdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getCdate(): string
+    public function getCdate(): \DateTime
     {
-        return $this->cdate->format(\DateTime::ISO8601);
+        return $this->cdate;
     }
 
     /**
@@ -389,11 +389,11 @@ class Partner
     /**
      * Get mdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getMdate(): string
+    public function getMdate(): \DateTime
     {
-        return $this->mdate->format(\DateTime::ISO8601);
+        return $this->mdate;
     }
 
     /**

@@ -113,7 +113,6 @@ class Subscription
     public function getInDate(): ?\DateTime
     {
         return $this->inDate;
-        //return $this->inDate->format(\DateTime::ISO8601);
     }
 
     /**
@@ -138,7 +137,6 @@ class Subscription
     public function getOutDate(): ?\DateTime
     {
         return $this->outDate;
-        //return $this->outDate->format(\DateTime::ISO8601);
     }
 
     /**
