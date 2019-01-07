@@ -205,4 +205,48 @@ final class SubscriptionController extends AbstractController
             true
         );
     }
+
+
+
+    /**
+     * @Route("/partners/{id_partner}/subscriptions/{id_subscription}", methods={"DELETE"})
+     *
+     * @param string $id_partner
+     * @param string $id_subscription
+     * @return JsonResponse
+     */
+    public function deletePartners(string $id_partner = '', string $id_subscription = ''): JsonResponse
+    {
+        $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+ 
+        $subscription = $this->er->findOneBy(['id' => $id_subscription, 'partner' => $partner]);
+        if ($subscription === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $this->em->remove($subscription);
+        $this->em->flush();
+        
+        return new JsonResponse(
+            $this->serializer->serialize(null, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
 }

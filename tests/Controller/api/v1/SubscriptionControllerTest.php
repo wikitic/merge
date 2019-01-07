@@ -125,4 +125,33 @@ class SubscriptionControllerTest extends WebTestCase
         yield [$BAD_REQUEST, json_encode(['outDate'=>''])];
         yield [$BAD_REQUEST, json_encode(['outDate'=>'BAD_DATE'])];
     }
+
+
+    /**
+     * @dataProvider provideAuthorizedDelete
+     */
+    public function testAuthorizedDelete($url = null, $http_code = null)
+    {
+        $this->logIn();
+        
+        $client = $this->client;
+        $client->request('DELETE', $url);
+
+        $response = $client->getResponse();
+        $content = $response->getContent();
+
+        $this->assertEquals($http_code, $response->getStatusCode());
+    }
+    public function provideAuthorizedDelete()
+    {
+        $OK = Response::HTTP_OK;                    // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;  // 400
+
+        yield ['/api/v1/partners/1/subscriptions/0',    $BAD_REQUEST];
+        yield ['/api/v1/partners/0/subscriptions/1',    $BAD_REQUEST];
+        yield ['/api/v1/partners/1/subscriptions/6',    $BAD_REQUEST];
+
+        yield ['/api/v1/partners/1/subscriptions/1',    $OK];
+
+    }
 }
