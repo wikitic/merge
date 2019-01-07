@@ -85,7 +85,7 @@ final class PartnerController extends AbstractController
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -118,9 +118,7 @@ final class PartnerController extends AbstractController
         $form = $this->createForm(PartnerType::class, $partner);
         $form->submit($data, true);
         if (!$form->isValid()) {
-            //dump((string) $form->getErrors(true, false));
-            //die;
-            $error = ['error' => 'Bad request'];
+            $error = $form->getErrors(true);
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -154,7 +152,7 @@ final class PartnerController extends AbstractController
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -165,11 +163,10 @@ final class PartnerController extends AbstractController
 
         $data = json_decode((string)$request->getContent(), true);
         
-        //$partner = new Partner();
         $form = $this->createForm(PartnerType::class, $partner);
         $form->submit($data, false);
         if (!$form->isValid()) {
-            $error = ['error' => 'Bad request'];
+            $error = $form->getErrors(true);
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -200,7 +197,7 @@ final class PartnerController extends AbstractController
     {
         $partner = $this->er->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -212,7 +209,7 @@ final class PartnerController extends AbstractController
         // Si tiene subscripciones impedimos borrar
         $subscriptions = $this->em->getRepository(Subscription::class)->findBy(['partner' => $partner->getId()]);
         if ($subscriptions) {
-            $error = ['error' => 'Not Acceptable'];
+            $error = [['message' => 'No se puede borrar un usuario con suscripciones']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_NOT_ACCEPTABLE,
