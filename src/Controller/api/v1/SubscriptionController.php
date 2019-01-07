@@ -83,7 +83,7 @@ final class SubscriptionController extends AbstractController
     public function getPartnersSubscriptions(string $id_partner = ''): JsonResponse
     {
         $subscriptions = $this->er->findBy(['partner' => $id_partner], ['inDate' => 'DESC']);
-
+        
         return new JsonResponse(
             $this->serializer->serialize($subscriptions, 'json'),
             Response::HTTP_OK,
