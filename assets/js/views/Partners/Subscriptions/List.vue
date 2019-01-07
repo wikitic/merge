@@ -17,7 +17,8 @@
                             </v-chip>
                         </td>
                         <td>
-                            <subscription-edit :subscription="props.item"></subscription-edit>
+                            <subscriptions-edit :subscription="props.item"></subscriptions-edit>
+                            <subscriptions-delete :subscription="props.item"></subscriptions-delete>
                         </td>
                     </tr>
                 </template>
@@ -27,13 +28,17 @@
 </template>
 
 <script>
-    import SubscriptionEdit from './SubscriptionEdit'
+    //import SubscriptionsNew from './New'
+    import SubscriptionsEdit from './Edit'
+    import SubscriptionsDelete from './Delete'
 
     export default {
-        name: 'subscriptions',
+        name: 'partners-subscriptions',
         props: ['subscriptions'],
         components: {
-            SubscriptionEdit
+            //SubscriptionsNew,
+            SubscriptionsEdit,
+            SubscriptionsDelete
         },
         data () {
             return {

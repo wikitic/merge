@@ -40,7 +40,7 @@
                         </tr>
                     </template>
                     <template slot="expand" slot-scope="props">
-                        <subscriptions :subscriptions="props.item.subscriptions"></subscriptions>
+                        <partners-subscriptions :subscriptions="props.item.subscriptions"></partners-subscriptions>
                     </template>
                 </v-data-table>
             </v-card-text>
@@ -54,7 +54,7 @@
     import PartnersEdit from './Edit'
     import PartnersDelete from './Delete'
 
-    import Subscriptions from '../../components/Partners/Subscriptions'
+    import PartnersSubscriptions from './Subscriptions/List'
 
     export default {
         name: 'partners-list',
@@ -62,7 +62,7 @@
             PartnersNew,
             PartnersEdit,
             PartnersDelete,
-            Subscriptions
+            PartnersSubscriptions
         },
         data () {
             return {
