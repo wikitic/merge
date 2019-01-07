@@ -31,7 +31,6 @@ class Subscription
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
      * })
-     * @Assert\NotNull
      */
     private $partner;
 
@@ -39,8 +38,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
-     * @Assert\NotNull
-     * @Assert\DateTime
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $inDate;
 
@@ -48,8 +47,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="out_date", type="datetime")
-     * @Assert\NotNull
-     * @Assert\DateTime
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $outDate;
     
@@ -57,7 +56,7 @@ class Subscription
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="La info es requerida")
      */
     private $info;
 
@@ -65,7 +64,7 @@ class Subscription
      * @var float
      *
      * @ORM\Column(name="price", type="decimal", scale=2)
-     * @Assert\NotBlank
+     * @Assert\NotBlank(message="El precio es requerido")
      */
     private $price;
 

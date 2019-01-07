@@ -106,7 +106,7 @@ final class SubscriptionController extends AbstractController
     {
         $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -124,7 +124,7 @@ final class SubscriptionController extends AbstractController
         if (!$form->isValid()) {
             //dump((string) $form->getErrors(true, false));
             //die;
-            $error = ['error' => (string)$form->getErrors(true, false)];
+            $error = [['message' => (string)$form->getErrors(true, false)]];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -159,7 +159,7 @@ final class SubscriptionController extends AbstractController
     {
         $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -170,7 +170,7 @@ final class SubscriptionController extends AbstractController
  
         $subscription = $this->er->findOneBy(['id' => $id_subscription, 'partner' => $partner]);
         if ($subscription === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'La suscripción '.$id_subscription.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -220,7 +220,7 @@ final class SubscriptionController extends AbstractController
     {
         $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'El usuario '.$id_partner.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
@@ -231,7 +231,7 @@ final class SubscriptionController extends AbstractController
  
         $subscription = $this->er->findOneBy(['id' => $id_subscription, 'partner' => $partner]);
         if ($subscription === null) {
-            $error = ['error' => 'Bad request'];
+            $error = [['message' => 'La suscripción '.$id_subscription.' no existe']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,
