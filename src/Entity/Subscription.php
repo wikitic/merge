@@ -148,7 +148,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setInfo(string $info): self
+    public function setInfo(?string $info): self
     {
         $this->info = $info;
 
@@ -172,7 +172,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setPrice(float $price): self
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
 
@@ -196,7 +196,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setPartner(Partner $partner): self
+    public function setPartner(?Partner $partner): self
     {
         $this->partner = $partner;
 

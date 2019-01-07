@@ -116,17 +116,6 @@ final class SubscriptionController extends AbstractController
 
         $data = json_decode((string)$request->getContent(), true);
         $data['partner'] = $id_partner;
-        /*
-        if (!$this->er->requestValidate($data, 'POST')) {
-            $error = ['error' => 'Bad request'];
-            return new JsonResponse(
-                $this->serializer->serialize($error, 'json'),
-                Response::HTTP_BAD_REQUEST,
-                [],
-                true
-            );
-        }
-        */
 
         $subscription = new Subscription();
         $form = $this->createForm(SubscriptionType::class, $subscription);
@@ -153,4 +142,72 @@ final class SubscriptionController extends AbstractController
             true
         );
     }
+
+
+
+
+
+
+
+    /**
+     * @Route("/partners/{id_partner}/subscriptions/{id_subscription}", methods={"PATCH", "PUT"})
+     *
+     * @param Request $request
+     * @param string $id_partner
+     * @param string $id_subscription
+     * @return JsonResponse
+     */
+    public function patchSubscriptions(Request $request, string $id_partner = '', string $id_subscription = ''): JsonResponse
+    {
+        $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
+        if ($partner === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+ 
+        $subscription = $this->er->findOneBy(['id' => $id_subscription, 'partner' => $partner]);
+        if ($subscription === null) {
+            $error = ['error' => 'Bad request'];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $data = json_decode((string)$request->getContent(), true);
+        //$subscription = new Subscription();
+        $form = $this->createForm(SubscriptionType::class, $subscription);
+        $form->submit($data, false);
+        if (!$form->isValid()) {
+            //dump((string) $form->getErrors(true, false));
+            //die;
+            $error = ['error' => (string)$form->getErrors(true, false)];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $this->em->persist($subscription);
+        $this->em->flush();
+
+
+        return new JsonResponse(
+            $this->serializer->serialize($partner, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
 }

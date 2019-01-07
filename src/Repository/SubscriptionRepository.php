@@ -18,41 +18,4 @@ class SubscriptionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Subscription::class);
     }
-
-    /**
-     * @param array $data
-     * @return bool
-     */
-    public function requestValidate(array $data = null, string $method = 'POST'): bool
-    {
-        if ($method === 'POST') {
-            if (!isset($data['info']) || !isset($data['price'])
-                || !isset($data['inDate']) || !isset($data['outDate'])) {
-                return false;
-            }
-        }
-
-        foreach ((array)$data as $key => $value) {
-            switch ($key) {
-                case 'info':
-                    if (empty($value)) {
-                        return false;
-                    }
-                    break;
-                case 'price':
-                    if (!filter_var($value, FILTER_VALIDATE_FLOAT)) {
-                        return false;
-                    }
-                    break;
-                case 'inDate':
-                case 'outDate':
-                    if (empty($value)) {
-                        return false;
-                    }
-                    break;
-            }
-        }
-        
-        return true;
-    }
 }

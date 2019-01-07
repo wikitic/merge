@@ -89,4 +89,40 @@ class SubscriptionControllerTest extends WebTestCase
         yield [$BAD_REQUEST, json_encode(['info'=>'Text','price'=>'1','inDate'=>'', 'outDate'=>'2019-01-01 00:00:00'])];
         yield [$BAD_REQUEST, json_encode(['info'=>'Text','price'=>'1','inDate'=>'2018-01-01 00:00:00', 'outDate'=>''])];
     }
+
+
+    /**
+     * @dataProvider provideAuthorizedPatch
+     */
+    public function testAuthorizedPatch($http_code = null, $data = null)
+    {
+        $this->logIn();
+        
+        $client = $this->client;
+        $client->request('PATCH', '/api/v1/partners/1/subscriptions/1', [], [], ['CONTENT_TYPE' => 'application/json'], $data);
+
+        $response = $client->getResponse();
+        $content = $response->getContent();
+
+        $this->assertEquals($http_code, $response->getStatusCode());
+    }
+    public function provideAuthorizedPatch()
+    {
+        $OK = Response::HTTP_OK;                    // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;  // 400
+
+        yield [$OK, json_encode([])];
+        yield [$OK, json_encode(['info'=>'nuevo'])];
+        yield [$OK, json_encode(['price'=>'1'])];
+        yield [$OK, json_encode(['inDate'=>'2020-01-01 00:00:00'])];
+        yield [$OK, json_encode(['outDate'=>'2020-01-01 00:00:00'])];
+
+        yield [$BAD_REQUEST, json_encode(['info'=>''])];
+        yield [$BAD_REQUEST, json_encode(['price'=>''])];
+        yield [$BAD_REQUEST, json_encode(['price'=>'BAD'])];
+        yield [$BAD_REQUEST, json_encode(['inDate'=>''])];
+        yield [$BAD_REQUEST, json_encode(['inDate'=>'BAD_DATE'])];
+        yield [$BAD_REQUEST, json_encode(['outDate'=>''])];
+        yield [$BAD_REQUEST, json_encode(['outDate'=>'BAD_DATE'])];
+    }
 }
