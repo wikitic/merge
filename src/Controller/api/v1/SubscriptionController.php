@@ -143,12 +143,8 @@ final class SubscriptionController extends AbstractController
         );
     }
 
-
-
-
-
-
-
+    
+    
     /**
      * @Route("/partners/{id_partner}/subscriptions/{id_subscription}", methods={"PATCH", "PUT"})
      *
@@ -157,7 +153,8 @@ final class SubscriptionController extends AbstractController
      * @param string $id_subscription
      * @return JsonResponse
      */
-    public function patchSubscriptions(Request $request, string $id_partner = '', string $id_subscription = ''): JsonResponse
+    public function patchSubscriptions(Request $request, string $id_partner = '', string $id_subscription = '')
+    : JsonResponse
     {
         $partner = $this->em->getRepository(Partner::class)->findOneBy(['id' => $id_partner]);
         if ($partner === null) {
@@ -208,6 +205,4 @@ final class SubscriptionController extends AbstractController
             true
         );
     }
-
-
 }

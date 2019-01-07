@@ -82,6 +82,30 @@ class Subscription
     }
 
     /**
+     * Get partner
+     *
+     * @return Partner
+     */
+    public function getPartner(): ?Partner
+    {
+        return $this->partner;
+    }
+
+    /**
+     * Set parter
+     *
+     * @param Partner $partner
+     *
+     * @return Subscription
+     */
+    public function setPartner(?Partner $partner): self
+    {
+        $this->partner = $partner;
+
+        return $this;
+    }
+
+    /**
      * Get indate
      *
      * @return \DateTime
@@ -175,30 +199,6 @@ class Subscription
     public function setPrice(?float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get partner
-     *
-     * @return Partner
-     */
-    public function getPartner(): ?Partner
-    {
-        return $this->partner;
-    }
-
-    /**
-     * Set parter
-     *
-     * @param Partner $partner
-     *
-     * @return Subscription
-     */
-    public function setPartner(?Partner $partner): self
-    {
-        $this->partner = $partner;
 
         return $this;
     }
