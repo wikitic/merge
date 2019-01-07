@@ -132,9 +132,9 @@ final class SubscriptionController extends AbstractController
         $form = $this->createForm(SubscriptionType::class, $subscription);
         $form->submit($data, true);
         if (!$form->isValid()) {
-            dump((string) $form->getErrors(true, false));
-            die;
-            $error = ['error' => 'Bad request'];
+            //dump((string) $form->getErrors(true, false));
+            //die;
+            $error = ['error' => (string)$form->getErrors(true, false)];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_BAD_REQUEST,

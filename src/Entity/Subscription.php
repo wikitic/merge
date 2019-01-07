@@ -31,6 +31,7 @@ class Subscription
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
      * })
+     * @Assert\NotNull
      */
     private $partner;
 
