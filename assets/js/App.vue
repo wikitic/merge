@@ -82,8 +82,8 @@
                     },
                     { title: 'Socios', icon: 'account_circle', link: '/partners',
                         items: [
-                            { title: 'Todos', link: '/partners' },
-                            { title: 'Activos', link: '/partners?active=true' }
+                            { title: 'Socios', link: '/partners' },
+                            { title: 'Suscripciones', link: '/subscriptions' }
                         ]
                     }
                 ],
