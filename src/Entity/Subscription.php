@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Entity\Partner;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Subscription
@@ -37,6 +38,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $inDate;
 
@@ -44,6 +47,8 @@ class Subscription
      * @var \DateTime
      *
      * @ORM\Column(name="out_date", type="datetime")
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $outDate;
     
@@ -51,6 +56,7 @@ class Subscription
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
+     * @Assert\NotBlank(message="La info es requerida")
      */
     private $info;
 
@@ -58,6 +64,7 @@ class Subscription
      * @var float
      *
      * @ORM\Column(name="price", type="decimal", scale=2)
+     * @Assert\NotBlank(message="El precio es requerido")
      */
     private $price;
 
@@ -74,13 +81,37 @@ class Subscription
     }
 
     /**
+     * Get partner
+     *
+     * @return Partner
+     */
+    public function getPartner(): ?Partner
+    {
+        return $this->partner;
+    }
+
+    /**
+     * Set parter
+     *
+     * @param Partner $partner
+     *
+     * @return Subscription
+     */
+    public function setPartner(?Partner $partner): self
+    {
+        $this->partner = $partner;
+
+        return $this;
+    }
+
+    /**
      * Get indate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getInDate(): string
+    public function getInDate(): ?\DateTime
     {
-        return $this->inDate->format(\DateTime::ISO8601);
+        return $this->inDate;
     }
 
     /**
@@ -90,7 +121,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setInDate(\DateTime $inDate): self
+    public function setInDate(?\DateTime $inDate): self
     {
         $this->inDate = $inDate;
 
@@ -100,11 +131,11 @@ class Subscription
     /**
      * Get outdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getOutDate(): string
+    public function getOutDate(): ?\DateTime
     {
-        return $this->outDate->format(\DateTime::ISO8601);
+        return $this->outDate;
     }
 
     /**
@@ -114,7 +145,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setOutDate(\DateTime $outDate): self
+    public function setOutDate(?\DateTime $outDate): self
     {
         $this->outDate = $outDate;
 
@@ -138,7 +169,7 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setInfo(string $info): self
+    public function setInfo(?string $info): self
     {
         $this->info = $info;
 
@@ -150,7 +181,7 @@ class Subscription
      *
      * @return float
      */
-    public function getPrice(): float
+    public function getPrice(): ?float
     {
         return $this->price;
     }
@@ -162,34 +193,9 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setPrice(float $price): self
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get partner
-     *
-     * @return Partner
-     */
-    public function getPartner(): Partner
-    {
-        //return null;
-        return $this->partner;
-    }
-
-    /**
-     * Set parter
-     *
-     * @param Partner $partner
-     *
-     * @return Subscription
-     */
-    public function setPartner(Partner $partner): self
-    {
-        $this->partner = $partner;
 
         return $this;
     }

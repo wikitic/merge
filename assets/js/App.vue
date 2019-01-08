@@ -9,6 +9,12 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-list>
+                <v-list-tile :to="'/dashboard'">
+                    <v-list-tile-action>
+                        <v-icon>home</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Dashboard</v-list-tile-title>
+                </v-list-tile>
                 <v-list-group v-for="item in navigation" :key="item.title" :to="item.link">
                     <v-list-tile slot="activator">
                         <v-list-tile-action>
@@ -75,15 +81,10 @@
             return {
                 drawer: null,
                 navigation: [
-                    { title: 'Dashboard', icon: 'home', link: '/dashboard',
-                        items: [
-                            { title: 'Dashboard', link: '/dashboard' },
-                        ]
-                    },
                     { title: 'Socios', icon: 'account_circle', link: '/partners',
                         items: [
-                            { title: 'Todos', link: '/partners' },
-                            { title: 'Activos', link: '/partners?active=true' }
+                            { title: 'Socios', link: '/partners' },
+                            { title: 'Suscripciones', link: '/subscriptions' }
                         ]
                     }
                 ],

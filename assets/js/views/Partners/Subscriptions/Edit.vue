@@ -39,7 +39,7 @@
 
 <script>
     export default {
-        name: 'subscription-edit',
+        name: 'subscriptions-edit',
         props: ['subscription'],
         data () {
             return {

@@ -4,62 +4,65 @@
             <v-toolbar flat color="white">
                 <v-toolbar-title>Socios</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <partner-new></partner-new>
+                <partners-new></partners-new>
             </v-toolbar>
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
-            <v-data-table :headers="headers" :items="partners" item-key="id" :search="search" :pagination.sync="pagination">
-                <template slot="items" slot-scope="props">
-                    <tr @click="props.expanded = !props.expanded">
-                        <td>{{ props.item.id }}</td>
-                        <td>
-                            <v-chip label small :color="getColorByStatus(props.item.subscriptions)" text-color="white" >
-                                {{ props.item.code }}
-                            </v-chip>
-                        </td>
-                        <td>{{ props.item.fullname }}</td>
-                        <td>{{ props.item.email }}</td>
-                        <td class="text-xs-center">{{ props.item.numSubscriptions }}</td>
-                        <td>{{ toDate(props.item.cdate) }}</td>
-                        <td>
-                            <v-chip v-if="getAlta(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
-                                {{ getAlta(props.item.subscriptions) }}
-                            </v-chip>
-                        </td>
-                        <td>
-                            <v-chip v-if="getBaja(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
-                                {{ getBaja(props.item.subscriptions) }}
-                            </v-chip>
-                        </td>
-                        <td>
-                            <partner-edit :partner="props.item"></partner-edit>
-                            <partner-delete :partner="props.item"></partner-delete>
-                        </td>
-                    </tr>
-                </template>
-                <template slot="expand" slot-scope="props">
-                    <subscriptions :subscriptions="props.item.subscriptions"></subscriptions>
-                </template>
-            </v-data-table>
+            <v-card-text>
+                <v-data-table :headers="headers" :items="partners" item-key="id" :search="search" :pagination.sync="pagination">
+                    <template slot="items" slot-scope="props">
+                        <tr @click="props.expanded = !props.expanded">
+                            <td>{{ props.item.id }}</td>
+                            <td>
+                                <v-chip label small :color="getColorByStatus(props.item.subscriptions)" text-color="white" >
+                                    {{ props.item.code }}
+                                </v-chip>
+                            </td>
+                            <td>{{ props.item.fullname }}</td>
+                            <td>{{ props.item.email }}</td>
+                            <td class="text-xs-center">{{ props.item.numSubscriptions }}</td>
+                            <td>{{ toDate(props.item.cdate) }}</td>
+                            <td>
+                                <v-chip v-if="getAlta(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
+                                    {{ getAlta(props.item.subscriptions) }}
+                                </v-chip>
+                            </td>
+                            <td>
+                                <v-chip v-if="getBaja(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
+                                    {{ getBaja(props.item.subscriptions) }}
+                                </v-chip>
+                            </td>
+                            <td>
+                                <partners-edit :partner="props.item"></partners-edit>
+                                <partners-delete :partner="props.item"></partners-delete>
+                            </td>
+                        </tr>
+                    </template>
+                    <template slot="expand" slot-scope="props">
+                        <partners-subscriptions :partner="props.item"></partners-subscriptions>
+                    </template>
+                </v-data-table>
+            </v-card-text>
         </v-card>
 
     </v-container>
 </template>
 
 <script>
-    import PartnerNew from '../components/Partners/PartnerNew'
-    import PartnerEdit from '../components/Partners/PartnerEdit'
-    import PartnerDelete from '../components/Partners/PartnerDelete'
-    import Subscriptions from '../components/Partners/Subscriptions'
+    import PartnersNew from './New'
+    import PartnersEdit from './Edit'
+    import PartnersDelete from './Delete'
+
+    import PartnersSubscriptions from './Subscriptions/List'
 
     export default {
-        name: 'partners',
+        name: 'partners-list',
         components: {
-            PartnerNew,
-            PartnerEdit,
-            PartnerDelete,
-            Subscriptions
+            PartnersNew,
+            PartnersEdit,
+            PartnersDelete,
+            PartnersSubscriptions
         },
         data () {
             return {
@@ -79,7 +82,7 @@
                     { text: 'Registro', value: 'cdate', width:100 },
                     { text: 'Alta', sortable: false, width:100 },
                     { text: 'Baja', sortable: false, width:100 },
-                    { text: '', sortable: false, width: 160 }
+                    { text: '', sortable: false, width: 200 }
                 ],
                 colors: {
                     1: 'green',

@@ -1,12 +1,10 @@
 <template>
     <v-dialog v-model="dialog" persistent max-width="600px">
-        <v-btn slot="activator" flat icon color="grey">
-            <v-icon>edit</v-icon>
-        </v-btn>
+        <v-btn slot="activator" color="primary">Nuevo</v-btn>
 
         <v-card>
             <v-toolbar color="orange darken-2" dark>
-                <v-toolbar-title>Actualizar Socio</v-toolbar-title>
+                <v-toolbar-title>Nuevo Socio</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
                 <form @submit.prevent="submit">
@@ -36,18 +34,13 @@
 </template>
 
 
-<script>
 
+<script>
     import { validationMixin } from 'vuelidate'
-    import { required, maxLength, email } from 'vuelidate/lib/validators'
-    import Alert from '../Alert'
+    import { required, email } from 'vuelidate/lib/validators'
 
     export default {
-        name: 'partner-edit',
-        props: ['partner'],
-        components: {
-            Alert
-        },
+        name: 'partners-new',
         mixins: [validationMixin],
         validations: {
             partner: {
@@ -58,7 +51,12 @@
         },
         data: () => ({
             dialog: false,
-            error: null
+            error: null,
+            partner: {
+                name: '',
+                surname: '',
+                email: ''
+            }
         }),
         computed: {
             nameErrors () {
@@ -76,8 +74,8 @@
             emailErrors () {
                 const errors = []
                 if (!this.$v.partner.email.$dirty) return errors
-                !this.$v.partner.email.email && errors.push('El email no es válido')
                 !this.$v.partner.email.required && errors.push('El email es requerido')
+                !this.$v.partner.email.email && errors.push('El email no es válido')
                 return errors
             },
             hasError () {
@@ -88,7 +86,7 @@
             submit () {
                 this.$v.$touch()
                 if (!this.$v.$invalid) {
-                    this.$store.dispatch('partner/patchPartners', this.partner)
+                    this.$store.dispatch('partner/postPartners', this.partner)
                         .then(() => { this.dialog = false })
                         .catch(error => this.error = error.response )
                 }

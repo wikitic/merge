@@ -33,35 +33,4 @@ class PartnerRepository extends ServiceEntityRepository
 
         return $code;
     }
-
-    /**
-     * @param array $data
-     * @return bool
-     */
-    public function requestValidate(array $data = null, string $method = 'POST'): bool
-    {
-        if ($method === 'POST') {
-            if (!isset($data['name']) || !isset($data['surname']) || !isset($data['email'])) {
-                return false;
-            }
-        }
-
-        foreach ((array)$data as $key => $value) {
-            switch ($key) {
-                case 'name':
-                case 'surname':
-                    if (empty($value)) {
-                        return false;
-                    }
-                    break;
-                case 'email':
-                    if (!filter_var($value, FILTER_VALIDATE_EMAIL)) {
-                        return false;
-                    }
-                    break;
-            }
-        }
-        
-        return true;
-    }
 }

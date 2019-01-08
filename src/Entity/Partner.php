@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -43,6 +44,7 @@ class Partner
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="El nombre es requerido")
      */
     private $name;
 
@@ -50,6 +52,7 @@ class Partner
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank(message="El apellido es requerido")
      */
     private $surname;
 
@@ -57,6 +60,8 @@ class Partner
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="El email es requerido")
+     * @Assert\Email(message="El email no es válido")
      */
     private $email;
 
@@ -206,7 +211,7 @@ class Partner
      *
      * @return Partner
      */
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -230,7 +235,7 @@ class Partner
      *
      * @return Partner
      */
-    public function setSurname(string $surname): self
+    public function setSurname(?string $surname): self
     {
         $this->surname = $surname;
 
@@ -254,7 +259,7 @@ class Partner
      *
      * @return Partner
      */
-    public function setEmail(string $email): self
+    public function setEmail(?string $email): self
     {
         $this->email = $email;
 
@@ -360,11 +365,11 @@ class Partner
     /**
      * Get cdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getCdate(): string
+    public function getCdate(): \DateTime
     {
-        return $this->cdate->format(\DateTime::ISO8601);
+        return $this->cdate;
     }
 
     /**
@@ -384,11 +389,11 @@ class Partner
     /**
      * Get mdate
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getMdate(): string
+    public function getMdate(): \DateTime
     {
-        return $this->mdate->format(\DateTime::ISO8601);
+        return $this->mdate;
     }
 
     /**
