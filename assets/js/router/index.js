@@ -55,6 +55,7 @@ let router = new VueRouter({
         { 
             path: '/partners',
             component: Partners,
+            name: 'Socios',
             meta: {
                 requiresAuth: true,
                 breadcrumb: [
@@ -66,6 +67,7 @@ let router = new VueRouter({
         { 
             path: '/subscriptions',
             component: Subscriptions,
+            name: 'Suscripciones',
             meta: {
                 requiresAuth: true
             }

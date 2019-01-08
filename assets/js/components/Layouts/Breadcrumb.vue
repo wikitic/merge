@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: 'breadcrumb',
+        name: 'Breadcrumb',
         data: () => ({
             items: []
         }),

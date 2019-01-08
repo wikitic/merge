@@ -21,8 +21,6 @@ Vue.use(Vuelidate)
 
 import Alert from './components/Alert.vue'
 Vue.component('alert', Alert);
-import Breadcrumb from './components/Breadcrumb.vue'
-Vue.component('breadcrumb', Breadcrumb);
 
 
 Vue.config.productionTip = false
