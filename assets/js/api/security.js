@@ -1,18 +1,15 @@
 import axios from 'axios'
 
 export default {
-    login (username, password) {
-        return axios.post(
-            '/api/v1/login',
+    login (user) {
+        return axios.post('/api/v1/login',
             {
-                username: username,
-                password: password
+                username: user.username,
+                password: user.password
             }
         )
     },
     logout () {
-        return axios.get(
-            '/api/v1/logout'
-        )
+        return axios.get('/api/v1/logout')
     }
 }

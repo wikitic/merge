@@ -7,13 +7,26 @@
                         <v-toolbar-title>Acceso</v-toolbar-title>
                     </v-toolbar>
                     <v-card-text>
-                        <form @submit.prevent="login">
-                            <v-text-field v-model="username" prepend-icon="person" name="username" label="Usuario" type="text"></v-text-field>
-                            <v-text-field v-model="password" prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
-                            <error-message v-if="hasError" :error="error"></error-message>
+                        <form @submit.prevent="submit">
+                            <v-container grid-list-md>
+                                <v-alert v-if="hasError" :value="true" type="error" outline>
+                                    <b>{{ error.status }} {{ error.statusText }}</b>:
+                                    <ul>
+                                        <li>{{ error.data.error }}</li>
+                                    </ul>
+                                </v-alert>
+                                <v-layout wrap>
+                                    <v-flex xs12>
+                                        <v-text-field v-model="user.username" label="Usuario" prepend-icon="person"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12>
+                                        <v-text-field v-model="user.password" label="Email" prepend-icon="lock" type="password"></v-text-field>
+                                    </v-flex>
+                                </v-layout>
+                            </v-container>
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn type="submit" :disabled="isDisabled" color="primary">Ok</v-btn>
+                                <v-btn type="submit" :disabled="btnDisabled" color="primary">Ok</v-btn>
                             </v-card-actions>
                         </form>
                     </v-card-text>
@@ -23,50 +36,38 @@
     </v-container>
 </template>
 
-<script>
-    import ErrorMessage from '../components/ErrorMessage'
 
+
+<script>
     export default {
         name: 'login',
-        components: {
-            ErrorMessage
-        },
-        data () {
-            return {
+        data: () => ({
+            error: null,
+            user: {
                 username: '',
                 password: ''
             }
-        },
+        }),
         created () {
-            let redirect = this.$route.query.redirect || '/'
-            
             if (this.$store.getters['security/isAuthenticated']) {
+                let redirect = this.$route.query.redirect || '/'
                 this.$router.push({path: redirect})
             }
         },
         computed: {
-            isDisabled () {
-                return this.username.length === 0 || this.password.length === 0
+            btnDisabled () {
+                return this.user.username.length === 0 || this.user.password.length === 0
             },
             hasError () {
-                return this.$store.getters['security/hasError']
-            },
-            error () {
-                return this.$store.getters['security/error']
+                return this.error !== null
             }
         },
         methods: {
-            login () {
-                let payload = { username: this.$data.username, password: this.$data.password },
-                    redirect = this.$route.query.redirect || '/'
-
-                this.$store.dispatch('security/login', payload)
-                    .then(() => { this.$router.push({path: redirect}) })
+            submit () {
+                this.$store.dispatch('security/login', this.user)
+                    .then(() => { this.$router.push({path: this.$route.query.redirect || '/'}) })
+                    .catch(error => this.error = error.response )
             }
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

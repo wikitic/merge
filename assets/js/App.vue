@@ -73,7 +73,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    import axios from 'axios'
 
     export default {
         name: 'app',
@@ -95,32 +95,16 @@
             }
         },
         created () {
-            let isAuthenticated = JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value),
-                username = JSON.parse(this.$parent.$el.attributes['data-username'].value),
-                roles = JSON.parse(this.$parent.$el.attributes['data-roles'].value);
-
-            let payload = { isAuthenticated: isAuthenticated, username: username, roles: roles };
-            this.$store.dispatch('security/onRefresh', payload);
-
-            /*
-            axios.interceptors.response.use(undefined, (err) => {
-                return new Promise(() => {
-                    if (err.response.status === 403) {
-                        this.$router.push({path: '/login'})
-                    } else if (err.response.status === 500) {
-                        document.open();
-                        document.write(err.response.data);
-                        document.close();
-                    }
-                    throw err;
-                });
-            });
-            */
+            let payload = { 
+                isAuthenticated: JSON.parse(this.$parent.$el.attributes['data-is-authenticated'].value), 
+                user: JSON.parse(this.$parent.$el.attributes['data-user'].value) 
+            }
+            this.$store.dispatch('security/onRefresh', payload)
         },
         computed: {
             isAuthenticated () {
                 return this.$store.getters['security/isAuthenticated']
-            },
-        },
+            }
+        }
     }
 </script>

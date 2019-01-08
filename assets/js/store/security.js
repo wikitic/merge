@@ -4,68 +4,41 @@ export default {
     namespaced: true,
     state: {
         isAuthenticated: false,
-        username: null,
-        roles: [],
-        error: null
+        user: null
     },
     getters: {
         isAuthenticated (state) {
             return state.isAuthenticated
         },
-        username (state) {
-            return state.username
-        },
-        hasRole (state) {
-            return role => {
-                return state.roles.indexOf(role) !== -1
-            }
-        },
-        hasError (state) {
-            return state.error !== null
-        },
-        error (state) {
-            return state.error
-        },
+        user (state) {
+            return state.user
+        }
     },
     mutations: {
-        ['AUTHENTICATING'](state) {
-            state.isAuthenticated = false
-            state.username = null
-            state.roles = []
-            state.error = null
-        },
-        ['AUTHENTICATING_SUCCESS'](state, data) {
+        ['LOGIN_SUCCESS'](state, user) {
             state.isAuthenticated = true
-            state.username = data.username
-            state.roles = data.roles
-            state.error = null
+            state.user = user
         },
-        ['AUTHENTICATING_ERROR'](state, error) {
+        ['LOGOUT_SUCCESS'](state) {
             state.isAuthenticated = false
-            state.username = null
-            state.roles = []
-            state.error = error
+            state.user = null
         },
-        ['PROVIDING_DATA_ON_REFRESH_SUCCESS'](state, payload) {
+        ['REFRESH_SUCCESS'](state, payload) {
             state.isAuthenticated = payload.isAuthenticated
-            state.username = payload.username
-            state.roles = payload.roles
-            state.error = null
-        },
+            state.user = payload.user
+        }
     },
     actions: {
-        login ({commit}, payload) {
-            commit('AUTHENTICATING')
-            return SecurityAPI.login(payload.username, payload.password)
-                .then(res => commit('AUTHENTICATING_SUCCESS', res.data))
-                .catch(err => commit('AUTHENTICATING_ERROR', err))
-        },
-        onRefresh({commit}, payload) {
-            commit('PROVIDING_DATA_ON_REFRESH_SUCCESS', payload)
-        },
+        login ({commit}, user) {
+            return SecurityAPI.login(user)
+                .then(res => commit('LOGIN_SUCCESS', res.data))
+        },    
         logout ({commit}) {
-            commit('AUTHENTICATING')
+            commit('LOGOUT_SUCCESS')
             return SecurityAPI.logout()
-        }
+        },    
+        onRefresh({commit}, payload) {
+            commit('REFRESH_SUCCESS', payload)
+        }        
     }
 }

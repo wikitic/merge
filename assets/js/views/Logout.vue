@@ -4,6 +4,8 @@
     </v-container>
 </template>
 
+
+
 <script>
     export default {
         name: 'logout',
@@ -14,7 +16,3 @@
         }
     }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
