@@ -1,6 +1,6 @@
 <template>
     <v-container fluid>
-        Dashboard
+        Página principal
     </v-container>
 </template>
 
@@ -8,6 +8,6 @@
 
 <script>
     export default {
-        name: 'dashboard'
+        name: 'home'
     }
 </script>

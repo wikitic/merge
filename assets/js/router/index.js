@@ -4,7 +4,7 @@ import store from '../store'
 import Login from '../views/Login'
 import Logout from '../views/Logout'
 import Profile from '../views/Profile'
-import Dashboard from '../views/Dashboard'
+import Home from '../views/Home'
 import Partners from '../views/Partners/List'
 import Subscriptions from '../views/Subscriptions'
 
@@ -19,7 +19,7 @@ let router = new VueRouter({
             component: Login,
             meta: {
                 guest: true
-            },
+            }
         },
         {
             path: '/logout',
@@ -27,29 +27,40 @@ let router = new VueRouter({
             component: Logout,
             meta: {
                 requiresAuth: true
-            },
+            }
         },
         { 
-            path: '/profile',
-            name: 'Profile',
-            component: Profile, 
+            path: '/',
+            name: 'Página principal',
+            component: Home, 
             meta: { 
-                requiresAuth: true 
+                requiresAuth: true,
+                breadcrumb: [
+                    { name: 'Página principal' }
+                ]
             } 
         },
         { 
-            path: '/dashboard',
-            name: 'Dashboard',
-            component: Dashboard, 
+            path: '/profile',
+            name: 'Perfil',
+            component: Profile, 
             meta: { 
-                requiresAuth: true 
+                requiresAuth: true,
+                breadcrumb: [
+                    { name: 'Página principal', href: 'Página principal' },
+                    { name: 'Perfil' }
+                ]
             } 
         },
         { 
             path: '/partners',
             component: Partners,
             meta: {
-                requiresAuth: true
+                requiresAuth: true,
+                breadcrumb: [
+                    { name: 'Página principal', href: 'Página principal' },
+                    { name: 'Socios' }
+                ]
             }
         },
         { 
@@ -61,7 +72,7 @@ let router = new VueRouter({
         },
         { 
             path: '*',
-            redirect: '/dashboard'
+            redirect: '/'
         }
     ],
 })

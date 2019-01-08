@@ -9,11 +9,11 @@
             </v-toolbar>
             <v-divider></v-divider>
             <v-list>
-                <v-list-tile :to="'/dashboard'">
+                <v-list-tile :to="'/'">
                     <v-list-tile-action>
                         <v-icon>home</v-icon>
                     </v-list-tile-action>
-                    <v-list-tile-title>Dashboard</v-list-tile-title>
+                    <v-list-tile-title>Página principal</v-list-tile-title>
                 </v-list-tile>
                 <v-list-group v-for="item in navigation" :key="item.title" :to="item.link">
                     <v-list-tile slot="activator">
@@ -60,6 +60,7 @@
         </v-toolbar>
 
         <v-content>
+            <breadcrumb></breadcrumb>
             <router-view></router-view>
         </v-content>
 
