@@ -22,7 +22,7 @@
                         <td>{{ props.item.price }}</td>
                         <td>
                             <subscriptions-edit :subscription="props.item"></subscriptions-edit>
-                            <subscriptions-delete :subscription="props.item"></subscriptions-delete>
+                            <subscriptions-delete :partner="partner" :subscription="props.item"></subscriptions-delete>
                         </td>
                     </tr>
                 </template>

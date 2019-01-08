@@ -24,8 +24,8 @@ export default {
                 email: partner.email
             })
     },
-    deletePartners (partner) {
-        return axios.delete('/api/v1/partners/' + partner.id)
-    }
-    */ 
+    */
+    deleteSubscriptions (subscription) {
+        return axios.delete('/api/v1/partners/'+subscription.partner.id+'/subscriptions/'+subscription.id)
+    } 
 }

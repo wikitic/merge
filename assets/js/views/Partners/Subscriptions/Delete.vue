@@ -11,6 +11,7 @@
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>
+                        <alert v-if="hasError" :error="error"></alert>
                         <v-layout wrap>
                             <v-flex xs12>
                                 <v-text-field label="Código aleatorio" v-model="confirm.random" disabled></v-text-field>
@@ -35,9 +36,10 @@
 <script>
     export default {
         name: 'subscriptions-delete',
-        props: ['subscription'],
+        props: ['partner','subscription'],
         data: () => ({
             dialog: false,
+            error: null,
             confirm: {
                 random: Math.random().toString(36).substring(2, 8).toUpperCase(),
                 code: ''
@@ -46,14 +48,17 @@
         computed: {
             isDisabled () {
                 return this.confirm.random !== this.confirm.code
+            },
+            hasError () {
+                return this.error !== null
             }
         },
         methods: {
             submit () {
-                /*
-                this.$store.dispatch('subscription/deleteSubscriptions', this.subscription)
+                this.subscription.partner = this.partner
+                this.$store.dispatch('partner/deleteSubscriptions', this.subscription)
                     .then(() => { this.dialog = false })
-                    */
+                    .catch(error => this.error = error.response )
             }
         }
     }

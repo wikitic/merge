@@ -30,8 +30,12 @@ export default {
         },
 
         ['POST_SUBSCRIPTIONS_SUCCESS'](state, partner) {
-            state.partners.splice(state.partners.indexOf(partner), 1)
-            state.partners.push(partner)
+            //state.partners.splice(state.partners.indexOf(partner), 1)
+            //state.partners.push(partner)
+        },
+        ['DELETE_SUBSCRIPTIONS_SUCCESS'](state, subscription) {
+            let aux_partner = state.partners[state.partners.indexOf(subscription.partner)]
+            aux_partner.subscriptions.splice(aux_partner.subscriptions.indexOf(subscription), 1)
         },
     },
     actions: {
@@ -55,6 +59,10 @@ export default {
         postSubscriptions ({commit}, subscription) {
             return SubscriptionAPI.postSubscriptions(subscription)
                 .then(res => commit('POST_SUBSCRIPTIONS_SUCCESS', res.data))
-        }
+        },
+        deleteSubscriptions ({commit}, subscription) {
+            return SubscriptionAPI.deleteSubscriptions(subscription)
+                .then(() => commit('DELETE_SUBSCRIPTIONS_SUCCESS', subscription))
+        },
     }
 }
