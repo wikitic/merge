@@ -1,9 +1,9 @@
 <template>
     <v-dialog v-model="dialog" persistent max-width="600px">
-        <v-btn v-if="hasSubscriptions" slot="activator" flat icon color="grey">
+        <v-btn v-if="!hasSubscriptions" slot="activator" flat icon color="grey">
             <v-icon>delete</v-icon>
         </v-btn>
-
+        
         <v-card>
             <v-toolbar color="orange darken-2" dark>
                 <v-toolbar-title>Borrar Socio</v-toolbar-title>
@@ -45,7 +45,7 @@
         }),
         computed: {
             hasSubscriptions () {
-                return this.partner.subscriptions.length === 0
+                return this.partner.numSubscriptions > 0
             },
             isDisabled () {
                 return this.partner.code !== this.confirm.code

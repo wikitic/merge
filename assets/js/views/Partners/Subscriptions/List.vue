@@ -51,7 +51,7 @@
                     { text: 'Fin', value: 'outDate', sortable: false, width:100 },
                     { text: 'Info', value: 'info', sortable: false },
                     { text: 'Price', value: 'price', sortable: false, width:100 },
-                    { text: '', sortable: false, width: 160 }
+                    { text: '', sortable: false, width: 200 }
                 ],
                 colors: {
                     true: 'green',

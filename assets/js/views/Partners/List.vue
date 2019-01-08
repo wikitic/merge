@@ -82,7 +82,7 @@
                     { text: 'Registro', value: 'cdate', width:100 },
                     { text: 'Alta', sortable: false, width:100 },
                     { text: 'Baja', sortable: false, width:100 },
-                    { text: '', sortable: false, width: 160 }
+                    { text: '', sortable: false, width: 200 }
                 ],
                 colors: {
                     1: 'green',

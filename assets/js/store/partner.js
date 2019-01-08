@@ -34,8 +34,9 @@ export default {
             //state.partners.push(partner)
         },
         ['DELETE_SUBSCRIPTIONS_SUCCESS'](state, subscription) {
-            let aux_partner = state.partners[state.partners.indexOf(subscription.partner)]
-            aux_partner.subscriptions.splice(aux_partner.subscriptions.indexOf(subscription), 1)
+            let partner = state.partners[state.partners.indexOf(subscription.partner)]
+            partner.subscriptions.splice(partner.subscriptions.indexOf(subscription), 1)
+            partner.numSubscriptions-=1
         },
     },
     actions: {
