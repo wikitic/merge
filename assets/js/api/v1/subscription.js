@@ -1,11 +1,9 @@
 import axios from 'axios'
 
 export default {
-    /*
-    getPartners () {
-        return axios.get('/api/v1/partners')
+    getSubscriptions () {
+        return axios.get('/api/v1/subscriptions')
     },
-    */
     postSubscriptions (subscription) {
         return axios.post('/api/v1/partners/' + subscription.partner.id + '/subscriptions',
             {
