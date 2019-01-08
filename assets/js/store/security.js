@@ -1,4 +1,4 @@
-import SecurityAPI from '../api/security'
+import SecurityAPI from '../api/v1/security'
 
 export default {
     namespaced: true,

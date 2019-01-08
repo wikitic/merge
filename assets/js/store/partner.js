@@ -1,5 +1,5 @@
-import PartnerAPI from '../api/partner'
-import SubscriptionAPI from '../api/subscription'
+import PartnerAPI from '../api/v1/partner'
+import SubscriptionAPI from '../api/v1/subscription'
 
 export default {
     namespaced: true,
