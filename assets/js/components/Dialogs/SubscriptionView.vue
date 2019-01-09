@@ -10,11 +10,15 @@
             <v-card-text>
                 <v-container grid-list-md>
                     <v-layout wrap>
-                        <v-flex xs6>
+                        <v-flex xs5>
                             <v-text-field v-bind:value="toDate(subscription.inDate)" label="Inicio" prepend-icon="event" disabled></v-text-field>
                         </v-flex>
-                        <v-flex xs6>
+                        <v-flex xs5>
                             <v-text-field v-bind:value="toDate(subscription.outDate)" label="Fin" prepend-icon="event" disabled></v-text-field>
+                        </v-flex>
+                        <v-flex xs2>
+                            <v-icon v-if="isSubscriber()" x-large right color="green">done</v-icon>
+                            <v-icon v-if="!isSubscriber()" x-large right color="red">clear</v-icon>
                         </v-flex>
                         <v-flex xs12>
                             <v-text-field v-model="subscription.info" label="Info" prepend-icon="info" disabled></v-text-field>
@@ -47,29 +51,25 @@
         }),
         watch: {
             subscription: function (val) {
-                this.dialog = true
+                if (val !== null)
+                    this.dialog = true
             }
         },
         methods: {
             toDate (datetime) {
                 let date = new Date(datetime)
                 return date.toLocaleDateString("es-ES") //eu-ES
-            }
-            /*
-            isSubscriber (subscriptions) {
+            },
+            isSubscriber () {
                 let now = new Date()
-                let inDate = new Date(subscriptions.inDate)
-                let outDate = new Date(subscriptions.outDate)
+                let inDate = new Date(this.subscription.inDate)
+                let outDate = new Date(this.subscription.outDate)
 
                 if(now > inDate && now < outDate)
                     return 1
                 else
                     return 0
-            },
-            getTypeAlert(subscription) {
-                return this.isSubscriber(subscription) === 1 ? 'success' : 'error'
             }
-            */
         }
     }
 </script>
