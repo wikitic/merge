@@ -8,6 +8,8 @@ import Home from '../views/Home'
 
 import Partners from '../views/Partners/Index'
 import PartnersList from '../views/Partners/List'
+import PartnersView from '../views/Partners/View'
+
 import SubscriptionsList from '../views/Subscriptions/List'
 
 Vue.use(VueRouter)
@@ -38,7 +40,6 @@ let router = new VueRouter({
             meta: { 
                 requiresAuth: true,
                 breadcrumb: [
-                    { name: 'Página principal' }
                 ]
             } 
         },
@@ -50,7 +51,6 @@ let router = new VueRouter({
                 requiresAuth: true,
                 breadcrumb: [
                     { name: 'Página principal', href: 'Página principal' },
-                    { name: 'Perfil' }
                 ]
             } 
         },
@@ -69,20 +69,18 @@ let router = new VueRouter({
                         requiresAuth: true,
                         breadcrumb: [
                             { name: 'Página principal', href: 'Página principal' },
-                            { name: 'Socios', href: 'Socios' }
                         ]
                     }
                 },
                 { 
-                    path: ':idPartner/subscriptions',
-                    component: SubscriptionsList,
-                    name: 'Suscripciones',
+                    path: ':idPartner',
+                    component: PartnersView,
+                    name: 'Socio',
                     meta: {
                         requiresAuth: true,
                         breadcrumb: [
                             { name: 'Página principal', href: 'Página principal' },
                             { name: 'Socios', href: 'Socios' },
-                            { name: 'Suscripciones' }
                         ]
                     }
                 }

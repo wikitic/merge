@@ -1,11 +1,14 @@
 <template>
-    <v-container fluid>
+    <v-container grid-list-xl fluid>
+
         <v-card>
+            <!--
             <v-toolbar flat color="white">
                 <v-toolbar-title>Socios</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <partners-new></partners-new>
             </v-toolbar>
+            -->
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
@@ -23,6 +26,7 @@
                             <td>{{ props.item.email }}</td>
                             <td class="text-xs-center">{{ props.item.numSubscriptions }}</td>
                             <td>{{ toDate(props.item.cdate) }}</td>
+                            <!--
                             <td>
                                 <v-chip v-if="getAlta(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
                                     {{ getAlta(props.item.subscriptions) }}
@@ -33,14 +37,20 @@
                                     {{ getBaja(props.item.subscriptions) }}
                                 </v-chip>
                             </td>
+                            -->
                             <td>
+                                <v-btn flat icon color="grey" @click="$router.push(`partners/${props.item.id}`)">
+                                    <v-icon>visibility</v-icon>
+                                </v-btn>
+                                <!--
                                 <partners-edit :partner="props.item"></partners-edit>
                                 <partners-delete :partner="props.item"></partners-delete>
+                                -->
                             </td>
                         </tr>
                     </template>
                     <template slot="expand" slot-scope="props">
-                        <partners-subscriptions :partner="props.item"></partners-subscriptions>
+                        <subscriptions-list :subscriptions="props.item.subscriptions"></subscriptions-list>
                     </template>
                 </v-data-table>
             </v-card-text>
@@ -50,19 +60,22 @@
 </template>
 
 <script>
+    /*
     import PartnersNew from './New'
     import PartnersEdit from './Edit'
     import PartnersDelete from './Delete'
-
-    import PartnersSubscriptions from './Subscriptions/List'
+    */
+    import SubscriptionsList from '../../components/Tables/SubscriptionsList'
 
     export default {
         name: 'partners-list',
         components: {
+            /*
             PartnersNew,
             PartnersEdit,
             PartnersDelete,
-            PartnersSubscriptions
+            */
+            SubscriptionsList
         },
         data () {
             return {
@@ -75,14 +88,14 @@
                 },
                 headers: [
                     { text: '#', value: 'id', width: 10 },
-                    { text: 'Código', value: 'code', sortable: false, width: 50 },
+                    { text: 'Código', value: 'code', sortable: false, width: 100 },
                     { text: 'Nombre y Apellidos', value: 'fullname'},
                     { text: 'Email', value: 'email', sortable: false, width: 200 },
                     { text: 'Suscripciones', value: 'numSubscriptions', width:50, align: 'center' },
                     { text: 'Registro', value: 'cdate', width:100 },
-                    { text: 'Alta', sortable: false, width:100 },
-                    { text: 'Baja', sortable: false, width:100 },
-                    { text: '', sortable: false, width: 200 }
+                    //{ text: 'Alta', sortable: false, width:100 },
+                    //{ text: 'Baja', sortable: false, width:100 },
+                    { text: '', sortable: false, width: 300 }
                 ],
                 colors: {
                     1: 'green',
