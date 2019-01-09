@@ -1,11 +1,21 @@
 <template>
-    <full-calendar :events="subscriptions" :config="config"/>
+    <div>
+        <subscription-view :subscription="event" />
+
+        <full-calendar :events="subscriptions" :config="config" @event-selected="eventSelected($event)" />
+    </div>
 </template>
 
 <script>
+    import SubscriptionView from './Dialogs/SubscriptionView'
+
     export default {
         name: 'calendar',
+        components: {
+            SubscriptionView
+        },
         data: () => ({
+            event: null,
             config: {
                 locale: 'es',
                 defaultView: 'month'
@@ -18,15 +28,17 @@
             subscriptions () {
                 let subscriptions = this.$store.getters['subscription/subscriptions']
                 let inDate = subscriptions.map(subscription => {
-                        return {
-                            title: subscription.partner.fullname,
-                            start: subscription.inDate,
-                            className: 'inDate',
-                            allDay : true
-                        }
-                    })
+                    return {
+                        subscription: subscription,
+                        title: subscription.partner.fullname,
+                        start: subscription.inDate,
+                        className: 'inDate',
+                        allDay : true
+                    }
+                })
                 let outDate = subscriptions.map(subscription => {
                     return {
+                        subscription: subscription,
                         title: subscription.partner.fullname,
                         start: subscription.outDate,
                         className: 'outDate',
@@ -35,6 +47,11 @@
                 })
 
                 return inDate.concat(outDate)
+            }
+        },
+        methods: {
+            eventSelected (event) {
+                this.event = event.subscription;
             }
         }
     }
