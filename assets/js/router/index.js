@@ -62,15 +62,22 @@ let router = new VueRouter({
                     { name: 'Página principal', href: 'Página principal' },
                     { name: 'Socios' }
                 ]
-            }
-        },
-        { 
-            path: '/subscriptions',
-            component: Subscriptions,
-            name: 'Suscripciones',
-            meta: {
-                requiresAuth: true
-            }
+            },
+            children: [
+                { 
+                    path: ':idPartner/subscripciones',
+                    component: Subscriptions,
+                    name: 'Suscripciones',
+                    meta: {
+                        requiresAuth: true,
+                        breadcrumb: [
+                            { name: 'Página principal', href: 'Página principal' },
+                            { name: 'Socios', href: 'Socios' },
+                            { name: 'Suscripciones' }
+                        ]
+                    }
+                }
+            ]
         },
         { 
             path: '*',
