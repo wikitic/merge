@@ -3,7 +3,7 @@
         
         <Navigation v-if="isAuthenticated" :drawer="drawer"></Navigation>
 
-        <Toolbar v-if="isAuthenticated" :drawer="drawer" v-on:clickToolbar="changeDrawer"></Toolbar>
+        <Toolbar v-if="isAuthenticated" v-on:clickToolbar="changeDrawer"></Toolbar>
 
         <v-content>
             <Breadcrumb v-if="isAuthenticated"></Breadcrumb>

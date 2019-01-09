@@ -28,12 +28,6 @@
 <script>
     export default {
         name: 'Toolbar',
-        props: {
-            drawer: {
-                type: Boolean,
-                default: true
-            }
-        },
         data: () => ({
             title: '',
             toolbar: [
