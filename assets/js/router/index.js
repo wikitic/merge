@@ -8,7 +8,7 @@ import Home from '../views/Home'
 
 import Partners from '../views/Partners/Index'
 import PartnersList from '../views/Partners/List'
-import Subscriptions from '../views/Subscriptions'
+import SubscriptionsList from '../views/Subscriptions/List'
 
 Vue.use(VueRouter)
 
@@ -75,7 +75,7 @@ let router = new VueRouter({
                 },
                 { 
                     path: ':idPartner/subscriptions',
-                    component: Subscriptions,
+                    component: SubscriptionsList,
                     name: 'Suscripciones',
                     meta: {
                         requiresAuth: true,

@@ -50,8 +50,7 @@
             navigation: [
                 { title: 'Socios', icon: 'account_circle', link: '/partners',
                     items: [
-                        { title: 'Socios', link: '/partners' },
-                        //{ title: 'Suscripciones', link: '/subscriptions' }
+                        { title: 'Socios', link: '/partners' }
                     ]
                 }
             ]

@@ -22,6 +22,10 @@ export default {
         getSubscriptions ({commit}) {
             return SubscriptionAPI.getSubscriptions()
                 .then(res => commit('GET_SUBSCRIPTIONS_SUCCESS', res.data))
+        },
+        getPartnerSubscriptions ({commit}, idPartner) {
+            return SubscriptionAPI.getPartnerSubscriptions(idPartner)
+                .then(res => commit('GET_SUBSCRIPTIONS_SUCCESS', res.data))
         }
     }
 }

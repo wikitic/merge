@@ -4,6 +4,11 @@ export default {
     getSubscriptions () {
         return axios.get('/api/v1/subscriptions')
     },
+    getPartnerSubscriptions (idPartner) {
+        return axios.get('/api/v1/partners/'+idPartner+'/subscriptions')
+    },
+
+
     postSubscriptions (subscription) {
         return axios.post('/api/v1/partners/' + subscription.partner.id + '/subscriptions',
             {
