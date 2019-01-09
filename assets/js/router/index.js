@@ -5,7 +5,9 @@ import Login from '../views/Login'
 import Logout from '../views/Logout'
 import Profile from '../views/Profile'
 import Home from '../views/Home'
-import Partners from '../views/Partners/List'
+
+import Partners from '../views/Partners/Index'
+import PartnersList from '../views/Partners/List'
 import Subscriptions from '../views/Subscriptions'
 
 Vue.use(VueRouter)
@@ -55,17 +57,24 @@ let router = new VueRouter({
         { 
             path: '/partners',
             component: Partners,
-            name: 'Socios',
             meta: {
                 requiresAuth: true,
-                breadcrumb: [
-                    { name: 'Página principal', href: 'Página principal' },
-                    { name: 'Socios' }
-                ]
             },
             children: [
                 { 
-                    path: ':idPartner/subscripciones',
+                    path: '',
+                    component: PartnersList,
+                    name: 'Socios',
+                    meta: {
+                        requiresAuth: true,
+                        breadcrumb: [
+                            { name: 'Página principal', href: 'Página principal' },
+                            { name: 'Socios', href: 'Socios' }
+                        ]
+                    }
+                },
+                { 
+                    path: ':idPartner/subscriptions',
                     component: Subscriptions,
                     name: 'Suscripciones',
                     meta: {
