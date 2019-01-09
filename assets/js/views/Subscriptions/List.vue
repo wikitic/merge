@@ -1,10 +1,10 @@
 <template>
     <v-container grid-list-xl fluid>
 
-        <v-toolbar  color="grey lighten-2">
+        <v-toolbar color="grey lighten-1">
             <v-toolbar-title>{{name}}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn dark color="orange">Nueva Suscripción</v-btn>
+            <v-btn color="orange">Nueva Suscripción</v-btn>
         </v-toolbar>
 
         <v-card>
@@ -37,8 +37,13 @@
 
 
 <script>
+    import SubscriptionsEdit from './Edit'
+
     export default {
         name: 'subscriptions',
+        components: {
+            SubscriptionsEdit
+        },
         data: () => ({
             pagination: {
                 sortBy: 'inDate',
