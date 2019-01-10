@@ -319,7 +319,7 @@ class Partner
      *
      * @return int
      */
-    public function getRole(): int
+    public function getRole(): ?int
     {
         return $this->role;
     }
@@ -331,7 +331,7 @@ class Partner
      *
      * @return Partner
      */
-    public function setRole(int $role): self
+    public function setRole(?int $role): self
     {
         $this->role = $role;
 
@@ -343,7 +343,7 @@ class Partner
      *
      * @return int
      */
-    public function getActive(): int
+    public function getActive(): ?int
     {
         return $this->active;
     }
@@ -355,7 +355,7 @@ class Partner
      *
      * @return Partner
      */
-    public function setActive(int $active): self
+    public function setActive(?int $active): self
     {
         $this->active = $active;
 

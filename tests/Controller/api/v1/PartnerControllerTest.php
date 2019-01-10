@@ -96,12 +96,17 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideAuthorizedPost()
     {
-        yield [Response::HTTP_BAD_REQUEST, json_encode([])];                                                                // 400
-        yield [Response::HTTP_BAD_REQUEST, json_encode([               'surname'=>'surname','email'=>'BAD_EMAIL'])];        // 400
-        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name'                     ,'email'=>'BAD_EMAIL'])];        // 400
-        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname'                     ])];        // 400
-        yield [Response::HTTP_BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname','email'=>'email1@email.com'])]; // 400
-        yield [Response::HTTP_OK,          json_encode(['name'=>'name','surname'=>'surname','email'=>'GOOD@EMAIL.com'])];   // 200
+        $OK = Response::HTTP_OK;                    // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;  // 400
+
+        yield [$BAD_REQUEST, json_encode([])];
+        yield [$BAD_REQUEST, json_encode([               'surname'=>'surname','email'=>'IS_BAD_EMAIL_COM','active'=>'1','role'=>'1'])];
+        yield [$BAD_REQUEST, json_encode(['name'=>'name'                     ,'email'=>'IS_BAD_EMAIL_COM','active'=>'1','role'=>'1'])];
+        yield [$BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname'                            ,'active'=>'1','role'=>'1'])];
+        yield [$BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname','email'=>'IS_BAD_EMAIL_COM'              ,'role'=>'1'])];
+        yield [$BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname','email'=>'IS_BAD_EMAIL_COM','active'=>'1'            ])];
+        yield [$BAD_REQUEST, json_encode(['name'=>'name','surname'=>'surname','email'=>'email1@email.com','active'=>'1','role'=>'1'])];
+        yield [$OK,          json_encode(['name'=>'name','surname'=>'surname','email'=>'GOOOOD@EMAIL.com','active'=>'1','role'=>'1'])];
     }
 
 
