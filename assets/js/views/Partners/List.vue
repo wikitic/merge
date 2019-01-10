@@ -2,13 +2,11 @@
     <v-container grid-list-xl fluid>
 
         <v-card>
-            <!--
             <v-toolbar flat color="white">
                 <v-toolbar-title>Socios</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <partners-new></partners-new>
+                <partner-new></partner-new>
             </v-toolbar>
-            -->
             <v-card-title>
                 <v-text-field v-model="search" append-icon="search" label="Buscar" single-line hide-details></v-text-field>
             </v-card-title>
@@ -60,8 +58,9 @@
 </template>
 
 <script>
+
+    import PartnerNew from '../../components/Dialogs/PartnerNew'
     /*
-    import PartnersNew from './New'
     import PartnersEdit from './Edit'
     import PartnersDelete from './Delete'
     */
@@ -70,6 +69,7 @@
     export default {
         name: 'partners-list',
         components: {
+            PartnerNew,
             /*
             PartnersNew,
             PartnersEdit,
