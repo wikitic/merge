@@ -30,6 +30,8 @@
                                 <v-btn flat icon color="grey" @click="$router.push(`partners/${props.item.id}`)">
                                     <v-icon>visibility</v-icon>
                                 </v-btn>
+                                <partner-edit :partner="props.item"></partner-edit>
+                                <partner-delete :partner="props.item"></partner-delete>
                             </td>
                         </tr>
                     </template>
@@ -47,12 +49,16 @@
 
 <script>
     import PartnerNew from '../../components/Dialogs/PartnerNew'
+    import PartnerEdit from '../../components/Dialogs/PartnerEdit'
+    import PartnerDelete from '../../components/Dialogs/PartnerDelete'
     import SubscriptionsList from '../../components/Tables/SubscriptionsList'
 
     export default {
         name: 'partners-list',
         components: {
             PartnerNew,
+            PartnerEdit,
+            PartnerDelete,
             SubscriptionsList
         },
         data () {

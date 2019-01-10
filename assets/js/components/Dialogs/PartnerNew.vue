@@ -2,13 +2,13 @@
     <v-dialog v-model="dialog" persistent max-width="600px">
         <v-btn slot="activator" color="primary">Nuevo socio</v-btn>
 
-        <v-toolbar dark color="orange darken-2">
-            <v-toolbar-title>
-                <v-icon>person</v-icon>
-                Nuevo socio
-            </v-toolbar-title>
-        </v-toolbar>
         <v-card>
+            <v-toolbar dark color="orange darken-2">
+                <v-toolbar-title>
+                    <v-icon>person</v-icon>
+                    Nuevo socio
+                </v-toolbar-title>
+            </v-toolbar>
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>

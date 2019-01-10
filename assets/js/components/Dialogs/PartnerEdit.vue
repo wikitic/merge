@@ -5,29 +5,38 @@
         </v-btn>
 
         <v-card>
-            <v-toolbar color="orange darken-2" dark>
-                <v-toolbar-title>Actualizar Socio</v-toolbar-title>
+            <v-toolbar dark color="orange darken-2">
+                <v-toolbar-title>
+                    <v-icon>person</v-icon>
+                    {{partner.fullname}}
+                </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>
                         <alert v-if="hasError" :error="error"></alert>
                         <v-layout wrap>
-                            <v-flex xs12>
-                                <v-text-field label="Nombre *" v-model="partner.name" :error-messages="nameErrors"></v-text-field>
+                            <v-flex xs6>
+                                <v-select v-model="partner.active" item-text="text" item-value="value" :items="active" label="Estatus *" prepend-icon="visibility"></v-select>
+                            </v-flex>
+                            <v-flex xs6>
+                                <v-select v-model="partner.role" item-text="text" item-value="value" :items="role" label="Rol *" prepend-icon="info"></v-select>
                             </v-flex>
                             <v-flex xs12>
-                                <v-text-field label="Apellidos *" v-model="partner.surname" :error-messages="surnameErrors"></v-text-field>
+                                <v-text-field v-model="partner.name" :error-messages="nameErrors" label="Nombre *" prepend-icon="person"></v-text-field>
                             </v-flex>
                             <v-flex xs12>
-                                <v-text-field label="Email *" v-model="partner.email" :error-messages="emailErrors"></v-text-field>
+                                <v-text-field v-model="partner.surname" :error-messages="surnameErrors" label="Apellidos *" prepend-icon="person"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12>
+                                <v-text-field v-model="partner.email" :error-messages="emailErrors" label="Email *" prepend-icon="email"></v-text-field>
                             </v-flex>
                         </v-layout>
                     </v-container>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn flat @click="dialog = false">Cerrar</v-btn>
-                        <v-btn type="submit" color="primary">Guardar</v-btn>
+                        <v-btn color="darken-1" flat @click="dialog = false">Cerrar</v-btn>
+                        <v-btn type="submit" color="primary">Actualizar</v-btn>
                     </v-card-actions>
                 </form>
             </v-card-text>
@@ -38,13 +47,16 @@
 
 
 <script>
-    import { validationMixin } from 'vuelidate'
     import { required, email } from 'vuelidate/lib/validators'
 
     export default {
-        name: 'partners-edit',
-        props: ['partner'],
-        mixins: [validationMixin],
+        name: 'partner-edit',
+        props: {
+            partner: {
+                type: Object,
+                default: null
+            }
+        },
         validations: {
             partner: {
                 name: { required },
@@ -54,7 +66,15 @@
         },
         data: () => ({
             dialog: false,
-            error: null
+            error: null,
+            active: [ 
+                { value: 0, text: 'Desactivado' },
+                { value: 1, text: 'Activado' }
+            ],
+            role: [
+                { value: 0, text: 'Usuario' },
+                { value: 1, text: 'Premium' }
+            ]
         }),
         computed: {
             nameErrors () {
