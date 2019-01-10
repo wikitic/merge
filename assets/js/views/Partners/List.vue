@@ -3,6 +3,7 @@
 
         <v-card>
             <v-toolbar flat color="white">
+                <v-toolbar-title>Socios</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <partner-new></partner-new>
             </v-toolbar>
@@ -29,10 +30,6 @@
                                 <v-btn flat icon color="grey" @click="$router.push(`partners/${props.item.id}`)">
                                     <v-icon>visibility</v-icon>
                                 </v-btn>
-                                <!--
-                                <partners-edit :partner="props.item"></partners-edit>
-                                <partners-delete :partner="props.item"></partners-delete>
-                                -->
                             </td>
                         </tr>
                     </template>
@@ -74,7 +71,7 @@
                     { text: 'Email', value: 'email', sortable: false, width: 300 },
                     { text: 'Suscripciones', value: 'numSubscriptions', width:50 },
                     { text: 'Registro', value: 'cdate', width:100 },
-                    { text: '', sortable: false, width: 50 }
+                    { text: '', sortable: false, width: 250 }
                 ],
                 colors: {
                     1: 'green',
