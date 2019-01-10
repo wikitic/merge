@@ -51,7 +51,9 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideUnauthorized()
     {
-        yield ['GET',   '/api/v1/partners',     Response::HTTP_UNAUTHORIZED]; // 401
+        $UNAUTHORIZED = Response::HTTP_UNAUTHORIZED;    // 401
+
+        yield ['GET',   '/api/v1/partners',     $UNAUTHORIZED];
     }
 
 
@@ -73,9 +75,12 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideAuthorizedGet()
     {
-        yield ['/api/v1/partners',      Response::HTTP_OK];             // 200
-        yield ['/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];    // 400
-        yield ['/api/v1/partners/1',    Response::HTTP_OK];             // 200
+        $OK = Response::HTTP_OK;                    // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;  // 400
+        
+        yield ['/api/v1/partners',      $OK];
+        yield ['/api/v1/partners/0',    $BAD_REQUEST];
+        yield ['/api/v1/partners/1',    $OK];
     }
 
 
@@ -128,14 +133,19 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideAuthorizedPatch()
     {
-        yield ['/api/v1/partners/0', Response::HTTP_BAD_REQUEST, json_encode([])]; // 400
-        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode([])]; // 200
-        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['name'=>'nuevo'])]; // 200
-        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['surname'=>'nuevo'])]; // 200
-        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['email'=>'good@email.com'])]; // 200
-        yield ['/api/v1/partners/1', Response::HTTP_OK, json_encode(['email'=>'email1@email.com'])]; // 200
-        yield ['/api/v1/partners/1', Response::HTTP_BAD_REQUEST, json_encode(['email'=>'BAD_EMAIL'])]; // 400
-        yield ['/api/v1/partners/1', Response::HTTP_BAD_REQUEST, json_encode(['email'=>'email2@email.com'])]; // 400
+        $OK = Response::HTTP_OK;                    // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;  // 400
+
+        yield ['/api/v1/partners/0', $BAD_REQUEST, json_encode([])];
+        yield ['/api/v1/partners/1', $OK, json_encode([])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['name'=>'nuevo'])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['surname'=>'nuevo'])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['email'=>'good@email.com'])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['email'=>'email1@email.com'])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['active'=>'1'])];
+        yield ['/api/v1/partners/1', $OK, json_encode(['role'=>'1'])];
+        yield ['/api/v1/partners/1', $BAD_REQUEST, json_encode(['email'=>'BAD_EMAIL'])];
+        yield ['/api/v1/partners/1', $BAD_REQUEST, json_encode(['email'=>'email2@email.com'])];
     }
 
 
@@ -157,9 +167,13 @@ class PartnerControllerTest extends WebTestCase
     }
     public function provideAuthorizedDelete()
     {
-        yield ['/api/v1/partners',      Response::HTTP_BAD_REQUEST];        // 406
-        yield ['/api/v1/partners/0',    Response::HTTP_BAD_REQUEST];        // 406
-        yield ['/api/v1/partners/1',    Response::HTTP_NOT_ACCEPTABLE];     // 406
-        yield ['/api/v1/partners/4',    Response::HTTP_OK];                 // 200
+        $OK = Response::HTTP_OK;                            // 200
+        $BAD_REQUEST = Response::HTTP_BAD_REQUEST;          // 400
+        $NOT_ACCEPTABLE = Response::HTTP_NOT_ACCEPTABLE;    // 406
+
+        yield ['/api/v1/partners',      $BAD_REQUEST];
+        yield ['/api/v1/partners/0',    $BAD_REQUEST];
+        yield ['/api/v1/partners/1',    $NOT_ACCEPTABLE];
+        yield ['/api/v1/partners/4',    $OK];
     }
 }
