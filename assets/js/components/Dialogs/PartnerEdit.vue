@@ -1,31 +1,42 @@
 <template>
     <v-dialog v-model="dialog" persistent max-width="600px">
-        <v-btn slot="activator" color="primary">Nuevo</v-btn>
+        <v-btn slot="activator" flat icon color="grey">
+            <v-icon>edit</v-icon>
+        </v-btn>
 
         <v-card>
-            <v-toolbar color="orange darken-2" dark>
-                <v-toolbar-title>Nuevo Socio</v-toolbar-title>
+            <v-toolbar dark color="orange darken-2">
+                <v-toolbar-title>
+                    <v-icon>person</v-icon>
+                    {{partner.fullname}}
+                </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
                 <form @submit.prevent="submit">
                     <v-container grid-list-md>
                         <alert v-if="hasError" :error="error"></alert>
                         <v-layout wrap>
-                            <v-flex xs12>
-                                <v-text-field label="Nombre *" v-model="partner.name" :error-messages="nameErrors"></v-text-field>
+                            <v-flex xs6>
+                                <v-select v-model="partner.active" item-text="text" item-value="value" :items="active" label="Estatus *" prepend-icon="visibility"></v-select>
+                            </v-flex>
+                            <v-flex xs6>
+                                <v-select v-model="partner.role" item-text="text" item-value="value" :items="role" label="Rol *" prepend-icon="info"></v-select>
                             </v-flex>
                             <v-flex xs12>
-                                <v-text-field label="Apellidos *" v-model="partner.surname" :error-messages="surnameErrors"></v-text-field>
+                                <v-text-field v-model="partner.name" :error-messages="nameErrors" label="Nombre *" prepend-icon="person"></v-text-field>
                             </v-flex>
                             <v-flex xs12>
-                                <v-text-field label="Email *" v-model="partner.email" :error-messages="emailErrors"></v-text-field>
+                                <v-text-field v-model="partner.surname" :error-messages="surnameErrors" label="Apellidos *" prepend-icon="person"></v-text-field>
+                            </v-flex>
+                            <v-flex xs12>
+                                <v-text-field v-model="partner.email" :error-messages="emailErrors" label="Email *" prepend-icon="email"></v-text-field>
                             </v-flex>
                         </v-layout>
                     </v-container>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn flat @click="dialog = false">Cerrar</v-btn>
-                        <v-btn type="submit" color="primary">Guardar</v-btn>
+                        <v-btn color="darken-1" flat @click="dialog = false">Cerrar</v-btn>
+                        <v-btn type="submit" color="primary">Actualizar</v-btn>
                     </v-card-actions>
                 </form>
             </v-card-text>
@@ -36,12 +47,16 @@
 
 
 <script>
-    import { validationMixin } from 'vuelidate'
     import { required, email } from 'vuelidate/lib/validators'
 
     export default {
-        name: 'partners-new',
-        mixins: [validationMixin],
+        name: 'partner-edit',
+        props: {
+            partner: {
+                type: Object,
+                default: null
+            }
+        },
         validations: {
             partner: {
                 name: { required },
@@ -52,11 +67,14 @@
         data: () => ({
             dialog: false,
             error: null,
-            partner: {
-                name: '',
-                surname: '',
-                email: ''
-            }
+            active: [ 
+                { value: 0, text: 'Desactivado' },
+                { value: 1, text: 'Activado' }
+            ],
+            role: [
+                { value: 0, text: 'Usuario' },
+                { value: 1, text: 'Premium' }
+            ]
         }),
         computed: {
             nameErrors () {
@@ -74,8 +92,8 @@
             emailErrors () {
                 const errors = []
                 if (!this.$v.partner.email.$dirty) return errors
-                !this.$v.partner.email.required && errors.push('El email es requerido')
                 !this.$v.partner.email.email && errors.push('El email no es válido')
+                !this.$v.partner.email.required && errors.push('El email es requerido')
                 return errors
             },
             hasError () {
@@ -86,7 +104,7 @@
             submit () {
                 this.$v.$touch()
                 if (!this.$v.$invalid) {
-                    this.$store.dispatch('partner/postPartners', this.partner)
+                    this.$store.dispatch('partner/patchPartners', this.partner)
                         .then(() => { this.dialog = false })
                         .catch(error => this.error = error.response )
                 }

@@ -15,23 +15,22 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 final class SecurityController extends AbstractController
 {
     /**
-     * @Rest\Post("/login", name="login")
+     * @Route("/login", methods={"POST"})
+     *
      * @return JsonResponse
      */
     public function login(): JsonResponse
     {
-        $user = $this->getUser();
-
         return new JsonResponse(
             [
-                'username' => $user->getUsername(),
-                'roles' => $user->getRoles()
+                'user' => $this->getUser()
             ]
         );
     }
 
     /**
-     * @Route("/logout", name="logout")
+     * @Route("/logout", methods={"GET"})
+     *
      * @return void
      * @throws \RuntimeException
      */

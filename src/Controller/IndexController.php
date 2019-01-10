@@ -10,7 +10,8 @@ use function Safe\json_encode;
 class IndexController extends AbstractController
 {
     /**
-     * @Route("/{vueRouting}", requirements={"vueRouting"="^(?!api|_(profiler|wdt)).*"}, name="index")
+     * @Route("/{vueRouting}", requirements={"vueRouting"="^(?!api|_(profiler|wdt)).*"}, methods={"GET"})
+     *
      * @return Response
      */
     public function index(): Response
@@ -21,8 +22,7 @@ class IndexController extends AbstractController
             'base.html.twig',
             [
                 'isAuthenticated' => json_encode(!empty($user)),
-                'username' => json_encode(!empty($user) ? $user->getUsername() : []),
-                'roles' => json_encode(!empty($user) ? $user->getRoles() : []),
+                'user' => json_encode(!empty($user) ? $user->getUsername() : [])
             ]
         );
     }

@@ -9,7 +9,9 @@ export default {
             {
                 name: partner.name,
                 surname: partner.surname,
-                email: partner.email
+                email: partner.email,
+                active: partner.active,
+                role: partner.role
             })
     },
     patchPartners (partner) {
@@ -17,7 +19,9 @@ export default {
             {
                 name: partner.name,
                 surname: partner.surname,
-                email: partner.email
+                email: partner.email,
+                active: partner.active,
+                role: partner.role
             })
     },
     deletePartners (partner) {

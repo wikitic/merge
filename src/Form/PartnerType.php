@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class PartnerType extends AbstractType
 {
@@ -22,6 +23,8 @@ class PartnerType extends AbstractType
             ->add('name', TextType::class)
             ->add('surname', TextType::class)
             ->add('email', EmailType::class)
+            ->add('active', TextType::class)
+            ->add('role', TextType::class)
         ;
     }
     

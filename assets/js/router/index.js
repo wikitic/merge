@@ -4,9 +4,13 @@ import store from '../store'
 import Login from '../views/Login'
 import Logout from '../views/Logout'
 import Profile from '../views/Profile'
-import Dashboard from '../views/Dashboard'
-import Partners from '../views/Partners/List'
-import Subscriptions from '../views/Subscriptions'
+import Home from '../views/Home'
+
+import Partners from '../views/Partners/Index'
+import PartnersList from '../views/Partners/List'
+import PartnersView from '../views/Partners/View'
+
+import SubscriptionsList from '../views/Subscriptions/List'
 
 Vue.use(VueRouter)
 
@@ -19,7 +23,7 @@ let router = new VueRouter({
             component: Login,
             meta: {
                 guest: true
-            },
+            }
         },
         {
             path: '/logout',
@@ -27,41 +31,64 @@ let router = new VueRouter({
             component: Logout,
             meta: {
                 requiresAuth: true
-            },
+            }
         },
         { 
-            path: '/profile',
-            name: 'Profile',
-            component: Profile, 
+            path: '/',
+            name: 'Página principal',
+            component: Home, 
             meta: { 
-                requiresAuth: true 
+                requiresAuth: true,
+                breadcrumb: [
+                ]
             } 
         },
         { 
-            path: '/dashboard',
-            name: 'Dashboard',
-            component: Dashboard, 
+            path: '/profile',
+            name: 'Perfil',
+            component: Profile, 
             meta: { 
-                requiresAuth: true 
+                requiresAuth: true,
+                breadcrumb: [
+                    { name: 'Página principal', href: 'Página principal' },
+                ]
             } 
         },
         { 
             path: '/partners',
             component: Partners,
             meta: {
-                requiresAuth: true
-            }
-        },
-        { 
-            path: '/subscriptions',
-            component: Subscriptions,
-            meta: {
-                requiresAuth: true
-            }
+                requiresAuth: true,
+            },
+            children: [
+                { 
+                    path: '',
+                    component: PartnersList,
+                    name: 'Socios',
+                    meta: {
+                        requiresAuth: true,
+                        breadcrumb: [
+                            { name: 'Página principal', href: 'Página principal' },
+                        ]
+                    }
+                },
+                { 
+                    path: ':idPartner',
+                    component: PartnersView,
+                    name: 'Socio',
+                    meta: {
+                        requiresAuth: true,
+                        breadcrumb: [
+                            { name: 'Página principal', href: 'Página principal' },
+                            { name: 'Socios', href: 'Socios' },
+                        ]
+                    }
+                }
+            ]
         },
         { 
             path: '*',
-            redirect: '/dashboard'
+            redirect: '/'
         }
     ],
 })

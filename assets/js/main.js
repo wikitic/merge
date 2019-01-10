@@ -23,6 +23,11 @@ import Alert from './components/Alert.vue'
 Vue.component('alert', Alert);
 
 
+import FullCalendar from 'vue-full-calendar'
+import 'fullcalendar/dist/fullcalendar.css'
+import 'fullcalendar/dist/locale/es'
+Vue.use(FullCalendar)
+
 Vue.config.productionTip = false
 
 require('../scss/app.scss')
