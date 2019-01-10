@@ -3,7 +3,6 @@
 
         <v-card>
             <v-toolbar flat color="white">
-                <v-toolbar-title>Socios</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <partner-new></partner-new>
             </v-toolbar>
@@ -22,20 +21,10 @@
                             </td>
                             <td>{{ props.item.fullname }}</td>
                             <td>{{ props.item.email }}</td>
-                            <td class="text-xs-center">{{ props.item.numSubscriptions }}</td>
+                            <td class="text-xs-center">
+                                <v-chip>{{ props.item.numSubscriptions }}</v-chip>
+                            </td>
                             <td>{{ toDate(props.item.cdate) }}</td>
-                            <!--
-                            <td>
-                                <v-chip v-if="getAlta(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
-                                    {{ getAlta(props.item.subscriptions) }}
-                                </v-chip>
-                            </td>
-                            <td>
-                                <v-chip v-if="getBaja(props.item.subscriptions)" :color="getColorByStatus(props.item.subscriptions)" outline>
-                                    {{ getBaja(props.item.subscriptions) }}
-                                </v-chip>
-                            </td>
-                            -->
                             <td>
                                 <v-btn flat icon color="grey" @click="$router.push(`partners/${props.item.id}`)">
                                     <v-icon>visibility</v-icon>
@@ -57,24 +46,16 @@
     </v-container>
 </template>
 
-<script>
 
+
+<script>
     import PartnerNew from '../../components/Dialogs/PartnerNew'
-    /*
-    import PartnersEdit from './Edit'
-    import PartnersDelete from './Delete'
-    */
     import SubscriptionsList from '../../components/Tables/SubscriptionsList'
 
     export default {
         name: 'partners-list',
         components: {
             PartnerNew,
-            /*
-            PartnersNew,
-            PartnersEdit,
-            PartnersDelete,
-            */
             SubscriptionsList
         },
         data () {
@@ -89,13 +70,11 @@
                 headers: [
                     { text: '#', value: 'id', width: 10 },
                     { text: 'Código', value: 'code', sortable: false, width: 100 },
-                    { text: 'Nombre y Apellidos', value: 'fullname'},
-                    { text: 'Email', value: 'email', sortable: false, width: 200 },
-                    { text: 'Suscripciones', value: 'numSubscriptions', width:50, align: 'center' },
+                    { text: 'Nombre y Apellidos', value: 'fullname', sortable: false },
+                    { text: 'Email', value: 'email', sortable: false, width: 300 },
+                    { text: 'Suscripciones', value: 'numSubscriptions', width:50 },
                     { text: 'Registro', value: 'cdate', width:100 },
-                    //{ text: 'Alta', sortable: false, width:100 },
-                    //{ text: 'Baja', sortable: false, width:100 },
-                    { text: '', sortable: false, width: 300 }
+                    { text: '', sortable: false, width: 50 }
                 ],
                 colors: {
                     1: 'green',
@@ -115,24 +94,6 @@
             toDate (datetime) {
                 let date = new Date(datetime)
                 return date.toLocaleDateString("es-ES") //eu-ES
-            },
-            getAlta (subscriptions) {
-                let subs = subscriptions[subscriptions.length-1]
-                
-                if(subs === undefined)
-                    return null
-                
-                return this.toDate(new Date(subs.inDate))
-
-            },
-            getBaja (subscriptions) {
-                let subs = subscriptions[0]
-                
-                if(subs === undefined)
-                    return null
-                
-                return this.toDate(new Date(subs.outDate))
-
             },
             getStatus (subscriptions) {
                 let now = new Date()

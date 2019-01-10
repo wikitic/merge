@@ -63,7 +63,7 @@
                 name: '',
                 surname: '',
                 email: '',
-                active: { value: 0, text: 'Desactivado' },
+                active: { value: 1, text: 'Activado' },
                 role: { value: 1, text: 'Premium' }
             },
             active: [ 
@@ -108,7 +108,7 @@
                 if (!this.$v.$invalid) {
                     this.partner.active = this.partner.active.value
                     this.partner.role = this.partner.role.value
-                    
+
                     this.$store.dispatch('partner/postPartners', this.partner)
                         .then(() => { this.dialog = false })
                         .catch(error => this.error = error.response )

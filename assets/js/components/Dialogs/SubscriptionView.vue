@@ -18,7 +18,7 @@
                         </v-flex>
                         <v-flex xs2>
                             <v-icon v-if="isSubscriber()" x-large right color="green">done</v-icon>
-                            <v-icon v-if="!isSubscriber()" x-large right color="red">clear</v-icon>
+                            <v-icon v-else x-large right color="red">clear</v-icon>
                         </v-flex>
                         <v-flex xs12>
                             <v-text-field v-model="subscription.info" label="Info" prepend-icon="info" disabled></v-text-field>

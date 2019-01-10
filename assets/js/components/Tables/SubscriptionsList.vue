@@ -5,7 +5,7 @@
                 <td>{{ props.item.id }}</td>
                 <td>
                     <v-icon v-if="isSubscriber(props.item)" x-large color="green">done</v-icon>
-                    <v-icon v-if="!isSubscriber(props.item)" x-large color="red">clear</v-icon>
+                    <v-icon v-else x-large color="red">clear</v-icon>
                 </td>
                 <td>{{ toDate(props.item.inDate) }}</td>
                 <td>{{ toDate(props.item.outDate) }}</td>
