@@ -13,7 +13,7 @@ Cada jugador tendrá que atravesar el tablero evitando los obstáculos ocultos. 
 
 Cada jugador dispone de un tablero el cual no podrá ver su contrincante. Deberá colocar 10 obstáculos de forma aleatoria. La única condición es que **tiene que haber un camino posible** para que se pueda atravesar conociendo los movimientos del robot.
 
-### Desarrollo del a partida
+### Desarrollo de la partida
 
 Empieza el *jugador 1* indicando a su contrincante en qué fila quiere colocar a su robot, por ejemplo, en la posición **1B** y éste le contestará si puede colocarlo o no. En caso de poder colocarlo, continuará indicando el siguiente movimiento, por ejemplo, **avanza**. Y nuevamente el contrincante le indicará si puede continuar o no. Este proceso se repetirá hasta que no pueda avanzar por encontrar un obstáculo, en cuyo caso será el turno para el *jugador 2*.
 
