@@ -29,3 +29,5 @@ A <a target="_blank" href="https://twitter.com/gorkaprofe">Gorka</a> por compart
 <blockquote class="twitter-tweet" data-lang="es"><p lang="es" dir="ltr">Otro ejemplo más desarrollando Pensamiento Computacional con actividades de <a href="https://twitter.com/hashtag/programaci%C3%B3n?src=hash&amp;ref_src=twsrc%5Etfw">#programación</a> unplugged, sin ordenador. <a href="https://twitter.com/hashtag/Rob%C3%B3ticaPorLaIgualdad?src=hash&amp;ref_src=twsrc%5Etfw">#RobóticaPorLaIgualdad</a> <a href="https://twitter.com/hashtag/Educaci%C3%B3n?src=hash&amp;ref_src=twsrc%5Etfw">#Educación</a> <a href="https://t.co/q5hqH33nuG">pic.twitter.com/q5hqH33nuG</a></p>&mdash; Gorka García ن (@Gorkaprofe) <a href="https://twitter.com/Gorkaprofe/status/1079352225430978562?ref_src=twsrc%5Etfw">30 de diciembre de 2018</a></blockquote>
 
 A <a target="_blank" href="https://twitter.com/carmenb_mg">Carmen</a> por la inspirarme en la idea de juego en parejas. 
+
+Piezas impresas en 3D tomadas de <a target="_blank" href="https://www.thingiverse.com/thing:2660513">netdreamer</a> mientras se crea una personalizada :). 
