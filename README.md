@@ -7,6 +7,8 @@
 
 Cada jugador tendrá que atravesar el tablero evitando los obstáculos ocultos. Para ello deberás guiar a tu robot utilizando solamente 3 movimientos **adelante**, **gira a la derecha** y **gira a la izquierda**. Cada vez que te encuentres con un obstáculo será el turno de tu contrincante. El primero que logre atravesar el tablero gana la partida.
 
+![](Imágenes/Juego.png)
+
 ### Preparación de la partida
 
 Cada jugador dispone de un tablero el cual no podrá ver su contrincante. Deberá colocar 10 obstáculos de forma aleatoria. La única condición es que **tiene que haber un camino posible** para que se pueda atravesar conociendo los movimientos del robot.
