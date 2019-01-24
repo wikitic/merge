@@ -24,7 +24,7 @@ layout: base
 
 ## Ediciones
 
-* **3ª Edición: Octubre, 2018**: Nuevas prácticas realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia. Realización de la página web por [Miguel Ángel Abellán](https://www.github.com/migueabellan).
+* **3ª Edición: Octubre, 2018**: Nuevas prácticas realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia. 
 * **2ª Edición: Febrero, 2018**: Nuevas prácticas incorporadas al repositorio de la 1ª Edición realizadas por docentes a través del curso de Robótica en Secundaria impartido a través del Centro de Profesorado y Recursos de la Región de Murcia.
 * **1ª Edición: Enero, 2017**: [Proyecto El Cable Amarillo](https://github.com/ElCableAmarillo). Financiado por el Fondo Europeo de Desarrollo Regional de la Región de Murcia.
 
