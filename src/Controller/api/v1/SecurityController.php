@@ -26,7 +26,7 @@ final class SecurityController extends AbstractController
      * @param SerializerInterface $serializer
      */
     public function __construct(SerializerInterface $serializer)
-    {        
+    {
         $this->serializer = $serializer;
     }
 
@@ -40,7 +40,7 @@ final class SecurityController extends AbstractController
         /*
         //use App\Entity\Language;
         //use App\BundlePartner\Entity\Partner;
-        $languages = $this->getDoctrine()->getRepository(Language::class, 'default')->findAll();                
+        $languages = $this->getDoctrine()->getRepository(Language::class, 'default')->findAll();
         $partners = $this->getDoctrine()->getRepository(Partner::class, 'partner')->findAll();
         */
 

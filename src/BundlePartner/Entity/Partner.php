@@ -258,11 +258,13 @@ class Partner implements AdvancedUserInterface
      *
      * @return array
      */
-    function getRoles()
+    public function getRoles(): array
     {
-        switch ($this->role){
-            case self::ROLE_USER: return array('ROLE_USER');
-            case self::ROLE_PREMIUM: return array('ROLE_PREMIUM');
+        switch ($this->role) {
+            case self::ROLE_USER:
+                return array('ROLE_USER');
+            case self::ROLE_PREMIUM:
+                return array('ROLE_PREMIUM');
         }
     }
 
@@ -371,9 +373,8 @@ class Partner implements AdvancedUserInterface
     /**
      * eraseCredentials
      */
-    function eraseCredentials()
+    public function eraseCredentials()
     {
-
     }
 
     /**
@@ -381,7 +382,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    function getUsername()
+    public function getUsername()
     {
         return $this->getEmail();
     }
@@ -419,5 +420,4 @@ class Partner implements AdvancedUserInterface
     {
         return $this->name.' '.$this->surname;
     }
-
 }

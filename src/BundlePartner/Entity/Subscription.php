@@ -19,8 +19,8 @@ class Subscription
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-	
-	/**
+    
+    /**
      * @var \Partner
      *
      * @ORM\ManyToOne(targetEntity="Partner")
@@ -41,8 +41,8 @@ class Subscription
      * @ORM\Column(name="out_date", type="datetime")
      */
     private $outDate;
-	
-	/**
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
