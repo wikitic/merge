@@ -82,14 +82,14 @@ class Partner implements AdvancedUserInterface
     private $active=1;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      * @ORM\Column(name="cdate", type="datetime")
      */
     private $cdate;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      * @ORM\Column(name="mdate", type="datetime")
      */
@@ -102,9 +102,9 @@ class Partner implements AdvancedUserInterface
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -116,7 +116,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setCode($code)
+    public function setCode(string $code): self
     {
         $this->code = $code;
 
@@ -128,7 +128,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
@@ -140,7 +140,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -152,7 +152,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -164,7 +164,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setSurname($surname)
+    public function setSurname(string $surname): self
     {
         $this->surname = $surname;
 
@@ -176,7 +176,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getSurname()
+    public function getSurname(): string
     {
         return $this->surname;
     }
@@ -188,7 +188,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -200,7 +200,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -210,9 +210,9 @@ class Partner implements AdvancedUserInterface
      *
      * @param string $password
      *
-     * @return Admin
+     * @return Partner
      */
-    public function setPassword($password)
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -224,7 +224,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -234,9 +234,9 @@ class Partner implements AdvancedUserInterface
      *
      * @param string $salt
      *
-     * @return Admin
+     * @return Partner
      */
-    public function setSalt($salt)
+    public function setSalt(string $salt): self
     {
         $this->salt = $salt;
 
@@ -248,7 +248,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return string
      */
-    public function getSalt()
+    public function getSalt(): string
     {
         return $this->salt;
     }
@@ -275,7 +275,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setRole($role)
+    public function setRole(int $role): self
     {
         $this->role = $role;
 
@@ -287,7 +287,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return integer
      */
-    public function getRole()
+    public function getRole(): int
     {
         return $this->role;
     }
@@ -299,7 +299,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setActive($active)
+    public function setActive(int $active): self
     {
         $this->active = $active;
 
@@ -311,7 +311,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return integer
      */
-    public function getActive()
+    public function getActive(): int
     {
         return $this->active;
     }
@@ -323,7 +323,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setCdate($cdate)
+    public function setCdate(?\DateTime $cdate): self
     {
         $this->cdate = $cdate;
 
@@ -335,7 +335,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return \DateTime
      */
-    public function getCdate()
+    public function getCdate(): ?\DateTime
     {
         return $this->cdate;
     }
@@ -347,7 +347,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return Partner
      */
-    public function setMdate($mdate)
+    public function setMdate(?\DateTime $mdate): self
     {
         $this->mdate = $mdate;
 
@@ -359,7 +359,7 @@ class Partner implements AdvancedUserInterface
      *
      * @return \DateTime
      */
-    public function getMdate()
+    public function getMdate(): ?\DateTime
     {
         return $this->mdate;
     }
@@ -414,9 +414,13 @@ class Partner implements AdvancedUserInterface
 
 
 
-    /* Others */
 
-    public function getFullName()
+    /**
+     * Get FullName
+     *
+     * @return string
+     */
+    public function getFullName(): string
     {
         return $this->name.' '.$this->surname;
     }
