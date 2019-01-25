@@ -1,0 +1,44 @@
+parameters:
+    # Adds a fallback DATABASE_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(DATABASE_URL): ''
+    env(DATABASE_URL_PARTNER): ''
+
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+            default:
+                url: '%env(resolve:DATABASE_URL)%'
+                driver: 'pdo_mysql'
+                server_version: '5.7'
+                charset: utf8mb4
+            partner:
+                url: '%env(resolve:DATABASE_URL_PARTNER)%'
+                driver: 'pdo_mysql'
+                server_version: '5.7'
+                charset: utf8mb4
+
+    orm:
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    App:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity'
+                        prefix: 'App\Entity'
+                        alias: App
+            partner:
+                connection: partner
+                mappings:
+                    Partner:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/BundlePartner/Entity'
+                        prefix: 'App\BundlePartner\Entity'
+                        alias: Partner
