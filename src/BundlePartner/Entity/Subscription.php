@@ -12,33 +12,36 @@ use Doctrine\ORM\Mapping as ORM;
 class Subscription
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id_subscription", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
     /**
-     * @var \Partner
+     * @var Partner
      *
-     * @ORM\ManyToOne(targetEntity="Partner")
-     * @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner")
+     * @ORM\ManyToOne(targetEntity="Partner", inversedBy="subscriptions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_partner", referencedColumnName="id_partner", nullable=false)
+     * })
      */
     private $partner;
-
     /**
-     * @var string
+     * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $inDate;
-
     /**
-     * @var string
+     * @var \DateTime
      *
      * @ORM\Column(name="out_date", type="datetime")
+     * @Assert\NotNull(message="La fecha es requerida")
+     * @Assert\DateTime(message="La fecha es inválida")
      */
     private $outDate;
     
@@ -46,75 +49,97 @@ class Subscription
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
+     * @Assert\NotBlank(message="La info es requerida")
      */
     private $info;
-
     /**
-     * @var string
+     * @var float
      *
      * @ORM\Column(name="price", type="decimal", scale=2)
+     * @Assert\NotBlank(message="El precio es requerido")
      */
     private $price;
-    
-
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
-
     /**
-     * Set inDate
+     * Get partner
+     *
+     * @return Partner
+     */
+    public function getPartner(): ?Partner
+    {
+        return $this->partner;
+    }
+    /**
+     * Set parter
+     *
+     * @param Partner $partner
+     *
+     * @return Subscription
+     */
+    public function setPartner(?Partner $partner): self
+    {
+        $this->partner = $partner;
+        return $this;
+    }
+    /**
+     * Get indate
+     *
+     * @return \DateTime
+     */
+    public function getInDate(): ?\DateTime
+    {
+        return $this->inDate;
+    }
+    /**
+     * Set indate
      *
      * @param \DateTime $inDate
      *
      * @return Subscription
      */
-    public function setInDate($inDate)
+    public function setInDate(?\DateTime $inDate): self
     {
         $this->inDate = $inDate;
-
         return $this;
     }
-
     /**
-     * Get inDate
+     * Get outdate
      *
      * @return \DateTime
      */
-    public function getInDate()
+    public function getOutDate(): ?\DateTime
     {
-        return $this->inDate;
+        return $this->outDate;
     }
-
     /**
-     * Set outDate
+     * Set outdate
      *
      * @param \DateTime $outDate
      *
      * @return Subscription
      */
-    public function setOutDate($outDate)
+    public function setOutDate(?\DateTime $outDate): self
     {
         $this->outDate = $outDate;
-
         return $this;
     }
-
     /**
-     * Get outDate
+     * Get info
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getOutDate()
+    public function getInfo(): ?string
     {
-        return $this->outDate;
+        return $this->info;
     }
-
     /**
      * Set info
      *
@@ -122,68 +147,30 @@ class Subscription
      *
      * @return Subscription
      */
-    public function setInfo($info)
+    public function setInfo(?string $info): self
     {
         $this->info = $info;
-
         return $this;
     }
-
-    /**
-     * Get info
-     *
-     * @return string
-     */
-    public function getInfo()
-    {
-        return $this->info;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     *
-     * @return Subscription
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
     /**
      * Get price
      *
-     * @return string
+     * @return float
      */
-    public function getPrice()
+    public function getPrice(): ?float
     {
         return $this->price;
     }
-
     /**
-     * Set partner
+     * Set price
      *
-     * @param \PartnerBundle\Entity\Partner $partner
+     * @param float $price
      *
      * @return Subscription
      */
-    public function setPartner(\PartnerBundle\Entity\Partner $partner)
+    public function setPrice(?float $price): self
     {
-        $this->partner = $partner;
-
+        $this->price = $price;
         return $this;
-    }
-
-    /**
-     * Get partner
-     *
-     * @return \PartnerBundle\Entity\Partner
-     */
-    public function getPartner()
-    {
-        return $this->partner;
     }
 }
