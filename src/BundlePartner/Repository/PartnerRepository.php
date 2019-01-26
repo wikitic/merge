@@ -33,7 +33,7 @@ class PartnerRepository extends ServiceEntityRepository
     {
         // Evitar "A circular reference has been detected when serializing the object of class"
         $normalizer = new ObjectNormalizer();
-        $normalizer->setIgnoredAttributes(['partner']);
+        $normalizer->setIgnoredAttributes(['partner', 'id']); // Ids de partner y subscriptions
         $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
         // Evitar ...
 
