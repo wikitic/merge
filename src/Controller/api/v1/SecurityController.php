@@ -3,6 +3,7 @@
 namespace App\Controller\api\v1;
 
 use App\BundlePartner\Entity\Partner;
+use App\BundlePartner\Repository\PartnerRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -11,8 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-use Doctrine\ORM\EntityManagerInterface;
 /**
  * Security controller
  *
@@ -20,6 +21,13 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 final class SecurityController extends AbstractController
 {
+    private $pr;
+
+    public function __construct(RegistryInterface $registry)
+    {        
+        $this->pr = $registry->getRepository(Partner::class, 'partner');
+    }
+
     /**
      * @Route("/login", methods={"POST"})
      *
@@ -29,7 +37,7 @@ final class SecurityController extends AbstractController
     {
         $partner = $this->getUser();
 
-        $partner = $this->getDoctrine()->getRepository(Partner::class, 'partner')->serialize($partner);
+        $partner = $this->pr->serialize($partner);
 
         return new JsonResponse(
             $partner,
