@@ -133,7 +133,7 @@ class Partner implements UserInterface
      * @ORM\PrePersist
      */
     public function prePersist(LifecycleEventArgs $args): void
-    {        
+    {
         $this->setPassword($this->code);
         
         if ($this->cdate === null) {
