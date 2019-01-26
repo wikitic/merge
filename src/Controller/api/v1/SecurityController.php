@@ -24,7 +24,7 @@ final class SecurityController extends AbstractController
     private $pr;
 
     public function __construct(RegistryInterface $registry)
-    {        
+    {
         $this->pr = $registry->getRepository(Partner::class, 'partner');
     }
 
