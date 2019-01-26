@@ -3,20 +3,20 @@ parameters:
     # This allows you to run cache:warmup even if your
     # environment variables are not available yet.
     # You should not need to change this value.
-    env(DATABASE_URL): ''
-    env(DATABASE_URL_PARTNER): ''
+    env(DATABASE_URL_AP): ''
+    env(DATABASE_URL_ASO): ''
 
 doctrine:
     dbal:
         default_connection: default
         connections:
             default:
-                url: '%env(resolve:DATABASE_URL)%'
+                url: '%env(resolve:DATABASE_URL_AP)%'
                 driver: 'pdo_mysql'
                 server_version: '5.7'
                 charset: utf8mb4
             partner:
-                url: '%env(resolve:DATABASE_URL_PARTNER)%'
+                url: '%env(resolve:DATABASE_URL_ASO)%'
                 driver: 'pdo_mysql'
                 server_version: '5.7'
                 charset: utf8mb4
