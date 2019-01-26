@@ -2,16 +2,17 @@
 
 namespace App\Controller\api\v1;
 
+use App\BundlePartner\Entity\Partner;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+use Doctrine\ORM\EntityManagerInterface;
 /**
  * Security controller
  *
@@ -19,17 +20,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
  */
 final class SecurityController extends AbstractController
 {
-    /** @var SerializerInterface */
-    private $serializer;
-
-    /**
-     * @param SerializerInterface $serializer
-     */
-    public function __construct(SerializerInterface $serializer)
-    {
-        $this->serializer = $serializer;
-    }
-
     /**
      * @Route("/login", methods={"POST"})
      *
@@ -37,15 +27,12 @@ final class SecurityController extends AbstractController
      */
     public function login(): JsonResponse
     {
-        /*
-        //use App\Entity\Language;
-        //use App\BundlePartner\Entity\Partner;
-        $languages = $this->getDoctrine()->getRepository(Language::class, 'default')->findAll();
-        $partners = $this->getDoctrine()->getRepository(Partner::class, 'partner')->findAll();
-        */
+        $partner = $this->getUser();
+
+        $partner = $this->getDoctrine()->getRepository(Partner::class, 'partner')->serialize($partner);
 
         return new JsonResponse(
-            $this->serializer->serialize($this->getUser(), 'json'),
+            $partner,
             Response::HTTP_OK,
             [],
             true

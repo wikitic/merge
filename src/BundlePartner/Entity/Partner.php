@@ -3,21 +3,31 @@
 namespace App\BundlePartner\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use function Safe\password_hash;
 
 /**
  * Partner
  *
  * @ORM\Table(name="partners")
  * @ORM\Entity(repositoryClass="App\BundlePartner\Repository\PartnerRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"code"}, message="partner.code.unique")
+ * @UniqueEntity(fields={"email"}, message="partner.email.unique")
  */
-class Partner implements AdvancedUserInterface
+class Partner implements UserInterface
 {
-    const ROLE_USER=0;
-    const ROLE_PREMIUM=1;
+    const ROLE_USER     = 0;
+    const ROLE_PREMIUM  = 1;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id_partner", type="integer")
      * @ORM\Id
@@ -28,7 +38,7 @@ class Partner implements AdvancedUserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=6)
+     * @ORM\Column(name="code", type="string", length=6, unique=true)
      */
     private $code;
 
@@ -36,20 +46,23 @@ class Partner implements AdvancedUserInterface
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="partner.name.not_blank")
      */
     private $name;
-
     /**
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=255)
+     * @Assert\NotBlank(message="partner.surname.not_blank")
      */
     private $surname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @ORM\Column(name="email", type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="partner.email.not_blank")
+     * @Assert\Email(message="partner.email.email")
      */
     private $email;
 
@@ -72,14 +85,14 @@ class Partner implements AdvancedUserInterface
      *
      * @ORM\Column(name="role", type="integer")
      */
-    private $role=1;
+    private $role;
 
     /**
      * @var int
      *
      * @ORM\Column(name="active", type="integer")
      */
-    private $active=1;
+    private $active;
 
     /**
      * @var \DateTime
@@ -95,7 +108,35 @@ class Partner implements AdvancedUserInterface
      */
     private $mdate;
 
+    /**
+     * @var Subscription[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Subscription", mappedBy="partner", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OrderBy({"inDate" = "DESC"})
+     */
+    private $subscriptions;
 
+
+
+    public function __construct()
+    {
+        $this->code     = '';
+        $this->role     = self::ROLE_PREMIUM;
+        $this->active   = 1;
+        $this->salt     = md5(uniqid());
+        $this->cdate    = new \DateTime();
+        $this->mdate    = new \DateTime();
+        $this->subscriptions = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate(): void
+    {
+        $this->salt     = md5(uniqid());
+        $this->mdate    = new \DateTime();
+    }
 
 
 
@@ -214,7 +255,7 @@ class Partner implements AdvancedUserInterface
      */
     public function setPassword(string $password): self
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 4]);
 
         return $this;
     }
@@ -262,16 +303,16 @@ class Partner implements AdvancedUserInterface
     {
         switch ($this->role) {
             case self::ROLE_USER:
-                return array('ROLE_USER');
+                return ['ROLE_USER'];
             case self::ROLE_PREMIUM:
-                return array('ROLE_PREMIUM');
+                return ['ROLE_PREMIUM'];
         }
     }
 
     /**
      * Set role
      *
-     * @param integer $role
+     * @param int $role
      *
      * @return Partner
      */
@@ -285,7 +326,7 @@ class Partner implements AdvancedUserInterface
     /**
      * Get role
      *
-     * @return integer
+     * @return int
      */
     public function getRole(): int
     {
@@ -295,7 +336,7 @@ class Partner implements AdvancedUserInterface
     /**
      * Set active
      *
-     * @param integer $active
+     * @param int $active
      *
      * @return Partner
      */
@@ -309,7 +350,7 @@ class Partner implements AdvancedUserInterface
     /**
      * Get active
      *
-     * @return integer
+     * @return int
      */
     public function getActive(): int
     {
@@ -364,16 +405,59 @@ class Partner implements AdvancedUserInterface
         return $this->mdate;
     }
 
+    /**
+     * Get subscriptions
+     *
+     * @return Collection|Subscription[]
+     */
+    public function getSubscriptions(): Collection
+    {
+        return $this->subscriptions;
+    }
+    
+    /**
+     * Add subscription
+     *
+     * @param Subscription $subscription
+     *
+     * @return Partner
+     */
+    public function addSubscription(Subscription $subscription): self
+    {
+        if (!$this->subscriptions->contains($subscription)) {
+            $this->subscriptions[] = $subscription;
+            $subscription->setPartner($this);
+        }
+        return $this;
+    }
+    /**
+     * Remove subscription
+     *
+     * @param Subscription $subscription
+     *
+     * @return Partner
+     */
+    public function removeSubscription(Subscription $subscription): self
+    {
+        if ($this->subscriptions->contains($subscription)) {
+            $this->subscriptions->removeElement($subscription);
+            // set the owning side to null (unless already changed)
+            if ($subscription->getPartner() === $this) {
+                //$subscription->setPartner(null);
+            }
+        }
+        return $this;
+    }
 
 
-    /************************************/
-    /*     implements UserInterface     */
-    /************************************/
+    // implements UserInterface
 
     /**
      * eraseCredentials
+     *
+     * @return void
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
     }
 
@@ -387,33 +471,9 @@ class Partner implements AdvancedUserInterface
         return $this->getEmail();
     }
 
+    
 
-
-    /************************************/
-    /* implements AdvancedUserInterface */
-    /************************************/
-    public function isAccountNonExpired()
-    {
-        return true;
-    }
-
-    public function isAccountNonLocked()
-    {
-        return true;
-    }
-
-    public function isCredentialsNonExpired()
-    {
-        return true;
-    }
-
-    public function isEnabled()
-    {
-        return $this->active;
-    }
-
-
-
+    // Others
 
     /**
      * Get FullName

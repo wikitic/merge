@@ -2,12 +2,16 @@
 
 namespace App\BundlePartner\Entity;
 
+use App\BundlePartner\Entity\Partner;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Subscription
  *
  * @ORM\Table(name="subscriptions")
+ * @ORM\Entity(repositoryClass="App\BundlePartner\Repository\SubscriptionRepository")
  */
 class Subscription
 {
@@ -19,6 +23,7 @@ class Subscription
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
     /**
      * @var Partner
      *
@@ -28,20 +33,22 @@ class Subscription
      * })
      */
     private $partner;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="in_date", type="datetime")
-     * @Assert\NotNull(message="La fecha es requerida")
-     * @Assert\DateTime(message="La fecha es inválida")
+     * @Assert\NotNull(message="subscription.indate.not_blank")
+     * @Assert\DateTime(message="subscription.indate.datetime")
      */
     private $inDate;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="out_date", type="datetime")
-     * @Assert\NotNull(message="La fecha es requerida")
-     * @Assert\DateTime(message="La fecha es inválida")
+     * @Assert\NotNull(message="subscription.outdate.not_blank")
+     * @Assert\DateTime(message="subscription.outdate.datetime")
      */
     private $outDate;
     
@@ -49,16 +56,20 @@ class Subscription
      * @var string
      *
      * @ORM\Column(name="info", type="string", length=255)
-     * @Assert\NotBlank(message="La info es requerida")
+     * @Assert\NotBlank(message="subscription.info.not_blank")
      */
     private $info;
+
     /**
      * @var float
      *
      * @ORM\Column(name="price", type="decimal", scale=2)
-     * @Assert\NotBlank(message="El precio es requerido")
+     * @Assert\NotBlank(message="subscription.price.not_blank")
      */
     private $price;
+
+
+    
     /**
      * Get id
      *
@@ -68,6 +79,7 @@ class Subscription
     {
         return $this->id;
     }
+
     /**
      * Get partner
      *
@@ -77,6 +89,7 @@ class Subscription
     {
         return $this->partner;
     }
+
     /**
      * Set parter
      *
@@ -87,8 +100,10 @@ class Subscription
     public function setPartner(?Partner $partner): self
     {
         $this->partner = $partner;
+
         return $this;
     }
+
     /**
      * Get indate
      *
@@ -98,6 +113,7 @@ class Subscription
     {
         return $this->inDate;
     }
+
     /**
      * Set indate
      *
@@ -108,8 +124,10 @@ class Subscription
     public function setInDate(?\DateTime $inDate): self
     {
         $this->inDate = $inDate;
+
         return $this;
     }
+
     /**
      * Get outdate
      *
@@ -119,6 +137,7 @@ class Subscription
     {
         return $this->outDate;
     }
+
     /**
      * Set outdate
      *
@@ -129,8 +148,10 @@ class Subscription
     public function setOutDate(?\DateTime $outDate): self
     {
         $this->outDate = $outDate;
+
         return $this;
     }
+
     /**
      * Get info
      *
@@ -140,6 +161,7 @@ class Subscription
     {
         return $this->info;
     }
+
     /**
      * Set info
      *
@@ -150,8 +172,10 @@ class Subscription
     public function setInfo(?string $info): self
     {
         $this->info = $info;
+
         return $this;
     }
+
     /**
      * Get price
      *
@@ -161,6 +185,7 @@ class Subscription
     {
         return $this->price;
     }
+
     /**
      * Set price
      *
@@ -171,6 +196,7 @@ class Subscription
     public function setPrice(?float $price): self
     {
         $this->price = $price;
+
         return $this;
     }
 }
