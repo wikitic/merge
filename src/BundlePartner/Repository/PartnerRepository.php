@@ -40,7 +40,7 @@ class PartnerRepository extends ServiceEntityRepository
         $partner = $serializer->normalize(
             $partner,
             null,
-            ['attributes' => ['code','name','email','fullName','roles','subscriptions']]
+            ['attributes' => ['code','name','surname','email','fullName','roles','subscriptions']]
         );
         
         return $serializer->serialize($partner, 'json');
