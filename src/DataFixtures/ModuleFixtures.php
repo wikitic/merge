@@ -10,9 +10,15 @@ use App\DataFixtures\LanguageFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class ModuleFixtures extends Fixture
+class ModuleFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
+    public static function getGroups(): array
+    {
+        return ['default'];
+    }
+
     public function load(ObjectManager $manager)
     {
         foreach ($this->getData() as $k => $v) {

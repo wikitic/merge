@@ -6,9 +6,15 @@ use App\BundlePartner\Entity\Partner;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class PartnerFixtures extends Fixture
+class PartnerFixtures extends Fixture implements FixtureGroupInterface
 {
+    public static function getGroups(): array
+    {
+        return ['partner'];
+    }
+
     public function load(ObjectManager $manager)
     {
         foreach ($this->getData() as $k => $v) {

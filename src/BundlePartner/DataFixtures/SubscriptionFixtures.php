@@ -4,14 +4,21 @@ namespace App\BundlePartner\DataFixtures;
 
 use App\BundlePartner\Entity\Partner;
 use App\BundlePartner\Entity\Subscription;
+
 use App\BundlePartner\DataFixtures\PartnerFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class SubscriptionFixtures extends Fixture implements DependentFixtureInterface
+class SubscriptionFixtures extends Fixture implements FixtureGroupInterface, DependentFixtureInterface
 {
+    public static function getGroups(): array
+    {
+        return ['partner'];
+    }
+    
     public function load(ObjectManager $manager)
     {
         foreach ($this->getData() as $k => $v) {
