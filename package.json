@@ -6,8 +6,7 @@
     "dev-server": "encore dev-server",
     "watch": "encore dev --watch"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@symfony/webpack-encore": "^0.22.0",
     "axios": "^0.18.0",
