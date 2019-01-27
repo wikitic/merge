@@ -29,8 +29,12 @@ class PartnerRepository extends ServiceEntityRepository
     /**
      * @return string
      */
-    public function serialize(Partner $partner): string
+    public function serialize(?Partner $partner): string
     {
+        if ($partner === null) {
+            return '';
+        }
+        
         // Evitar "A circular reference has been detected when serializing the object of class"
         $normalizer = new ObjectNormalizer();
         $normalizer->setIgnoredAttributes(['partner', 'id']); // Ids de partner y subscriptions
