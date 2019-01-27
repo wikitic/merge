@@ -7,6 +7,12 @@ use App\Entity\Language;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+
 /**
  * @method Language|null find($id, $lockMode = null, $lockVersion = null)
  * @method Language|null findOneBy(array $criteria, array $orderBy = null)
@@ -21,25 +27,25 @@ class LanguageRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return Language
+     * @return string
      */
-    public function findOneByLastOrdering(): ?Language
+    public function serialize(?Language $language): string
     {
-        $qb = $this->createQueryBuilder('l')
-            ->orderBy('l.ordering', 'DESC')
-            ->setMaxResults(1)
-            ->getQuery();
-
-        return $qb->setMaxResults(1)->getOneOrNullResult();
-    }
-    
-    /**
-     * @return int
-     */
-    public function getNextOrdering(): int
-    {
-        $language = $this->findOneByLastOrdering();
+        if ($language === null) {
+            return '';
+        }
         
-        return $language !== null ? $language->getOrdering() + 1 : 1;
+        // Evitar "A circular reference has been detected when serializing the object of class"
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setIgnoredAttributes(['language', 'id']);
+        $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
+        // Evitar ...
+
+        $language = $serializer->normalize(
+            $language,
+            null
+        );
+        
+        return $serializer->serialize($language, 'json');
     }
 }

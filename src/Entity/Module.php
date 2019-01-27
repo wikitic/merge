@@ -29,11 +29,10 @@ class Module
     /**
      * @var Language
      *
-     * @ORM\ManyToOne(targetEntity="Language")
+     * @ORM\ManyToOne(targetEntity="Language", inversedBy="subscriptions")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_language", referencedColumnName="id_language", nullable=false)
      * })
-     * @Assert\NotNull(message="module.language.not_null")
      */
     private $language;
 
@@ -490,7 +489,7 @@ class Module
      *
      * @return Language
      */
-    public function getLanguage(): ?Language
+    public function getLanguage(): Language
     {
         return $this->language;
     }
@@ -502,7 +501,7 @@ class Module
      *
      * @return Module
      */
-    public function setLanguage(?Language $language): self
+    public function setLanguage(Language $language): self
     {
         $this->language = $language;
 

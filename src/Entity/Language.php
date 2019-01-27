@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
@@ -104,6 +106,14 @@ class Language
      */
     private $mdate;
 
+    /**
+     * @var Module[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Module", mappedBy="language", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OrderBy({"ordering" = "ASC"})
+     */
+    private $modules;
+
 
 
     public function __construct()
@@ -112,6 +122,7 @@ class Language
         $this->active   = 0;
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
+        $this->modules = new ArrayCollection();
     }
     
     /**
@@ -123,16 +134,6 @@ class Language
      */
     public function prePersist(LifecycleEventArgs $args): void
     {
-        /*
-        $om = $args->getObjectManager();
-        $or = $om->getRepository(get_class($this));
-        $this->ordering = $or->getNextOrdering();
-
-        $em = $args->getEntityManager();
-        $er = $em->getRepository(get_class($this));
-        $this->ordering = $er->getNextOrdering();
-        */
-
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -144,7 +145,6 @@ class Language
     {
         $this->mdate    = new \DateTime();
     }
-
 
 
     /**
@@ -180,7 +180,7 @@ class Language
 
         return $this;
     }
-
+    
     /**
      * Get alias
      *
@@ -246,7 +246,7 @@ class Language
      *
      * @return Language
      */
-    public function setMetatitle(string $metatitle): self
+    public function setMetatitle(?string $metatitle): self
     {
         $this->metatitle = $metatitle;
 
@@ -270,7 +270,7 @@ class Language
      *
      * @return Language
      */
-    public function setMetadesc(string $metadesc): self
+    public function setMetadesc(?string $metadesc): self
     {
         $this->metadesc = $metadesc;
 
@@ -294,7 +294,7 @@ class Language
      *
      * @return Language
      */
-    public function setMetakey(string $metakey): self
+    public function setMetakey(?string $metakey): self
     {
         $this->metakey = $metakey;
 
@@ -318,7 +318,7 @@ class Language
      *
      * @return Language
      */
-    public function setMetaimage(string $metaimage): self
+    public function setMetaimage(?string $metaimage): self
     {
         $this->metaimage = $metaimage;
 
@@ -417,6 +417,53 @@ class Language
     public function setMdate(\DateTime $mdate): self
     {
         $this->mdate = $mdate;
+
+        return $this;
+    }
+
+    /**
+     * Get Modules
+     *
+     * @return Collection|Module[]
+     */
+    public function getModules(): Collection
+    {
+        return $this->modules;
+    }
+
+    /**
+     * Add module
+     *
+     * @param Module $module
+     *
+     * @return Language
+     */
+    public function addModule(Module $module): self
+    {
+        if (!$this->modules->contains($module)) {
+            $this->modules[] = $module;
+            $module->setLanguage($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove module
+     *
+     * @param Module $module
+     *
+     * @return Language
+     */
+    public function removeModule(Module $module): self
+    {
+        if ($this->modules->contains($module)) {
+            $this->modules->removeElement($module);
+            // set the owning side to null (unless already changed)
+            if ($module->getLanguage() === $this) {
+                //$module->setLanguage(null);
+            }
+        }
 
         return $this;
     }
