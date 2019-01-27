@@ -31,7 +31,7 @@ class ModuleFixtures extends Fixture implements FixtureGroupInterface, Dependent
             $module->setLevel($v['level']);
             $module->setOrdering($v['ordering']);
     
-            $this->addReference($v['language']->getAlias().'-'.$v['alias'], $module);
+            $this->addReference($v['language']->getAlias().'/'.$v['alias'], $module);
             $manager->persist($module);
         }
     

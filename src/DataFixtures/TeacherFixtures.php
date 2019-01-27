@@ -23,6 +23,8 @@ class TeacherFixtures extends Fixture implements FixtureGroupInterface
             $teacher->setName($v['name']);
             $teacher->setPassword($v['password']);
             $teacher->setActive($v['active']);
+
+            $this->addReference($v['email'], $teacher);
             $manager->persist($teacher);
         }
     
