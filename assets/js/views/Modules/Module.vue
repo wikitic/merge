@@ -11,9 +11,8 @@
             </div>
             {{module.level}}
         </v-card-title>
-
         <v-card-actions>
-            <router-link :to="{ name: 'Lessons', params: { language: module.language.alias, module: module.alias }}">
+            <router-link :to="{ name: 'Lessons', params: { language: language.alias, module: module.alias }}">
                 Entrar a la clase
             </router-link>
         </v-card-actions>
@@ -25,6 +24,10 @@
     export default {
         name: 'Module',
         props: {
+            language: {
+                type: Object,
+                default: null
+            },
             module: {
                 type: Object,
                 default: null
