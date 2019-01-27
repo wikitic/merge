@@ -2,6 +2,8 @@
 
 namespace App\Controller\api\v1;
 
+use App\Entity\Language;
+use App\Entity\Module;
 use App\Entity\Lesson;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,15 +39,21 @@ final class LessonController extends AbstractController
 
 
     /**
-     * @Route("/lessons/{id_lesson}", methods={"GET"})
+     * @Route("/languages/{language}/modules/{module}/lessons/{lesson}", methods={"GET"})
      *
-     * @param string $id_lesson
+     * @param string $language
+     * @param string $module
+     * @param string $lesson
      * @return JsonResponse
      */
-    public function getLessonsById(string $id_lesson = ''): JsonResponse
+    public function getLessonsByAlias(string $language = '', string $module = '', string $lesson = ''): JsonResponse
     {
         // TODO: Filtrar solo las lecciones activas
-        $lesson = $this->er->findOneBy(['id' => $id_lesson, 'active' => true]);
+        $language = $this->em->getRepository(Language::class)->findOneBy(['alias' => $language, 'active' => true]);
+
+        $module = $this->em->getRepository(Module::class)->findOneBy(['alias' => $module, 'active' => true]);
+
+        $lesson = $this->er->findOneBy(['module' => $module, 'alias' => $lesson,  'active' => true]);
 
         $lesson = $this->er->serialize($lesson);
 

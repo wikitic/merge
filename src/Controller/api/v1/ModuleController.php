@@ -2,6 +2,7 @@
 
 namespace App\Controller\api\v1;
 
+use App\Entity\Language;
 use App\Entity\Module;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,15 +38,18 @@ final class ModuleController extends AbstractController
 
 
     /**
-     * @Route("/modules/{id_module}", methods={"GET"})
+     * @Route("/languages/{language}/modules/{module}", methods={"GET"})
      *
-     * @param string $id_module
+     * @param string $language
+     * @param string $module
      * @return JsonResponse
      */
-    public function getModulesById(string $id_module = ''): JsonResponse
+    public function getModulesByAlias(string $language = '', string $module = ''): JsonResponse
     {
         // TODO: Filtrar solo las lecciones activas
-        $module = $this->er->findOneBy(['id' => $id_module, 'active' => true]);
+        $language = $this->em->getRepository(Language::class)->findOneBy(['alias' => $language, 'active' => true]);
+
+        $module = $this->er->findOneBy(['language' => $language, 'alias' => $module, 'active' => true]);
 
         $module = $this->er->serialize($module);
 
