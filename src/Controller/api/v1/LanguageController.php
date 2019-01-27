@@ -46,7 +46,7 @@ final class LanguageController extends AbstractController
 
         // Evitar "A circular reference has been detected when serializing the object of class"
         $normalizer = new ObjectNormalizer();
-        $normalizer->setIgnoredAttributes(['id','language', 'active', 'ordering']);
+        $normalizer->setIgnoredAttributes(['id', 'active', 'ordering']);
 
         $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
         // Evitar ...
