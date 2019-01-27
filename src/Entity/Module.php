@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Entity\Language;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
@@ -29,7 +31,7 @@ class Module
     /**
      * @var Language
      *
-     * @ORM\ManyToOne(targetEntity="Language", inversedBy="subscriptions")
+     * @ORM\ManyToOne(targetEntity="Language", inversedBy="modules")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_language", referencedColumnName="id_language", nullable=false)
      * })
@@ -131,6 +133,14 @@ class Module
      * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
+
+    /**
+     * @var Lesson[]|ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Lesson", mappedBy="module", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OrderBy({"ordering" = "ASC"})
+     */
+    private $lessons;
     
 
 
@@ -140,6 +150,7 @@ class Module
         $this->active   = 0;
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
+        $this->lessons = new ArrayCollection();
     }
 
     /**
@@ -308,7 +319,7 @@ class Module
      *
      * @return Module
      */
-    public function setMetatitle(string $metatitle): self
+    public function setMetatitle(?string $metatitle): self
     {
         $this->metatitle = $metatitle;
 
@@ -332,7 +343,7 @@ class Module
      *
      * @return Module
      */
-    public function setMetadesc(string $metadesc): self
+    public function setMetadesc(?string $metadesc): self
     {
         $this->metadesc = $metadesc;
 
@@ -356,7 +367,7 @@ class Module
      *
      * @return Module
      */
-    public function setMetakey(string $metakey): self
+    public function setMetakey(?string $metakey): self
     {
         $this->metakey = $metakey;
 
@@ -380,7 +391,7 @@ class Module
      *
      * @return Module
      */
-    public function setMetaimage(string $metaimage): self
+    public function setMetaimage(?string $metaimage): self
     {
         $this->metaimage = $metaimage;
 
@@ -483,13 +494,12 @@ class Module
         return $this;
     }
 
-
     /**
      * Get language
      *
      * @return Language
      */
-    public function getLanguage(): Language
+    public function getLanguage(): ?Language
     {
         return $this->language;
     }
@@ -501,14 +511,63 @@ class Module
      *
      * @return Module
      */
-    public function setLanguage(Language $language): self
+    public function setLanguage(?Language $language): self
     {
         $this->language = $language;
 
         return $this;
     }
 
+    /**
+     * Get Lessons
+     *
+     * @return Collection|Lesson[]
+     */
+    public function getLessons(): Collection
+    {
+        return $this->lessons;
+    }
 
+    /**
+     * Add lesson
+     *
+     * @param Lesson $lesson
+     *
+     * @return Module
+     */
+    public function addLesson(Lesson $lesson): self
+    {
+        if (!$this->lessons->contains($lesson)) {
+            $this->lessons[] = $lesson;
+            $lesson->setModule($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove lesson
+     *
+     * @param Lesson $lesson
+     *
+     * @return Module
+     */
+    public function removeLesson(Lesson $lesson): self
+    {
+        if ($this->lessons->contains($lesson)) {
+            $this->lessons->removeElement($lesson);
+            // set the owning side to null (unless already changed)
+            if ($lesson->getModule() === $this) {
+                //$lesson->setModule(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
+    // Others
 
     /**
      * get Image

@@ -37,7 +37,7 @@ class LanguageRepository extends ServiceEntityRepository
         
         // Evitar "A circular reference has been detected when serializing the object of class"
         $normalizer = new ObjectNormalizer();
-        $normalizer->setIgnoredAttributes(['language', 'id']);
+        $normalizer->setIgnoredAttributes(['language', 'lessons']);
         $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
         // Evitar ...
 

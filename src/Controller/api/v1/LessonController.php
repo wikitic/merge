@@ -2,7 +2,7 @@
 
 namespace App\Controller\api\v1;
 
-use App\Entity\Module;
+use App\Entity\Lesson;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -15,11 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
 
 /**
- * Module controller
+ * Lesson controller
  *
  * @Route("/api/v1")
  */
-final class ModuleController extends AbstractController
+final class LessonController extends AbstractController
 {
     /** @var EntityManagerInterface */
     private $em;
@@ -31,26 +31,26 @@ final class ModuleController extends AbstractController
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->er = $em->getRepository(Module::class);
+        $this->er = $em->getRepository(Lesson::class);
     }
 
 
 
     /**
-     * @Route("/modules/{id_module}", methods={"GET"})
+     * @Route("/lessons/{id_lesson}", methods={"GET"})
      *
-     * @param string $id_module
+     * @param string $id_lesson
      * @return JsonResponse
      */
-    public function getModulesIdModule(string $id_module = ''): JsonResponse
+    public function getLessonsById(string $id_lesson = ''): JsonResponse
     {
         // TODO: Filtrar solo las lecciones activas
-        $module = $this->er->findOneBy(['id' => $id_module, 'active' => true]);
+        $lesson = $this->er->findOneBy(['id' => $id_lesson, 'active' => true]);
 
-        $module = $this->er->serialize($module);
+        $lesson = $this->er->serialize($lesson);
 
         return new JsonResponse(
-            $module,
+            $lesson,
             Response::HTTP_OK,
             [],
             true

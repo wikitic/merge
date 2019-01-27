@@ -2,11 +2,16 @@
 
 namespace App\Repository;
 
-use App\Entity\Language;
 use App\Entity\Module;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 /**
  * @method Module|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,61 +27,25 @@ class ModuleRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param Language $language
-     *
-     * @return Module
+     * @return string
      */
-    public function findOneByLastOrdering(Language $language): ?Module
+    public function serialize(?Module $module): string
     {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.language = :language')
-            ->setParameter('language', $language)
-            ->orderBy('m.ordering', 'DESC')
-            ->setMaxResults(1)
-            ->getQuery()
-            ->getOneOrNullResult();
-
-        //return $qb->setMaxResults(1)->getOneOrNullResult();
-    }
-    
-    /**
-     * @param Language $language
-     *
-     * @return int
-     */
-    public function getNextOrdering(Language $language): int
-    {
-        $module = $this->findOneByLastOrdering($language);
+        if ($module === null) {
+            return '';
+        }
         
-        return $module !== null ? $module->getOrdering() + 1 : 1;
-    }
+        // Evitar "A circular reference has been detected when serializing the object of class"
+        $normalizer = new ObjectNormalizer();
+        $normalizer->setIgnoredAttributes(['module', 'modules', 'teacher']);
+        $serializer = new Serializer([new DateTimeNormalizer(), $normalizer], [new JsonEncoder()]);
+        // Evitar ...
 
-    // /**
-    //  * @return Module[] Returns an array of Module objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $module = $serializer->normalize(
+            $module,
+            null
+        );
+        
+        return $serializer->serialize($module, 'json');
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Module
-    {
-        return $this->createQueryBuilder('m')
-            ->andWhere('m.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -31,11 +31,10 @@ class Lesson
     /**
      * @var Module
      *
-     * @ORM\ManyToOne(targetEntity="Module")
+     * @ORM\ManyToOne(targetEntity="Module", inversedBy="lessons")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_module", referencedColumnName="id_module", nullable=false)
      * })
-     * @Assert\NotNull(message="lesson.module.not_null")
      */
     private $module;
 

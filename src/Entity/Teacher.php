@@ -73,7 +73,7 @@ class Teacher implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="social", type="string", nullable=true)
+     * @ORM\Column(name="social", type="text", nullable=true)
      */
     private $social;
 
@@ -101,13 +101,14 @@ class Teacher implements UserInterface
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="cdate", type="datetime")
+     * @ORM\Column(name="cdate", type="datetime", nullable=true)
      */
     private $cdate;
+
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="mdate", type="datetime")
+     * @ORM\Column(name="mdate", type="datetime", nullable=true)
      */
     private $mdate;
 
