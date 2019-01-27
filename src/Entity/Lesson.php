@@ -305,7 +305,7 @@ class Lesson
      *
      * @return string
      */
-    public function getVideo(): string
+    public function getVideo(): ?string
     {
         return $this->video;
     }
@@ -377,7 +377,7 @@ class Lesson
      *
      * @return string
      */
-    public function getIn(): string
+    public function getIn(): ?string
     {
         return $this->in;
     }
@@ -401,7 +401,7 @@ class Lesson
      *
      * @return string
      */
-    public function getOut(): string
+    public function getOut(): ?string
     {
         return $this->out;
     }
@@ -449,7 +449,7 @@ class Lesson
      *
      * @return string
      */
-    public function getToolbox(): string
+    public function getToolbox(): ?string
     {
         return $this->toolbox;
     }
@@ -473,7 +473,7 @@ class Lesson
      *
      * @return string
      */
-    public function getStartCode(): string
+    public function getStartCode(): ?string
     {
         return $this->startCode;
     }
