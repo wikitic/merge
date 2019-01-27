@@ -2,8 +2,9 @@
 
 namespace App\Controller\api\v1;
 
-use App\Entity\Language;
 use App\Entity\Module;
+use App\Entity\Lesson;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -56,16 +57,19 @@ final class ModuleController extends AbstractController
 
 
     /**
-     * @Route("/modules", methods={"GET"})
+     * @Route("/{module}/lessons", methods={"GET"})
      *
+     * @param string $module
      * @return JsonResponse
      */
-    public function getModules(): JsonResponse
+    public function getModules(string $module = ''): JsonResponse
     {
-        $modules = $this->er->findBy([]);
+        $module = $this->er->findBy(['alias' => $module]);
+
+        $lessons = $this->em->getRepository(Lesson::class)->findBy(['module' => $module], ['ordering' => 'ASC']);
 
         return new JsonResponse(
-            $this->serializer->serialize($modules, 'json'),
+            $this->serializer->serialize($lessons, 'json'),
             Response::HTTP_OK,
             [],
             true
