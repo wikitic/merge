@@ -3,7 +3,7 @@
 
         <v-navigation-drawer v-model="drawer" app clipped fixed>
             <v-list>
-                <v-list-tile v-for="item in navigation" :key="item.title" :to="item.link">
+                <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
                     <v-list-tile-action>
                         <v-icon v-text="item.icon"></v-icon>
                     </v-list-tile-action>
@@ -31,7 +31,7 @@
                     </v-avatar>
                 </v-btn>
                 <v-list class="pa-0">
-                    <v-list-tile v-for="item in menu" :key="item.title" :to="item.href">
+                    <v-list-tile v-for="item in navigation" :key="item.title" :to="item.href">
                         <v-list-tile-action v-if="item.icon">
                             <v-icon v-text="item.icon"></v-icon>
                         </v-list-tile-action>
@@ -70,6 +70,7 @@
             drawer: true,
             date: new Date().getFullYear(),
             menu: [
+                { title: 'Todos', icon: 'account_circle', link: '/cursos-online'},
                 { title: 'Blockly', icon: 'account_circle', link: '/cursos-online/blockly'},
                 { title: 'Python', icon: 'account_circle', link: '/cursos-online/python'},
                 { title: 'JavaScript', icon: 'account_circle', link: '/cursos-online/javascript'}
