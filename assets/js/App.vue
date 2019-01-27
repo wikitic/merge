@@ -16,6 +16,8 @@
         </v-navigation-drawer>
 
         <v-toolbar class="v-toolbar" app fixed clipped-left>
+            <v-progress-linear class="v-progress" v-model="loading" :active="loading" :indeterminate="true"></v-progress-linear>
+
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
                 <router-link to="/">
@@ -67,7 +69,9 @@
     export default {
         name: 'app',
         data: () => ({
+            loading: false,
             drawer: true,
+
             date: new Date().getFullYear(),
             menu: [
                 { title: 'Todos', icon: 'account_circle', link: '/cursos-online'},
@@ -120,8 +124,13 @@
 
 <style lang="scss" scoped>
 
+.v-progress {
+    position: absolute; top: -5px; left: 0; right: 0; z-index:999;
+    height: 5px !important; margin: 0;
+
+}
 .v-toolbar {
-    border-top: 5px solid #1caff6;
+    border-top: 5px solid #BBDEFB;
 }
 
 </style>
