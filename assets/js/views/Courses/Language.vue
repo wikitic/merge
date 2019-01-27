@@ -7,10 +7,10 @@
 </template>
 
 <script>
-    import Module from './Module'
+    import Module from '../../components/Courses/Module'
 
     export default {
-        name: 'Modules',
+        name: 'language',
         components: {
             Module
         },

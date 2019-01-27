@@ -12,7 +12,7 @@
             {{module.level}}
         </v-card-title>
         <v-card-actions>
-            <router-link :to="{ name: 'Lessons', params: { language: language.alias, module: module.alias }}">
+            <router-link :to="{ name: 'Module', params: { language: language.alias, module: module.alias }}">
                 Entrar a la clase
             </router-link>
         </v-card-actions>

@@ -1,14 +1,14 @@
 <template>
     <v-layout row>
         <v-flex xs12>
-            Lessons
+            Module
         </v-flex>
     </v-layout>
 </template>
 
 <script>
     export default {
-        name: 'lessons'
+        name: 'module'
     }
 </script>
 

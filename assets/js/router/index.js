@@ -6,15 +6,12 @@ import Home from '../views/Home'
 import Login from '../views/Login'
 import Logout from '../views/Logout'
 
-import CoursesIndex from '../views/Courses/Index.vue'
+import RouterView from '../components/Layouts/RouterView.vue'
+
 import Courses from '../views/Courses/Courses.vue'
-
-import ModulesIndex from '../views/Modules/Index.vue'
-import Modules from '../views/Modules/Modules.vue'
-
-import LessonsIndex from '../views/Lessons/Index.vue'
-import Lessons from '../views/Lessons/Lessons.vue'
-import Lesson from '../views/Lessons/Lesson.vue'
+import Language from '../views/Courses/Language.vue'
+import Module from '../views/Courses/Module.vue'
+import Lesson from '../views/Courses/Lesson.vue'
 
 Vue.use(Router);
 
@@ -48,7 +45,7 @@ export default new Router({
         },
         {
             path: '/cursos-online',
-            component: CoursesIndex,
+            component: RouterView,
             children: [
                 { 
                     path: '',
@@ -60,24 +57,24 @@ export default new Router({
                 },
                 { 
                     path: ':language',
-                    component: ModulesIndex,
+                    component: RouterView,
                     children: [
                         { 
                             path: '',
-                            component: Modules,
-                            name: 'Modules',
+                            component: Language,
+                            name: 'Language',
                             meta: {
                                 guest: true
                             }
                         },
                         { 
                             path: ':module',
-                            component: LessonsIndex,
+                            component: RouterView,
                             children: [
                                 { 
                                     path: '',
-                                    component: Lessons,
-                                    name: 'Lessons',
+                                    component: Module,
+                                    name: 'Module',
                                     meta: {
                                         guest: true
                                     }
