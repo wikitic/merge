@@ -6,7 +6,6 @@ use App\BundlePartner\Entity\Partner;
 use App\BundlePartner\Repository\PartnerRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use FOS\RestBundle\Controller\Annotations as Rest;
