@@ -42,7 +42,7 @@ final class ModuleController extends AbstractController
      * @param string $id_module
      * @return JsonResponse
      */
-    public function getModulesIdModule(string $id_module = ''): JsonResponse
+    public function getModulesById(string $id_module = ''): JsonResponse
     {
         // TODO: Filtrar solo las lecciones activas
         $module = $this->er->findOneBy(['id' => $id_module, 'active' => true]);

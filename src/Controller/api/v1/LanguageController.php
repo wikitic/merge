@@ -42,7 +42,7 @@ final class LanguageController extends AbstractController
      * @param string $alias
      * @return JsonResponse
      */
-    public function getLanguagesAlias(string $alias = ''): JsonResponse
+    public function getLanguagesByAlias(string $alias = ''): JsonResponse
     {
         // TODO: Filtrar solo los modulos activos
         $language = $this->er->findOneBy(['alias' => $alias, 'active' => true]);
