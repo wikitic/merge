@@ -1,23 +1,24 @@
 <template>
-    <v-container grid-list-xl fluid>
 
-        <v-card>
-            <v-img v-bind:src="module.image"></v-img>
+    <v-card>
+        <!--
+        <v-img v-bind:src="module.image"></v-img>
+        -->
+        <v-card-title primary-title>
+            <div>
+                <h3>{{module.title}}</h3>
+                <div>{{module.introtext}}</div>
+            </div>
+            {{module.level}}
+        </v-card-title>
 
-            <v-card-title primary-title>
-                <div>
-                    <h3 class="headline mb-0">{{module.title}}</h3>
-                    <div>{{module.description}}</div>
-                </div>
-            </v-card-title>
+        <v-card-actions>
+            <router-link :to="{ name: 'Lessons', params: { language: module.language.alias, module: module.alias }}">
+                Entrar a la clase
+            </router-link>
+        </v-card-actions>
+    </v-card>
 
-            <v-card-actions>
-                <v-btn flat color="orange">Share</v-btn>
-                <v-btn flat color="orange">Explore</v-btn>
-            </v-card-actions>
-      </v-card>
-
-    </v-container>
 </template>
 
 <script>
