@@ -16,7 +16,9 @@
         </v-navigation-drawer>
 
         <v-toolbar class="v-toolbar" app fixed clipped-left>
+            <!--
             <v-progress-linear class="v-progress" v-model="loading" :active="loading" :indeterminate="true"></v-progress-linear>
+            -->
 
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
@@ -69,7 +71,7 @@
     export default {
         name: 'app',
         data: () => ({
-            loading: false,
+            //loading: false,
             drawer: true,
 
             date: new Date().getFullYear(),

@@ -18,6 +18,9 @@
                 let module = this.$store.getters['Module/module']
                 let lesson = this.$store.getters['Module/module'].lessons[0]
 
+                console.log(language.alias)
+                console.log(module.alias)
+                console.log(lesson.alias)
                 //this.$router.push({name: 'Lesson', params: { language: language.alias, module: module.alias, lesson: lesson.alias }})
             }
         }
