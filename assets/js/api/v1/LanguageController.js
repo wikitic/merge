@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default {
-    getLanguagesByAlias (language) {
-        return axios.get('/api/v1/languages/'+language.alias)
+    getLanguageByAlias (payload) {
+        return axios.get('/api/v1/languages/'+payload.language)
     }  
 }

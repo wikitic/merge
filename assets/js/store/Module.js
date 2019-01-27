@@ -16,8 +16,8 @@ export default {
         }
     },
     actions: {
-        getModule ({commit}, module) {
-            return ModuleAPI.getModulesById(module)
+        getModule ({commit}, payload) {
+            return ModuleAPI.getModuleByAlias(payload)
                 .then(res => commit('GET_MODULE_SUCCESS', res.data))
         }
     }

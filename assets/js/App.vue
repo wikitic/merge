@@ -81,8 +81,39 @@
                 { title: 'JavaScript', icon: 'account_circle', link: '/cursos-online/javascript'}
             ]
         }),
-        methods: {
+    
 
+        created () {
+            this.getApi()
+        },
+        watch: {
+            '$route': 'getApi'
+        },
+        methods: {
+            getApi () {
+                let params = this.$route.params
+                if (params.language !== undefined) {
+                    let payload = { 
+                        language: params.language 
+                    }
+                    this.$store.dispatch('Language/getLanguage', payload)
+                }
+                if (params.module !== undefined) {
+                    let payload = { 
+                        language: params.language,
+                        module: params.module
+                    }
+                    this.$store.dispatch('Module/getModule', payload)
+                }
+                if (params.lesson !== undefined) {
+                    let payload = { 
+                        language: params.language,
+                        module: params.module,
+                        lesson: params.lesson
+                    }
+                    this.$store.dispatch('Lesson/getLesson', payload)
+                }
+            }
         }
     }
 </script>

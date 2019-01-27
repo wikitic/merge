@@ -16,8 +16,8 @@ export default {
         }
     },
     actions: {
-        getLesson ({commit}, lesson) {
-            return LessonAPI.getLessonsById(lesson)
+        getLesson ({commit}, payload) {
+            return LessonAPI.getLessonByAlias(payload)
                 .then(res => commit('GET_LESSON_SUCCESS', res.data))
         }
     }

@@ -16,8 +16,8 @@ export default {
         }
     },
     actions: {
-        getLanguage ({commit}, language) {
-            return LanguageAPI.getLanguagesByAlias(language)
+        getLanguage ({commit}, payload) {
+            return LanguageAPI.getLanguageByAlias(payload)
                 .then(res => commit('GET_LANGUAGE_SUCCESS', res.data))
         }
     }

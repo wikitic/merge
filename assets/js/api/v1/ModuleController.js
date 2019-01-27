@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default {
-    getModulesById (module) {
-        return axios.get('/api/v1/modules/'+module.id)
+    getModuleByAlias (payload) {
+        return axios.get('/api/v1/languages/'+payload.language+'/modules/'+payload.module)
     }  
 }

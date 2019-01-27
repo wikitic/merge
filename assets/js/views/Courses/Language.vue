@@ -16,18 +16,6 @@
         },
         data: () => ({
         }),
-        created () {
-            this.getLanguage()
-        },
-        watch: {
-            '$route': 'getLanguage'
-        },
-        methods: {
-            getLanguage() {
-                let payload = { alias: this.$route.params.language }
-                this.$store.dispatch('Language/getLanguage', payload)
-            }
-        },
         computed: {
             language () {
                 return this.$store.getters['Language/language']
@@ -38,3 +26,7 @@
         }
     }
 </script>
+
+<style lang="scss" scoped>
+
+</style>
