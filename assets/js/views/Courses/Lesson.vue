@@ -1,6 +1,11 @@
 <template>
-    <v-layout row>
-        <MenuLessons :language="language" :module="module" :lessons="lessons"></MenuLessons>
+    <v-layout row wrap>
+        <v-flex xs12 sm12 md12 lg3 xl2>
+            <MenuLessons :language="language" :module="module" :lessons="lessons"></MenuLessons>
+        </v-flex>
+        <v-flex xs12 sm12 md12 lg9 xl10>
+            {{lesson | json}}
+        </v-flex>
     </v-layout>
 </template>
 
@@ -24,6 +29,9 @@
             },
             lessons () {
                 return this.$store.getters['Module/module'].lessons
+            },
+            lesson () {
+                return this.$store.getters['Lesson/lesson']
             }
         }
     }
