@@ -18,7 +18,9 @@
         <v-toolbar class="v-toolbar" app fixed clipped-left>
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
-                <img width="150px" src="../images/logo.svg" />
+                <router-link to="/">
+                    <img width="150px" src="../images/logo.svg" />    
+                </router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <!--
@@ -43,14 +45,14 @@
         </v-toolbar>
 
         <v-content>
-            <v-container fluid fill-height>
+            <v-container fluid>
                 <router-view></router-view>
             </v-container>
         </v-content>
 
         <v-footer>
             <v-layout justify-center>
-                &copy;{{ date }} — Made with &hearts; by&nbsp;<strong>Asociación Programo Ergo Sum</strong>
+                CC-BY-SA {{ date }} — Made with &hearts; by&nbsp;<strong>Asociación Programo Ergo Sum</strong>
             </v-layout>
         </v-footer>
 
