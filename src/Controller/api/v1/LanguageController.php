@@ -66,7 +66,7 @@ final class LanguageController extends AbstractController
     {
         $language = $this->er->findBy(['alias' => $language]);
 
-        $modules = $this->em->getRepository(Module::class)->findBy(['language' => $language]);
+        $modules = $this->em->getRepository(Module::class)->findBy(['language' => $language], ['ordering' => 'ASC']);
 
         return new JsonResponse(
             $this->serializer->serialize($modules, 'json'),
