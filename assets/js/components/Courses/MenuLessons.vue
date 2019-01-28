@@ -1,13 +1,8 @@
 <template>
 
-    <v-navigation>
+    <v-navigation-drawer>
         <v-list>
-            <v-list-tile v-for="lesson in lessons" :key="lesson.alias" :to="{ name: 'Lesson', params: { language: language.alias, module: module.alias, lesson: lesson.alias }}">
-                <!--
-                <v-list-tile-action>
-                    <v-icon v-text="item.icon"></v-icon>
-                </v-list-tile-action>
-                -->
+            <v-list-tile v-for="lesson in lessons" :key="lesson.alias" :to="getUrl(lesson)" >
                 <v-list-tile-action>
                     <v-icon v-if="lesson.type">code</v-icon>
                     <v-icon v-else>local_library</v-icon>
@@ -17,7 +12,7 @@
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
-    </v-navigation>
+    </v-navigation-drawer>
 
 </template>
 
@@ -25,17 +20,22 @@
     export default {
         name: 'MenuLessons',
         props: {
-            language: {
-                type: Object,
-                default: null
-            },
-            module: {
-                type: Object,
-                default: null
-            },
             lessons: {
-                type: Object,
+                type: Array,
                 default: null
+            }
+        },
+        computed: {
+            language () {
+                return this.$store.getters['Language/language']
+            },
+            module () {
+                return this.$store.getters['Module/module']
+            },
+        },
+        methods: {
+            getUrl (lesson) {
+                return { name: 'Lesson', params: { language: this.language.alias, module: this.module.alias, lesson: lesson.alias }}
             }
         }
     }

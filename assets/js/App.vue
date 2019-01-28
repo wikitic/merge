@@ -16,9 +16,8 @@
         </v-navigation-drawer>
 
         <v-toolbar class="v-toolbar" app fixed clipped-left>
-            <!--
-            <v-progress-linear class="v-progress" v-model="loading" :active="loading" :indeterminate="true"></v-progress-linear>
-            -->
+
+            <v-progress-linear class="v-progress" :active="loading" :indeterminate="true"></v-progress-linear>
 
             <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
@@ -71,7 +70,7 @@
     export default {
         name: 'app',
         data: () => ({
-            //loading: false,
+            loading: false,
             drawer: true,
 
             date: new Date().getFullYear(),
@@ -88,37 +87,81 @@
             ]
         }),
     
-
         created () {
-            this.getApi()
+            let params = this.$route.params
+
+            if (params.lesson !== undefined) {
+                this.getLanguage()
+                this.getModule()
+                this.getLesson()
+            } else if (params.module !== undefined) {
+                this.getLanguage()
+                this.getModule()
+            } else if (params.language !== undefined) {
+                this.getLanguage()
+            }
+
         },
+
         watch: {
-            '$route': 'getApi'
+            '$route' (to, from) {
+                if(to.params.language !== from.params.language)
+                    this.getLanguage()
+                if(to.params.module !== from.params.module)
+                    this.getModule()
+                if(to.params.lesson !== from.params.lesson)
+                    this.getLesson()
+            }
         },
+
         methods: {
-            getApi () {
+
+            async getLanguage() {
+                this.loading = true
                 let params = this.$route.params
-                if (params.language !== undefined) {
-                    let payload = { 
-                        language: params.language 
-                    }
-                    this.$store.dispatch('Language/getLanguage', payload)
+
+                let payload = { 
+                    language: params.language 
                 }
-                if (params.module !== undefined) {
-                    let payload = { 
-                        language: params.language,
-                        module: params.module
-                    }
-                    this.$store.dispatch('Module/getModule', payload)
+                await this.$store.dispatch('Language/getLanguage', payload)
+                this.loading = false
+            },
+            async getModule() {
+                this.loading = true
+                let params = this.$route.params
+
+                let payload = { 
+                    language: params.language,
+                    module: params.module
                 }
-                if (params.lesson !== undefined) {
-                    let payload = { 
-                        language: params.language,
-                        module: params.module,
-                        lesson: params.lesson
-                    }
-                    this.$store.dispatch('Lesson/getLesson', payload)
+                this.$store.dispatch('Language/getLanguage', payload)
+                await this.$store.dispatch('Module/getModule', payload)
+                this.loading = false
+            },
+            async getLesson() {
+                this.loading = true
+                let params = this.$route.params
+
+                let payload = { 
+                    language: params.language,
+                    module: params.module,
+                    lesson: params.lesson
                 }
+                await this.$store.dispatch('Lesson/getLesson', payload)
+                this.loading = false
+            }
+        }
+
+        ,
+        computed: {
+            language () {
+                return this.$store.getters['Language/language']
+            },
+            module () {
+                return this.$store.getters['Module/module']
+            },
+            lesson () {
+                return this.$store.getters['Lesson/lesson']
             }
         }
     }

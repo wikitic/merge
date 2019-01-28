@@ -1,10 +1,13 @@
 <template>
     <v-layout row wrap>
         <v-flex xs12 sm12 md12 lg3 xl2>
-            <MenuLessons :language="language" :module="module" :lessons="lessons"></MenuLessons>
+            <MenuLessons :lessons="lessons"></MenuLessons>
         </v-flex>
         <v-flex xs12 sm12 md12 lg9 xl10>
-            {{lesson | json}}
+            {{language.title}}
+            {{module.title}}
+            
+            {{lesson}}
         </v-flex>
     </v-layout>
 </template>
