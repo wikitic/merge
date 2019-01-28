@@ -100,7 +100,6 @@
             } else if (params.language !== undefined) {
                 this.getLanguage()
             }
-
         },
 
         watch: {
@@ -149,19 +148,6 @@
                 }
                 await this.$store.dispatch('Lesson/getLesson', payload)
                 this.loading = false
-            }
-        }
-
-        ,
-        computed: {
-            language () {
-                return this.$store.getters['Language/language']
-            },
-            module () {
-                return this.$store.getters['Module/module']
-            },
-            lesson () {
-                return this.$store.getters['Lesson/lesson']
             }
         }
     }

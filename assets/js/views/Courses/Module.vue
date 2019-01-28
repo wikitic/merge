@@ -5,10 +5,8 @@
             <MenuLessons :lessons="lessons"></MenuLessons>
         </v-flex>
         <v-flex xs12 sm12 md12 lg9 xl10>
-            {{language.title}}
-            {{module.title}}
-            
-            {{lesson}}
+            Estás apunto de empezar...
+            Haz clic en el botón para ir a la primera lección
         </v-flex>
 
     </v-layout>
@@ -33,33 +31,27 @@
             },
             lessons () {
                 return this.$store.getters['Module/module'].lessons
-            },
-            lesson () {
-                let params = this.$route.params
-
-                if (params.lesson !== undefined) {
-                    return this.$store.getters['Module/module'].lessons[0]
-                }
-
-                //return this.$store.getters['Lesson/lesson']
             }
         }
-
-/*
+        /*
         created () {
             if (this.$route.params.lesson === undefined) {
                 
+                // Redirect first lesson
                 let language = this.$store.getters['Language/language']
                 let module = this.$store.getters['Module/module']
                 let lesson = this.$store.getters['Module/module'].lessons[0]
-
-                console.log(language.alias)
-                console.log(module.alias)
-                console.log(lesson.alias)
-                //this.$router.push({name: 'Lesson', params: { language: language.alias, module: module.alias, lesson: lesson.alias }})
+                this.$router.push({
+                    name: 'Lesson', 
+                    params: {
+                        language: language.alias, 
+                        module: module.alias, 
+                        lesson: lesson.alias 
+                    }
+                })
             }
         }
-*/
+        */
     }
 </script>
 
