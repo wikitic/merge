@@ -1,6 +1,8 @@
 <template>
     <v-app>
 
+        <Header :meta="meta"></Header>
+
         <v-navigation-drawer v-model="drawer" app clipped fixed>
             <v-list>
                 <v-list-tile v-for="item in menu" :key="item.title" :to="item.link">
@@ -63,15 +65,23 @@
 </template>
 
 <script>
+    import Header from './components/Layouts/Header'
     //import Navigation from './components/Layouts/Navigation'
     //import Toolbar from './components/Layouts/Toolbar'
     //import Footer from './components/Layouts/Footer'
 
     export default {
         name: 'app',
+        components: {
+            Header
+        },
         data: () => ({
             loading: false,
             drawer: true,
+
+            meta: { 
+                title: 'App'
+            },
 
             date: new Date().getFullYear(),
             menu: [
@@ -86,7 +96,7 @@
                 { title: 'JavaScript', icon: 'account_circle', link: '/cursos-online/javascript'}
             ]
         }),
-    
+            
         created () {
             let params = this.$route.params
 

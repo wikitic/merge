@@ -4,8 +4,12 @@ import App from './App'
 import router from './router'
 import store from './store'
 
-import 'vuetify/dist/vuetify.min.css'
 
+import Meta from 'vue-meta';
+Vue.use(Meta);
+
+
+import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify,
   {
     theme: {
