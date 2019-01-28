@@ -11,14 +11,27 @@ export default {
         }
     },
     mutations: {
+        ['INIT'](state, module) {
+            state.module = []
+        },
         ['GET_MODULE_SUCCESS'](state, module) {
             state.module = module
         }
     },
     actions: {
         getModule ({commit}, payload) {
-            return ModuleAPI.getModuleByAlias(payload)
-                .then(res => commit('GET_MODULE_SUCCESS', res.data))
+            commit('INIT', null)
+            return new Promise( (resolve, reject) => {
+                ModuleAPI.getModuleByAlias(payload)
+                    .then(res => {
+                        //setTimeout(() => {
+                            commit('GET_MODULE_SUCCESS', res.data)
+                            resolve(res.data)
+                        //},1000)
+                    }).catch( err => {
+                    reject(err)
+                })
+            })
         }
     }
 }

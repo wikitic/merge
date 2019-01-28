@@ -11,14 +11,27 @@ export default {
         }
     },
     mutations: {
+        ['INIT'](state, language) {
+            state.language = []
+        },
         ['GET_LANGUAGE_SUCCESS'](state, language) {
             state.language = language
         }
     },
     actions: {
         getLanguage ({commit}, payload) {
-            return LanguageAPI.getLanguageByAlias(payload)
-                .then(res => commit('GET_LANGUAGE_SUCCESS', res.data))
+            commit('INIT', null)
+            return new Promise( (resolve, reject) => {
+                LanguageAPI.getLanguageByAlias(payload)
+                    .then(res => {
+                        //setTimeout(() => {
+                            commit('GET_LANGUAGE_SUCCESS', res.data)
+                            resolve(res.data)
+                        //},1000)
+                    }).catch( err => {
+                    reject(err)
+                })
+            })
         }
     }
 }

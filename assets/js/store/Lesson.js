@@ -11,14 +11,27 @@ export default {
         }
     },
     mutations: {
+        ['INIT'](state, lesson) {
+            state.lesson = []
+        },
         ['GET_LESSON_SUCCESS'](state, lesson) {
             state.lesson = lesson
         }
     },
     actions: {
         getLesson ({commit}, payload) {
-            return LessonAPI.getLessonByAlias(payload)
-                .then(res => commit('GET_LESSON_SUCCESS', res.data))
+            commit('INIT', null)
+            return new Promise( (resolve, reject) => {
+                LessonAPI.getLessonByAlias(payload)
+                    .then(res => {
+                        //setTimeout(() => {
+                            commit('GET_LESSON_SUCCESS', res.data)
+                            resolve(res.data)
+                        //},1000)
+                    }).catch( err => {
+                    reject(err)
+                })
+            })
         }
     }
 }
