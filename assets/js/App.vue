@@ -80,7 +80,7 @@
             drawer: true,
 
             meta: { 
-                title: 'App'
+                //title: 'App'
             },
 
             date: new Date().getFullYear(),

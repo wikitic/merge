@@ -7,19 +7,21 @@
             {{language.title}}
             {{module.title}}
             
-            {{lesson}}
+            <LessonView :lesson="lesson"></LessonView>
         </v-flex>
     </v-layout>
 </template>
 
 <script>
-    //import Lesson from '../../components/Courses/Lesson'
     import MenuLessons from '../../components/Courses/MenuLessons'
+    
+    import LessonView from '../../components/Courses/LessonView'
 
     export default {
         name: 'lesson',
         components: {
-            MenuLessons
+            MenuLessons,
+            LessonView
         },
         data: () => ({
         }),
