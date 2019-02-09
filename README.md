@@ -1,17 +1,11 @@
 # El Cable Amarillo
 
-> Proyecto educativo de código abierto para fomentar el uso de la programación y robótica en los centros educativos.
+> Segunda versión de la web realizada en Ruby con Jekyll.
 
-![Last version](https://img.shields.io/github/tag/ElCableAmarillo/elcableamarillo.github.io.svg?style=flat-square)
-[![Build Status](https://travis-ci.org/ElCableAmarillo/elcableamarillo.github.io.svg?branch=master)](https://travis-ci.org/ElCableAmarillo/elcableamarillo.github.io)
-
-
-## Contribuir en el desarrollo de la web 
-
-Para contribuir en la web del proyecto deberás clonar el repositorio y ejecutar docker-compose para trabajar en modo local. Es necesario tener instalado docker y docker-compose en el equipo local.
+## Desarrollo 
 
 ```sh
-$ git clone git@github.com:ElCableAmarillo/elcableamarillo.github.io.git
+$ git clone git@github.com:ElCableAmarillo/ruby.elcableamarillo.github.io.git
 
 $ docker-compose build
 $ docker-compose up
