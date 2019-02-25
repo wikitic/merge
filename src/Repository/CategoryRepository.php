@@ -19,4 +19,14 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
+
+    /**
+     * @return int
+     */
+    public function getNextOrdering(): int
+    {
+        $category = $this->findOneBy([], ['ordering' => 'DESC']);
+
+        return $category->getOrdering() + 1;
+    }
 }

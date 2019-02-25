@@ -3,6 +3,7 @@
 namespace App\Controller\v1;
 
 use App\Entity\Category;
+use App\Form\CategoryType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -76,6 +77,43 @@ final class CategoryController extends AbstractController
             );
         }
 
+        return new JsonResponse(
+            $this->serializer->serialize($category, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
+
+    /**
+     * @Route("/categories", methods={"POST"})
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function postPartners(Request $request): JsonResponse
+    {
+        $data = json_decode((string)$request->getContent(), true);
+        
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->submit($data, true);
+        if (!$form->isValid()) {
+            $error = $form->getErrors(true);
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+
+        $category->setOrdering($this->er->getNextOrdering());
+        $this->em->persist($category);
+        $this->em->flush();
+        
         return new JsonResponse(
             $this->serializer->serialize($category, 'json'),
             Response::HTTP_OK,
