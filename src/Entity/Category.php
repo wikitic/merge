@@ -90,16 +90,16 @@ class Category
      */
     private $ordering;
 
-	  /**
+    /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="cdate", type="datetime")
      */
     private $cdate;
 
     /**
      * @var \DateTime
-     * 
+     *
      * @ORM\Column(name="mdate", type="datetime")
      */
     private $mdate;
@@ -168,9 +168,9 @@ class Category
     }
 
     /**
-     * Get id
+     * Get alias
      *
-     * @return int
+     * @return string
      */
     public function getAlias(): ?string
     {
@@ -178,9 +178,9 @@ class Category
     }
 
     /**
-     * Set title
+     * Set alias
      *
-     * @param string $title
+     * @param string $alias
      *
      * @return Category
      */

@@ -29,7 +29,7 @@ before_install:
 
 install:
   - composer install
-  - php bin/phpunit install
+  #- php bin/phpunit install
 
 before_script:
   - php bin/console doctrine:database:drop --if-exists --force
@@ -38,11 +38,11 @@ before_script:
   - php bin/console doctrine:fixtures:load --no-interaction
 
 script:
-  - php bin/phpunit
+  #- php bin/phpunit
 
   #- composer csfix
-  #- composer cscheck
-  #- composer phpstan
+  - composer cscheck
+  - composer phpstan
 
   - php bin/console lint:yaml config
   #- php bin/console lint:twig templates
