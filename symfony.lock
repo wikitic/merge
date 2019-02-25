@@ -173,6 +173,9 @@
             "config/packages/prod/jms_serializer.yaml"
         ]
     },
+    "monolog/monolog": {
+        "version": "1.24.0"
+    },
     "nette/bootstrap": {
         "version": "v2.4.6"
     },
@@ -202,15 +205,6 @@
     },
     "ocramius/proxy-manager": {
         "version": "2.2.2"
-    },
-    "phpdocumentor/reflection-common": {
-        "version": "1.0.1"
-    },
-    "phpdocumentor/reflection-docblock": {
-        "version": "4.3.0"
-    },
-    "phpdocumentor/type-resolver": {
-        "version": "0.4.0"
     },
     "phpstan/phpdoc-parser": {
         "version": "0.3.1"
@@ -361,6 +355,23 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/monolog-bridge": {
+        "version": "v4.2.3"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "18ebf5a940573a20de06f9c4060101eeb438cf3d"
+        },
+        "files": [
+            "config/packages/dev/monolog.yaml",
+            "config/packages/prod/monolog.yaml",
+            "config/packages/test/monolog.yaml"
+        ]
+    },
     "symfony/options-resolver": {
         "version": "v4.2.3"
     },
@@ -395,9 +406,6 @@
     "symfony/property-access": {
         "version": "v4.2.3"
     },
-    "symfony/property-info": {
-        "version": "v4.2.3"
-    },
     "symfony/routing": {
         "version": "4.2",
         "recipe": {
@@ -419,9 +427,6 @@
     "symfony/serializer": {
         "version": "v4.2.3"
     },
-    "symfony/serializer-pack": {
-        "version": "v1.0.2"
-    },
     "symfony/stopwatch": {
         "version": "v4.2.3"
     },
@@ -439,6 +444,23 @@
         "files": [
             "config/packages/translation.yaml",
             "translations/.gitignore"
+        ]
+    },
+    "symfony/twig-bridge": {
+        "version": "v4.2.3"
+    },
+    "symfony/twig-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "369b5b29dc52b2c190002825ae7ec24ab6f962dd"
+        },
+        "files": [
+            "config/packages/twig.yaml",
+            "config/routes/dev/twig.yaml",
+            "templates/base.html.twig"
         ]
     },
     "symfony/validator": {
@@ -468,8 +490,8 @@
     "symfony/yaml": {
         "version": "v4.2.3"
     },
-    "webmozart/assert": {
-        "version": "1.4.0"
+    "twig/twig": {
+        "version": "v2.6.2"
     },
     "willdurand/jsonp-callback-validator": {
         "version": "v1.1.0"
