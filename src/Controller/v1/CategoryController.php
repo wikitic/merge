@@ -88,6 +88,8 @@ final class CategoryController extends AbstractController
 
 
     /**
+     * @IsGranted("ROLE_ADMIN")
+     *
      * @Route("/categories", methods={"POST"})
      *
      * @param Request $request
