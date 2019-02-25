@@ -16,7 +16,6 @@ cache:
   apt: true
   directories:
     - $HOME/.composer/cache
-    - $HOME/.yarn-cache
     - vendor
     - ./bin/.phpunit
 
@@ -27,12 +26,9 @@ env:
 
 before_install:
   - composer self-update
-  - node -v && yarn -V
-  - travis_retry yarn
 
 install:
   - composer install
-  - yarn encore production
   - php bin/phpunit install
 
 before_script:
@@ -44,8 +40,12 @@ before_script:
 script:
   - php bin/phpunit
 
+  #- composer csfix
+  #- composer cscheck
+  #- composer phpstan
+
   - php bin/console lint:yaml config
-  - php bin/console lint:twig templates
-  - php bin/console lint:xliff translations
-  - php bin/console security:check
+  #- php bin/console lint:twig templates
+  #- php bin/console lint:xliff translations
+  #- php bin/console security:check
   - php bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction

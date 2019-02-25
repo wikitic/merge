@@ -86,9 +86,9 @@ class Category
     /**
      * @var int
      *
-     * @ORM\Column(name="position", type="integer")
+     * @ORM\Column(name="ordering", type="integer")
      */
-    private $position;
+    private $ordering;
 
 	  /**
      * @var \DateTime
@@ -336,25 +336,25 @@ class Category
     }
 
     /**
-     * Get position
+     * Get ordering
      *
      * @return int
      */
-    public function getPosition(): ?int
+    public function getOrdering(): ?int
     {
-        return $this->position;
+        return $this->ordering;
     }
 
     /**
-     * Set position
+     * Set ordering
      *
-     * @param int $position
+     * @param int $ordering
      *
      * @return Category
      */
-    public function setPosition(int $position): self
+    public function setOrdering(int $ordering): self
     {
-        $this->position = $position;
+        $this->ordering = $ordering;
 
         return $this;
     }
