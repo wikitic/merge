@@ -16,27 +16,28 @@ class TeacherFixtures extends Fixture
             $teacher->setName($v['name']);
             $teacher->setImage($v['image']);
             $teacher->setDescription($v['description']);
-            $teacher->setSocial($v['social']);
 
-            $this->addReference($v['email'], $teacher);
+            $this->addReference($v['name'], $teacher);
 
             $manager->persist($teacher);
             $manager->flush();
         }
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
             'name' => 'Teacher 1',
             'image' => 'teacher.png',
-            'description' => 'Descripción',
-            'social' => json_encode([])
+            'description' => 'Descripción'
         ];
         yield [
             'name' => 'Teacher 2',
             'image' => 'teacher.png',
-            'description' => 'Descripción',
-            'social' => json_encode([])
+            'description' => 'Descripción'
         ];
     }
 }

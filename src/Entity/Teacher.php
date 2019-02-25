@@ -29,6 +29,7 @@ class Teacher
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank(message="teacher.name.not_blank")
      */
     private $name;
 
@@ -36,6 +37,7 @@ class Teacher
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\NotBlank(message="teacher.image.not_blank")
      */
     private $image;
 
@@ -43,13 +45,14 @@ class Teacher
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
+     * @Assert\NotBlank(message="teacher.description.not_blank")
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="social", type="string")
+     * @ORM\Column(name="social", type="string", nullable=true)
      */
     private $social;
     

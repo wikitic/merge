@@ -26,6 +26,7 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             $course->setMetakey($v['metakey']);
             $course->setMetaimage($v['metaimage']);
             $course->setActive($v['active']);
+            $course->setOrdering($v['ordering']);
 
             $this->addReference($v['alias'], $course);
 
@@ -33,7 +34,11 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             $manager->flush();
         }
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
             'category' => $this->getReference('categoria-1'),
@@ -46,7 +51,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 1
         ];
         yield [
             'category' => $this->getReference('categoria-1'),
@@ -59,7 +65,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 2
         ];
         yield [
             'category' => $this->getReference('categoria-1'),
@@ -72,7 +79,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 3
         ];
 
         yield [
@@ -86,7 +94,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 1
         ];
         yield [
             'category' => $this->getReference('categoria-2'),
@@ -99,7 +108,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 2
         ];
         yield [
             'category' => $this->getReference('categoria-2'),
@@ -112,7 +122,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 3
         ];
 
         yield [
@@ -126,10 +137,14 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => true
+            'active' => 1,
+            'ordering' => 1
         ];
     }
 
+    /**
+     * @return mixed[]
+     */
     public function getDependencies(): array
     {
         return [

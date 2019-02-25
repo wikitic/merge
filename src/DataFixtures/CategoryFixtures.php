@@ -9,6 +9,11 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class CategoryFixtures extends Fixture
 {
+    public static function getGroups(): array
+    {
+        return ['default'];
+    }
+
     public function load(ObjectManager $manager)
     {
         foreach ($this->getData() as $k => $v) {
@@ -29,7 +34,11 @@ class CategoryFixtures extends Fixture
             $manager->flush();
         }
     }
-    private function getData()
+
+    /**
+     * @return iterable
+     */
+    private function getData() : iterable
     {
         yield [
             'title' => 'Categoría 1',
@@ -39,7 +48,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 1',
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
-            'active' => true,
+            'active' => 1,
             'ordering' => 1
         ];
         yield [
@@ -50,7 +59,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 2',
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
-            'active' => false,
+            'active' => 0,
             'ordering' => 2
         ];
         yield [
@@ -61,7 +70,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 3',
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
-            'active' => true,
+            'active' => 1,
             'ordering' => 3
         ];
         yield [
@@ -72,7 +81,7 @@ class CategoryFixtures extends Fixture
             'metadesc' => 'Meta descripción de la categoría 4',
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
-            'active' => true,
+            'active' => 1,
             'ordering' => 4
         ];
     }
