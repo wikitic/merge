@@ -7,28 +7,38 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
 /**
- * Category
+ * Course
  *
- * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Table(name="courses")
+ * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Category
+class Course
 {
+
     /**
      * @var int
      *
-     * @ORM\Column(name="id_category", type="integer")
+     * @ORM\Column(name="id_course", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
+     * @var Category
+     *
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_category", referencedColumnName="id_category", nullable=false)
+     * })
+     */
+    private $category;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\NotBlank(message="category.title.not_blank")
      */
     private $title;
 
@@ -36,17 +46,29 @@ class Category
      * @var string
      *
      * @ORM\Column(name="alias", type="string", length=255)
-     * @Assert\NotBlank(message="category.alias.not_blank")
      */
     private $alias;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="introtext", type="string", length=255)
+     */
+    private $introtext;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
-     * @Assert\NotBlank(message="category.description.not_blank")
+     * @ORM\Column(name="image_intro", type="string", length=255)
      */
-    private $description;
+    private $image_intro;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="level", type="string", length=255)
+     */
+    private $level;
 
     /**
      * @var string
@@ -108,33 +130,29 @@ class Category
 
     public function __construct()
     {
-        $this->active = 0;
-        $this->cdate  = new \DateTime();
-        $this->mdate  = new \DateTime();
+        $this->active   = 0;
+        $this->cdate    = new \DateTime();
+        $this->mdate    = new \DateTime();
     }
-    
+
     /**
      * @ORM\PrePersist
-     *
-     * @param LifecycleEventArgs $args
-     *
-     * @return void
      */
-    public function prePersist(LifecycleEventArgs $args): void
+    public function prePersist()
     {
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
+
     /**
      * @ORM\PreUpdate()
      */
-    public function preUpdate(): void
+    public function preUpdate()
     {
         $this->mdate    = new \DateTime();
     }
 
 
-    
     /**
      * Get id
      *
@@ -160,7 +178,7 @@ class Category
      *
      * @param string $title
      *
-     * @return Category
+     * @return Course
      */
     public function setTitle(string $title): self
     {
@@ -184,7 +202,7 @@ class Category
      *
      * @param string $alias
      *
-     * @return Category
+     * @return Course
      */
     public function setAlias(string $alias): self
     {
@@ -194,25 +212,73 @@ class Category
     }
 
     /**
-     * Get description
+     * Get introtext
      *
      * @return string
      */
-    public function getDescription(): ?string
+    public function getIntrotext(): ?string
     {
-        return $this->description;
+        return $this->introtext;
     }
 
     /**
-     * Set description
+     * Set introtext
      *
-     * @param string $description
+     * @param string $introtext
      *
-     * @return Category
+     * @return Course
      */
-    public function setDescription(string $description): self
+    public function setIntrotext(string $introtext): self
     {
-        $this->description = $description;
+        $this->introtext = $introtext;
+
+        return $this;
+    }
+
+    /**
+     * Get imageintro
+     *
+     * @return string
+     */
+    public function getImageIntro(): ?string
+    {
+        return $this->image_intro;
+    }
+
+    /**
+     * Set imageintro
+     *
+     * @param string $image_intro
+     *
+     * @return Course
+     */
+    public function setImageIntro(string $image_intro): self
+    {
+        $this->image_intro = $image_intro;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return string
+     */
+    public function getLevel(): ?string
+    {
+        return $this->level;
+    }
+
+    /**
+     * Set level
+     *
+     * @param string $level
+     *
+     * @return Course
+     */
+    public function setLevel(string $level): self
+    {
+        $this->level = $level;
 
         return $this;
     }
@@ -232,7 +298,7 @@ class Category
      *
      * @param string $metatitle
      *
-     * @return Category
+     * @return Course
      */
     public function setMetatitle(string $metatitle): self
     {
@@ -256,7 +322,7 @@ class Category
      *
      * @param string $metadesc
      *
-     * @return Category
+     * @return Course
      */
     public function setMetadesc(string $metadesc): self
     {
@@ -280,7 +346,7 @@ class Category
      *
      * @param string $metakey
      *
-     * @return Category
+     * @return Course
      */
     public function setMetakey(string $metakey): self
     {
@@ -304,7 +370,7 @@ class Category
      *
      * @param string $metaimage
      *
-     * @return Category
+     * @return Course
      */
     public function setMetaimage(string $metaimage): self
     {
@@ -328,7 +394,7 @@ class Category
      *
      * @param int $active
      *
-     * @return Category
+     * @return Course
      */
     public function setActive(int $active): self
     {
@@ -352,7 +418,7 @@ class Category
      *
      * @param int $ordering
      *
-     * @return Category
+     * @return Course
      */
     public function setOrdering(int $ordering): self
     {
@@ -376,7 +442,7 @@ class Category
      *
      * @param \DateTime $cdate
      *
-     * @return Category
+     * @return Course
      */
     public function setCdate(\DateTime $cdate): self
     {
@@ -400,11 +466,35 @@ class Category
      *
      * @param \DateTime $mdate
      *
-     * @return Category
+     * @return Course
      */
     public function setMdate(\DateTime $mdate): self
     {
         $this->mdate = $mdate;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Category
+     */
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set category
+     *
+     * @param Category $category
+     *
+     * @return Course
+     */
+    public function setCategory(Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

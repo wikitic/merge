@@ -7,28 +7,50 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
 
 /**
- * Category
+ * Lesson
  *
- * @ORM\Table(name="categories")
- * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @ORM\Table(name="lessons")
+ * @ORM\Entity(repositoryClass="App\Repository\LessonRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Category
+class Lesson
 {
+    const ACCESS_USER       = 1;
+    const ACCESS_PREMIUM    = 2;
+
     /**
      * @var int
      *
-     * @ORM\Column(name="id_category", type="integer")
+     * @ORM\Column(name="id_lesson", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
+     * @var Course
+     *
+     * @ORM\ManyToOne(targetEntity="Course")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_course", referencedColumnName="id_course", nullable=false)
+     * })
+     */
+    private $course;
+
+    /**
+     * @var Teacher
+     *
+     * @ORM\ManyToOne(targetEntity="Teacher")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_teacher", referencedColumnName="id_teacher", nullable=false)
+     * })
+     */
+    private $teacher;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\NotBlank(message="category.title.not_blank")
      */
     private $title;
 
@@ -36,45 +58,36 @@ class Category
      * @var string
      *
      * @ORM\Column(name="alias", type="string", length=255)
-     * @Assert\NotBlank(message="category.alias.not_blank")
      */
     private $alias;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
-     * @Assert\NotBlank(message="category.description.not_blank")
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="metatitle", type="string", length=255)
+     * @ORM\Column(name="video", type="string", length=255, nullable=true)
      */
-    private $metatitle;
+    private $video;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="metadesc", type="string", length=255)
+     * @ORM\Column(name="files", type="string", nullable=true)
      */
-    private $metadesc;
-
+    private $files;
+    
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="metakey", type="string", length=255)
+     * @ORM\Column(name="score", type="integer")
      */
-    private $metakey;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="metaimage", type="string", length=255)
-     */
-    private $metaimage;
+    private $score;
 
     /**
      * @var int
@@ -82,6 +95,13 @@ class Category
      * @ORM\Column(name="active", type="integer")
      */
     private $active;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="access", type="integer")
+     */
+    private $access;
 
     /**
      * @var int
@@ -108,33 +128,32 @@ class Category
 
     public function __construct()
     {
-        $this->active = 0;
-        $this->cdate  = new \DateTime();
-        $this->mdate  = new \DateTime();
+        $this->score    = 0;
+        $this->active   = 0;
+        $this->access   = self::ACCESS_USER;
+        $this->cdate    = new \DateTime();
+        $this->mdate    = new \DateTime();
     }
-    
+
     /**
      * @ORM\PrePersist
-     *
-     * @param LifecycleEventArgs $args
-     *
-     * @return void
      */
-    public function prePersist(LifecycleEventArgs $args): void
+    public function prePersist()
     {
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
+
     /**
      * @ORM\PreUpdate()
      */
-    public function preUpdate(): void
+    public function preUpdate()
     {
         $this->mdate    = new \DateTime();
     }
 
 
-    
+
     /**
      * Get id
      *
@@ -160,7 +179,7 @@ class Category
      *
      * @param string $title
      *
-     * @return Category
+     * @return Lesson
      */
     public function setTitle(string $title): self
     {
@@ -184,7 +203,7 @@ class Category
      *
      * @param string $alias
      *
-     * @return Category
+     * @return Lesson
      */
     public function setAlias(string $alias): self
     {
@@ -208,7 +227,7 @@ class Category
      *
      * @param string $description
      *
-     * @return Category
+     * @return Lesson
      */
     public function setDescription(string $description): self
     {
@@ -218,97 +237,73 @@ class Category
     }
 
     /**
-     * Get metatitle
+     * Get video
      *
      * @return string
      */
-    public function getMetatitle(): ?string
+    public function getVideo(): ?string
     {
-        return $this->metatitle;
+        return $this->video;
     }
 
     /**
-     * Set metatitle
+     * Set video
      *
-     * @param string $metatitle
+     * @param string $video
      *
-     * @return Category
+     * @return Lesson
      */
-    public function setMetatitle(string $metatitle): self
+    public function setVideo(string $video): self
     {
-        $this->metatitle = $metatitle;
+        $this->video = $video;
 
         return $this;
     }
 
     /**
-     * Get metadesc
+     * Get files
      *
      * @return string
      */
-    public function getMetadesc(): ?string
+    public function getFiles(): ?string
     {
-        return $this->metadesc;
+        return $this->files;
     }
 
     /**
-     * Set metadesc
+     * Set files
      *
-     * @param string $metadesc
+     * @param string $files
      *
-     * @return Category
+     * @return Lesson
      */
-    public function setMetadesc(string $metadesc): self
+    public function setFiles(string $files): self
     {
-        $this->metadesc = $metadesc;
+        $this->files = $files;
 
         return $this;
     }
 
     /**
-     * Get metakey
+     * Get score
      *
-     * @return string
+     * @return int
      */
-    public function getMetakey(): ?string
+    public function getScore(): ?int
     {
-        return $this->metakey;
+        return $this->score;
     }
 
     /**
-     * Set metakey
+     * Set score
      *
-     * @param string $metakey
+     * @param int $score
      *
-     * @return Category
+     * @return Lesson
      */
-    public function setMetakey(string $metakey): self
+    public function setScore(int $score): self
     {
-        $this->metakey = $metakey;
-
-        return $this;
-    }
-
-    /**
-     * Get metaimage
-     *
-     * @return string
-     */
-    public function getMetaimage(): ?string
-    {
-        return $this->metaimage;
-    }
-
-    /**
-     * Set metaimage
-     *
-     * @param string $metaimage
-     *
-     * @return Category
-     */
-    public function setMetaimage(string $metaimage): self
-    {
-        $this->metaimage = $metaimage;
+        $this->score = $score;
 
         return $this;
     }
@@ -328,11 +323,35 @@ class Category
      *
      * @param int $active
      *
-     * @return Category
+     * @return Lesson
      */
     public function setActive(int $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get access
+     *
+     * @return int
+     */
+    public function getAccess(): ?int
+    {
+        return $this->access;
+    }
+
+    /**
+     * Set access
+     *
+     * @param int $access
+     *
+     * @return Lesson
+     */
+    public function setAccess(int $access): self
+    {
+        $this->access = $access;
 
         return $this;
     }
@@ -352,7 +371,7 @@ class Category
      *
      * @param int $ordering
      *
-     * @return Category
+     * @return Lesson
      */
     public function setOrdering(int $ordering): self
     {
@@ -376,7 +395,7 @@ class Category
      *
      * @param \DateTime $cdate
      *
-     * @return Category
+     * @return Lesson
      */
     public function setCdate(\DateTime $cdate): self
     {
@@ -400,11 +419,59 @@ class Category
      *
      * @param \DateTime $mdate
      *
-     * @return Category
+     * @return Lesson
      */
     public function setMdate(\DateTime $mdate): self
     {
         $this->mdate = $mdate;
+
+        return $this;
+    }
+
+    /**
+     * Get course
+     *
+     * @return Course
+     */
+    public function getCourse(): ?Course
+    {
+        return $this->course;
+    }
+
+    /**
+     * Set course
+     *
+     * @param Course $course
+     *
+     * @return Lesson
+     */
+    public function setCourse(Course $course): self
+    {
+        $this->course = $course;
+
+        return $this;
+    }
+
+    /**
+     * Get teacher
+     *
+     * @return Teacher
+     */
+    public function getTeacher(): ?Teacher
+    {
+        return $this->teacher;
+    }
+
+    /**
+     * Set teacher
+     *
+     * @param Teacher $teacher
+     *
+     * @return Lesson
+     */
+    public function setTeacher(Teacher $teacher): self
+    {
+        $this->teacher = $teacher;
 
         return $this;
     }
