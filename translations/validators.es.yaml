@@ -1,0 +1,3 @@
+category.title.not_blank: El título es requerido
+category.alias.not_blank: El alias es requerido
+category.description.not_blank: La descripción es requerida
