@@ -9,7 +9,7 @@
 
 ```sh
 $ php bin/console --version
-Symfony 4.1.7
+Symfony 4.2.3
 ```
 
 ## Requirements
@@ -26,27 +26,14 @@ Clone this repository
 $ git clone https://github.com/ProgramoErgoSum/programoergosum
 ```
 
-Install application with composer and yarn
-
-```sh
-$ composer install
-$ yarn install
-```
-
 Run application in dev mode <http://localhost:8000>
 ```sh
 $ php bin/console server:run
-$ yarn encore dev --watch
 ```
 
 Execute this command to run tests
 ```sh
 $ ./bin/phpunit
-```
-
-Compile application
-```sh
-$ yarn encore production
 ```
 
 [1]: https://symfony.com/doc/current/reference/requirements.html
