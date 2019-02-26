@@ -24,9 +24,9 @@
         <!-- ###- doctrine/doctrine-bundle ### -->
 
         <!-- ###+ lexik/jwt-authentication-bundle ### -->
-        <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/private.pem"/>
-        <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/public.pem"/>
-        <env name="JWT_PASSPHRASE" value="$cretf0rt3st"/>
+        <env name="JWT_SECRET_KEY" value="%kernel.project_dir%/config/jwt/test/private.pem"/>
+        <env name="JWT_PUBLIC_KEY" value="%kernel.project_dir%/config/jwt/test/public.pem"/>
+        <env name="JWT_PASSPHRASE" value="s3cr3tf0rt3st"/>
         <env name="JWT_TOKENTTL" value="3600"/>
         <!-- ###- lexik/jwt-authentication-bundle ### -->
 
