@@ -30,8 +30,8 @@ env:
 
 before_install:
   - composer self-update
-  - openssl genrsa -passout pass:$JWT_PASSPHRASE -out $PATH_APP/$JWT_SECRET_KEY -aes256 4096
-  - openssl rsa -pubout -in $PATH_APP/$JWT_SECRET_KEY -passin pass:$JWT_PASSPHRASE -out $PATH_APP/$JWT_PUBLIC_KEY
+  - openssl genrsa -passout pass:$JWT_PASSPHRASE -out $JWT_SECRET_KEY -aes256 4096
+  - openssl rsa -pubout -in $JWT_SECRET_KEY -passin pass:$JWT_PASSPHRASE -out $JWT_PUBLIC_KEY
 
 install:
   - composer install
