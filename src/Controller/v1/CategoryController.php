@@ -4,6 +4,7 @@ namespace App\Controller\v1;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Entity\Course;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -32,6 +33,7 @@ final class CategoryController extends AbstractController
 
     /**
      * @param EntityManagerInterface $em
+     * @param SerializerInterface $serializer
      */
     public function __construct(EntityManagerInterface $em, SerializerInterface $serializer)
     {
@@ -68,7 +70,7 @@ final class CategoryController extends AbstractController
     {
         $category = $this->er->findOneBy(['alias' => $alias, 'active' => true]);
         if ($category === null) {
-            $error = ['message' => 'Categoría no disponible'];
+            $error = [['message' => 'Categoría no disponible']];
             return new JsonResponse(
                 $this->serializer->serialize($error, 'json'),
                 Response::HTTP_FOUND,
@@ -95,7 +97,7 @@ final class CategoryController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      */
-    public function postPartners(Request $request): JsonResponse
+    public function postCategories(Request $request): JsonResponse
     {
         $data = json_decode((string)$request->getContent(), true);
         
@@ -118,6 +120,96 @@ final class CategoryController extends AbstractController
         
         return new JsonResponse(
             $this->serializer->serialize($category, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
+     * @Route("/categories/{id_category}", methods={"PATCH", "PUT"})
+     *
+     * @param Request $request
+     * @param string $id_category
+     * @return JsonResponse
+     */
+    public function patchCategories(Request $request, string $id_category = ''): JsonResponse
+    {
+        $category = $this->er->findOneBy(['id' => $id_category]);
+        if ($category === null) {
+            $error = [['message' => 'Categoría no existe']];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+        $data = json_decode((string)$request->getContent(), true);
+        
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->submit($data, false);
+        if (!$form->isValid()) {
+            $error = $form->getErrors(true);
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+        $this->em->persist($category);
+        $this->em->flush();
+        return new JsonResponse(
+            $this->serializer->serialize($category, 'json'),
+            Response::HTTP_OK,
+            [],
+            true
+        );
+    }
+
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
+     * @Route("/categories/{id_category}", methods={"DELETE"})
+     *
+     * @param string $id_category
+     * @return JsonResponse
+     */
+    public function deleteCategories(string $id_category = ''): JsonResponse
+    {
+        $category = $this->er->findOneBy(['id' => $id_category]);
+        if ($category === null) {
+            $error = [['message' => 'Categoría no existe']];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_BAD_REQUEST,
+                [],
+                true
+            );
+        }
+        // Si tiene cursos impedimos borrar
+        $courses = $this->em->getRepository(Course::class)->findBy(['category' => $category->getId()]);
+        if ($courses) {
+            $error = [['message' => 'No se puede borrar una categoría con cursos']];
+            return new JsonResponse(
+                $this->serializer->serialize($error, 'json'),
+                Response::HTTP_NOT_ACCEPTABLE,
+                [],
+                true
+            );
+        }
+        $this->em->remove($category);
+        $this->em->flush();
+        
+        return new JsonResponse(
+            $this->serializer->serialize(null, 'json'),
             Response::HTTP_OK,
             [],
             true
