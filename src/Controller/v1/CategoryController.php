@@ -130,7 +130,7 @@ final class CategoryController extends AbstractController
 
     /**
      * @IsGranted("ROLE_ADMIN")
-     * 
+     *
      * @Route("/categories/{id_category}", methods={"PATCH", "PUT"})
      *
      * @param Request $request
@@ -176,7 +176,7 @@ final class CategoryController extends AbstractController
 
     /**
      * @IsGranted("ROLE_ADMIN")
-     * 
+     *
      * @Route("/categories/{id_category}", methods={"DELETE"})
      *
      * @param string $id_category
