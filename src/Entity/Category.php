@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\CommonTrait;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -17,6 +19,8 @@ use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
  */
 class Category
 {
+    use CommonTrait;
+
     /**
      * @var int
      *
@@ -97,20 +101,6 @@ class Category
      */
     private $ordering;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="cdate", type="datetime")
-     */
-    private $cdate;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="mdate", type="datetime")
-     */
-    private $mdate;
-
 
     
     public function __construct()
@@ -120,6 +110,7 @@ class Category
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
+    
     
     /**
      * @ORM\PrePersist
@@ -366,54 +357,6 @@ class Category
     public function setOrdering(int $ordering): self
     {
         $this->ordering = $ordering;
-
-        return $this;
-    }
-
-    /**
-     * Get cdate
-     *
-     * @return \DateTime
-     */
-    public function getCdate(): ?\DateTime
-    {
-        return $this->cdate;
-    }
-
-    /**
-     * Set cdate
-     *
-     * @param \DateTime $cdate
-     *
-     * @return Category
-     */
-    public function setCdate(\DateTime $cdate): self
-    {
-        $this->cdate = $cdate;
-
-        return $this;
-    }
-
-    /**
-     * Get mdate
-     *
-     * @return \DateTime
-     */
-    public function getMdate(): ?\DateTime
-    {
-        return $this->mdate;
-    }
-
-    /**
-     * Set mdate
-     *
-     * @param \DateTime $mdate
-     *
-     * @return Category
-     */
-    public function setMdate(\DateTime $mdate): self
-    {
-        $this->mdate = $mdate;
 
         return $this;
     }
