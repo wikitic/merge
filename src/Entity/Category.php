@@ -112,15 +112,14 @@ class Category
     private $mdate;
 
 
-    /*
+    
     public function __construct()
     {
-        $this->active   = 0;
-        $this->ordering = 0;
+        //$this->active   = 0;
+        //$this->ordering = 0;
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
-    */
     
     /**
      * @ORM\PrePersist

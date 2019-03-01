@@ -27,6 +27,8 @@ class CategoryRepository extends ServiceEntityRepository
     {
         $category = $this->findOneBy([], ['ordering' => 'DESC']);
 
-        return $category->getOrdering() + 1;
+        $ordering = 0; //$category->getOrdering();
+
+        return $ordering + 1;
     }
 }
