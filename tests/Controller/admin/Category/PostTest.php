@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Controller\admin;
+namespace App\Tests\Controller\admin\Category;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/http-foundation/blob/master/Response.php
 
-class CategoryPostTest extends WebTestCase
+class PostTest extends WebTestCase
 {
     private $client = null;
 
@@ -39,25 +39,8 @@ class CategoryPostTest extends WebTestCase
     }
 
 
-    /**
-     * HTTP_UNAUTHORIZED
-     */
-    public function test_postCategories_HTTP_UNAUTHORIZED()
-    {
-        $client = $this->client;
-        $client->request('POST', '/admin/categories');
-
-        $response = $client->getResponse();
-        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-
-        $json = json_decode($response->getContent(), true);
-        
-        $this->assertEquals('Authentication Required', $json['message']);
-    }
-
 
     /**
-     * @AUTHORIZED @ROLE_ADMIN
      * @dataProvider provide_postCategories
      */
     public function test_postCategories($url, $http_code, $data, $message)
@@ -93,9 +76,8 @@ class CategoryPostTest extends WebTestCase
         yield ['/admin/categories',  Response::HTTP_BAD_REQUEST, json_encode([]), 'Bad request'];
     }
 
-    /**
-     * @AUTHORIZED @ROLE_ADMIN
-     */
+
+    
     public function test_postCategories_OK()
     {
         $data = [

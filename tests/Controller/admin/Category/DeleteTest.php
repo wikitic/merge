@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Controller\admin;
+namespace App\Tests\Controller\admin\Category;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/http-foundation/blob/master/Response.php
 
-class CategoryDeleteTest extends WebTestCase
+class DeleteTest extends WebTestCase
 {
     private $client = null;
 
@@ -39,25 +39,8 @@ class CategoryDeleteTest extends WebTestCase
     }
 
 
-    /**
-     * HTTP_UNAUTHORIZED
-     */
-    public function test_deleteCategoriesByAlias_HTTP_UNAUTHORIZED()
-    {
-        $client = $this->client;
-        $client->request('DELETE', '/admin/categories/X');
-
-        $response = $client->getResponse();
-        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-
-        $json = json_decode($response->getContent(), true);
-        
-        $this->assertEquals('Authentication Required', $json['message']);
-    }
-
 
     /**
-     * @AUTHORIZED @ROLE_ADMIN
      * @dataProvider provide_deleteCategoriesByAlias
      */
     public function test_deleteCategoriesByAlias($url, $http_code, $message)

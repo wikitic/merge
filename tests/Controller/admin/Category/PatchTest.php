@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Tests\Controller\admin;
+namespace App\Tests\Controller\admin\Category;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/http-foundation/blob/master/Response.php
 
-class CategoryPatchTest extends WebTestCase
+class PatchTest extends WebTestCase
 {
     private $client = null;
 
@@ -39,25 +39,8 @@ class CategoryPatchTest extends WebTestCase
     }
 
 
-    /**
-     * HTTP_UNAUTHORIZED
-     */
-    public function test_patchCategories_HTTP_UNAUTHORIZED()
-    {
-        $client = $this->client;
-        $client->request('PATCH', '/admin/categories/X');
-
-        $response = $client->getResponse();
-        $this->assertEquals(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
-
-        $json = json_decode($response->getContent(), true);
-        
-        $this->assertEquals('Authentication Required', $json['message']);
-    }
-
 
     /**
-     * @AUTHORIZED @ROLE_ADMIN
      * @dataProvider provide_patchCategories
      */
     public function test_patchCategories($url, $http_code, $data, $message)
@@ -79,7 +62,6 @@ class CategoryPatchTest extends WebTestCase
     }
 
     /**
-     * @AUTHORIZED @ROLE_ADMIN
      * @dataProvider provide_patchCategories_OK
      */
     public function test_patchCategories_OK($url, $http_code, $data)
