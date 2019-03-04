@@ -3,20 +3,20 @@
 namespace App\Controller\v1;
 
 use App\Entity\Category;
-//use App\Form\CategoryType;
 use App\Entity\Course;
+use App\Form\CategoryType;
 
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
-use Symfony\Component\Serializer\SerializerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
-//use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Category controller
@@ -73,6 +73,37 @@ final class CategoryController extends FOSRestController
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
         
+        return View::create($category, Response::HTTP_OK);
+    }
+
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
+     * @Route("/categories", methods={"POST"})
+     * @Rest\View(serializerGroups={"api_view"})
+     * 
+     * @param Request $request
+     * 
+     * @return View
+     */
+    public function postCategories(Request $request): View
+    {
+        $data = json_decode((string)$request->getContent(), true);
+        
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->submit($data, true);
+        if (!$form->isValid()) {
+            //$error = $form->getErrors(true);
+            return View::create(['message' => 'Bad request'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $category->setOrdering($this->er->getNextOrdering());
+        $this->em->persist($category);
+        $this->em->flush();
+
         return View::create($category, Response::HTTP_OK);
     }
 
