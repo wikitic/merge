@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Course
  *
  * @ORM\Table(name="courses")
  * @ORM\Entity(repositoryClass="App\Repository\CourseRepository")
+ * @UniqueEntity(fields={"alias"}, message="alias.unique")
  * @ORM\HasLifecycleCallbacks()
  */
 class Course
@@ -39,13 +42,17 @@ class Course
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank(message="title.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $title;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="alias", type="string", length=255)
+     * @ORM\Column(name="alias", type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="alias.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $alias;
     
@@ -53,6 +60,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="introtext", type="string", length=255)
+     * @Assert\NotBlank(message="introtext.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $introtext;
 
@@ -60,6 +69,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="image_intro", type="string", length=255)
+     * @Assert\NotBlank(message="image_intro.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $image_intro;
 
@@ -67,6 +78,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="level", type="string", length=255)
+     * @Assert\NotBlank(message="level.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $level;
 
@@ -74,6 +87,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="metatitle", type="string", length=255)
+     * @Assert\NotBlank(message="metatitle.not_blank")
+     * @Groups({"api_view"})
      */
     private $metatitle;
 
@@ -81,6 +96,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="metadesc", type="string", length=255)
+     * @Assert\NotBlank(message="metadesc.not_blank")
+     * @Groups({"api_view"})
      */
     private $metadesc;
 
@@ -88,6 +105,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="metakey", type="string", length=255)
+     * @Assert\NotBlank(message="metakey.not_blank")
+     * @Groups({"api_view"})
      */
     private $metakey;
 
@@ -95,6 +114,8 @@ class Course
      * @var string
      *
      * @ORM\Column(name="metaimage", type="string", length=255)
+     * @Assert\NotBlank(message="metaimage.not_blank")
+     * @Groups({"api_view"})
      */
     private $metaimage;
 
@@ -102,6 +123,7 @@ class Course
      * @var int
      *
      * @ORM\Column(name="active", type="integer")
+     * @Assert\NotBlank(message="active.not_blank")
      */
     private $active;
 
@@ -109,6 +131,7 @@ class Course
      * @var int
      *
      * @ORM\Column(name="ordering", type="integer")
+     * @Assert\NotBlank(message="ordering.not_blank")
      */
     private $ordering;
 
