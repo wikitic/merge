@@ -7,6 +7,28 @@ use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/htt
 
 class CategoryTest extends WebTestCase
 {
+    /**
+     * @dataProvider provide_URLS
+     */
+    public function test_URLS(string $url, string $http_code)
+    {
+        $client = static::createClient();
+        $client->request('GET', $url);
+
+        $response = $client->getResponse();
+        $this->assertSame('application/json', $response->headers->get('content-type'));
+        $this->assertEquals($http_code, $response->getStatusCode());
+    }
+    public function provide_URLS()
+    {
+        yield ['/v1/categories', Response::HTTP_OK];
+        yield ['/v1/categories/categoria-1', Response::HTTP_OK];
+        yield ['/v1/categories/BAD-ALIAS', Response::HTTP_NOT_FOUND];
+        yield ['/v1/categories/categoria-2', Response::HTTP_NOT_FOUND]; // disabled
+    }
+
+
+
     public function test_getCategories()
     {
         $client = static::createClient();
@@ -26,27 +48,6 @@ class CategoryTest extends WebTestCase
     }
 
 
-
-    /**
-     * @dataProvider provide_getCategoriesByAlias_HTTP_NOT_FOUND
-     */
-    public function test_getCategoriesByAlias_HTTP_NOT_FOUND(string $url = '')
-    {
-        $client = static::createClient();
-        $client->request('GET', $url);
-
-        $response = $client->getResponse();
-        $this->assertEquals(Response::HTTP_NOT_FOUND, $response->getStatusCode());
-
-        $json = json_decode($response->getContent(), true);
-        
-        $this->assertEquals('Not found', $json['message']);
-    }
-    public function provide_getCategoriesByAlias_HTTP_NOT_FOUND()
-    {
-        yield ['/v1/categories/BAD-ALIAS'];
-        yield ['/v1/categories/categoria-2']; // disabled
-    }
 
     public function test_getCategoriesByAlias()
     {
