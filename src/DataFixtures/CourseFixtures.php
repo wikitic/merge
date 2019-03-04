@@ -79,7 +79,7 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metadesc' => 'Meta descripción del curso',
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
-            'active' => 1,
+            'active' => 0,
             'ordering' => 3
         ];
 

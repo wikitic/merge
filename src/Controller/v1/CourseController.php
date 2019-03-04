@@ -2,6 +2,7 @@
 
 namespace App\Controller\v1;
 
+use App\Entity\Category;
 use App\Entity\Course;
 
 use Doctrine\ORM\EntityManagerInterface;
@@ -39,27 +40,52 @@ final class CourseController extends AbstractController
      */
     public function getCourses(): View
     {
-        $categories = $this->er->findBy(['active' => true], ['mdate' => 'DESC']);
+        $courses = $this->er->findBy(['active' => true], ['mdate' => 'DESC']);
         
-        return View::create($categories, Response::HTTP_OK);
+        return View::create($courses, Response::HTTP_OK);
     }
 
     /**
-     * @Route("/categories/{alias}", methods={"GET"})
+     * @Route("/courses/{category_alias}", methods={"GET"})
+     * @Rest\View(serializerGroups={"api_list"})
+     *
+     * @param string $category_alias
+     *
+     * @return View
+     */
+    public function getCoursesByCategory(string $category_alias = ''): View
+    {
+        $category = $this->em->getRepository(Category::class)->findOneBy(['alias' => $category_alias, 'active' => true]);
+        if ($category === null) {
+            return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $courses = $this->er->findBy(['category' => $category, 'active' => true]);
+        
+        return View::create($courses, Response::HTTP_OK);
+    }
+
+    /**
+     * @Route("/courses/{category_alias}/{alias}", methods={"GET"})
      * @Rest\View(serializerGroups={"api_view"})
      *
+     * @param string $category_alias
      * @param string $alias
      *
      * @return View
      */
-    public function getCategoriesByAlias(string $alias = ''): View
+    public function getCoursesByCategoryByAlias(string $category_alias = '', string $alias = ''): View
     {
-        $category = $this->er->findOneBy(['alias' => $alias, 'active' => true]);
-
+        $category = $this->em->getRepository(Category::class)->findOneBy(['alias' => $category_alias, 'active' => true]);
         if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
+
+        $course = $this->er->findOneBy(['category' => $category, 'alias' => $alias, 'active' => true]);
+        if ($course === null) {
+            return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
+        }
         
-        return View::create($category, Response::HTTP_OK);
+        return View::create($course, Response::HTTP_OK);
     }
 }
