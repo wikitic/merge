@@ -57,7 +57,7 @@ class CategoryDeleteTest extends WebTestCase
 
 
     /**
-     * @AUTHORIZED @ADMIN
+     * @AUTHORIZED @ROLE_ADMIN
      * @dataProvider provide_deleteCategoriesByAlias
      */
     public function test_deleteCategoriesByAlias($url, $http_code, $message)
