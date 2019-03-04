@@ -62,14 +62,14 @@ final class CategoryController extends FOSRestController
      * @Rest\View(serializerGroups={"api_view"})
      *
      * @param string $alias
-     * 
+     *
      * @return View
      */
     public function getCategoriesByAlias(string $alias = ''): View
     {
         $category = $this->er->findOneBy(['alias' => $alias, 'active' => true]);
 
-        if($category === null){
+        if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
         
@@ -80,12 +80,12 @@ final class CategoryController extends FOSRestController
 
     /**
      * @IsGranted("ROLE_ADMIN")
-     * 
+     *
      * @Route("/categories", methods={"POST"})
      * @Rest\View(serializerGroups={"api_view"})
-     * 
+     *
      * @param Request $request
-     * 
+     *
      * @return View
      */
     public function postCategories(Request $request): View
@@ -111,13 +111,13 @@ final class CategoryController extends FOSRestController
 
     /**
      * @IsGranted("ROLE_ADMIN")
-     * 
+     *
      * @Route("/categories/{id_category}", methods={"PATCH"})
      * @Rest\View(serializerGroups={"api_view"})
-     * 
+     *
      * @param Request $request
      * @param string $id_category
-     * 
+     *
      * @return View
      */
     public function patchCategories(Request $request, string $id_category): View
@@ -146,18 +146,18 @@ final class CategoryController extends FOSRestController
 
     /**
      * @IsGranted("ROLE_ADMIN")
-     * 
+     *
      * @Route("/categories/{id}", methods={"DELETE"})
      *
      * @param string $id
-     * 
+     *
      * @return View
      */
     public function deleteCategoriesByAlias(string $id = ''): View
     {
         $category = $this->er->findOneBy(['id' => $id]);
 
-        if($category === null){
+        if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
         
@@ -168,5 +168,4 @@ final class CategoryController extends FOSRestController
         
         return View::create(['message'=>'successful'], Response::HTTP_OK);
     }
-    
 }
