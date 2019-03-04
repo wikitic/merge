@@ -3,13 +3,11 @@ title.not_blank: Campo título requerido
 alias.not_blank: Campo alias requerido
 introtext.not_blank: Campo introtext requerido
 description.not_blank: Campo descripción requerido
-
 image_intro.not_blank: Campo imagen requerido
 level.not_blank: Campo nivel requerido
-
 metatitle.not_blank: Campo metatítulo requerido
 metadesc.not_blank: Campo metadesc requerido
 metakey.not_blank: Campo metakey requerido
 metaimage.not_blank: Campo metaimage requerido
-active.not_blank: Campo activo requerido
-ordering.not_blank: Campo orden requerido
+active.integer: Campo activo numérico
+ordering.integer: Campo orden numérico

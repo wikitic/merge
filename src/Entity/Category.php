@@ -94,7 +94,7 @@ class Category
      * @var int
      *
      * @ORM\Column(name="active", type="integer")
-     * @Assert\NotBlank(message="active.not_blank")
+     * @Assert\Type(type="integer", message="active.integer")
      */
     private $active;
 
@@ -102,7 +102,7 @@ class Category
      * @var int
      *
      * @ORM\Column(name="ordering", type="integer")
-     * @Assert\NotBlank(message="ordering.not_blank")
+     * @Assert\Type(type="integer", message="ordering.integer")
      */
     private $ordering;
 

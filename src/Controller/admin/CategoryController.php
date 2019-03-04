@@ -96,6 +96,7 @@ final class CategoryController extends AbstractController
         }
 
         $category->setOrdering($this->er->getNextOrdering());
+
         $this->em->persist($category);
         $this->em->flush();
 

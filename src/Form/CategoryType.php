@@ -28,8 +28,8 @@ class CategoryType extends AbstractType
             ->add('metakey', TextType::class)
             ->add('metaimage', TextType::class)
 
-            ->add('active', NumberType::class)
-            ->add('ordering', NumberType::class)
+            ->add('active', NumberType::class, ['required' => false])
+            ->add('ordering', NumberType::class, ['required' => false])
         ;
     }
     

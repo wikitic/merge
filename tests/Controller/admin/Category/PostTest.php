@@ -65,8 +65,7 @@ class PostTest extends WebTestCase
             'metatitle' => 'metatitle',
             'metadesc' => 'metadesc',
             'metakey' => 'metakey',
-            'metaimage' => 'metaimage',
-            'active' => '0'
+            'metaimage' => 'metaimage'
         ];
         foreach ($category as $k => $v) {
             $aux = $category;
