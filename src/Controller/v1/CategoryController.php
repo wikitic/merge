@@ -4,14 +4,14 @@ namespace App\Controller\v1;
 
 use App\Entity\Category;
 //use App\Form\CategoryType;
-//use App\Entity\Course;
+use App\Entity\Course;
 
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\View\View;
 use Symfony\Component\Serializer\SerializerInterface;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\JsonResponse;
 //use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -76,5 +76,31 @@ final class CategoryController extends FOSRestController
         return View::create($category, Response::HTTP_OK);
     }
 
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
+     * @Route("/categories/{id}", methods={"DELETE"})
+     *
+     * @param string $id
+     * 
+     * @return View
+     */
+    public function deleteCategoriesByAlias(string $id = ''): View
+    {
+        $category = $this->er->findOneBy(['id' => $id]);
+
+        if($category === null){
+            return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
+        }
+        
+        $courses = $this->em->getRepository(Course::class)->findBy(['category' => $category->getId()]);
+        if ($courses) {
+            return View::create(['message'=>'Not acceptable'], Response::HTTP_NOT_ACCEPTABLE);
+        }
+        
+        return View::create(['message'=>'successful'], Response::HTTP_OK);
+    }
     
 }

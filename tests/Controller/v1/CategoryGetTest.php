@@ -7,9 +7,26 @@ use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/htt
 
 class CategoryGetTest extends WebTestCase
 {
+    private $client = null;
+
+    protected function setUp()
+    {
+        $this->client = $this->createClient(['environment' => 'test']);
+        $this->client->disableReboot();
+        $this->em = $this->client->getContainer()->get('doctrine.orm.entity_manager');
+        $this->em->beginTransaction();
+    }
+
+    protected function tearDown()
+    {
+        $this->em->rollback();
+    }
+
+
+
     public function test_getCategories_HTTP_OK()
     {
-        $client = static::createClient();
+        $client = $this->client;
         $client->request('GET', '/v1/categories');
 
         $response = $client->getResponse();
@@ -32,7 +49,7 @@ class CategoryGetTest extends WebTestCase
      */
     public function test_getCategoriesByAlias_HTTP_NOT_FOUND(string $url = '')
     {
-        $client = static::createClient();
+        $client = $this->client;
         $client->request('GET', $url);
 
         $response = $client->getResponse();
@@ -50,7 +67,7 @@ class CategoryGetTest extends WebTestCase
 
     public function test_getCategoriesByAlias_HTTP_FOUND()
     {
-        $client = static::createClient();
+        $client = $this->client;
         $client->request('GET', '/v1/categories/categoria-1');
 
         $response = $client->getResponse();
