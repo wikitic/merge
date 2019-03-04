@@ -20,7 +20,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @IsGranted("ROLE_ADMIN")
- * 
+ *
  * @Route("/admin")
  */
 final class CategoryController extends AbstractController
