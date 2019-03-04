@@ -3,9 +3,9 @@
 namespace App\Tests\Controller\admin;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/http-foundation/blob/master/Response.php
+use Symfony\Component\HttpFoundation\Response;
 
-class CategoryTest extends WebTestCase
+class AdminTest extends WebTestCase
 {
     private $client = null;
 
