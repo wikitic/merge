@@ -57,15 +57,15 @@ final class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/categories/{alias}", methods={"GET"})
+     * @Route("/categories/{salt}", methods={"GET"})
      *
-     * @param string $alias
+     * @param string $salt
      *
      * @return View
      */
-    public function getCategoriesByAlias(string $alias = ''): View
+    public function getCategoriesBy(string $salt = ''): View
     {
-        $category = $this->er->findOneBy(['alias' => $alias]);
+        $category = $this->er->findOneBy(['salt' => $salt]);
 
         if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
@@ -78,7 +78,6 @@ final class CategoryController extends AbstractController
 
     /**
      * @Route("/categories", methods={"POST"})
-     * @Rest\View(serializerGroups={"api_view"})
      *
      * @param Request $request
      *
@@ -106,17 +105,16 @@ final class CategoryController extends AbstractController
 
 
     /**
-     * @Route("/categories/{id_category}", methods={"PATCH", "PUT"})
-     * @Rest\View(serializerGroups={"api_view"})
+     * @Route("/categories/{salt}", methods={"PATCH", "PUT"})
      *
      * @param Request $request
-     * @param string $id_category
+     * @param string $salt
      *
      * @return View
      */
-    public function patchCategories(Request $request, string $id_category): View
+    public function patchCategoriesBy(Request $request, string $salt): View
     {
-        $category = $this->er->findOneBy(['id' => $id_category]);
+        $category = $this->er->findOneBy(['salt' => $salt]);
         if ($category === null) {
             return View::create(['message' => 'Not found'], Response::HTTP_NOT_FOUND);
         }
@@ -139,15 +137,15 @@ final class CategoryController extends AbstractController
 
 
     /**
-     * @Route("/categories/{id}", methods={"DELETE"})
+     * @Route("/categories/{salt}", methods={"DELETE"})
      *
-     * @param string $id
+     * @param string $salt
      *
      * @return View
      */
-    public function deleteCategoriesByAlias(string $id = ''): View
+    public function deleteCategoriesBy(string $salt = ''): View
     {
-        $category = $this->er->findOneBy(['id' => $id]);
+        $category = $this->er->findOneBy(['salt' => $salt]);
 
         if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
@@ -158,6 +156,6 @@ final class CategoryController extends AbstractController
             return View::create(['message'=>'Not acceptable'], Response::HTTP_NOT_ACCEPTABLE);
         }
         
-        return View::create(['message'=>'successful'], Response::HTTP_OK);
+        return View::create(['message'=>'Successful'], Response::HTTP_OK);
     }
 }

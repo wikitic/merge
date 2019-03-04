@@ -27,6 +27,12 @@ class CategoryFixtures extends Fixture
             $category->setMetaimage($v['metaimage']);
             $category->setActive($v['active']);
             $category->setOrdering($v['ordering']);
+            
+            if (isset($v['salt'])) {
+                $category->setSalt($v['salt']);
+            }
+            // $category->setCdate($v['cdate']);
+            // $category->setMdate($v['mdate']);
 
             $this->addReference($v['alias'], $category);
 
@@ -49,7 +55,8 @@ class CategoryFixtures extends Fixture
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => 1,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-1'
         ];
         yield [
             'title' => 'Categoría 2',
@@ -60,7 +67,8 @@ class CategoryFixtures extends Fixture
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => 0,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-2'
         ];
         yield [
             'title' => 'Categoría 3',
@@ -71,7 +79,8 @@ class CategoryFixtures extends Fixture
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => 1,
-            'ordering' => 3
+            'ordering' => 3,
+            'salt' => 'GOOD-SALT-3'
         ];
         yield [
             'title' => 'Categoría 4',
@@ -82,7 +91,8 @@ class CategoryFixtures extends Fixture
             'metakey' => 'meta, palabras, categoría',
             'metaimage' => 'categoria.png',
             'active' => 1,
-            'ordering' => 4
+            'ordering' => 4,
+            'salt' => 'GOOD-SALT-4'
         ];
     }
 }

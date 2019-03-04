@@ -46,6 +46,7 @@ class GetTest extends WebTestCase
         $client->request('GET', '/admin/categories');
 
         $response = $client->getResponse();
+        $this->assertSame('application/json', $response->headers->get('content-type'));
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
 
         $categories = json_decode($response->getContent(), true);
@@ -55,21 +56,23 @@ class GetTest extends WebTestCase
 
 
     /**
-     * @dataProvider provide_getCategoriesByAlias
+     * @dataProvider provide_getCategoriesBy
      */
-    public function test_getCategoriesByAlias(string $url, string $http_code)
+    public function test_getCategoriesBy(string $url, string $http_code)
     {
         $client = $this->createAuthenticatedClient();
         $client->request('GET', $url);
 
         $response = $client->getResponse();
+        $this->assertSame('application/json', $response->headers->get('content-type'));
         $this->assertEquals($http_code, $response->getStatusCode());
-
-        $json = json_decode($response->getContent(), true);
     }
-    public function provide_getCategoriesByAlias()
+    public function provide_getCategoriesBy()
     {
-        yield ['/admin/categories/BAD-ALIAS', Response::HTTP_NOT_FOUND];
-        yield ['/admin/categories/categoria-1', Response::HTTP_OK];
+        yield ['/admin/categories/BAD-SALT', Response::HTTP_NOT_FOUND];
+        yield ['/admin/categories/GOOD-SALT-1', Response::HTTP_OK];
+        yield ['/admin/categories/GOOD-SALT-2', Response::HTTP_OK];
+        yield ['/admin/categories/GOOD-SALT-3', Response::HTTP_OK];
+        yield ['/admin/categories/GOOD-SALT-4', Response::HTTP_OK];
     }
 }

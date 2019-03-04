@@ -106,6 +106,13 @@ class Category
     private $ordering;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    private $salt;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="cdate", type="datetime")
@@ -123,6 +130,7 @@ class Category
     
     public function __construct()
     {
+        $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -137,6 +145,7 @@ class Category
      */
     public function prePersist(LifecycleEventArgs $args): void
     {
+        // $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -146,6 +155,7 @@ class Category
      */
     public function preUpdate(): void
     {
+        $this->salt     = md5(uniqid());
         $this->mdate    = new \DateTime();
     }
 
@@ -373,6 +383,29 @@ class Category
     public function setOrdering(int $ordering): self
     {
         $this->ordering = $ordering;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt(): ?string
+    {
+        return $this->salt;
+    }
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Category
+     */
+    public function setSalt(string $salt): self
+    {
+        $this->salt = $salt;
 
         return $this;
     }

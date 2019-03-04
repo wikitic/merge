@@ -41,21 +41,21 @@ class PostTest extends WebTestCase
 
 
     /**
-     * @dataProvider provide_postCategories
+     * @dataProvider provide_postCategories_HTTP_BAD_REQUEST
      */
-    public function test_postCategories($url, $http_code, $data, $message)
+    public function test_postCategories_HTTP_BAD_REQUEST($url, $http_code, $data, $message)
     {
         $client = $this->createAuthenticatedClient();
         $client->request('POST', $url, [], [], ['CONTENT_TYPE' => 'application/json'], $data);
 
         $response = $client->getResponse();
+        $this->assertSame('application/json', $response->headers->get('content-type'));
         $this->assertEquals($http_code, $response->getStatusCode());
 
         $json = json_decode($response->getContent(), true);
-        
         $this->assertEquals($message, $json['message']);
     }
-    public function provide_postCategories()
+    public function provide_postCategories_HTTP_BAD_REQUEST()
     {
         $category = [
             'title' => 'title',
@@ -78,7 +78,7 @@ class PostTest extends WebTestCase
 
 
     
-    public function test_postCategories_OK()
+    public function test_postCategories_HTTP_OK()
     {
         $data = [
             'title' => 'title',
@@ -95,18 +95,8 @@ class PostTest extends WebTestCase
         $client->request('POST', '/admin/categories', [], [], ['CONTENT_TYPE' => 'application/json'], json_encode($data));
 
         $response = $client->getResponse();
+        $this->assertSame('application/json', $response->headers->get('content-type'));
         $this->assertEquals(Response::HTTP_OK, $response->getStatusCode());
-
-        $category = json_decode($response->getContent(), true);
-
-        $this->assertEquals(7, count($category));
-        $this->assertEquals($category['title'], 'title');
-        $this->assertEquals($category['alias'], 'alias');
-        $this->assertEquals($category['description'], 'description');
-        $this->assertEquals($category['metatitle'], 'metatitle');
-        $this->assertEquals($category['metadesc'], 'metadesc');
-        $this->assertEquals($category['metakey'], 'metakey');
-        $this->assertEquals($category['metaimage'], 'metaimage');
     }
 
 }
