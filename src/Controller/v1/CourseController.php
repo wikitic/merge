@@ -55,7 +55,8 @@ final class CourseController extends AbstractController
      */
     public function getCoursesByCategory(string $category_alias = ''): View
     {
-        $category = $this->em->getRepository(Category::class)->findOneBy(['alias' => $category_alias, 'active' => true]);
+        $category = $this->em->getRepository(Category::class)
+            ->findOneBy(['alias' => $category_alias, 'active' => true]);
         if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
@@ -76,7 +77,8 @@ final class CourseController extends AbstractController
      */
     public function getCoursesByCategoryByAlias(string $category_alias = '', string $alias = ''): View
     {
-        $category = $this->em->getRepository(Category::class)->findOneBy(['alias' => $category_alias, 'active' => true]);
+        $category = $this->em->getRepository(Category::class)
+            ->findOneBy(['alias' => $category_alias, 'active' => true]);
         if ($category === null) {
             return View::create(['message'=>'Not found'], Response::HTTP_NOT_FOUND);
         }
