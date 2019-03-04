@@ -112,6 +112,41 @@ final class CategoryController extends FOSRestController
     /**
      * @IsGranted("ROLE_ADMIN")
      * 
+     * @Route("/categories/{id_category}", methods={"PATCH"})
+     * @Rest\View(serializerGroups={"api_view"})
+     * 
+     * @param Request $request
+     * @param string $id_category
+     * 
+     * @return View
+     */
+    public function patchCategories(Request $request, string $id_category): View
+    {
+        $category = $this->er->findOneBy(['id' => $id_category]);
+        if ($category === null) {
+            return View::create(['message' => 'Not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        $data = json_decode((string)$request->getContent(), true);
+
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->submit($data, false);
+        if (!$form->isValid()) {
+            // $error = $form->getErrors(true);
+            return View::create(['message' => 'Bad request'], Response::HTTP_BAD_REQUEST);
+        }
+
+        $this->em->persist($category);
+        $this->em->flush();
+
+        return View::create($category, Response::HTTP_OK);
+    }
+
+
+
+    /**
+     * @IsGranted("ROLE_ADMIN")
+     * 
      * @Route("/categories/{id}", methods={"DELETE"})
      *
      * @param string $id
