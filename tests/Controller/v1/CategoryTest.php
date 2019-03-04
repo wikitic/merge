@@ -5,28 +5,11 @@ namespace App\Tests\Controller\v1;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Response; // https://github.com/symfony/http-foundation/blob/master/Response.php
 
-class CategoryGetTest extends WebTestCase
+class CategoryTest extends WebTestCase
 {
-    private $client = null;
-
-    protected function setUp()
+    public function test_getCategories()
     {
-        $this->client = $this->createClient(['environment' => 'test']);
-        $this->client->disableReboot();
-        $this->em = $this->client->getContainer()->get('doctrine.orm.entity_manager');
-        $this->em->beginTransaction();
-    }
-
-    protected function tearDown()
-    {
-        $this->em->rollback();
-    }
-
-
-
-    public function test_getCategories_HTTP_OK()
-    {
-        $client = $this->client;
+        $client = static::createClient();
         $client->request('GET', '/v1/categories');
 
         $response = $client->getResponse();
@@ -49,7 +32,7 @@ class CategoryGetTest extends WebTestCase
      */
     public function test_getCategoriesByAlias_HTTP_NOT_FOUND(string $url = '')
     {
-        $client = $this->client;
+        $client = static::createClient();
         $client->request('GET', $url);
 
         $response = $client->getResponse();
@@ -65,9 +48,9 @@ class CategoryGetTest extends WebTestCase
         yield ['/v1/categories/categoria-2']; // disabled
     }
 
-    public function test_getCategoriesByAlias_HTTP_FOUND()
+    public function test_getCategoriesByAlias()
     {
-        $client = $this->client;
+        $client = static::createClient();
         $client->request('GET', '/v1/categories/categoria-1');
 
         $response = $client->getResponse();
