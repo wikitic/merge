@@ -1,9 +1,11 @@
-category.alias.unique: El alias ya existe
-category.title.not_blank: El título es requerido
-category.alias.not_blank: El alias es requerido
-category.description.not_blank: La descripción es requerida
-category.metatitle.not_blank: El meta título es requerido
-category.metadesc.not_blank: El meta desc es requerido
-category.metakey.not_blank: El meta key es requerido
-category.metaimage.not_blank: El meta image es requerido
-category.active.not_blank: El activo es requerido
+alias.unique: Campo alias ya existe
+title.not_blank: Campo título requerido
+alias.not_blank: Campo alias requerido
+introtext.not_blank: Campo introtext requerido
+description.not_blank: Campo descripción requerido
+metatitle.not_blank: Campo metatítulo requerido
+metadesc.not_blank: Campo metadesc requerido
+metakey.not_blank: Campo metakey requerido
+metaimage.not_blank: Campo metaimage requerido
+active.not_blank: Campo activo requerido
+ordering.not_blank: Campo orden requerido

@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="categories")
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
- * @UniqueEntity(fields={"alias"}, message="category.alias.unique")
+ * @UniqueEntity(fields={"alias"}, message="alias.unique")
  * @ORM\HasLifecycleCallbacks()
  */
 class Category
@@ -31,7 +31,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
-     * @Assert\NotBlank(message="category.title.not_blank")
+     * @Assert\NotBlank(message="title.not_blank")
      * @Groups({"api_list", "api_view"})
      */
     private $title;
@@ -40,7 +40,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="alias", type="string", length=100, unique=true)
-     * @Assert\NotBlank(message="category.alias.not_blank")
+     * @Assert\NotBlank(message="alias.not_blank")
      * @Groups({"api_list", "api_view"})
      */
     private $alias;
@@ -49,7 +49,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
-     * @Assert\NotBlank(message="category.description.not_blank")
+     * @Assert\NotBlank(message="description.not_blank")
      * @Groups({"api_list", "api_view"})
      */
     private $description;
@@ -58,7 +58,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="metatitle", type="string", length=255)
-     * @Assert\NotBlank(message="category.metatitle.not_blank")
+     * @Assert\NotBlank(message="metatitle.not_blank")
      * @Groups({"api_view"})
      */
     private $metatitle;
@@ -67,7 +67,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="metadesc", type="string", length=255)
-     * @Assert\NotBlank(message="category.metadesc.not_blank")
+     * @Assert\NotBlank(message="metadesc.not_blank")
      * @Groups({"api_view"})
      */
     private $metadesc;
@@ -76,7 +76,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="metakey", type="string", length=255)
-     * @Assert\NotBlank(message="category.metakey.not_blank")
+     * @Assert\NotBlank(message="metakey.not_blank")
      * @Groups({"api_view"})
      */
     private $metakey;
@@ -85,7 +85,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="metaimage", type="string", length=255)
-     * @Assert\NotBlank(message="category.metaimage.not_blank")
+     * @Assert\NotBlank(message="metaimage.not_blank")
      * @Groups({"api_view"})
      */
     private $metaimage;
@@ -94,7 +94,7 @@ class Category
      * @var int
      *
      * @ORM\Column(name="active", type="integer")
-     * @Assert\NotBlank(message="category.active.not_blank")
+     * @Assert\NotBlank(message="active.not_blank")
      */
     private $active;
 
@@ -102,6 +102,7 @@ class Category
      * @var int
      *
      * @ORM\Column(name="ordering", type="integer")
+     * @Assert\NotBlank(message="ordering.not_blank")
      */
     private $ordering;
 
