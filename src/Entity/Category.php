@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -31,6 +32,7 @@ class Category
      *
      * @ORM\Column(name="title", type="string", length=255)
      * @Assert\NotBlank(message="category.title.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $title;
 
@@ -39,6 +41,7 @@ class Category
      *
      * @ORM\Column(name="alias", type="string", length=100, unique=true)
      * @Assert\NotBlank(message="category.alias.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $alias;
 
@@ -47,6 +50,7 @@ class Category
      *
      * @ORM\Column(name="description", type="string", length=255)
      * @Assert\NotBlank(message="category.description.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $description;
 
@@ -55,6 +59,7 @@ class Category
      *
      * @ORM\Column(name="metatitle", type="string", length=255)
      * @Assert\NotBlank(message="category.metatitle.not_blank")
+     * @Groups({"api_view"})
      */
     private $metatitle;
 
@@ -63,6 +68,7 @@ class Category
      *
      * @ORM\Column(name="metadesc", type="string", length=255)
      * @Assert\NotBlank(message="category.metadesc.not_blank")
+     * @Groups({"api_view"})
      */
     private $metadesc;
 
@@ -71,6 +77,7 @@ class Category
      *
      * @ORM\Column(name="metakey", type="string", length=255)
      * @Assert\NotBlank(message="category.metakey.not_blank")
+     * @Groups({"api_view"})
      */
     private $metakey;
 
@@ -79,6 +86,7 @@ class Category
      *
      * @ORM\Column(name="metaimage", type="string", length=255)
      * @Assert\NotBlank(message="category.metaimage.not_blank")
+     * @Groups({"api_view"})
      */
     private $metaimage;
 
