@@ -28,6 +28,12 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             $lesson->setAccess($v['access']);
             $lesson->setOrdering($v['ordering']);
 
+            if (isset($v['salt'])) {
+                $lesson->setSalt($v['salt']);
+            }
+            // $lesson->setCdate($v['cdate']);
+            // $lesson->setMdate($v['mdate']);
+
             $manager->persist($lesson);
             $manager->flush();
         }
@@ -49,7 +55,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 1,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-1-1-1'
         ];
         yield [
             'course' => $this->getReference('curso-1-1'),
@@ -62,7 +69,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 1,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-1-1-2'
         ];
         yield [
             'course' => $this->getReference('curso-1-1'),
@@ -75,7 +83,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 1,
             'active' => false,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 3
+            'ordering' => 3,
+            'salt' => 'GOOD-SALT-1-1-3'
         ];
         yield [
             'course' => $this->getReference('curso-1-1'),
@@ -88,7 +97,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 2,
             'active' => true,
             'access' => Lesson::ACCESS_PREMIUM,
-            'ordering' => 4
+            'ordering' => 4,
+            'salt' => 'GOOD-SALT-1-1-4'
         ];
         yield [
             'course' => $this->getReference('curso-1-2'),
@@ -101,7 +111,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-1-2-1'
         ];
         yield [
             'course' => $this->getReference('curso-1-2'),
@@ -114,7 +125,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-1-2-2'
         ];
         yield [
             'course' => $this->getReference('curso-1-2'),
@@ -127,7 +139,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 3
+            'ordering' => 3,
+            'salt' => 'GOOD-SALT-1-2-3'
         ];
         yield [
             'course' => $this->getReference('curso-1-2'),
@@ -140,7 +153,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 4
+            'ordering' => 4,
+            'salt' => 'GOOD-SALT-1-2-4'
         ];
         yield [
             'course' => $this->getReference('curso-1-2'),
@@ -153,7 +167,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_PREMIUM,
-            'ordering' => 5
+            'ordering' => 5,
+            'salt' => 'GOOD-SALT-1-2-5'
         ];
         yield [
             'course' => $this->getReference('curso-1-3'),
@@ -166,7 +181,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => false,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-1-3-1'
         ];
         yield [
             'course' => $this->getReference('curso-1-3'),
@@ -179,7 +195,8 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'score' => 0,
             'active' => true,
             'access' => Lesson::ACCESS_USER,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-1-3-2'
         ];
     }
 

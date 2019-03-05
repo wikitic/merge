@@ -28,6 +28,12 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             $course->setActive($v['active']);
             $course->setOrdering($v['ordering']);
 
+            if (isset($v['salt'])) {
+                $course->setSalt($v['salt']);
+            }
+            // $course->setCdate($v['cdate']);
+            // $course->setMdate($v['mdate']);
+
             $this->addReference($v['alias'], $course);
 
             $manager->persist($course);
@@ -52,7 +58,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-1-1'
         ];
         yield [
             'category' => $this->getReference('categoria-1'),
@@ -66,7 +73,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-1-2'
         ];
         yield [
             'category' => $this->getReference('categoria-1'),
@@ -80,7 +88,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 0,
-            'ordering' => 3
+            'ordering' => 3,
+            'salt' => 'GOOD-SALT-1-3'
         ];
 
         yield [
@@ -95,7 +104,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-2-1'
         ];
         yield [
             'category' => $this->getReference('categoria-2'),
@@ -109,7 +119,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 2
+            'ordering' => 2,
+            'salt' => 'GOOD-SALT-2-2'
         ];
         yield [
             'category' => $this->getReference('categoria-2'),
@@ -123,7 +134,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 3
+            'ordering' => 3,
+            'salt' => 'GOOD-SALT-2-3'
         ];
 
         yield [
@@ -138,7 +150,8 @@ class CourseFixtures extends Fixture implements DependentFixtureInterface
             'metakey' => 'meta, palabras, curso',
             'metaimage' => 'curso.png',
             'active' => 1,
-            'ordering' => 1
+            'ordering' => 1,
+            'salt' => 'GOOD-SALT-3-1'
         ];
     }
 

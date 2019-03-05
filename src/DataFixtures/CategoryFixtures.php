@@ -9,11 +9,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class CategoryFixtures extends Fixture
 {
-    public static function getGroups(): array
-    {
-        return ['default'];
-    }
-
     public function load(ObjectManager $manager)
     {
         foreach ($this->getData() as $k => $v) {
