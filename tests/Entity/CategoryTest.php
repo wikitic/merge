@@ -5,12 +5,6 @@ namespace App\Tests\Entity;
 use App\Entity\Category;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\HttpFoundation\Response;
-
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Constraints\ValidValidator;
-use Symfony\Component\Validator\ValidatorBuilder;
-
 
 class CategoryTest extends WebTestCase
 {
