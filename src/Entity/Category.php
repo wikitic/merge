@@ -131,6 +131,8 @@ class Category
     
     public function __construct()
     {
+        // $this->active   = 0;
+        // $this->ordering = 0;
         $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
