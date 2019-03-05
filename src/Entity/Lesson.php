@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
+use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Lesson
  *
  * @ORM\Table(name="lessons")
  * @ORM\Entity(repositoryClass="App\Repository\LessonRepository")
+ * @UniqueEntity(fields={"category", "alias"}, message="category.alias.unique")
  * @ORM\HasLifecycleCallbacks()
  */
 class Lesson
@@ -51,6 +54,8 @@ class Lesson
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank(message="title.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $title;
 
@@ -58,6 +63,8 @@ class Lesson
      * @var string
      *
      * @ORM\Column(name="alias", type="string", length=255)
+     * @Assert\NotBlank(message="alias.not_blank")
+     * @Groups({"api_list", "api_view"})
      */
     private $alias;
 
@@ -65,6 +72,8 @@ class Lesson
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank(message="description.not_blank")
+     * @Groups({"api_view"})
      */
     private $description;
 
@@ -72,6 +81,7 @@ class Lesson
      * @var string
      *
      * @ORM\Column(name="video", type="string", length=255, nullable=true)
+     * @Groups({"api_view"})
      */
     private $video;
 
@@ -79,6 +89,7 @@ class Lesson
      * @var string
      *
      * @ORM\Column(name="files", type="string", nullable=true)
+     * @Groups({"api_view"})
      */
     private $files;
     
@@ -86,6 +97,7 @@ class Lesson
      * @var int
      *
      * @ORM\Column(name="score", type="integer")
+     * @Assert\Type(type="integer", message="score.integer")
      */
     private $score;
 
@@ -93,6 +105,7 @@ class Lesson
      * @var int
      *
      * @ORM\Column(name="active", type="integer")
+     * @Assert\Type(type="integer", message="active.integer")
      */
     private $active;
 
@@ -100,6 +113,7 @@ class Lesson
      * @var int
      *
      * @ORM\Column(name="access", type="integer")
+     * @Assert\Type(type="integer", message="access.integer")
      */
     private $access;
 
@@ -107,6 +121,7 @@ class Lesson
      * @var int
      *
      * @ORM\Column(name="ordering", type="integer")
+     * @Assert\Type(type="integer", message="active.integer")
      */
     private $ordering;
 
