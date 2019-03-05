@@ -136,6 +136,13 @@ class Course
     private $ordering;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    private $salt;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="cdate", type="datetime")
@@ -153,7 +160,9 @@ class Course
 
     public function __construct()
     {
-        $this->active   = 0;
+        // $this->active   = 0;
+        // $this->ordering = 0;
+        $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -163,6 +172,7 @@ class Course
      */
     public function prePersist()
     {
+        // $this->salt     = md5(uniqid());
         $this->cdate    = new \DateTime();
         $this->mdate    = new \DateTime();
     }
@@ -172,6 +182,7 @@ class Course
      */
     public function preUpdate()
     {
+        $this->salt     = md5(uniqid());
         $this->mdate    = new \DateTime();
     }
 
@@ -446,6 +457,29 @@ class Course
     public function setOrdering(int $ordering): self
     {
         $this->ordering = $ordering;
+
+        return $this;
+    }
+
+    /**
+     * Get salt
+     *
+     * @return string
+     */
+    public function getSalt(): ?string
+    {
+        return $this->salt;
+    }
+    /**
+     * Set salt
+     *
+     * @param string $salt
+     *
+     * @return Course
+     */
+    public function setSalt(string $salt): self
+    {
+        $this->salt = $salt;
 
         return $this;
     }
