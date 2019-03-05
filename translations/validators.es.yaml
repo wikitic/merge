@@ -1,4 +1,5 @@
 alias.unique: Campo alias ya existe
+category.alias.unique: Campo alias ya existe en esa categoría
 title.not_blank: Campo título requerido
 alias.not_blank: Campo alias requerido
 introtext.not_blank: Campo introtext requerido
@@ -9,5 +10,7 @@ metatitle.not_blank: Campo metatítulo requerido
 metadesc.not_blank: Campo metadesc requerido
 metakey.not_blank: Campo metakey requerido
 metaimage.not_blank: Campo metaimage requerido
+score.integer: Campo puntos numérico
+access.integer: Campo acceso numérico
 active.integer: Campo activo numérico
 ordering.integer: Campo orden numérico
