@@ -155,6 +155,32 @@ class LessonFixtures extends Fixture implements DependentFixtureInterface
             'access' => Lesson::ACCESS_PREMIUM,
             'ordering' => 5
         ];
+        yield [
+            'course' => $this->getReference('curso-1-3'),
+            'teacher' => $this->getReference('Teacher 1'),
+            'title' => 'Lección 1 3 1',
+            'alias' => 'leccion-1-3-1',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => false,
+            'access' => Lesson::ACCESS_USER,
+            'ordering' => 1
+        ];
+        yield [
+            'course' => $this->getReference('curso-1-3'),
+            'teacher' => $this->getReference('Teacher 1'),
+            'title' => 'Lección 1 3 2',
+            'alias' => 'leccion-1-3-2',
+            'description' => 'Descripción 1',
+            'video' => '',
+            'files' => '',
+            'score' => 0,
+            'active' => true,
+            'access' => Lesson::ACCESS_USER,
+            'ordering' => 2
+        ];
     }
 
     /**
