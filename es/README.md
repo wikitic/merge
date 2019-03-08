@@ -22,6 +22,10 @@ Accedemos al menú `Inicio > Preferencias > Raspberry Pi Configuración` y una v
 
 Accedemos a la terminal e introducimos el comando `sudo raspi-config`. Seleccionamos la opción de `Interfaces`, a continuación la opcción de `SSH` y por último la opción de `Habilitar`. Guardamos y ya está habilitado el acceso por SSH.
 
+```sh
+migueabellan@PC ~ $ sudo raspi-config
+```
+
 ![](img/ssh-terminal.png)
 
 
