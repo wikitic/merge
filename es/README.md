@@ -41,7 +41,7 @@ Por ejemplo, voy a conectarme por SSH utilizando el usuario por defecto `pi`, a 
 
 ```sh
 migueabellan@PC ~ $ ssh pi@192.168.0.138
-pi@192.168.0.138's password: *********
+pi@192.168.0.138 password: *********
 ```
 
 Una vez establecida la conexión SSH nos aparecerá el **prompt** `pi@raspberrypi:~ $ ` el cual indica que estamos conectados con el usuario `pi` a la máquina `raspberrypi`
