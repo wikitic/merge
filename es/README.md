@@ -48,7 +48,7 @@ Una vez establecida la conexión SSH nos aparecerá el **prompt** `pi@raspberryp
 
 ```sh
 migueabellan@PC ~ $ ssh pi@192.168.0.138
-pi@192.168.0.138's password: 
+pi@192.168.0.138 password: 
 Linux raspberrypi 4.14.98-v7+ #1200 SMP Tue Feb 12 20:27:48 GMT 2019 armv7l
 
 ...
