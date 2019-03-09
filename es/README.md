@@ -80,7 +80,7 @@ drwxr-xr-x 46 migueabellan migueabellan 4096 mar  8 14:42 ..
 -rw-r--r--  1 migueabellan migueabellan 1548 mar  8 10:55 known_hosts
 ```
 
-## Generar un par de claves pública y privada
+### Generar un par de claves pública y privada
 
 Suponiendo que no tenemos generadas el par de claves en nuestra máquina local, las generamos mediante el comando `ssh-keygen -t rsa` y nos hará una serie de preguntas.
 
@@ -110,6 +110,8 @@ The keys randomart image is:
 +-----------------+
 ```
 
+### Copiar la clave pública en la Raspberry Pi
+
 El siguiente paso consite en añadir la clave pública en la Raspberry Pi. Para ello utilizamos el comando `ssh-copy-id [user]@[host]` donde *usuario* hace referencia a nuestro usuario local y host es la dirección IP de la raspberry Pi. De esta forma se copiará nuestra clave pública en el fichero `autorized_keys` de la Raspberry Pi.
 
 ```sh
@@ -125,6 +127,8 @@ Otra alternativa consiste en pegar la clave pública utilizando SSH. Para ello i
 migueabellan@PC ~ $ cat ~/.ssh/id_rsa.pub | ssh pi@192.168.0.138 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 pi@192.168.0.138s password: 
 ```
+
+### Acceder por SSH con clave SSH
 
 De una forma u otra, ya podemos acceder a nuestra Raspberry Pi desde nuestro ordenador local sin necesidad de introducir la contraseña cada vez que queramos conectarnos.
 
@@ -146,7 +150,7 @@ This is a security risk - please login as the 'pi' user and type 'passwd' to set
 pi@raspberrypi:~ $
 ```
 
-## Recomendaciones
+### Recomendaciones de seguridad
 
 Una vez establecida la conexión por SSH, como medidas de seguridad, **podríamos** deshabilitar la conexión para los usuarios mediante el acceso de contraseñas. Hay que tener en cuenta que mediante este procedimiento en caso de perder las claves en el ordenador local no podríamos acceder a la Raspberry Pi con posterioridad.
 
