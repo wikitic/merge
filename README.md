@@ -1,6 +1,6 @@
 # Readme
 
-> This repository is the base for the projects.
+> This repository contains only one project. You can contributing revising or adding documentation in multiple languages.
 
 ## Folder Structure
 
