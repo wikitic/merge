@@ -17,3 +17,17 @@ pi@raspberrypi:~ $ sudo apt-get install motion
 Para comprobar que se ha instalado correctamente, abrimos un navegador en la misma Raspberry Pi, accedemos a la dirección `localhost:8081` y se debe ver la webcam.
 
 ![](img/motion.png)
+
+## Detectar movimientos
+
+ToDo
+
+## Acceder a Motion de forma remota
+
+ToDo
+
+## Siguiente tutorial
+
+Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
+
+Para ello lo que tenemos que hacer es configurar un tunel SSH a través de una Red Privada Virtual y eso lo explicamos en el tutorial [Raspberry Pi - OpenVPN](raspberry_pi-openvpn)
