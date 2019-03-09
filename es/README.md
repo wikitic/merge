@@ -29,7 +29,7 @@ pi@raspberrypi:~ $ sudo raspi-config
 ![](img/ssh-terminal.png)
 
 
-## Acceder por SSH desde un ordenador
+## Acceder por SSH mediante usuario/contraseña
 
 El comando para conectar por SSH `ssh user@host` consta de 3 partes:
 
@@ -56,11 +56,15 @@ Linux raspberrypi 4.14.98-v7+ #1200 SMP Tue Feb 12 20:27:48 GMT 2019 armv7l
 pi@raspberrypi:~ $ 
 ```
 
-### Establecer clave ssh 
+Como hemos visto, cada vez que nos conectemos a la Raspberry Pi tenemos que introducir la contraseña. Esto suele resultar engorroso si tenemos una contraseña difícil de memorizar. En el siguiente apartado, vamos a ver como conectarnos a una Raspberry Pi de forma segura sin necesidad de introducir la contraseña una y otra vez.
+
+## Acceder por SSH mediante claves SSH pública/privada 
 
 Otra forma de conectarnos por SSH sin necesidad de introducir la contraseña una y otra vez consiste en autenticarse a través de claves públicas SSH. De esta forma es más segura la conexión que introducir una contraseña que alguien podría interceptar. Además, el uso de claves SSH elimina el riesgo de ataques de fuerza bruta al reducir la probabilidad de que un atacante adivine las credenciales correctamente.
 
 > Más información sobre claves SSH [aquí](https://wiki.archlinux.org/index.php/SSH_keys_(Espa%C3%B1ol))
+
+### Comprobar si tenemos claves creadas
 
 En primer lugar vamos a listar el listado de claves por si las tuviésemos creadas utilizando el comando `ls -al ~/.ssh`. Si todavía no habéis introducido ninguna clave no debe aparecer ningún fichero en el listado.
 
@@ -79,7 +83,6 @@ drwxr-xr-x 46 migueabellan migueabellan 4096 mar  8 14:42 ..
 -rw-r--r--  1 migueabellan migueabellan  748 ago 28  2018 id_rsa.pub
 -rw-r--r--  1 migueabellan migueabellan 1548 mar  8 10:55 known_hosts
 ```
-
 ### Generar un par de claves pública y privada
 
 Suponiendo que no tenemos generadas el par de claves en nuestra máquina local, las generamos mediante el comando `ssh-keygen -t rsa` y nos hará una serie de preguntas.
@@ -112,23 +115,21 @@ The keys randomart image is:
 
 ### Copiar la clave pública en la Raspberry Pi
 
-El siguiente paso consite en añadir la clave pública en la Raspberry Pi. Para ello utilizamos el comando `ssh-copy-id [user]@[host]` donde *usuario* hace referencia a nuestro usuario local y host es la dirección IP de la raspberry Pi. De esta forma se copiará nuestra clave pública en el fichero `autorized_keys` de la Raspberry Pi.
+El siguiente paso consite en añadir la clave pública en la Raspberry Pi. Para ello utilizamos el comando `ssh-copy-id [user]@[host]`. De esta forma se copiará nuestra clave pública en el fichero `autorized_keys` de la Raspberry Pi.
 
 ```sh
-migueabellan@PC ~ $ ssh-copy-id migueabellan@192.168.0.138
+migueabellan@PC ~/.ssh $ ssh-copy-id pi@192.168.0.138
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-migueabellan@192.168.0.138s password: 
-```
-
-Otra alternativa consiste en pegar la clave pública utilizando SSH. Para ello indicamos en el comando que queremos añadir en el listado de claves autorizadas de nuestra Raspberry Pi, nuestra clave pública, accediendo por SSH como vimos anteriormente. Este comando es más largo y menos aconsejable. 
-
-```sh
-migueabellan@PC ~ $ cat ~/.ssh/id_rsa.pub | ssh pi@192.168.0.138 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 pi@192.168.0.138s password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'pi@192.168.0.138'"
+and check to make sure that only the key(s) you wanted were added.
 ```
 
-### Acceder por SSH con clave SSH
+### Acceder por SSH con claves pública y privada
 
 De una forma u otra, ya podemos acceder a nuestra Raspberry Pi desde nuestro ordenador local sin necesidad de introducir la contraseña cada vez que queramos conectarnos.
 
@@ -158,8 +159,12 @@ Para deshabilitar el acceso mediante contraseña debemos modificar la línea `Pe
 
 ```sh
 pi@raspberrypi:~ $ sudo nano /etc/ssh/sshd_config
-# Modificamos 
-# > PermitRootLogin without-password
+
+...
+
+# Modificamos la línea
+PermitRootLogin without-password
+
 ```
 
 
