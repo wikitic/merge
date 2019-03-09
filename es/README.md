@@ -14,6 +14,6 @@ Una vez actualizada la lista de paquetes del repositorio, podemos instalar Motio
 pi@raspberrypi:~ $ sudo apt-get install motion
 ```
 
-Para comprobar que se ha instalado correctamente, abrimos un navegador en la misma Raspberry Pi, accedemos a la dirección `localhost:8081` y se debe ver la webcam de forma similar que ocurría en el paso anterior.
+Para comprobar que se ha instalado correctamente, abrimos un navegador en la misma Raspberry Pi, accedemos a la dirección `localhost:8081` y se debe ver la webcam.
 
 ![](img/motion.png)
