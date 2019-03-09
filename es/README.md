@@ -24,7 +24,52 @@ ToDo
 
 ## Acceder a Motion de forma remota
 
-ToDo
+Probablemente lo que nos interese sea ver el contenido de la webcam desde fuera de la Raspberry Pi, por ejemplo, para controlar un bebe desde otra habitación. Para ello vamos a configurar Motion para que nos permita acceder desde la propia red local.
+
+### Configurar Motion
+
+En primer lugar accedemos al fichero `/etc/motion/motion.conf` donde aparecen todas las opciones de configuración de Motion. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/motion/motion.conf`.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/motion/motion.conf
+```
+
+Vamos a indicar en el fichero de configuración que el software arranque como servicio. Para ello cambiamos el valor `daemon on`. También debemos especificar el puerto web por el cual veremos nuestra webcam y que no solamente se va a reproducir en modo local sino que además debemos permitir el acceso desde fuera de la red local.
+
+> Como se puede observar, en este fichero aparecen diferentes configuración por defecto, y a medida que vayamos teniendo experiencia podemos ir probando.
+
+```
+# Start in daemon (background) mode and release terminal (default: off)
+daemon on
+
+# The mini-http server listens to this port for requests (default: 0 = disabled)
+stream_port 8081
+
+# Restrict stream connections to localhost only (default: on)
+stream_localhost off
+```
+
+### Arrancar Motion al enceder la Raspberry Pi
+
+En este caso vamos a configurar el fichero de configuración encargado de habilitar el daemon de Motion al iniciar la Raspberry Pi. Para ello accedemos al fichero `/etc/default/motion`. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/default/motion`.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/default/motion
+```
+
+```
+# set to 'yes' to enable the motion daemon
+start_motion_daemon=yes
+```
+
+Por último, reseteamos el servicio con el comando `service motion restart` para que los cambios tengan efecto y una vez reiniciado el servicio ya podemos acceder desde la propia red local a la dirección IP de la Rasbperry Pi, en nuestro caso, la ip `192.168.0.138:8081`.
+
+```sh
+pi@raspberrypi:~ $ sudo service motion restart
+```
+
+![](img/remoto.png)
+
 
 ## Siguiente tutorial
 
