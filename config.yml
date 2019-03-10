@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Clonar tarjeta SD en Raspbian con piclone
+    description: Clonado de Raspbian utilizando el programa SD Card Copier (piclone).
     authors:
-      - author-1
+      - migueabellan
