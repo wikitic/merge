@@ -20,4 +20,4 @@ Si nos fijamos en la imagen, debemos seleccionar el dispositivo desde donde quer
 
 ![](img/copy.png)
 
-El proceso suele tardar aproximadamente 20 minutos, un tiempo muy similar a la instalación por defecto de Raspbian, con la diferencia que nos ahorramos instalar los programas y configuraciones realizadas sobre nuestra Raspberry Pi.
+El proceso suele tardar aproximadamente **20 minutos**, tiempo similar a la instalación por defecto de Raspbian, con la diferencia de ahorrarnos instalar los programas y configuraciones realizadas sobre nuestra Raspberry Pi.
