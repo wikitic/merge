@@ -1,39 +1,23 @@
-# Lorem ipsum dolor
+# Clonar tarjeta SD en Raspbian con piclone
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Piclone (SD Card Copier) es la herramienta que integra el sistema operativo Raspbian para el clonado de tarjetas microSD de forma gráfica, es decir, podemos copiar todo el contenido de una tarjeta microSD a otra haciendo un clon idéntico sin utilizar la línea de comandos.
 
-![](img/default.jpg)
+Para utilizar la aplicación deberás disponer de un hub USB de tarjetas SD.
 
-## Aliquam ante felis
+![](img/hub.png)
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+## SD Card Copier
 
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+Para acceder a la herramienta accedemos desde el entorno gráfico de Raspbian a `Inicio > Accesorios > SD Card Copier`. Otra forma de acceder es mediante el comando `piclone` desde una nueva terminal. De una u otra forma se abrirá el asistente SD Card Copier como se muestra en la siguiente imagen.
 
 ```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
+pi@raspberrypi:~ $ piclone
 ```
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+![](img/sd-card-copier.png)
 
-```python
-import RPi.GPIO as GPIO
-import time
+Si nos fijamos en la imagen, debemos seleccionar el dispositivo desde donde queremos copiar (seleccionando la actual SD */dev/mmcblk0*) y hacia donde, en nuestro caso, un Hub USB utilizando una tarjeta SM en `/dev/sdd`.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+![](img/copy.png)
 
-led = GPIO.PWM(7, 100)
-
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
-```
+El proceso suele tardar aproximadamente 20 minutos, un tiempo muy similar a la instalación por defecto de Raspbian, con la diferencia que nos ahorramos instalar los programas y configuraciones realizadas sobre nuestra Raspberry Pi.
