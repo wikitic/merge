@@ -1,6 +1,6 @@
-# Clonar tarjeta SD en Raspbian con piclone
+# Clonar tarjeta SD en Raspbian con SD Card Copier (piclone)
 
-Piclone (SD Card Copier) es la herramienta que integra el sistema operativo Raspbian para el clonado de tarjetas microSD de forma gráfica, es decir, podemos copiar todo el contenido de una tarjeta microSD a otra haciendo un clon idéntico sin utilizar la línea de comandos.
+SD Card Copier (piclone) es la herramienta que integra el sistema operativo Raspbian para el clonado de tarjetas microSD de forma gráfica, es decir, podemos copiar todo el contenido de una tarjeta microSD a otra haciendo un clon idéntico sin utilizar la línea de comandos.
 
 Para utilizar la aplicación deberás disponer de un hub USB de tarjetas SD.
 
