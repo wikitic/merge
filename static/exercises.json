@@ -1,0 +1,50 @@
+[
+  {
+    "alias": "raspberry_pi-raspbian-piclone",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-piclone",
+    "title": "Clonar tarjeta SD Raspbian en Raspberry Pi con piclone",
+    "description": "Clonado de Raspbian utilizando el programa SD Card Copier (piclone).",
+    "tags": ["raspberry pi", "raspbian", "piclone"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-ssh",
+    "url": "https://github.com/wikitic/raspberry_pi-ssh",
+    "title": "Acceso remoto a través de SSH",
+    "description": "Accede a tu Raspberry Pi desde otro ordenador a través del protocolo SSH.",
+    "tags": ["raspberry pi", "ssh"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-webcam-luvcview",
+    "url": "https://github.com/wikitic/raspberry_pi-webcam-luvcview",
+    "title": "Configura una webcam en Raspberry Pi con LUVCview",
+    "description": "Visualiza y captura el contenido de una webcam con LUVCview en tu Raspberry Pi.",
+    "tags": ["raspberry pi", "webcam", "luvcview"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-webcam-motion",
+    "url": "https://github.com/wikitic/raspberry_pi-webcam-motion",
+    "title": "Detecta movimientos con una webcam y Motion en Raspberry Pi",
+    "description": "Con Motion podrás detectar movimientos utilizando una webcam en tu Raspberry Pi.",
+    "tags": ["raspberry pi", "webcam", "motion"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  }
+]
