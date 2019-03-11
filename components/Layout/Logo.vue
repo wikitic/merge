@@ -1,7 +1,9 @@
 <template>
   <div class="logo font-weight-light">
-    <span class="blue--text">W</span><span class="green--text">i</span><span class="orange--text">k</span><span class="red--text">i</span>
-    <span class="tic font-weight-black">TIC</span>
+    <router-link to="/">
+      <span class="blue--text">W</span><span class="green--text">i</span><span class="orange--text">k</span><span class="red--text">i</span>
+      <span class="tic font-weight-black">TIC</span>
+    </router-link>
   </div>
 </template>
 
@@ -14,6 +16,9 @@ export default {
 <style lang="scss" scope>
 .logo {
   font-size: 40px;
+  a {
+    text-decoration: none;
+  }
   span {
     letter-spacing: 0;
   }
