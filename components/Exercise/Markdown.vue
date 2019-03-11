@@ -35,11 +35,11 @@ export default {
 <style lang="scss" scope>
 .markdown {
   margin-bottom: 50px;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: normal;
   h1 {
     margin: 20px 0 40px;
-    font-size: 40px;
+    font-size: 38px;
   }
   h2,
   h3 {
