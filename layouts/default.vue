@@ -1,5 +1,21 @@
 <template>
   <v-app>
+    <v-toolbar
+      app
+      dark
+      fixed
+      flat
+    >
+      <Logo />
+      <!--
+      <v-text-field
+        v-model="search"
+        solo-inverted
+        flat
+        prepend-icon="search"
+      />
+      -->
+    </v-toolbar>
     <v-content>
       <nuxt />
     </v-content>
@@ -7,9 +23,11 @@
 </template>
 
 <script>
+import Logo from '@/components/Layout/Logo'
+
 export default {
-  data() {
-    return {}
+  components: {
+    Logo
   }
 }
 </script>
