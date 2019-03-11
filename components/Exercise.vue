@@ -1,11 +1,11 @@
 <template>
   <div class="mb-4">
     <div class="mb-1 title font-weight-bold blue--text">
-      <router-link 
+      <nuxt-link 
         :to="`/${exercise.alias}`"
       >
         {{ exercise.title }}
-      </router-link>
+      </nuxt-link>
     </div>
     <div class="mb-1 subheading font-weight-thin">
       {{ exercise.description }}
