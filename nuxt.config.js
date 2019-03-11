@@ -1,4 +1,5 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+import exercises from './static/exercises.json'
 
 export default {
   mode: 'spa',
@@ -79,6 +80,20 @@ export default {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+
+  /*
+  ** generate
+  */
+  generate: {
+    routes: async function() {
+      const e = await exercises.map(exercise => {
+        return `/${exercise.alias}`
+      })
+      return Promise.all([e]).then(v => {
+        return [...v[0]]
+      })
     }
   }
 }
