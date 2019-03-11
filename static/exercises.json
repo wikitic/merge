@@ -46,5 +46,17 @@
         "author": "migueabellan"
       }
     ]
+  },
+  {
+    "alias": "raspberry_pi-microbit-mu",
+    "url": "https://github.com/wikitic/raspberry_pi-microbit-mu",
+    "title": "Primeros pasos con micro:bit y Mu Editor",
+    "description": "Programa tu micro:bit en Raspberry Pi con MicroPython.",
+    "tags": ["raspberry pi", "microbit", "mu"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
   }
 ]
