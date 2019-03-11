@@ -1,18 +1,16 @@
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
-const pkg = require('./package')
+import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 
-module.exports = {
+export default {
   mode: 'spa',
 
   /*
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { name: 'robots', content: 'index, follow' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
