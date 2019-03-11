@@ -37,3 +37,18 @@ display.scroll('¡Hola Mundo!')
 ```
 
 ![](img/hola-mundo.png)
+
+## Mu Editor
+
+Una vez hemos probado que funciona nuestra placa Micro:bit vamos a explicar las partes del editor Mu.
+
+![](img/botones.png)
+
+- `New` abre un nuevo archivo.
+- `Load` abre un código existente.
+- `Save` guarda el código actual.
+- `Flash` carga el código en la placa Micro:bit.
+- `Repl` abre un Shell interactivo en línea de comandos para ejecutar instrucciones simples.
+- `Zoom-in` y `Zoom-out` Altera el tamaño de la fuente.
+- `Theme` altera el tono del editor
+- `Check` comprueba la sintaxis del código.
