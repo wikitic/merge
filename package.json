@@ -17,6 +17,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "nuxt": "^2.4.0",
+    "vue-markdown": "^2.2.4",
     "vuetify": "^1.5.5",
     "vuetify-loader": "^1.2.1"
   },

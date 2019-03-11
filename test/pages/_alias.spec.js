@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Index from '@/pages/index.vue'
+import Alias from '@/pages/_alias.vue'
 import Vuetify from 'vuetify'
 
 Vue.use(Vuetify)
 
-describe('Index', () => {
+describe('Alias', () => {
   test('mounts properly', () => {
-    const wrapper = shallowMount(Index)
+    const wrapper = shallowMount(Alias)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
