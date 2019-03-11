@@ -1,8 +1,16 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import exercises from './static/exercises.json'
 
+const routerBase = {
+  router: {
+    base: process.env.DEPLOY_ENV === 'MASTER' ? '/' : '/'
+  }
+}
+
 export default {
   mode: 'spa',
+
+  ...routerBase,
 
   /*
   ** Headers of the page
