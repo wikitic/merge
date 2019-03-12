@@ -11,7 +11,7 @@ const routerBase = {
 }
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
 
   ...routerBase,
   env: {

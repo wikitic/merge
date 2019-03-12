@@ -13,7 +13,7 @@ branches:
 
 install:
   - yarn install
-  - yarn run generate:master -- --universal
+  - yarn run generate:master
 
 script:
   - yarn run lint
