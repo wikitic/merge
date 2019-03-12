@@ -3,8 +3,7 @@
     :anchor-attributes="anchorAttrs"
     :source="content"
     class="markdown"
-  >
-  </vue-markdown>
+  />
 </template>
 
 <script>
@@ -115,6 +114,12 @@ export default {
         border-radius: 2px;
         background: #2d2d2d;
         color: #fff;
+      }
+      &.language-python {
+        border: 2px solid #555;
+        border-radius: 2px;
+        background: #f0f0f0;
+        line-height: 1.75rem;
       }
       &:before,
       &:after {
