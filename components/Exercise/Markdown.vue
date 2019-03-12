@@ -1,10 +1,9 @@
 <template>
   <vue-markdown
     :anchor-attributes="anchorAttrs"
+    :source="content"
     class="markdown"
-  >
-    {{ content }}
-  </vue-markdown>
+  />
 </template>
 
 <script>
