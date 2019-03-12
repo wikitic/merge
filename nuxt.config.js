@@ -50,12 +50,12 @@ export default {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/app.styl'],
+  // css: ['~/assets/style/app.styl'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  // plugins: ['@/plugins/vuetify'],
 
   /*
   ** Nuxt.js modules
@@ -75,6 +75,7 @@ export default {
   ** Build configuration
   */
   build: {
+    /*
     transpile: ['vuetify/lib'],
     plugins: [new VuetifyLoaderPlugin()],
     loaders: {
@@ -82,6 +83,7 @@ export default {
         import: ['~assets/style/variables.styl']
       }
     },
+    */
 
     /*
     ** You can extend webpack config here
