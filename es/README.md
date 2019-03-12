@@ -25,22 +25,9 @@ Una vez instalado ya podemos acceder al editor desde el menú `Inicio > Programm
 
 Para conectar la placa hacemos uso de cualquiera de los USB disponibles en la Raspberry Pi. Al conectarla aparecerá una ventana indicando que se ha introducido un dispositivo nuevo. Simplemente cancelamos la ventana haciendo clic en el botón `Cancelar`.
 
-## Programación en MicroPython
-
-[MicroPython](http://micropython.org/) es una versión reducida de Python 3 diseñada para funcionar en microcontroladores, como es el caso de la placa micro:bit.
-
-Una vez abierto el editor y conectada la placa Micro:bit, vamos a probar que funciona introduciendo el programa `Hola Mundo`. Para ello introducimos el siguiente código y presionamos sobre el botón `Flash`. Al cabo de unos segundos veremos como se desliza la frase `¡Hola Mundo!` sobre los leds de nuestra Micro:bit.
-
-```python
-from microbit import *
-display.scroll('¡Hola Mundo!')
-```
-
-![](img/hola-mundo.png)
-
 ## Mu Editor
 
-Una vez hemos probado que funciona nuestra placa Micro:bit vamos a explicar las partes del editor Mu.
+Para programar nuestra placa Micro:bit, vamos a utilizar el lenguaje de programación MicroPython. [MicroPython](http://micropython.org/) es una versión reducida de Python 3 diseñada para funcionar en microcontroladores, como es el caso de la placa micro:bit. Esto se consigue con el Editor Mu. Vamos a ver las partes del editor.
 
 ![](img/botones.png)
 
@@ -52,3 +39,16 @@ Una vez hemos probado que funciona nuestra placa Micro:bit vamos a explicar las 
 - `Zoom-in` y `Zoom-out` Altera el tamaño de la fuente.
 - `Theme` altera el tono del editor
 - `Check` comprueba la sintaxis del código.
+
+
+## ¡Hola Mundo!
+
+Una vez abierto el editor y conectada la placa Micro:bit, vamos a probar que funciona introduciendo el programa `Hola Mundo`. Para ello introducimos el siguiente código y presionamos sobre el botón `Flash`. Al cabo de unos segundos veremos como se desliza la frase `¡Hola Mundo!` sobre los leds de nuestra placa Micro:bit.
+
+```python
+from microbit import *
+display.scroll('¡Hola Mundo!')
+```
+
+![](img/hola-mundo.gif)
+
