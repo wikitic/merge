@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
+import Bootstrap from 'bootstrap-vue'
+
 import Metas from '@/components/Layout/Metas.vue'
-import Vuetify from 'vuetify'
 
 describe('Metas', () => {
   beforeEach(() => {
-    Vue.use(Vuetify)
+    Vue.use(Bootstrap)
   })
   test('is a Vue instance', () => {
     const wrapper = mount(Metas)

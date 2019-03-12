@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Alias from '@/pages/_alias.vue'
-import Vuetify from 'vuetify'
+import Bootstrap from 'bootstrap-vue'
 
-Vue.use(Vuetify)
+import Alias from '@/pages/_alias.vue'
+
+Vue.use(Bootstrap)
 
 describe('Alias', () => {
   test('mounts properly', () => {

@@ -1,4 +1,3 @@
-// import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import exercises from './static/exercises.json'
 
 const canonical = 'https://wikitic.github.io'
@@ -50,10 +49,7 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-    '~/assets/style/bootstrap.scss',
-    '~/assets/style/custom.scss'
-  ],
+  css: ['~/assets/style/bootstrap.scss', '~/assets/style/custom.scss'],
 
   /*
   ** Plugins to load before mounting the App

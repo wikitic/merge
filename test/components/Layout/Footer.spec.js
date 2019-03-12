@@ -2,14 +2,14 @@ import Vue from 'vue'
 import { mount } from '@vue/test-utils'
 import Bootstrap from 'bootstrap-vue'
 
-import Markdown from '@/components/Exercise/Markdown.vue'
+import Footer from '@/components/Layout/Footer.vue'
 
-describe('Markdown', () => {
+describe('Footer', () => {
   beforeEach(() => {
     Vue.use(Bootstrap)
   })
   test('is a Vue instance', () => {
-    const wrapper = mount(Markdown)
+    const wrapper = mount(Footer)
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
