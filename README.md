@@ -2,6 +2,8 @@
 
 > This repository contains only one project. You can contributing revising or adding documentation in multiple languages.
 
+![](preview.png)
+
 ## Folder Structure
 
 ```
