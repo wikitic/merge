@@ -1,21 +1,18 @@
 <template>
-  <v-container>
-    <v-layout
-      row 
-      wrap
-    >
-      <v-flex 
-        xs12
-      >
+  <b-container>
+    <b-row>
+      <b-col cols="12" sm="12" md="1" lg="2" />
+      <b-col cols="12" sm="12" md="10" lg="8">
         <Metas
           :metas="metas"
         />
         <Markdown
           :content="exercise" 
         />
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </b-col>
+      <b-col cols="12" sm="12" md="1" lg="2" />
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -47,5 +44,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 </style>

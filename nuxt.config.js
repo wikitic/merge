@@ -31,13 +31,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      /*
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      }
-      */
       {
         rel: 'stylesheet',
         href:
@@ -57,19 +50,23 @@ export default {
   /*
   ** Global CSS
   */
-  // css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/style/bootstrap.scss',
+    '~/assets/style/custom.scss'
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  // plugins: ['@/plugins/vuetify'],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'bootstrap-vue/nuxt'
   ],
   /*
   ** Axios module configuration
@@ -77,21 +74,16 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+  bootstrapVue: {
+    // See https://bootstrap-vue.js.org/docs
+    bootstrapCSS: false, // or `css`
+    bootstrapVueCSS: false // or `bvCSS`
+  },
 
   /*
   ** Build configuration
   */
   build: {
-    /*
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
-    },
-    */
-
     /*
     ** You can extend webpack config here
     */

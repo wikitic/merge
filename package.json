@@ -17,10 +17,9 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "bootstrap-vue": "^2.0.0-rc.14",
     "nuxt": "^2.4.0",
-    "vue-markdown": "^2.2.4",
-    "vuetify": "^1.5.5",
-    "vuetify-loader": "^1.2.1"
+    "vue-markdown": "^2.2.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

@@ -31,14 +31,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss">
 .markdown {
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: 'Noto Serif JP', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 34px;
   h1 {
     font-size: 1.75em;
     font-weight: 600;

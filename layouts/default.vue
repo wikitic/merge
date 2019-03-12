@@ -1,33 +1,30 @@
 <template>
-  <v-app>
-    <v-toolbar
-      app
-      dark
-      fixed
-      flat
+  <div>
+    <Header />
+    <div
+      class="content"
     >
-      <Logo />
-      <!--
-      <v-text-field
-        v-model="search"
-        solo-inverted
-        flat
-        prepend-icon="search"
-      />
-      -->
-    </v-toolbar>
-    <v-content>
       <nuxt />
-    </v-content>
-  </v-app>
+    </div>
+    <Footer />
+  </div>
 </template>
 
 <script>
-import Logo from '@/components/Layout/Logo'
+import Header from '@/components/Layout/Header'
+import Footer from '@/components/Layout/Footer'
 
 export default {
   components: {
-    Logo
+    Header,
+    Footer
   }
 }
 </script>
+
+<style lang="scss" scope>
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+</style>
