@@ -4,6 +4,7 @@
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-piclone",
     "title": "Clonar tarjeta SD Raspbian en Raspberry Pi con piclone",
     "description": "Clonado de Raspbian utilizando el programa SD Card Copier (piclone).",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-piclone/master/preview.png",
     "tags": ["raspberry pi", "raspbian", "piclone"],
     "authors": [
       {
@@ -16,6 +17,7 @@
     "url": "https://github.com/wikitic/raspberry_pi-ssh",
     "title": "Acceso remoto a través de SSH",
     "description": "Accede a tu Raspberry Pi desde otro ordenador a través del protocolo SSH.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ssh/master/preview.png",
     "tags": ["raspberry pi", "ssh"],
     "authors": [
       {
@@ -28,6 +30,7 @@
     "url": "https://github.com/wikitic/raspberry_pi-webcam-luvcview",
     "title": "Configura una webcam en Raspberry Pi con LUVCview",
     "description": "Visualiza y captura el contenido de una webcam con LUVCview en tu Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-webcam-luvcview/master/preview.png",
     "tags": ["raspberry pi", "webcam", "luvcview"],
     "authors": [
       {
@@ -40,6 +43,7 @@
     "url": "https://github.com/wikitic/raspberry_pi-webcam-motion",
     "title": "Detecta movimientos con una webcam y Motion en Raspberry Pi",
     "description": "Con Motion podrás detectar movimientos utilizando una webcam en tu Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-webcam-motion/master/preview.png",
     "tags": ["raspberry pi", "webcam", "motion"],
     "authors": [
       {
@@ -50,8 +54,9 @@
   {
     "alias": "raspberry_pi-microbit-mu",
     "url": "https://github.com/wikitic/raspberry_pi-microbit-mu",
-    "title": "Primeros pasos con micro:bit y Mu Editor",
-    "description": "Programa tu micro:bit en Raspberry Pi con MicroPython.",
+    "title": "Primeros pasos con Micro:bit y Mu Editor",
+    "description": "Programa tu Micro:bit en Raspberry Pi con MicroPython.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-microbit-mu/master/preview.png",
     "tags": ["raspberry pi", "microbit", "mu"],
     "authors": [
       {
