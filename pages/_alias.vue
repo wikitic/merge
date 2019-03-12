@@ -7,6 +7,9 @@
       <v-flex 
         xs12
       >
+        <Metas
+          :metas="metas"
+        />
         <Markdown
           :content="exercise" 
         />
@@ -17,10 +20,13 @@
 
 <script>
 import axios from 'axios'
+import exercises from '@/static/exercises.json'
+import Metas from '@/components/Layout/Metas'
 import Markdown from '@/components/Exercise/Markdown'
 
 export default {
   components: {
+    Metas,
     Markdown
   },
   async asyncData({ params }) {
@@ -32,12 +38,10 @@ export default {
     })
 
     return {
+      metas: exercises.find(e => {
+        return e.alias === params.alias
+      }),
       exercise: content.split('![](').join('![](' + repo + '/')
-    }
-  },
-  head() {
-    return {
-      title: 'Wiki TIC'
     }
   }
 }

@@ -1,6 +1,9 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import exercises from './static/exercises.json'
 
+const canonical = 'https://wikitic.github.io'
+const title = 'Wiki TIC'
+const description = 'Ejercicios prácticos aplicados a las TIC en educación'
 const routerBase = {
   router: {
     base: process.env.DEPLOY_ENV === 'MASTER' ? '/' : '/'
@@ -11,6 +14,11 @@ export default {
   mode: 'spa',
 
   ...routerBase,
+  env: {
+    canonical: canonical,
+    title: title,
+    description: description
+  },
 
   /*
   ** Headers of the page
