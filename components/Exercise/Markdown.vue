@@ -3,7 +3,8 @@
     :anchor-attributes="anchorAttrs"
     :source="content"
     class="markdown"
-  />
+  >
+  </vue-markdown>
 </template>
 
 <script>
@@ -33,37 +34,98 @@ export default {
 
 <style lang="scss" scope>
 .markdown {
-  margin-bottom: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Noto Serif JP', sans-serif;
+  font-weight: 300;
   font-size: 20px;
-  font-weight: normal;
+  line-height: 34px;
   h1 {
-    margin: 20px 0 40px;
-    font-size: 38px;
+    font-size: 1.75em;
+    font-weight: 600;
+    line-height: 50px;
   }
-  h2,
+  h2 {
+    margin-top: 60px;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
   h3 {
-    margin: 60px 0 20px;
+    margin-top: 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
   }
-  img {
-    max-width: 640px;
-    width: 100%;
+  p {
+    margin: 0 0 30px;
+    a {
+      color: #000;
+    }
+    strong {
+      font-weight: 600;
+    }
+    em {
+      font-style: italic;
+    }
+    code {
+      padding: 2px 7px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 200;
+    }
   }
-  code {
-    font-weight: normal;
-    color: #333;
+  ul {
+    margin: 0 0 60px 20px;
+    padding: 0;
+    li {
+      margin: 0 0 10px;
+      list-style: none;
+      &:before {
+        padding: 0 15px 0 0;
+        content: '\2022';
+      }
+    }
+  }
+  blockquote {
+    margin: 0 0 30px;
+    padding: 10px 10px 10px 30px;
+    border-left: 3px solid #2d2d2d;
+    background: #f0f0f0;
+    font-style: italic;
+    p {
+      margin: 0;
+    }
   }
   pre {
+    display: block;
+    margin: 0 0 30px;
+    background: #f0f0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.75em;
+    font-weight: normal;
+    line-height: 1.25rem;
+    white-space: pre-wrap;
+    word-wrap: pre-wrap;
     code {
       display: block;
-      margin: 0 0 20px;
-      padding: 10px;
-      background: #333;
-      color: #fff;
+      padding: 15px;
+      &.language-sh {
+        border: 5px solid #555;
+        border-top: 30px solid #555;
+        border-radius: 2px;
+        background: #2d2d2d;
+        color: #fff;
+      }
+      &:before,
+      &:after {
+        content: none;
+      }
     }
-    code:before,
-    code:after {
-      content: none;
-    }
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    margin: 20px auto 30px;
   }
 }
 </style>

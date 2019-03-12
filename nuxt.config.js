@@ -1,4 +1,4 @@
-import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
+// import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import exercises from './static/exercises.json'
 
 const canonical = 'https://wikitic.github.io'
@@ -31,10 +31,17 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      /*
       {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      }
+      */
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Noto+Serif+JP:200,300,400,500,700,900'
       }
     ]
   },
@@ -43,7 +50,7 @@ export default {
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#ffee00',
+    color: '#2d2d2d',
     height: '3px'
   },
 
