@@ -4,7 +4,8 @@
       :href="url"
       target="_blank"
     >
-      <i class="fab fa-github" /> Lee o edita página desde GitHub
+      <i class="fab fa-github" />
+      Lee o edita página desde GitHub
     </a>
   </div>
 </template>
@@ -24,11 +25,9 @@ export default {
 <style lang="scss">
 .contributing {
   margin: 30px 0 0;
-  padding: 30px 10px 10px;
+  padding: 30px 0 0;
   border-top: 1px solid #f0f0f0;
   text-align: right;
-  font-weight: 700;
-  font-size: 16px;
   a {
     padding: 5px 15px;
     background: #2d2d2d;
