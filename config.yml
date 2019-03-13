@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Direcciones IP en Raspberry Pi
+    description: Establecer una dirección IP Fija a nuestra Raspberry Pi.
     authors:
-      - author-1
+      - migueabellan
