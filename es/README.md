@@ -1,39 +1,21 @@
-# Lorem ipsum dolor
+# Actualizar el sistema operativo Raspbian
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Es conveniente actualizar el sistema operativo Raspbian de vez en cuando e incluso antes de instalar un determinado programa. En general utilizaremos los comandos `update` y `upgrade` como explicamos en la siguiente sección.
 
-![](img/default.jpg)
+## Comando Update
 
-## Aliquam ante felis
-
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
-
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+Con el primer comando, `apt-get update`, lo que en realidad estamos haciendo es actualizar la lista de repositorios, es decir, actualizar la lista de todos los paquetes con la dirección de dónde obtenerlos para que a la hora de su descarga lo encuentre más rápido.
 
 ```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
+pi@raspberrypi: ~ $ sudo apt-get update
 ```
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+## Comando Upgrade
 
-```python
-import RPi.GPIO as GPIO
-import time
+Con el comando `apt-get upgrade`, lo que hacemos es una actualización de nuestro sistema con todas las posibles actualizaciones que pudiera haber, es decir, no sólo actualiza nuestro sistema operativo sino que también las aplicaciones que están contenidas en los repositorios.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
-
-led = GPIO.PWM(7, 100)
-
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
+```sh
+pi@raspberrypi: ~ $ sudo apt-get upgrade
 ```
+
+> Una vez finalizados ambos procesos podemos asegurar que nuestro sistema operativo está actualizado a la última versión y listo para utilizar.
