@@ -26,6 +26,19 @@
     ]
   },
   {
+    "alias": "raspberry_pi-raspbian-update",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-update",
+    "title": "Actualizar el sistema operativo Raspbian",
+    "description": "Proceso de actualización de paquetes y versión en Raspbian desde la terminal.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-update/master/preview.png",
+    "tags": ["raspberry pi", "raspbian", "update"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-raspbian-piclone",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-piclone",
     "title": "Clonar tarjeta SD Raspbian en Raspberry Pi con piclone",
