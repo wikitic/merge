@@ -1,39 +1,33 @@
-# Lorem ipsum dolor
+# Instalar Raspbian en Raspberry Pi con NOOBs
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+NOOBS es el acrónimo de *New Out Of Box Software* y consiste en un instalador sencillo guiado paso a paso. NOOBS incluye también un método de edición rápida de configuración del nuevo sistema, un navegador web preinstalado y un modo de recuperación por línea de comandos a partir de una partición de rescate que se crea automáticamente.
 
-![](img/default.jpg)
+## Descargar Raspbian con NOOBs
 
-## Aliquam ante felis
+Para descargar la imagen del sistema operativo Raspbian para Raspberry Pi accederemos al apartado de [descargas](https://www.raspberrypi.org/downloads/noobs/) y elegimos la versión a instalar. Disponemos de la versión completa de *NOOBS con Pixel* y la versión reducida de *NOOBS Lite sin Pixel*.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+- `NOOBS`: Versión completa con entorno gráfico y programas recomendados.
+- `NOOBS Lite`: Versión reducida sin entorno gráfico (modo consola).
 
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+> El tiempo de descarga suele ser de 10 minutos aproximadamente dependiendo de la conexión a internet.
 
-```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
-```
+## Instalar SD Card Formatter
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Mientras se descarga la imagen de Raspbian, vamos a descargar el programa [SD Card Formatter](https://www.sdcard.org/downloads/index.html) (recomendado por Raspberry Pi) que utilizaremos para formatear y dejar preparada la tarjeta SD. 
 
-```python
-import RPi.GPIO as GPIO
-import time
+![](img/sdcard-formatter.png)
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+Una vez formateada la tarjeta copiaremos los archivos descargados de NOOBS dentro de la tarjeta.
 
-led = GPIO.PWM(7, 100)
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
-```
+## Instalar Raspbian con NOOBs
+
+Por último, conectaremos nuestra Raspberry Pi e iremos seleccionando las opciones que nos ofrezca el asistente de instalación. 
+
+> Este proceso suele tardar 20 minutos aproximadamente.
+
+![](img/noobs.gif)
+
+Una vez finalizada la instalación arrancará  el sistema operativo Raspbian.
+
+![](img/raspbian.png)
