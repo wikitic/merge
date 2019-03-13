@@ -9,6 +9,9 @@
         <Markdown
           :content="exercise" 
         />
+        <Contributing
+          :url="url" 
+        />
       </b-col>
       <b-col cols="12" sm="12" md="1" lg="2" />
     </b-row>
@@ -20,11 +23,13 @@ import axios from 'axios'
 import exercises from '@/static/exercises.json'
 import Metas from '@/components/Layout/Metas'
 import Markdown from '@/components/Exercise/Markdown'
+import Contributing from '@/components/Exercise/Contributing'
 
 export default {
   components: {
     Metas,
-    Markdown
+    Markdown,
+    Contributing
   },
   async asyncData({ params }) {
     const API_EX = 'https://raw.githubusercontent.com/wikitic/'
@@ -33,12 +38,14 @@ export default {
     const content = await axios.get(raw).then(res => {
       return res.data
     })
+    const url = `https://github.com/wikitic/${params.alias}/tree/master/es`
 
     return {
       metas: exercises.find(e => {
         return e.alias === params.alias
       }),
-      exercise: content.split('![](').join('![](' + repo + '/')
+      exercise: content.split('![](').join('![](' + repo + '/'),
+      url: url
     }
   }
 }
