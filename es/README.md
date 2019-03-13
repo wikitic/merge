@@ -1,39 +1,29 @@
-# Lorem ipsum dolor
+# Instalar Raspbian en Raspberry Pi a través de una imagen
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Una imagen es un archivo que contiene la estructura y los contenidos completos de un sistema operativo, es decir, una copia exacta del sistema operativo y contenido. Esto es útil cuando queremos que todos nuestros equipos dispongan de la misma configuración y con los mismos programas instalados, mismas carpetas, etc.
 
-![](img/default.jpg)
+## Descargar imagen de Raspbian
 
-## Aliquam ante felis
+Para descargar la imagen del sistema operativo Raspbian para Raspberry Pi accederemos al apartado de [descargas](https://www.raspberrypi.org/downloads/raspbian/) y elegimos la versión a instalar.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+- `Raspbian Stretch with desktop and recommended software`: Versión completa con entorno gráfico y programas recomendados.
+- `Raspbian Stretch with desktop`: Versión completa con entorno gráfico (ventanas, carpetas, etc.).
+- `Raspbian Stretch Lite`: Versión reducida sin entorno gráfico (modo consola).
 
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+> El tiempo de descarga suele ser de 10 minutos aproximadamente dependiendo de la conexión a internet.
 
-```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
-```
+## Instalar Etcher
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Mientras se descarga la imagen de Raspbian, vamos a descargar el programa [Etcher](https://etcher.io/) (recomendado por Raspberry Pi) que utilizaremos para copiar la imagen de Raspbian en la tarjeta SD. 
 
-```python
-import RPi.GPIO as GPIO
-import time
+![](img/etcher.png)
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+## Clonar la imagen de Raspbian con Etcher
 
-led = GPIO.PWM(7, 100)
+Una vez descargada la imagen de Raspbian e instalado el programa Etcher, lo abrimos y seleccionamos la imagen y la tarjeta donde queremos copiar el sistema operativo. Hacemos clic sobre el boton `Flash` y esperamos a que el proceso finalice.
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
-```
+> Este proceso suele tardar 20 minutos aproximadamente.
+
+Una vez finalizado el proceso de copiado conectamos la tarjeta SD a la Raspberry Pi y al encenderla arrancará directamente el sistema operativo Raspbian.
+
+![](img/raspbian.png)
