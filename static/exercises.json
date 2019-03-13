@@ -65,6 +65,19 @@
     ]
   },
   {
+    "alias": "raspberry_pi-ip",
+    "url": "https://github.com/wikitic/raspberry_pi-ip",
+    "title": "Direcciones IP en Raspberry Pi",
+    "description": "Establecer una dirección IP Fija a nuestra Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ip/master/preview.png",
+    "tags": ["raspberry pi", "ip"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-webcam-luvcview",
     "url": "https://github.com/wikitic/raspberry_pi-webcam-luvcview",
     "title": "Configura una webcam en Raspberry Pi con LUVCview",
