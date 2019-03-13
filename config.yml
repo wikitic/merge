@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Actualizar el sistema operativo Raspbian
+    description: Proceso de actualización de paquetes y versión en Raspbian desde la terminal.
     authors:
-      - author-1
+      - migueabellan
