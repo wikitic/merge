@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Título
+    description: Descripción 140 caracteres.
+    authors:
+      - author-1
