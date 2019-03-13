@@ -62,14 +62,6 @@ export default {
     em {
       font-style: italic;
     }
-    code {
-      padding: 2px 7px;
-      background: #f0f0f0;
-      border-radius: 5px;
-      font-family: 'Courier New', Courier, monospace;
-      font-weight: 200;
-      color: #333;
-    }
   }
   ul {
     margin: 0 0 60px 20px;
@@ -92,6 +84,14 @@ export default {
     p {
       margin: 0;
     }
+  }
+  code {
+    padding: 2px 7px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 200;
+    color: #333;
   }
   pre {
     display: block;
