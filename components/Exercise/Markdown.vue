@@ -34,17 +34,20 @@ export default {
 <style lang="scss">
 .markdown {
   h1 {
+    margin-bottom: 20px;
     font-size: 1.75em;
     font-weight: 600;
     line-height: 50px;
   }
   h2 {
     margin-top: 60px;
+    margin-bottom: 20px;
     font-size: 1.5rem;
     font-weight: 700;
   }
   h3 {
     margin-top: 30px;
+    margin-bottom: 20px;
     font-size: 1.25rem;
     font-weight: 600;
   }
@@ -65,6 +68,7 @@ export default {
       border-radius: 5px;
       font-family: 'Courier New', Courier, monospace;
       font-weight: 200;
+      color: #333;
     }
   }
   ul {

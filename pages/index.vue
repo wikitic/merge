@@ -75,7 +75,7 @@ export default {
     }
   }
   .image {
-    padding: 0 10% 20px;
+    padding: 0 0 20px;
   }
   .description {
     margin: 0 0 10px;
