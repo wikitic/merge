@@ -1,5 +1,31 @@
 [
   {
+    "alias": "raspberry_pi-raspbian-noobs",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-noobs",
+    "title": "Instalar Raspbian en Raspberry Pi con NOOBs",
+    "description": "Instalación del sistema operativo Raspbian a través del asistente NOOBs.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-noobs/master/preview.png",
+    "tags": ["raspberry pi", "raspbian", "noobs"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-raspbian-etcher",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-etcher",
+    "title": "Instalar Raspbian en Raspberry Pi con Etcher",
+    "description": "Instalación del sistema operativo Raspbian a través de una imagen con Etcher.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-etcher/master/preview.png",
+    "tags": ["raspberry pi", "raspbian", "etcher"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-raspbian-piclone",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-piclone",
     "title": "Clonar tarjeta SD Raspbian en Raspberry Pi con piclone",
