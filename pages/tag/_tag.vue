@@ -3,7 +3,7 @@
     <b-row>
       <b-col md="12" order-lg="2" lg="2" xl="4">
         <div class="tags">
-          <h3>Tags</h3>
+          <h4>Tags</h4>
           <TagList />
         </div>
       </b-col>
