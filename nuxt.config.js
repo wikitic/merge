@@ -108,11 +108,27 @@ export default {
   */
   generate: {
     routes: async function() {
+      const t = [
+        '/tag/raspberry-pi',
+        '/tag/raspbian',
+        '/tag/noobs',
+        '/tag/etcher',
+        '/tag/update',
+        '/tag/piclone',
+        '/tag/ssh',
+        '/tag/ip',
+        '/tag/webcam',
+        '/tag/luvcview',
+        '/tag/motion',
+        '/tag/microbit',
+        '/tag/mu'
+      ]
+
       const e = await exercises.map(exercise => {
         return `/${exercise.alias}`
       })
-      return Promise.all([e]).then(v => {
-        return [...v[0]]
+      return Promise.all([t, e]).then(v => {
+        return [...v[0], ...v[1]]
       })
     }
   }
