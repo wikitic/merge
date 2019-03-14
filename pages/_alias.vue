@@ -44,7 +44,7 @@ export default {
       exercise: exercises.find(e => {
         return e.alias === params.alias
       }),
-      content: content.split('![](').join('![](' + repo + '/'),
+      content: content.split('![](').join('![](' + repo + ''),
       url: url
     }
   }
