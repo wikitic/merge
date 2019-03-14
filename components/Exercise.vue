@@ -29,7 +29,12 @@
         :key="tag"
         class="tag"
       >
-        {{ tag }}
+        <nuxt-link 
+          :to="`/tag/${encodeURIComponent(tag).replace(/%20/g,'+')}`"
+          :title="encodeURIComponent(tag).replace(/%20/g,'+')"
+        >
+          {{ tag }}
+        </nuxt-link>
       </span>
     </div>
   </div>
