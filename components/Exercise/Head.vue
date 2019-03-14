@@ -4,9 +4,7 @@
     class="head"
   >
     <b-container>
-      <b-row>
-        <h1>{{ exercise.title }}</h1>
-      </b-row>
+      <h1>{{ exercise.title }}</h1>
     </b-container>
   </div>
 </template>
@@ -26,7 +24,7 @@ export default {
 <style lang="scss">
 .head {
   margin: 0 0 60px;
-  padding: 100px 0;
+  padding: 70px 0 100px;
   background-size: 100%;
   h1 {
     display: block;

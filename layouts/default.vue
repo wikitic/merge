@@ -1,7 +1,9 @@
 <template>
   <div>
     <Header />
-    <nuxt />
+    <nuxt 
+      class="content"
+    />
     <Footer />
   </div>
 </template>
@@ -19,4 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scope>
+.content {
+  padding: 30px 0;
+}
 </style>
