@@ -24,6 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  margin: 0 0 30px;
   padding: 5px 0;
   box-shadow: 0 4px 12px 0 #f0f0f0;
   .logo {
@@ -34,13 +35,13 @@ export default {
         padding: 0 15px;
         background: #2d2d2d;
         color: #fff;
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 600;
         line-height: 50px;
       }
       .tic {
         color: #333;
-        font-size: 28px;
+        font-size: 22px;
         font-weight: 300;
       }
     }
