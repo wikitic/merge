@@ -109,7 +109,7 @@ export default {
   generate: {
     routes: async function() {
       const t = [
-        '/tag/raspberry-pi',
+        '/tag/raspberry+pi',
         '/tag/raspbian',
         '/tag/noobs',
         '/tag/etcher',
