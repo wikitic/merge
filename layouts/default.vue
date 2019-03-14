@@ -1,11 +1,7 @@
 <template>
   <div>
     <Header />
-    <div
-      class="content"
-    >
-      <nuxt />
-    </div>
+    <nuxt />
     <Footer />
   </div>
 </template>
@@ -23,8 +19,4 @@ export default {
 </script>
 
 <style lang="scss" scope>
-.content {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
 </style>

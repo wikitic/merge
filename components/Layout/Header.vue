@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  margin: 0 0 30px;
+  margin: 0;
   padding: 5px 0;
   box-shadow: 0 4px 12px 0 #f0f0f0;
   .logo {
