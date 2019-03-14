@@ -1,15 +1,13 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
 import Bootstrap from 'bootstrap-vue'
-
 import Footer from '@/components/Layout/Footer.vue'
 
+Vue.use(Bootstrap)
+
 describe('Footer', () => {
-  beforeEach(() => {
-    Vue.use(Bootstrap)
-  })
-  test('is a Vue instance', () => {
+  it('renders', () => {
     const wrapper = mount(Footer)
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.html()).toContain('Made')
   })
 })
