@@ -2,13 +2,11 @@
   <div class="tag-list">
     <h4>Tags</h4>
     <div class="tags">
-      <span
+      <TagItem
         v-for="tag in list"
         :key="tag"
-        class="tag"
-      >
-        <TagItem :tag="tag" />
-      </span>
+        :tag="tag" 
+      />
     </div>
   </div>
 </template>

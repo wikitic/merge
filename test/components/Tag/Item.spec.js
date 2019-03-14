@@ -1,21 +1,32 @@
 import Vue from 'vue'
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import Bootstrap from 'bootstrap-vue'
-
 import TagItem from '@/components/Tag/Item.vue'
-const tag = 'tag test'
+
+Vue.use(Bootstrap)
 
 describe('TagItem', () => {
-  beforeEach(() => {
-    Vue.use(Bootstrap)
+  it('renders tag', () => {
+    const tag = 'tag test'
+    const wrapper = mount(TagItem, {
+      propsData: {
+        tag: tag
+      },
+      stubs: ['nuxt-link']
+    })
+    expect(wrapper.props().tag).toBe('tag test')
+    expect(wrapper.html()).toContain('/tag/tag+test')
+    expect(wrapper.html()).toContain('tag test')
   })
-  it('is a Vue instance', () => {
-    const wrapper = shallowMount(TagItem, {
+
+  it('renders empty tag', () => {
+    const tag = ''
+    const wrapper = mount(TagItem, {
       propsData: {
         tag: tag
       }
     })
-    expect(wrapper.isVueInstance()).toBeTruthy()
-    // console.log(wrapper.html())
+    expect(wrapper.props().tag).toBe('')
+    expect(wrapper.html()).toBe(undefined)
   })
 })

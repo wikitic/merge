@@ -1,5 +1,8 @@
 <template>
-  <span class="tag-item">
+  <span
+    v-if="tag"  
+    class="tag-item"
+  >
     <nuxt-link 
       :to="`/tag/${encodeURIComponent(tag).replace(/%20/g,'+')}`"
     >
