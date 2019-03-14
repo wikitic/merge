@@ -27,22 +27,21 @@
       <span
         v-for="tag in exercise.tags"
         :key="tag"
-        class="tag"
       >
-        <nuxt-link 
-          :to="`/tag/${encodeURIComponent(tag).replace(/%20/g,'+')}`"
-          :title="encodeURIComponent(tag).replace(/%20/g,'+')"
-        >
-          {{ tag }}
-        </nuxt-link>
+        <TagItem :tag="tag" />
       </span>
     </div>
   </div>
 </template>
 
 <script>
+import TagItem from '@/components/Tag/Item'
+
 export default {
   name: 'Exercise',
+  components: {
+    TagItem
+  },
   props: {
     exercise: {
       type: Object,
@@ -74,15 +73,6 @@ export default {
   .description {
     margin: 0 0 10px;
     font-size: 20px;
-  }
-  .tags {
-    .tag {
-      display: inline-block;
-      margin: 0 10px 0 0;
-      padding: 5px;
-      background: #f0f0f0;
-      border-radius: 5px;
-    }
   }
 }
 </style>
