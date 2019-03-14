@@ -28,6 +28,7 @@ export default {
   },
   asyncData({ params }) {
     return {
+      title: params.tag,
       exercises: exercises.filter(e => {
         return e.tags.includes(params.tag.replace('+', ' '))
       })
@@ -35,7 +36,7 @@ export default {
   },
   head() {
     return {
-      title: 'Wiki TIC'
+      title: `Wiki TIC - ${this.title}`
     }
   }
 }
