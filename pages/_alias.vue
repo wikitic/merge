@@ -4,10 +4,10 @@
       <b-col cols="12" sm="12" md="1" lg="2" />
       <b-col cols="12" sm="12" md="10" lg="8">
         <Metas
-          :metas="metas"
+          :metas="exercise"
         />
         <Markdown
-          :content="exercise" 
+          :content="content" 
         />
         <Contributing
           :url="url" 
@@ -41,10 +41,10 @@ export default {
     const url = `https://github.com/wikitic/${params.alias}/tree/master/es`
 
     return {
-      metas: exercises.find(e => {
+      exercise: exercises.find(e => {
         return e.alias === params.alias
       }),
-      exercise: content.split('![](').join('![](' + repo + '/'),
+      content: content.split('![](').join('![](' + repo + '/'),
       url: url
     }
   }
