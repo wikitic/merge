@@ -24,17 +24,19 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  padding: 3px 0 5px;
+  padding: 5px 0;
   box-shadow: 0 4px 12px 0 #f0f0f0;
   .logo {
     a {
       text-decoration: none;
       .wiki {
+        display: inline-block;
         padding: 0 15px;
         background: #2d2d2d;
         color: #fff;
         font-size: 40px;
         font-weight: 600;
+        line-height: 50px;
       }
       .tic {
         color: #333;

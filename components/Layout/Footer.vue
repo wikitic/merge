@@ -3,7 +3,7 @@
     <b-container>
       <b-row>
         <b-col cols="12">
-          made with <span>&hearts;</span> by <a target="_blank" href="https://github.com/migueabellan">@migueabellan</a>
+          Made with <span>&hearts;</span> by <a target="_blank" href="https://github.com/migueabellan">@migueabellan</a>
         </b-col>
       </b-row>
     </b-container>
@@ -18,20 +18,19 @@ export default {
 
 <style lang="scss" scoped>
 .footer {
-  margin: 30px 0 0;
-  padding: 10px;
-  background: #2d2d2d;
+  margin: 60px 0 0;
+  padding: 30px 10px 10px;
   text-align: center;
   font-size: 14px;
-  color: #fff;
+  color: #888;
   span {
     color: #dc3545;
   }
   a {
-    color: #fff;
+    color: #888;
     &:hover {
-      color: #fff;
-      text-decoration: underline;
+      color: #333;
+      text-decoration: none;
     }
   }
 }
