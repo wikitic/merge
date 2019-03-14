@@ -29,6 +29,13 @@ export default {
   border-radius: 5px;
   font-size: 15px;
   line-height: auto;
-  color: #333;
+  color: #888;
+  a {
+    color: #666;
+    &:hover {
+      color: #333;
+      text-decoration: none;
+    }
+  }
 }
 </style>

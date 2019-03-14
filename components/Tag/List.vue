@@ -1,12 +1,15 @@
 <template>
-  <div class="tags-list">
-    <span
-      v-for="tag in list"
-      :key="tag"
-      class="tag"
-    >
-      <TagItem :tag="tag" />
-    </span>
+  <div class="tag-list">
+    <h4>Tags</h4>
+    <div class="tags">
+      <span
+        v-for="tag in list"
+        :key="tag"
+        class="tag"
+      >
+        <TagItem :tag="tag" />
+      </span>
+    </div>
   </div>
 </template>
 
@@ -34,4 +37,10 @@ export default {
 </script>
 
 <style lang="scss">
+.tag-list {
+  margin-bottom: 30px;
+  h4 {
+    margin-bottom: 20px;
+  }
+}
 </style>

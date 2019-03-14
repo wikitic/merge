@@ -2,10 +2,7 @@
   <b-container>
     <b-row>
       <b-col md="12" order-lg="2" lg="2" xl="4">
-        <div class="tags">
-          <h4>Tags</h4>
-          <TagList />
-        </div>
+        <TagList />
       </b-col>
       <b-col md="12" order-lg="1" lg="10" xl="8">
         <div
