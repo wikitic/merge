@@ -4,8 +4,7 @@
       :href="url"
       target="_blank"
     >
-      <i class="fab fa-github" />
-      Lee o edita página desde GitHub
+      Edita página desde <i class="fab fa-github" /> GitHub
     </a>
   </div>
 </template>
@@ -28,14 +27,11 @@ export default {
   padding: 30px 0 0;
   border-top: 1px solid #f0f0f0;
   text-align: right;
+  font-size: 16px;
   a {
-    padding: 5px 15px;
-    background: #2d2d2d;
-    border-radius: 5px;
-    color: #fff;
+    color: #666;
     &:hover {
-      background: #333;
-      color: #f0f0f0;
+      color: #333;
       text-decoration: none;
     }
   }
