@@ -57,11 +57,15 @@ export default {
     font-size: 1.1rem;
     font-weight: 500;
   }
+  a {
+    text-decoration: underline;
+    color: #333;
+    &:hover {
+      color: #111;
+    }
+  }
   p {
     margin: 0 0 30px;
-    a {
-      color: #000;
-    }
     strong {
       font-weight: 600;
     }
