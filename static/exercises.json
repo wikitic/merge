@@ -128,5 +128,18 @@
         "author": "migueabellan"
       }
     ]
+  },
+  {
+    "alias": "microbit-micropython-buttons",
+    "url": "https://github.com/wikitic/microbit-micropython-buttons",
+    "title": "Botones en Micro:bit con MicroPython",
+    "description": "Utiliza los botones de Micro:bit con MicroPython.",
+    "image": "https://raw.githubusercontent.com/wikitic/microbit-micropython-buttons/master/preview.png",
+    "tags": ["microbit", "micropython"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
   }
 ]
