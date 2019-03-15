@@ -51,6 +51,12 @@ export default {
     font-size: 1.25rem;
     font-weight: 600;
   }
+  h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
   p {
     margin: 0 0 30px;
     a {
