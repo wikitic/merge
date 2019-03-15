@@ -2,6 +2,8 @@
 
 En este tutorial se va a utilizar la matriz de LEDs (5x5) de la tarjeta Micro:bit para representar y construir diferentes tipos de imágenes utilizando el lenguaje de programación MicroPython.
 
+> Si todavía no estás familiarizado con el lenguaje de programación Python, visita el proyecto [AprendeProgramando](https://www.aprendeprogramando.es/cursos-online/python) para aprender programación en Python paso a paso y a tu ritmo.
+
 ## Imágenes predefinidas
 
 MicroPython viene con muchas imágenes integradas para mostrar en la pantalla aunque probablemente queramos construir las nuestras propias.
