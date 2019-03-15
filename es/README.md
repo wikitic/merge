@@ -1,39 +1,53 @@
-# Lorem ipsum dolor
+# Botones en Micro:bit con MicroPython
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+En este tutorial se van a utilizar los botones delanteros de la tarjeta Micro:bit para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
 
-![](img/default.jpg)
+> Si todavía no estás familiarizado con el lenguaje de programación Python, visita el proyecto [AprendeProgramando](https://www.aprendeprogramando.es/cursos-online/python) para aprender programación en Python paso a paso y a tu ritmo.
 
-## Aliquam ante felis
+La placa Micro:bit consta de 2 botones en la parte frontal situados a la izquierda y a la derecha bajo las serigrafías `A` y `B` respectivamente.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+> Puedes acceder a la referencia de los [botones](https://microbit-micropython.readthedocs.io/en/latest/tutorials/buttons.html) desde la documentación oficial de Micro:bit.
 
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+## Función is_pressed()
 
-```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
-```
+La primera función que vamos a ver es `is_pressed()` encargada de comprobar si hemos pulsado un botón. Sin embargo, a esta función tiene que añadirse el botón en concreto que estamos pulsando `button_a` o `button_b`. De tal manera que el código encargado de comprobar si estamos pulsando el botón A será `button_a.is_pressed()`.
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+En el siguiente ejemplo vamos a mostrar [imágenes en la matriz de LEDs](microbit-micropython-images). Una cara feliz `Image.Happy` si estamos pulsando el botón y en caso contrario una cara triste `Image.SAD`.
 
 ```python
-import RPi.GPIO as GPIO
-import time
-
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
-
-led = GPIO.PWM(7, 100)
+from microbit import *
 
 while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
+   if button_a.is_pressed():
+      display.show(Image.HAPPY)
+   else:
+      display.show(Image.SAD)
 ```
+
+## Función get_presses()
+
+Con esta función podemos capturar las veces que hemos pulsado un determinado botón. El valor devuelto por la función es un número, con lo cual, si queremos mostrarlo por la matriz de LEDs debemos transformarlo a cadena (string) utilizando la función `str()`.
+
+Por ejmplo, vamos a mostrar por la matriz de led las veces que hemos pulsado el botón A. Para ello, tenemos que esperar 5 segundos utilizando la función `sleep()` hasta que se muestre el número en la matriz de LEDs.
+
+```python
+from microbit import *
+
+sleep(5000) # 5000 milisegundos = 5 segundos
+
+pulsaciones = str(button_a.get_presses())
+
+display.show(pulsaciones)
+
+# En caso de más de 1 dígito utilizar la función display.scroll()
+display.scroll(pulsaciones)
+```
+
+
+## Ejercicios propuestos
+
+#### 1.- Muestra por la matriz de LEDs 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
+
+#### 2.- Crea las letras de tu nombre en mayúsculas y muéstralas en bucle de 1 en 1.
+
+#### 3.- Construye un degradado de izquierda a derecha utilizando diferentes intensidades de luz.
