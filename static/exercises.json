@@ -119,7 +119,7 @@
   {
     "alias": "microbit-micropython-images",
     "url": "https://github.com/wikitic/microbit-micropython-images",
-    "title": "Programa tu Micro:bit en Raspberry Pi con MicroPython",
+    "title": "Matriz de LEDs en Micro:bit con MicroPython",
     "description": "Crear imágenes en la madtriz de LEDs de Micro:bit con MicroPython.",
     "image": "https://raw.githubusercontent.com/wikitic/microbit-micropython-images/master/preview.png",
     "tags": ["microbit", "micropython"],
