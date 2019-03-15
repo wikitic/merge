@@ -121,7 +121,8 @@ export default {
         '/tag/luvcview',
         '/tag/motion',
         '/tag/microbit',
-        '/tag/mu'
+        '/tag/mu',
+        '/tag/micropython'
       ]
 
       const e = await exercises.map(exercise => {
