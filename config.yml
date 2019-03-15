@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Botones en Micro:bit con MicroPython
+    description: Utiliza los botones de Micro:bit con MicroPython.
     authors:
-      - author-1
+      - migueabellan
