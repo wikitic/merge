@@ -47,6 +47,12 @@ Por ejemplo, vamos a crear una imagen con forma de barco utilizando diferentes i
 ```python
 from microbit import *
 
+# 0 1 0 1 0
+# 0 3 0 3 0
+# 0 5 0 5 0
+# 9 9 9 9 9
+# 0 9 9 9 0
+
 barco = Image("01010:03030:05050:99999:09990")
 
 display.show(barco)
