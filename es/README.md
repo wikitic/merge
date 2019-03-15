@@ -24,7 +24,7 @@ display.show(Image.HEART)
 
 El resultado de este código debe ser el que se muestra un corazón en la matriz de LEDs de nuestra placa Micro:bit.
 
-## Imñagenes propias
+## Imágenes propias
 
 En algunas ocasiones puede que nos interese construir nuestras propias imágenes. Esto es posible ya que podemos representar sobre la matriz de LEDs cualquier imagen que se nos ocurra. Además de encender o apagar cada LED, podemos establecer una intensidad de luz de 0 (mínima luz) a 9 (máxima luz).
 
@@ -50,7 +50,7 @@ barco = Image("01010:03030:05050:99999:09990")
 display.show(barco)
 ```
 
-### Ejercicios propuestos
+## Ejercicios propuestos
 
 #### 1.- Muestra diferentes imágenes predefinidas en bucle.
 
