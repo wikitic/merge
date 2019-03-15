@@ -57,5 +57,3 @@ display.show(barco)
 #### 2.- Crea las letras de tu nombre en mayúsculas y muéstralas en bucle de 1 en 1.
 
 #### 3.- Construye un degradado de izquierda a derecha utilizando diferentes intensidades de luz.
-
-#### 4.- Construye un degradado desde la esquina superior izquierda hasta la esquina inferior derecha.
