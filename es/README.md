@@ -46,8 +46,8 @@ display.scroll(pulsaciones)
 
 ## Ejercicios propuestos
 
-#### 1.- Muestra por la matriz de LEDs 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
+#### 1.- Muestra la imagen de un corazón cada vez que pulses el botón A.
 
-#### 2.- Crea las letras de tu nombre en mayúsculas y muéstralas en bucle de 1 en 1.
+#### 2.- Muestra la palabra 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
 
-#### 3.- Construye un degradado de izquierda a derecha utilizando diferentes intensidades de luz.
+#### 3.- Enciende todos los LEDs si pulsas ambos botones A y B al mismo tiempo durante 5 segundos.
