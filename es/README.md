@@ -29,6 +29,8 @@ Al finalizar el proceso de instalación ya podemos seleccionar la placa `NodeMCU
 
 Para probar que funciona, añadimos el siguiente código encargado de encender un LED situado en el pin digital 5 de nuestra ESP8266 (conectado internamente al pin GPIO14).
 
+![](img/fritzing.png)
+
 ```arduino
 void setup() {
   pinMode(14, OUTPUT);
