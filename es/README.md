@@ -26,3 +26,20 @@ Una vez añadido el paquete, instalamos la placa accediendo al menú `Herramient
 ![](img/gestor.png)
 
 Al finalizar el proceso de instalación ya podemos seleccionar la placa `NodeMCU 1.0 (ESP 12E Module)` y el puerto al cual tengamos conectada nuestra ESP.
+
+Para probar que funciona, añadimos el siguiente código encargado de encender un LED situado en el pin digital 5 de nuestra ESP8266 (conectado internamente al pin GPIO14).
+
+```arduino
+void setup() {
+  pinMode(14, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(14, HIGH);
+  delay(1000);
+  digitalWrite(14, LOW);
+  delay(1000);
+}
+```
+
+![](img/blink.png)
