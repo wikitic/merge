@@ -1,39 +1,34 @@
-# Lorem ipsum dolor
+# Programar ESP8266 con el IDE de Arduino
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+En este tutorial vamos a cómo configurar el IDE de Arduino para programar con la ESP8266.
 
-![](img/default.jpg)
+## Instalar Arduino IDE
 
-## Aliquam ante felis
+Lógicamente lo primero que tenemos que hacer es descargar el *IDE de Arduino* desde la web oficial.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
-
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
-
-```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
+```
+URL: https://www.arduino.cc/en/Main/Software
 ```
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+## Agregar tarjeta ESP8266 en el IDE de Arduino
 
-```python
-import RPi.GPIO as GPIO
-import time
+Agregar la ESP8266 sobre el IDE de Arduino es muy sencillo gracias al soporte de la comunidad que hace que esté disponible como paquete. Con lo cual lo que tenemos que hacer es importar dicho paquete sobre el IDE de Arduino accediendo a `Preferencias > Gestor de URLs adicionales` y añadimos la ruta donde se cuentra el paque del ESP8266.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+```
+URL: http://arduino.esp8266.com/stable/package_esp8266com_index.json
+```
 
-led = GPIO.PWM(7, 100)
+![](img/preferencies.png)
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
+
+Una vez añadido el paquete, instalamos la placa accediendo al menú `Herramientas > Placas > Gestor de placas`. A continuación buscamos la placa `esp8266` y la instalamos. Este proceso tardará unos minutos.
+
+![](img/gestor.png)
+
+Al finalizar el proceso de instalación ya podemos seleccionar la placa `NodeMCU 1.0 (ESP 12E Module)` y el puerto al cual tengamos conectada nuestra ESP.
+
+![](img/placa.png)
+
+```arduino
+pi@raspberrypi:~ $ lsusb
 ```
