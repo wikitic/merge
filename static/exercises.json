@@ -141,5 +141,18 @@
         "author": "migueabellan"
       }
     ]
+  },
+  {
+    "alias": "esp8266-arduino_ide",
+    "url": "https://github.com/wikitic/esp8266-arduino_ide",
+    "title": "Programar ESP8266 con el IDE de Arduino",
+    "description": "Configura el IDE de Arduino para programar en la ESP8266.",
+    "image": "https://raw.githubusercontent.com/wikitic/esp8266-arduino_ide/master/preview.png",
+    "tags": ["esp8266", "arduino ide"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
   }
 ]
