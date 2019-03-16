@@ -123,7 +123,8 @@ export default {
         background: #2d2d2d;
         color: #fff;
       }
-      &.language-python {
+      &.language-python,
+      &.language-arduino {
         border: 2px solid #555;
         border-radius: 2px;
         background: #f0f0f0;
