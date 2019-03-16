@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Configurar el IDE de Arduino con ESP8266
-    description: Programar placa ESP8266 utilizando Arduino IDE.
+    titulo: Programar ESP8266 con el IDE de Arduino
+    description: Configura el IDE de Arduino para programar en la ESP8266.
     authors:
       - migueabellan
