@@ -18,7 +18,7 @@ Agregar la ESP8266 sobre el IDE de Arduino es muy sencillo gracias al soporte de
 URL: http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 
-![](img/preferencies.png)
+![](img/preferencias.png)
 
 
 Una vez añadido el paquete, instalamos la placa accediendo al menú `Herramientas > Placas > Gestor de placas`. A continuación buscamos la placa `esp8266` y la instalamos. Este proceso tardará unos minutos.
