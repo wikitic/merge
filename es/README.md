@@ -1,6 +1,10 @@
-# Instalar Raspbian en Raspberry Pi con NOOBs
-
 NOOBS es el acrónimo de *New Out Of Box Software* y consiste en un instalador sencillo guiado paso a paso. NOOBS incluye también un método de edición rápida de configuración del nuevo sistema, un navegador web preinstalado y un modo de recuperación por línea de comandos a partir de una partición de rescate que se crea automáticamente.
+
+### Tabla de contenidos
+
+- [Descargar Raspbian con NOOBs](#descargar-raspbian-con-noobs)
+- [Instalar SD Card Formatter](#instalar-sd-card-formatter)
+- [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
 
 ## Descargar Raspbian con NOOBs
 
