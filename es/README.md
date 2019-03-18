@@ -1,6 +1,9 @@
 # Actualizar el sistema operativo Raspbian
 
-En este tutorial vamos a explicar cómo podemos actualizar el sistema operativo Raspbian desde la línea de comandos, ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa. 
+En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian desde la línea de comandos ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa.
+
+- [Comando update](#comando:-update)
+- [Comando upgrade](#comando:-upgrade)
 
 ## Comando: update
 
@@ -49,6 +52,6 @@ Recuerda que tras la actualización es conveniente eliminar la cache y paquetes 
 
 # Ejercicios propuestos
 
-#### 1. Actualiza el sistema operativo Raspbian a la última versión. Además deberás calcular el tiempo aproximado que ha llevado cada comando durante la actualización.
+#### 1.- Actualiza el sistema operativo Raspbian a la última versión. Además deberás calcular el tiempo aproximado que ha llevado cada comando durante la actualización.
 
-#### - Una vez actualizado, reinicia el sistema e intenta actualizarlo nuevamente. ¿Qué conclusiones has sacado? ¿Han habido actualizaciones tras el reinicio?
+#### 2.- Una vez actualizado, reinicia el sistema e intenta actualizarlo nuevamente. ¿Qué conclusiones has sacado? ¿Han habido actualizaciones tras el reinicio?
