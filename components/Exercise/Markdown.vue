@@ -94,12 +94,18 @@ export default {
   }
   blockquote {
     margin: 0 0 30px;
-    padding: 10px 10px 10px 30px;
-    border-left: 3px solid #2d2d2d;
-    background: #f0f0f0;
+    padding: 10px 10px 10px 20px;
+    border-left: 3px solid #555;
+    background: #e0e0e0;
     font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
     p {
       margin: 0;
+      code {
+        padding: 0 5px;
+        line-height: 1rem;
+      }
     }
   }
   code {
@@ -113,7 +119,6 @@ export default {
   pre {
     display: block;
     margin: 0 0 30px;
-    background: #f0f0f0;
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.75em;
     font-weight: normal;
@@ -125,11 +130,12 @@ export default {
       position: relative;
       padding: 15px;
       line-height: 1.5rem;
+      background: #e0e0e0;
+      border-radius: 2px 2px 0 0;
       // language-sh
       &.language-sh {
         border: 3px solid #555;
         border-top: 30px solid #555;
-        border-radius: 2px 2px 0 0;
         background: #1e2125;
         color: #fff;
       }
@@ -146,7 +152,6 @@ export default {
       &.language-python {
         border: 3px solid #daaa00;
         border-top: 30px solid #daaa00;
-        border-radius: 2px 2px 0 0;
       }
       &.language-python::before {
         content: 'Python';
@@ -156,7 +161,6 @@ export default {
       &.language-arduino {
         border: 3px solid #00979d;
         border-top: 30px solid #00979d;
-        border-radius: 2px 2px 0 0;
       }
       &.language-arduino::before {
         content: 'Arduino';
