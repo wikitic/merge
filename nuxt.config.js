@@ -124,7 +124,8 @@ export default {
         '/tag/mu',
         '/tag/micropython',
         '/tag/esp8266',
-        '/tag/arduino+ide'
+        '/tag/arduino+ide',
+        '/tag/pyserial'
       ]
 
       const e = await exercises.map(exercise => {
