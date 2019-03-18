@@ -115,3 +115,5 @@ while True:
 
 arduino.close()
 ```
+
+![](img/arduino-raspberry-pi.png)
