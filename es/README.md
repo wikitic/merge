@@ -18,6 +18,14 @@ Con el comando `apt update` actualizamos la lista de paquetes en el repositorio,
 pi@raspberrypi: ~ $ sudo apt update
 ```
 
+``` javascript
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
 > Recuerda que antes de instalar un programa es recomendable actualizar la lista de paquetes en el repositorio.
 
 ## Comando: upgrade
