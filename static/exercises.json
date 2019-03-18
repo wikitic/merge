@@ -143,6 +143,19 @@
     ]
   },
   {
+    "alias": "raspberry_pi-arduino_ide",
+    "url": "https://github.com/wikitic/raspberry_pi-arduino_ide",
+    "title": "Instalar Arduino IDE en Raspberry Pi",
+    "description": "Instalación de Arduino IDE en Raspberry Pi con Raspbian.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-arduino_ide/master/preview.png",
+    "tags": ["raspberry pi", "arduino ide"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "esp8266-arduino_ide",
     "url": "https://github.com/wikitic/esp8266-arduino_ide",
     "title": "Programar ESP8266 con el IDE de Arduino",
