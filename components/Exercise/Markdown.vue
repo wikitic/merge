@@ -28,6 +28,13 @@ export default {
       }
     }
   }
+  /*,
+  computed: {
+    source: function() {
+      return this.content
+    }
+  }
+  */
 }
 </script>
 
@@ -117,11 +124,24 @@ export default {
       display: block;
       padding: 15px;
       &.language-sh {
-        border: 5px solid #555;
+        position: relative;
+        border: 3px solid #555;
         border-top: 30px solid #555;
-        border-radius: 2px;
-        background: #2d2d2d;
+        border-radius: 2px 2px 0 0;
+        background: #1e2125;
         color: #fff;
+      }
+      &.language-sh::before {
+        display: block;
+        position: absolute;
+        top: -18px;
+        left: 14px;
+        width: 7px;
+        height: 7px;
+        content: '';
+        background-color: #777;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px #777, 24px 0 0 3px #777, 48px 0 0 3px #777;
       }
       &.language-python,
       &.language-arduino {
