@@ -65,4 +65,4 @@ Recuerda que tras la actualización es conveniente eliminar la cache y paquetes 
 
 1.- Actualiza el sistema operativo Raspbian a la última versión. Además deberás calcular el tiempo aproximado que ha llevado cada comando durante la actualización.
 
-2.- Una vez actualizado, reinicia el sistema e intenta actualizarlo nuevamente. ¿Qué conclusiones has sacado? ¿Han habido actualizaciones tras el reinicio?
+2.- Una vez actualizado, reinicia el sistema e intenta actualizarlo nuevamente. ¿Qué ha ocurrido esta vez?
