@@ -23,8 +23,8 @@ export default {
 
 <style lang="scss">
 .contributing {
-  margin: 30px 0 0;
-  padding: 30px 0 0;
+  margin: 60px 0 0;
+  padding: 15px 0 0;
   border-top: 1px solid #f0f0f0;
   text-align: right;
   font-size: 16px;

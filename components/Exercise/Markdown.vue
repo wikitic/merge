@@ -61,7 +61,7 @@ export default {
   h4 {
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 500;
   }
   a {
@@ -183,6 +183,11 @@ export default {
     display: block;
     max-width: 100%;
     margin: 20px auto 30px;
+  }
+  hr {
+    display: block;
+    margin: 60px 0;
+    border: 1px solid #f0f0f0;
   }
 }
 </style>
