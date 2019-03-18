@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Conectando Raspberry Pi con Arduino
+    description: Enviando datos desde Raspberry Pi a Arduino a través del Serial.
     authors:
-      - author-1
+      - migueabellan
