@@ -212,6 +212,20 @@ export default {
       }
     }
   }
+  table {
+    margin: 0 0 30px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    tr,
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #f0f0f0;
+    }
+    th {
+      background: #f0f0f0;
+    }
+  }
   img {
     display: block;
     max-width: 100%;
