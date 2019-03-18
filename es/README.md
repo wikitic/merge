@@ -16,7 +16,7 @@ Como hemos comentado, vamos a utilizar las ventajas de ambas plataformas para co
 pi@raspberrypi:~ $ sudo apt-get install python-serial
 ```
 
-## Maestro: Enviar datos hacia el serial
+## Enviar datos desde Raspberry Pi hacia Arduino
 
 En primer lugar vamos a programar el código encargado de enviar comandos a través del serial. Estos comandos van a encender y apagar el LED 13 de una placa de Arduino. Lo vamos a programar en Python utilizando cualquier editor, por ejemplo, Thonny Editor.
 
@@ -25,9 +25,11 @@ Con el comando 'E' se encenderá el LED 13
 Con el comando 'A' se apagará el LED 13
 ```
 
+### Maestro: Enviar datos hacia el serial
+
 En primer lugar se importa la librería previamente instalada. A continuación se crea el objeto *Serial* estableciendo el puerto y la velocidad de transmisión. En nuestro caso tenemos un Arduino UNO conectado al puerto `/dev/ttyACM0` el cual se comunica a 9600 baudios. 
 
-A continuación, en bucle vamos a solicitar al usuario que introduzca el comando a través del teclado, se almacenará en una variable, y a continuación se enviará a través del serial.
+A continuación, en bucle vamos a solicitar al usuario que introduzca el comando a través del teclado, se almacenará en una variable, y a continuación se enviará a través del serial. Es importante añadir la función `encode()` a la cadena enviada
 
 ```python
 import serial
@@ -37,21 +39,14 @@ arduino = serial.Serial('/dev/ttyACM0', 9600)
 while True:
    comando = input('Introduce un comando: ')
 
-   arduino.write(comando)
+   arduino.write(comando.encode())
 ```
 
 ![](img/maestro.png)
 
-## Esclavo: Recibir datos desde el serial
+### Esclavo: Recibir datos desde el serial
 
-Una vez estamos enviando datos desde la Raspberry Pi, es el turno de programar el código encargado de recibir datos desde el IDE de Arduino.
-
-```
-Con el comando 'E' se encenderá el LED 13
-Con el comando 'A' se apagará el LED 13
-```
-
-En primer lugar establecemos la velocidad de transmisión a 9600 baudios como ya hicimos en Python. En el interior del bucle `loop()` estaremos escuchando el serial hasta que encontremos nueva información, en cuyo caso solamente comprobaremos si la información añadida al serial es una 'E' para encender el pin 13 o una 'A' para apagarlo.
+Desde Arduino, establecemos la velocidad de transmisión a 9600 baudios como ya hicimos en Python. En el interior del bucle `loop()` estaremos escuchando el serial hasta que encontremos nueva información, en cuyo caso solamente comprobaremos si la información añadida al serial es una 'E' para encender el pin 13 o una 'A' para apagarlo.
 
 ```arduino
 int led = 13;
@@ -78,3 +73,42 @@ void loop () {
 ```
 
 ![](img/esclavo.png)
+
+
+## Enviar datos desde Arduino hacia Raspberry Pi
+
+De forma similar, podemos enviar datos desde arduino. Por ejemplo, supongamos que tenemos un sensor de temperatura que queremos controlar para enviar la información a la Raspberry Pi.
+
+
+## Esclavo: Enviar datos hacia el serial
+
+En este ejemplo, vamos enviar el mensaje "Hola Mundo" desde la placa de Arduino hacia el serial.
+
+```arduino
+void setup () {
+  Serial.begin(9600);
+}
+
+void loop () {
+  Serial.println('Hola Mundo')
+}
+```
+
+## Maestro: Recibir datos desde el serial
+
+De forma similar, el maestro estará leyendo del serial y mostrará el contenido por la pantalla. Hemos añadido la librería `time` para esperar unos segundos entre lectura y lectura. Además, fíjate como si en el caso anterior, teníamos que codificar la cadena, en este caso tenemos que decodificarla utilizando la función `decode()`.
+
+```python
+import serial, time
+
+arduino = serial.Serial('/dev/ttyACM0', 9600)
+
+while True:
+  palabra = arduino.readline()
+  
+  print(palabra.decode())
+  
+  time.sleep(2)
+
+arduino.close()
+```
