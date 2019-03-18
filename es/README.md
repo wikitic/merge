@@ -55,7 +55,7 @@ pi@raspberrypi: ~ $ sudo apt autoremove
 
 # Resumen
 
-Tras actualizar la versión de Raspbian con `update` y luego `dist-upgrade` tendremos el sistema prácticamente igual que si descargáramos e instaláramos la nueva versión de Raspbian desde cero pero conservando todos nuestros datos.
+Tras actualizar la versión de Raspbian con `update` y luego `dist-upgrade` tendremos el sistema prácticamente igual que si descargáramos e instaláramos la nueva versión de Raspbian desde cero pero conservando todos nuestros datos y los programas instalados tras la instalación inicial.
 
 Recuerda que tras la actualización es conveniente eliminar la cache y paquetes huérfanos con los comandos `autoremove` y `autoclean`.
 
@@ -64,5 +64,11 @@ Recuerda que tras la actualización es conveniente eliminar la cache y paquetes 
 # Ejercicios propuestos
 
 1.- Actualiza el sistema operativo Raspbian a la última versión. Además deberás calcular el tiempo aproximado que ha llevado cada comando durante la actualización.
+
+| Comando      | Tiempo |
+| ------------ | ------ |
+| update       |        |
+| dist-upgrade |        |
+
 
 2.- Una vez actualizado, reinicia el sistema e intenta actualizarlo nuevamente. ¿Qué ha ocurrido esta vez?
