@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Conectando Raspberry Pi con Arduino
+    titulo: Conectando Raspberry Pi y Arduino con PySerial
     description: Enviando datos desde Raspberry Pi a Arduino a través del Serial.
     authors:
       - migueabellan
