@@ -1,5 +1,3 @@
-# Actualizar Raspbian
-
 En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian desde la línea de comandos ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa.
 
 <div class="toc">
@@ -13,6 +11,8 @@ En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
+
+# Actualizar Raspbian
 
 ## Comando: update
 
