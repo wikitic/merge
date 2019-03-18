@@ -7,9 +7,23 @@ Vue.use(Bootstrap)
 
 describe('Markdown', () => {
   it('renders', () => {
+    const exercise = {
+      alias: 'alias',
+      url: 'url',
+      title: 'title',
+      description: 'description',
+      image: 'image',
+      tags: ['tag 1', 'tag 2', 'tag 3'],
+      authors: [
+        {
+          author: 'user'
+        }
+      ]
+    }
     const content = '# title'
     const wrapper = mount(Markdown, {
       propsData: {
+        exercise: exercise,
         content: content
       }
     })

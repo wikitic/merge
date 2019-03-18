@@ -1,7 +1,10 @@
 <template>
   <vue-markdown
+    :toc="true"
+    :toc-first-level="2"
+    :toc-anchor-link="false"
     :anchor-attributes="anchorAttrs"
-    :source="content"
+    :source="source"
     class="markdown"
   />
 </template>
@@ -15,6 +18,10 @@ export default {
     VueMarkdown
   },
   props: {
+    exercise: {
+      type: Object,
+      default: () => {}
+    },
     content: {
       type: String,
       default: ''
@@ -23,18 +30,20 @@ export default {
   data() {
     return {
       anchorAttrs: {
-        target: '_blank',
-        rel: 'noopener noreferrer nofollow'
+        // target: '_blank',
+        // rel: 'noopener noreferrer nofollow'
       }
     }
-  }
-  /*,
+  },
   computed: {
     source: function() {
-      return this.content
+      let content = this.content
+      // Internal link #
+      content = content.split('](#').join(`](/${this.exercise.alias}#`)
+
+      return content
     }
   }
-  */
 }
 </script>
 
@@ -80,11 +89,35 @@ export default {
       font-style: italic;
     }
   }
+  .toc {
+    margin: 0 0 60px;
+    padding: 10px 20px;
+    border-left: 5px solid #333;
+    background: #e0e0e0;
+    ul {
+      margin: 0;
+      ul {
+        margin: 0 0 0 30px;
+      }
+      li {
+        &:before {
+          content: '';
+        }
+        a {
+          display: inline-block;
+          margin: 5px 0;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
   ul {
-    margin: 0 0 60px 20px;
+    display: block;
+    margin: 0 0 30px 30px;
     padding: 0;
     li {
-      margin: 0 0 10px;
+      display: block;
       list-style: none;
       &:before {
         padding: 0 15px 0 0;
@@ -95,8 +128,8 @@ export default {
   blockquote {
     margin: 0 0 30px;
     padding: 10px 10px 10px 20px;
-    border-left: 3px solid #555;
-    background: #e0e0e0;
+    border-left: 3px solid #999;
+    background: #f0f0f0;
     font-style: italic;
     font-size: 1.1rem;
     line-height: 1.5rem;

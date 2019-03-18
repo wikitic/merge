@@ -11,6 +11,7 @@
             :metas="exercise"
           />
           <Markdown
+            :exercise="exercise"
             :content="content" 
           />
           <Contributing
