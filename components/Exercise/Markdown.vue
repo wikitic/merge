@@ -122,9 +122,11 @@ export default {
     word-wrap: pre-wrap;
     code {
       display: block;
+      position: relative;
       padding: 15px;
+      line-height: 1.5rem;
+      // language-sh
       &.language-sh {
-        position: relative;
         border: 3px solid #555;
         border-top: 30px solid #555;
         border-radius: 2px 2px 0 0;
@@ -132,25 +134,42 @@ export default {
         color: #fff;
       }
       &.language-sh::before {
-        display: block;
-        position: absolute;
         top: -18px;
-        left: 14px;
+        left: 15px;
         width: 7px;
         height: 7px;
-        content: '';
-        background-color: #777;
+        background: #777;
         border-radius: 50%;
         box-shadow: 0 0 0 3px #777, 24px 0 0 3px #777, 48px 0 0 3px #777;
       }
-      &.language-python,
-      &.language-arduino {
-        border: 2px solid #555;
-        border-radius: 2px;
-        background: #f0f0f0;
-        line-height: 1.75rem;
+      // language-python
+      &.language-python {
+        border: 3px solid #daaa00;
+        border-top: 30px solid #daaa00;
+        border-radius: 2px 2px 0 0;
       }
-      &:before,
+      &.language-python::before {
+        content: 'Python';
+        color: #f0f0f0;
+      }
+      // language-arduino
+      &.language-arduino {
+        border: 3px solid #00979d;
+        border-top: 30px solid #00979d;
+        border-radius: 2px 2px 0 0;
+      }
+      &.language-arduino::before {
+        content: 'Arduino';
+        color: #f0f0f0;
+      }
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: -25px;
+        left: 15px;
+        content: '';
+      }
       &:after {
         content: none;
       }
