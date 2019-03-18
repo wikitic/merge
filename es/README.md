@@ -90,7 +90,9 @@ void setup () {
 }
 
 void loop () {
-  Serial.println('Hola Mundo')
+  String cadena = 'Hola Mundo';
+  Serial.println(cadena)
+  delay(1000);
 }
 ```
 
@@ -104,11 +106,12 @@ import serial, time
 arduino = serial.Serial('/dev/ttyACM0', 9600)
 
 while True:
-  palabra = arduino.readline()
+  cadena = arduino.readline()
   
-  print(palabra.decode())
+  if(cadena.decode() != ''):
+    print(cadena.decode())
   
-  time.sleep(2)
+  time.sleep(1)
 
 arduino.close()
 ```
