@@ -1,39 +1,80 @@
-# Lorem ipsum dolor
+# Conectando Raspberry Pi con Arduino
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+Mediante Raspberry Pi podemos controlar diferentes pines GPIO para entradas y salidas, sin embargo este número de pines es limitado. Además, nos encontramos con que los tiempos de respuestas son demasiado lentos cuando programamos con elnguajes como Python. Con Arduino no nos encontramos con estas limitaciones.
 
-![](img/default.jpg)
+En este tutorial vamos a combinar las ventajas que ofrece Raspberry Pi en cuanto a sistema operativo como controlador maestro, y las ventajas que ofrece Arduino para controlar diferentes sensores y actuadores como esclavo, haciendo que se comuniquen entre ellos a través del puerto serie.
 
-## Aliquam ante felis
+> Si todavía no has instalado el IDE de Arduino en tu Raspberry Pi accede al tutorial [Raspberry Pi - Arduino IDE](raspberry_pi-arduino_ide)
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+## Instalar Python Serial
 
-- Lorem ipsum
-- Dolor sit
-- Amet consectuer
+Como hemos comentado, vamos a utilizar las ventajas de ambas plataformas para conectarlas juntas a través del puerto serie. Por ello, vamos a necesitar instalar la librería *python-serial* con el comando `apt-get install python-serial` la cual nos permitirá utilizar el puerto serie desde Python para comunicarnos con Arduino. 
+
+> Recordamos que antes de instalar cualquier software es conveniente tener actualizado el listado de repositorios con el comando `apt-get update` como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update)
 
 ```sh
-pi@raspberrypi:~ $ lsusb
-Bus 001 Device 004: ID 0c45:6340 Microdia Camera
-...
-..
-.
+pi@raspberrypi:~ $ sudo apt-get install python-serial
 ```
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+## Maestro: Enviar datos hacia el serial
+
+En primer lugar vamos a programar el código encargado de enviar comandos a través del serial. Estos comandos van a encender y apagar el LED 13 de una placa de Arduino. Lo vamos a programar en Python utilizando cualquier editor, por ejemplo, Thonny Editor.
+
+```
+Con el comando 'E' se encenderá el LED 13
+Con el comando 'A' se apagará el LED 13
+```
+
+En primer lugar se importa la librería previamente instalada. A continuación se crea el objeto *Serial* estableciendo el puerto y la velocidad de transmisión. En nuestro caso tenemos un Arduino UNO conectado al puerto `/dev/ttyACM0` el cual se comunica a 9600 baudios. 
+
+A continuación, en bucle vamos a solicitar al usuario que introduzca el comando a través del teclado, se almacenará en una variable, y a continuación se enviará a través del serial.
 
 ```python
-import RPi.GPIO as GPIO
-import time
+import serial
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
-
-led = GPIO.PWM(7, 100)
+arduino = serial.Serial('/dev/ttyACM0', 9600)
 
 while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
+   comando = input('Introduce un comando: ')
+
+   arduino.write(comando)
 ```
+
+![](img/maestro.png)
+
+## Esclavo: Recibir datos desde el serial
+
+Una vez estamos enviando datos desde la Raspberry Pi, es el turno de programar el código encargado de recibir datos desde el IDE de Arduino.
+
+```
+Con el comando 'E' se encenderá el LED 13
+Con el comando 'A' se apagará el LED 13
+```
+
+En primer lugar establecemos la velocidad de transmisión a 9600 baudios como ya hicimos en Python. En el interior del bucle `loop()` estaremos escuchando el serial hasta que encontremos nueva información, en cuyo caso solamente comprobaremos si la información añadida al serial es una 'E' para encender el pin 13 o una 'A' para apagarlo.
+
+```arduino
+int led = 13;
+
+void setup () {
+  Serial.begin(9600);
+  
+  pinMode(led, OUTPUT);
+}
+
+void loop () {
+  if (Serial.available()) {
+    
+    char c = Serial.read();
+    
+    if (c == 'E') {
+      digitalWrite(led, HIGH);
+    }
+    if (c == 'A') {
+      digitalWrite(led, LOW);
+    }
+  }
+}
+```
+
+![](img/esclavo.png)
