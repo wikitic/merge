@@ -1,7 +1,3 @@
-# Actualizar Raspbian
-
-En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian desde la línea de comandos ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa.
-
 - [Actualizar Raspbian](#actualizar-raspbian)
   - [Comando: update](#comando-update)
   - [Comando: upgrade](#comando-upgrade)
@@ -9,6 +5,10 @@ En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian
   - [Comandos: autoremove y autoclean](#comandos-autoremove-y-autoclean)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
+
+# Actualizar Raspbian
+
+En este tutorial vamos a explicar cómo actualizar el sistema operativo Raspbian desde la línea de comandos ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa.
 
 ## Comando: update
 
