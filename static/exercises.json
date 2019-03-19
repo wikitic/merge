@@ -29,7 +29,7 @@
     "alias": "raspberry_pi-raspbian-update",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-update",
     "title": "Actualizar el sistema operativo Raspbian",
-    "description": "Proceso de actualización de paquetes y versión en Raspbian desde la terminal.",
+    "description": "Actualización del sistema operativo Raspbian a través de la línea de comandos.",
     "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-update/master/preview.png",
     "tags": ["raspberry pi", "raspbian", "update"],
     "authors": [
