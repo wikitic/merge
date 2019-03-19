@@ -2,17 +2,17 @@ En este tutorial vamos a explicar cómo **instalar el sistema operativo Raspbian
 
 <div class="toc">
 
-- [Instalar Raspbian en Raspberry Pi con NOOBs](#instalar-raspbian-en-raspberry-pi-con-noobs)
+- [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
   - [Requisitos](#requisitos)
   - [Descargar Raspbian con NOOBs](#descargar-raspbian-con-noobs)
   - [Instalar SD Card Formatter](#instalar-sd-card-formatter)
-  - [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
+  - [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs-1)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
 
-# Instalar Raspbian en Raspberry Pi con NOOBs
+# Instalar Raspbian con NOOBs
 
 NOOBS es el acrónimo de *New Out Of Box Software* y consiste en un instalador sencillo guiado paso a paso. NOOBS incluye también un método de edición rápida de configuración del nuevo sistema, un navegador web preinstalado y un modo de recuperación por línea de comandos a partir de una partición de rescate que se crea automáticamente.
 
