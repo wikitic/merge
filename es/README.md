@@ -18,7 +18,7 @@ NOOBS es el acrónimo de *New Out Of Box Software* y consiste en un instalador s
 
 ## Requisitos
 
-Vas a necesitar disponer de los siguientes componentes
+Debemos disponer de los siguientes componentes:
 
 - PC con conexión a internet
 - Lector de tarjetas SD
