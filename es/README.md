@@ -50,8 +50,10 @@ A continuación los conectamos entre ellos siguiendo el flujo `inject -> debug` 
 
 # Resumen
 
+ToDo
+
 ---
 
 # Ejercicios propuestos
 
-1.- 
+1.- ToDo
