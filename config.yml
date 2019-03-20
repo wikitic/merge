@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Pines GPIO a través de Node-RED
+    description: Programando pines GPIO a través de Node-RED en Raspberry Pi.
     authors:
-      - author-1
+      - migueabellan
