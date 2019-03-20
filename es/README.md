@@ -1,55 +1,75 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+En este tutorial vamos a explicar cómo **utilizar los pines GPIO a través de Node-RED desde Raspberry Pi** de una forma muy sencilla para crear aplicaciones IoT sin saber programar en lenguaje de programación textual.
+
+> Para más información sobre los pines GPIO accede al tutorial [Raspberry Pi - GPIO](raspberry_pi-gpio).
 
 <div class="toc">
 
-- [Lorem ipsum dolor](#lorem-ipsum-dolor)
-  - [Aliquam ante felis](#aliquam-ante-felis)
+- [Pines GPIO en Node-RED](#pines-gpio-en-node-red)
+  - [Requisitos](#requisitos)
+  - [Node-RED en Raspberry Pi](#node-red-en-raspberry-pi)
+  - [Encendido y apagado de un LED](#encendido-y-apagado-de-un-led)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
 
-# Lorem ipsum dolor
+# Pines GPIO en Node-RED
 
-![](img/default.jpg)
+[Node-RED](https://nodered.org/) es un motor de flujos con enfoque IoT que permite definir gráficamente flujos de servicios a través de protocolos estándares como REST, MQTT, Websocket o AMQP. Se trata de una herramienta visual muy ligera programada en NodeJS y que puede ejecutarse desde en dispositivos ligeros como la Raspberry Pi.
 
-## Aliquam ante felis
+> Para más información sobre Node-RED accede al tutorial [Raspberry Pi - Node-RED](raspberry_pi-node_red).
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+## Requisitos
 
-```sh
-pi@raspberrypi:~ $ lsusb
+Para este tutorial se van a necesitar los siguientes materiales:
+
+- 1 Raspberry Pi
+- 1 Protoboard
+- 1 Diodo LED
+- 1 Resistencia de 330 Ohm
+
+## Node-RED en Raspberry Pi
+
+En primer lugar abrimos la herramienta Node-RED accediendo al menú `Programming > Node-RED` y se abrirá en segundo plano una terminal encargada de arrancar la herramienta. Una vez abierta accedemos mediante nuestro navegador predeterminado a la dirección `http://127.0.0.1:1880` o a través de la red a la IP de nuestra Raspberry Pi seguido del mismo puerto, en nuestro caso `http://192.168.0.138:1880`.
+
+```
+URL: http://127.0.0.1:1880
 ```
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+![](img/node-red.jpg)
 
-```python
-import RPi.GPIO as GPIO
-import time
+Los programas en Node-RED se llaman **Flow** (flujos). y se puede crear tantos flujos como queramos y todos pueden ejecutarse al mismo tiempo.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+En el lado izquierdo tenemos todos los nodos disponibles ordenador por categorías (input, output, functions, Raspberry Pi, etc.). Los nodos se conectarán entre ellos mediante líneas creando un flujo de trabajo.
 
-led = GPIO.PWM(7, 100)
+En el lado derecho aparecerán los parámetros de configuración de cada nodo seleccionado.
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
-```
+En el centro es donde podemos arrastrar los nodos para crear el flujo de trabajo.
 
----
+## Encendido y apagado de un LED
+
+Vamos a realizar el encendido y apagado de un LED conectado al `Pin 11 - GPIO 17` de nuestra Raspberry Pi.
+
+![](img/led-fritzing.jpg)
+
+Accediendo al grupo de nodos de Raspberry Pi, arrastramos al área de trabajo el nodo `rpi gpio`. Hacemos docle clic sobre el nodo y seleccionamos el pin al cual hemos conectado el LED, en este caso, el `Pin 11 - GPIO 17`.
+
+![](img/node-gpio.jpg)
+
+A continuación añadimos 2 nodos `inject` de la categoría de entrada. Uno de estos nodos tendrá establecido el valor `true` y el otro el valor `false`.
+
+![](img/node-inject.jpg)
+
+Por último solamente nos queda unir los conectores y cargar el código haciendo clic en el botón `Deploy` situado en la parte superior derecha de Node-RED. A continuación, podemos hacer clic sobre el icono `true` o `false` y veremos como se enciende y apaga nuestro LED a través de los pines GPIO de nuestra Raspberry Pi.
+
+![](img/led-node.jpg)
 
 # Resumen
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+En este tutorial hemos visto una forma sencilla de programar sin utilizar una línea de código. Todo se basa en nodos unidos mediante líneas.
 
 ---
 
 # Ejercicios propuestos
 
-1.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
-
-2.- Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
-
+1.- Programa el encendido y apagado de múltiples diodos LEDs.
