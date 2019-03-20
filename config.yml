@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Node-RED en Raspberry Pi
+    description: Programando con Node-RED en Raspberry Pi.
+    authors:
+      - migueabellan
