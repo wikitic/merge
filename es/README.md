@@ -5,6 +5,7 @@ En este tutorial vamos a explicar las **principales características de la placa
 - [Kit de desarrollo NodeMCU](#kit-de-desarrollo-nodemcu)
   - [NodeMCU Lolin / Wemos Versión 3](#nodemcu-lolin--wemos-versi%C3%B3n-3)
   - [Pinout de NodeMCU](#pinout-de-nodemcu)
+  - [Internet de las cosas](#internet-de-las-cosas)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
@@ -36,8 +37,11 @@ Una vez vista la placa NodeMCU vamos a ver una visión general de la distribuci�
 - El pin A0 es el destinado a entrada analógica. Rango de tensión de 0V-3.3V (valor 0-1023).
 - Los pines GPIO (General Purpose Input/Output) son los destinados a entradas y salidas digitales.
 
-
 ![](img/nodemcu-v3.png)
+
+## Internet de las cosas
+
+ToDo
 
 ---
 
@@ -51,5 +55,4 @@ Sin embargo, la documentación no es tan extensa y clara como ocurre con las pla
 
 # Ejercicios propuestos
 
-1.- ToDo
-
+1.- Piensa varios proyectos que se podría realizar con esta placa.
