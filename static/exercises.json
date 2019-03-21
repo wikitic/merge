@@ -168,19 +168,34 @@
       }
     ]
   },
+
   {
-    "alias": "esp8266-arduino_ide",
-    "url": "https://github.com/wikitic/esp8266-arduino_ide",
-    "title": "Programar ESP8266 con el IDE de Arduino",
-    "description": "Configura el IDE de Arduino para programar en la ESP8266.",
-    "image": "https://raw.githubusercontent.com/wikitic/esp8266-arduino_ide/master/preview.png",
-    "tags": ["esp8266", "arduino ide"],
+    "alias": "nodemcu-esp8266",
+    "url": "https://github.com/wikitic/nodemcu-esp8266",
+    "title": "Placa de desarrollo NodeMCU ESP8266",
+    "description": "Introducción a la placa de prototipado NodeMCU con ESP8266.",
+    "image": "https://raw.githubusercontent.com/wikitic/nodemcu-esp8266/master/preview.png",
+    "tags": ["nodemcu", "esp8266"],
     "authors": [
       {
         "author": "migueabellan"
       }
     ]
   },
+  {
+    "alias": "nodemcu-esp8266-arduino_ide",
+    "url": "https://github.com/wikitic/nodemcu-esp8266-arduino_ide",
+    "title": "Programar ESP8266 con el IDE de Arduino",
+    "description": "Configura el IDE de Arduino para programar en la ESP8266.",
+    "image": "https://raw.githubusercontent.com/wikitic/nodemcu-esp8266-arduino_ide/master/preview.png",
+    "tags": ["nodemcu", "esp8266", "arduino ide"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+
   {
     "alias": "raspberry_pi-node_red",
     "url": "https://github.com/wikitic/raspberry_pi-node_red",
