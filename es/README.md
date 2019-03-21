@@ -3,8 +3,8 @@ En este tutorial vamos a explicar las **principales características de la placa
 <div class="toc">
 
 - [Kit de desarrollo NodeMCU](#kit-de-desarrollo-nodemcu)
-  - [NodeMCU Lolin / Wemos](#nodemcu-lolin--wemos)
-  - [Pines NodeMCU](#pines-nodemcu)
+  - [NodeMCU Lolin / Wemos Versión 3](#nodemcu-lolin--wemos-versi%C3%B3n-3)
+  - [Pinout de NodeMCU](#pinout-de-nodemcu)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
@@ -12,29 +12,26 @@ En este tutorial vamos a explicar las **principales características de la placa
 
 # Kit de desarrollo NodeMCU
 
-NodeMCU es una placa de desarrollo de hardware y software abierto utilizada principalmente en el internet de las cosas (IoT - Internet of Things). Al igual que ocurre con otras placas similares, como el Arduino MKR1000, todo está dispuesto para que pueda ser programado de una forma sencilla.
+NodeMCU es una placa de desarrollo de hardware y software abierto utilizada principalmente en el internet de las cosas (IoT - Internet of Things). Al igual que ocurre con otras placas similares, todo está dispuesto para que pueda ser programado de una forma sencilla.
 
-NodeMCU incorpora un módulo, dentro de este, un chip SoC, y dentro de este, un microcontrolador MCU.
+La NodeMCU está basada en el módulo ESP12E, el cual contiene un chip SoC ESP8266, y dentro de este, un microcontrolador MCU.
 
-- Módulo ESP-12 o ESP-12E. Encargado de procesar la información que utiliza la placa.
 - SoC (System on a Chip) ESP8266. Es un módulo WiFi de 2,4GHz compatible con la mayoría de routers del mercado.
 - Microcontrolador MCU Tensilica de 32-bit. Encargado de ejecutar las sentencias del programa y gestionar las entradas y salidas de los pines GPIO.
 
-> Todos los NodeMCU se basan en los mismos módulos ESP-12 y ESP-12E, que se a su vez se basan en el SoC ESP8266.
+> Al ser hardware abierto podemos encontrar diferentes modelos de fabricantes, aunque todos ellos incluyen el mismo módulo y SoC.
 
-## NodeMCU Lolin / Wemos
+## NodeMCU Lolin / Wemos Versión 3
 
-Como hemos comentado anteriormente, NodeMCU es hardware abierto con lo cual encontrarás diferentes modelos de diferentes fabricantes, aunque todos ellos incluyen el mismo módulo y SoC.
+Son varias las versiones existentes y en este tutorial vamos a hablar de la última versión v3 sin entrar en detalles sobre las anteriores. 
 
-En este tutorial vamos a utilizar la placa de desarrollo `NodeMCU Lolin / Wemos v3`.
+Veamos la placa de desarrollo `NodeMCU Lolin / Wemos v3`.
 
 ![](img/nodemcu-lolin-v3.png)
 
-## Pines NodeMCU
+## Pinout de NodeMCU
 
-ToDo
-
-Una vez vista la placa NodeMCU vamos a ver una visión general de la distribución de los pines. 
+Una vez vista la placa NodeMCU vamos a ver una visión general de la distribución de los pines. Recuerda que hay una variedad de fabricantes así que puede haber pequeñas diferencias en la placa de desarrollo que tengas, sobre todo en la serigrafía, sin embargo, todas se basan en el mismo módulo ESP8266.
 
 - El pin A0 es el destinado a entrada analógica. Rango de tensión de 0V-3.3V (valor 0-1023).
 - Los pines GPIO (General Purpose Input/Output) son los destinados a entradas y salidas digitales.
