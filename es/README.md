@@ -36,7 +36,7 @@ En primer lugar abrimos la herramienta Node-RED accediendo al menú `Programming
 URL: http://127.0.0.1:1880
 ```
 
-![](img/node-red.jpg)
+![](img/node-red.png)
 
 Los programas en Node-RED se llaman **Flow** (flujos). y se puede crear tantos flujos como queramos y todos pueden ejecutarse al mismo tiempo.
 
@@ -50,26 +50,28 @@ En el centro es donde podemos arrastrar los nodos para crear el flujo de trabajo
 
 Vamos a realizar el encendido y apagado de un LED conectado al `Pin 11 - GPIO 17` de nuestra Raspberry Pi.
 
-![](img/led-fritzing.jpg)
+![](img/led-fritzing.png)
 
 Accediendo al grupo de nodos de Raspberry Pi, arrastramos al área de trabajo el nodo `rpi gpio`. Hacemos docle clic sobre el nodo y seleccionamos el pin al cual hemos conectado el LED, en este caso, el `Pin 11 - GPIO 17`.
 
-![](img/node-gpio.jpg)
+![](img/node-gpio.png)
 
 A continuación añadimos 2 nodos `inject` de la categoría de entrada. Uno de estos nodos tendrá establecido el valor `true` y el otro el valor `false`.
 
-![](img/node-inject.jpg)
+![](img/node-inject.png)
 
 Por último solamente nos queda unir los conectores y cargar el código haciendo clic en el botón `Deploy` situado en la parte superior derecha de Node-RED. A continuación, podemos hacer clic sobre el icono `true` o `false` y veremos como se enciende y apaga nuestro LED a través de los pines GPIO de nuestra Raspberry Pi.
 
-![](img/led-node.jpg)
+![](img/led-node.png)
 
 # Resumen
 
-En este tutorial hemos visto una forma sencilla de programar sin utilizar una línea de código. Todo se basa en nodos unidos mediante líneas.
+ToDo
 
 ---
 
 # Ejercicios propuestos
 
 1.- Programa el encendido y apagado de múltiples diodos LEDs.
+
+ToDo
