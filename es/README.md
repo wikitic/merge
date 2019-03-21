@@ -44,13 +44,15 @@ Vamos a probar un flujo muy simple encargado de mostrar el texto *¡Hola Mundo!*
 
 ![](img/inject.png)
 
-A continuación los conectamos entre ellos siguiendo el flujo `inject -> debug` y desplegamos el programa pulsando sobre el botón `deploy`. Por último, pulsando sobre el botón situado a la derecha del nodo 'Hola Mundo', ejecutaremos el flujo y veremos como se muestra el mensaje '¡Hola Mundo!' sobre el debug de Node-RED.
+A continuación los conectamos entre ellos siguiendo el flujo `inject -> debug` y **desplegamos el programa** pulsando sobre el botón `deploy`. Una vez que lo hayas pulsado, volverá de nuevo al color gris oscuro. Esto quiere decir que ya tenemos guardados todos los cambios.
+
+Para probar este primer flujo tenemos que abrir el panel de debug que está situado en la parte derecha. A continuación pulsa sobre el botón situado a la derecha del nodo 'Hola Mundo' y se ejecutará el flujo y se mostrará el mensaje '¡Hola Mundo!' sobre el debug.
 
 ![](img/debug.png)
 
 # Resumen
 
-ToDo
+En este tutorial hemos podido ver lo fácil que es programar utilizando nodos en vez de un lenguaje de programación. Aunque se puede complicar mucho más ya que tenemos diferentes tipos de nodos para conectarnos a tecnologías el IoT.
 
 ---
 
