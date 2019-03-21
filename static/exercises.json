@@ -180,5 +180,31 @@
         "author": "migueabellan"
       }
     ]
+  },
+  {
+    "alias": "raspberry_pi-node_red",
+    "url": "https://github.com/wikitic/raspberry_pi-node_red",
+    "title": "Node-RED en Raspberry Pi",
+    "description": "Programando con Node-RED en Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-node_red/master/preview.png",
+    "tags": ["raspberry pi", "node red"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-gpio-node_red",
+    "url": "https://github.com/wikitic/raspberry_pi-gpio-node_red",
+    "title": "Pines GPIO a través de Node-RED",
+    "description": "Programando pines GPIO a través de Node-RED en Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-gpio-node_red/master/preview.png",
+    "tags": ["raspberry pi", "gpio", "node red"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
   }
 ]
