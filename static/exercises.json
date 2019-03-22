@@ -209,6 +209,19 @@
     ]
   },
   {
+    "alias": "nodemcu-esp8266-webserver",
+    "url": "https://github.com/wikitic/nodemcu-esp8266-webserver",
+    "title": "Servidor Web en NodeMCU ESP8266",
+    "description": "Crea una servidor web para controlar los pines GPIO de la ESP8266 desde el móvil.",
+    "image": "https://raw.githubusercontent.com/wikitic/nodemcu-esp8266-webserver/master/preview.png",
+    "tags": ["nodemcu", "esp8266", "arduino ide", "wifi", "GPIO"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-node_red",
     "url": "https://github.com/wikitic/raspberry_pi-node_red",
     "title": "Node-RED en Raspberry Pi",
