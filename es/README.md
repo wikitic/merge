@@ -77,6 +77,8 @@ void loop() {
 
 Una vez tenemos el listado de redes WiFi disponibles, vamos a conectarnos a una mediante SSID y password conocido.
 
+![](img/conectar.png)
+
 Además de importar la librería, vamos a establecer las constantes SSID y PASSWORD que utilizaremos en la función `setup()` para establecer la conexión.
 
 En la función `loop()` simplemente comprobaremos si estamos conectados a la WiFi mediante la función `WiFi.status()` la cual me indica si estoy conectado o no.
