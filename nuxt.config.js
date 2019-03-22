@@ -126,6 +126,7 @@ export default {
         '/tag/nodemcu',
         '/tag/esp8266',
         '/tag/arduino+ide',
+        '/tag/wifi',
         '/tag/pyserial',
         '/tag/gpio',
         '/tag/node+red'

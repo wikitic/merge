@@ -195,7 +195,19 @@
       }
     ]
   },
-
+  {
+    "alias": "nodemcu-esp8266-wifi",
+    "url": "https://github.com/wikitic/nodemcu-esp8266-wifi",
+    "title": "Conectar a la WiFi una ESP8266",
+    "description": "Buscando soñales de WiFi con la placa NodeMCU ESP8266.",
+    "image": "https://raw.githubusercontent.com/wikitic/nodemcu-esp8266-wifi/master/preview.png",
+    "tags": ["nodemcu", "esp8266", "arduino ide", "wifi"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
   {
     "alias": "raspberry_pi-node_red",
     "url": "https://github.com/wikitic/raspberry_pi-node_red",
