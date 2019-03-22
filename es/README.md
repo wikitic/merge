@@ -12,6 +12,8 @@ Antes de comenzar es recomendable visitar los siguientes tutoriales:
 - [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
 - [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
 
+---
+
 <div class="toc">
 
 - [NodeMCU ESP8266 WiFi](#nodemcu-esp8266-wifi)
