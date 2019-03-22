@@ -129,7 +129,8 @@ export default {
         '/tag/wifi',
         '/tag/pyserial',
         '/tag/gpio',
-        '/tag/node+red'
+        '/tag/node+red',
+        '/tag/webserver'
       ]
 
       const e = await exercises.map(exercise => {
