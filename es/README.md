@@ -220,12 +220,12 @@ void apagar() {
 
 # Resumen
 
-Como hemos visto, es muy sencillo utilizar la WiFi gracias a la librería `ESP8266WiFi.h`. Aunque realmente hay muchas más funcioones disponibles que puedes encontrar en la [documentación](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html).
+Como hemos visto, es muy sencillo utilizar las funciones de servidor web e interactuar con los pines GPIO gracias a las librerías incluídas en la ESP8266. Aunque realmente hay muchas más funcioones disponibles que puedes encontrar en la [documentación](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html).
 
 ---
 
 # Ejercicios propuestos
 
-1.- Busca todas las redes WiFi disponibles y conectate a una red WiFi conocida.
+1.- Añade un semáforo para controlarlo desde la web en otro PC o movil de la misma red.
 
-2.- Utilizando los pines GPIO, añade un LED rojo y un LED verde indicando cuando estás conectado a una red y cuando no lo estás.
+2.- Añade más componentes de electrónica, como servomotores, etc.
