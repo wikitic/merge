@@ -16,8 +16,6 @@ Antes de comenzar es recomendable visitar los siguientes tutoriales:
 
 <div class="toc">
 
-## Tabla de contenidos
-
 - [NodeMCU ESP8266 WiFi](#nodemcu-esp8266-wifi)
   - [Buscar señales WiFi](#buscar-se%C3%B1ales-wifi)
   - [Conectar a una red WiFi](#conectar-a-una-red-wifi)
