@@ -1,58 +1,126 @@
-En este tutorial vamos a explicar las **principales características de la placa de desarrollo NodeMCU** para posteriormente utilizarla en proyectos educativos a través de dispositivos conectados.
+En este tutorial vamos a explicar cómo **buscar señales WiFi con la ESP8266** para conectarnos en modo cliente o estación a una red conociendo el SSID y la contraseña.
+
+## Requisitos
+
+Para este tutorial vas a necesitar los siguientes componentes:
+
+- NodeMCU o equivalente
+- Arduino IDE con placa NodeMCU ESP12
+
+Antes de comenzar es recomendable visitar los siguientes tutoriales:
+
+- [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
+- [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
 
 <div class="toc">
 
-- [Kit de desarrollo NodeMCU](#kit-de-desarrollo-nodemcu)
-  - [NodeMCU Lolin / Wemos Versión 3](#nodemcu-lolin--wemos-versi%C3%B3n-3)
-  - [Pinout de NodeMCU](#pinout-de-nodemcu)
-  - [Internet de las cosas](#internet-de-las-cosas)
+- [NodeMCU ESP8266 WiFi](#nodemcu-esp8266-wifi)
+  - [Buscar señales WiFi](#buscar-se%C3%B1ales-wifi)
+  - [Conectar a una red WiFi](#conectar-a-una-red-wifi)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
 
-# Kit de desarrollo NodeMCU
+# NodeMCU ESP8266 WiFi
 
-NodeMCU es una placa de desarrollo de hardware y software abierto utilizada principalmente en el internet de las cosas (IoT - Internet of Things). Al igual que ocurre con otras placas similares, todo está dispuesto para que pueda ser programado de una forma sencilla.
+Conectarse a una red Wifi con la ESP8266 es muy sencillo gracias a la librería ESP8266WiFi, añadida anteriormente en el IDE de Arduino.
 
-La NodeMCU está basada en el módulo ESP12E, el cual contiene un chip SoC ESP8266, y dentro de este, un microcontrolador MCU.
+## Buscar señales WiFi
 
-- SoC (System on a Chip) ESP8266. Es un módulo WiFi de 2,4GHz compatible con la mayoría de routers del mercado.
-- Microcontrolador MCU Tensilica de 32-bit. Encargado de ejecutar las sentencias del programa y gestionar las entradas y salidas de los pines GPIO.
+La idea es obtener a través del monitor del IDE de Arduino el listado de todas las redes WiFi encontradas. Y este proceso se repetirá cada 5 segundos. Para cada red encontrada se mostrará el SSID (nombre de la WiFi) y el RSSI (intensidad de la señal). 
 
-> Al ser hardware abierto podemos encontrar diferentes modelos de fabricantes, aunque todos ellos incluyen el mismo módulo y SoC.
+> Cuanto mayor sea el RSSI mejor será la señal encontrada.
 
-## NodeMCU Lolin / Wemos Versión 3
+![](img/buscar.png)
 
-Son varias las versiones existentes y en este tutorial vamos a hablar de la última versión v3 sin entrar en detalles sobre las anteriores. 
+En primer lugar cargamos la librería `ESP8266WiFi.h` para poder utilizar las funciones sobre la WiFi. 
 
-Veamos la placa de desarrollo `NodeMCU Lolin / Wemos v3`.
+En la función `setup()` establecemos la velocidad de transmisión a 115200 baudios y establecemos el modo de conexión, que en este caso es en modo cliente o estación `WiFi.mode(WIFI_STA)`.
 
-![](img/nodemcu-lolin-v3.png)
+En la función `loop()` vamos a escanear cada 5 segundos en busca de redes, y esto lo hacemos con la función `WiFi.scanNetworks()` la cual obtiene el número de redes disponibles. A continuación, por cada una de las redes encontradas mostramos los valores que nos interesa, que son el SSID mediante la función `WiFi.SSID(i)` y el RSSI mediante la función `WiFi.RSSI(i)`.
 
-## Pinout de NodeMCU
+```arduino
+#include <ESP8266WiFi.h>
 
-Una vez vista la placa NodeMCU vamos a ver una visión general de la distribución de los pines. Recuerda que hay una variedad de fabricantes así que puede haber pequeñas diferencias en la placa de desarrollo que tengas, sobre todo en la serigrafía, sin embargo, todas se basan en el mismo módulo ESP8266.
+void setup() {
+  Serial.begin(115200);
 
-- El pin A0 es el destinado a entrada analógica. Rango de tensión de 0V-3.3V (valor 0-1023).
-- Los pines GPIO (General Purpose Input/Output) son los destinados a entradas y salidas digitales.
+  // Modo cliente
+  WiFi.mode(WIFI_STA);
+}
 
-![](img/nodemcu-v3.png)
+void loop() {
+  Serial.println("");
 
-## Internet de las cosas
+  // Obtenemos el número de redes encontradas
+  int n = WiFi.scanNetworks();
+  Serial.print(n);
+  Serial.println(" redes encontradas");
 
-ToDo
+  // Se imprimen las redes encontradas (SSID e RSSI)
+  for (int i = 0; i < n; i++){
+    Serial.print(i + 1);
+    Serial.print(": ");
+    Serial.print(WiFi.SSID(i));
+    Serial.print(" (");
+    Serial.print(WiFi.RSSI(i));
+    Serial.println(")");
+    delay(100);
+  }
+
+  delay(5000);
+}
+```
+
+## Conectar a una red WiFi
+
+Una vez tenemos el listado de redes WiFi disponibles, vamos a conectarnos a una mediante SSID y password conocido.
+
+Además de importar la librería, vamos a establecer las constantes SSID y PASSWORD que utilizaremos en la función `setup()` para establecer la conexión.
+
+En la función `loop()` simplemente comprobaremos si estamos conectados a la WiFi mediante la función `WiFi.status()` la cual me indica si estoy conectado o no.
+
+```arduino
+#include <ESP8266WiFi.h>
+ 
+const char* ssid = "NOMBRE";
+const char* password = "PASSWORD";
+ 
+void setup () {
+  Serial.begin(115200);
+
+  // Conectar a la WiFi
+  WiFi.begin(ssid, password);
+
+  // Modo cliente
+  WiFi.mode(WIFI_STA);
+
+  // Esperar hasta conectar
+  while (WiFi.status() != WL_CONNECTED)
+    delay(200);
+}
+ 
+void loop() {
+  // Comprobar si estamos conectados
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("Conectado");
+  }
+  
+  delay(5000);
+}
+```
 
 ---
 
 # Resumen
 
-NodeMCU es una placa de hardware libre similar a Arduino MKR1000, con la diferencia que es mucho más económica, ya que podemos encontrarla por 7€ aproximadamente.
-
-Sin embargo, la documentación no es tan extensa y clara como ocurre con las placas de Arduino que todo aparece bien documentado.
+Como hemos visto, es muy sencillo utilizar la WiFi gracias a la librería `ESP8266WiFi.h`. Aunque realmente hay muchas más funcioones disponibles que puedes encontrar en la [documentación](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html).
 
 ---
 
 # Ejercicios propuestos
 
-1.- Piensa varios proyectos que se podría realizar con esta placa.
+1.- Busca todas las redes WiFi disponibles y conectate a una red WiFi conocida.
+
+2.- Utilizando los pines GPIO, añade un LED rojo y un LED verde indicando cuando estás conectado a una red y cuando no lo estás.
