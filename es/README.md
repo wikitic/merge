@@ -1,4 +1,4 @@
-En este tutorial vamos a explicar cómo **buscar señales WiFi con la ESP8266** para conectarnos en modo cliente o estación a una red conociendo el SSID y la contraseña.
+En este tutorial vamos a crear un **servidor web para controlar los pines GPIO** de nuestra placa NodeMCU ESP8266 y encender o apagar un LED desde el móvil conectado a la WiFi.
 
 ## Requisitos
 
@@ -11,87 +11,51 @@ Antes de comenzar es recomendable visitar los siguientes tutoriales:
 
 - [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
 - [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
+- [Conectar a la WiFi una ESP8266](nodemcu-esp8266-wifi)
 
 ---
 
 <div class="toc">
 
-- [NodeMCU ESP8266 WiFi](#nodemcu-esp8266-wifi)
-  - [Buscar señales WiFi](#buscar-se%C3%B1ales-wifi)
-  - [Conectar a una red WiFi](#conectar-a-una-red-wifi)
+- [Conectando a la WiFi](#conectando-a-la-wifi)
+  - [IP Fija en ESP8266](#ip-fija-en-esp8266)
+  - [Servidor Web en ESP8266](#servidor-web-en-esp8266)
+  - [Pines GPIO mediante webservice](#pines-gpio-mediante-webservice)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
 
-# NodeMCU ESP8266 WiFi
+# Conectando a la WiFi
 
-Conectarse a una red Wifi con la ESP8266 es muy sencillo gracias a la librería ESP8266WiFi, añadida anteriormente en el IDE de Arduino.
+En primer lugar debemos ser capaces de conectar nuestra placa ESP8266 a la WiFi como se explica en tutoriales anteriores. En este tutorial además asignaremos una dirección IP fija a nuestra placa para que siempre tenga la misma aunque se desconecte de la WiFi. Por último accederemos desde el móvil para controlar diferentes pines GPIO.
 
-## Buscar señales WiFi
+## IP Fija en ESP8266
 
-La idea es obtener a través del monitor del IDE de Arduino el listado de todas las redes WiFi encontradas. Y este proceso se repetirá cada 5 segundos. Para cada red encontrada se mostrará el SSID (nombre de la WiFi) y el RSSI (intensidad de la señal). 
+De forma similar que cuando nos conectábamos a una red WiFi, nuestro router nos asigna de forma automática una dirección IP. Sin embargo, podemos asignar una IP fuera del rango que ofrece el router para controlar nuestra placa con una IP Fija.
 
-> Cuanto mayor sea el RSSI mejor será la señal encontrada.
+En este caso, vamos a conectar nuestra ESP8266 a la IP *192.168.0.200* en la cual nos hemos asegurado que está disponible y fuera de la asignación automática por nuestro router.
 
-![](img/buscar.png)
+![](img/ipfija.png)
 
-En primer lugar cargamos la librería `ESP8266WiFi.h` para poder utilizar las funciones sobre la WiFi. 
+Lo que tenemos que añadir a nuestro código, es la asignación de dicha dirección IP, Puerta de Enalce (dirección IP del Router) y Máscara de Red.
 
-En la función `setup()` establecemos la velocidad de transmisión a 115200 baudios y establecemos el modo de conexión, que en este caso es en modo cliente o estación `WiFi.mode(WIFI_STA)`.
+En la función `setup()`, además de establecer la conexión en modo cliente añadimos la configuración de los parámetros para que asigne los establecidos por nosotros.
 
-En la función `loop()` vamos a escanear cada 5 segundos en busca de redes, y esto lo hacemos con la función `WiFi.scanNetworks()` la cual obtiene el número de redes disponibles. A continuación, por cada una de las redes encontradas mostramos los valores que nos interesa, que son el SSID mediante la función `WiFi.SSID(i)` y el RSSI mediante la función `WiFi.RSSI(i)`.
+En la función `loop()` mostramos la IP que hemos asignado para comprobar que todo ha funcionado correctamente.
 
 ```arduino
 #include <ESP8266WiFi.h>
+
+const char* ssid     = "******";
+const char* password = "******";
+
+// Establecer IP, Puerta de Enlace y Máscara
+IPAddress ip(192,168,0,200);
+IPAddress gateway(192,168,0,1);
+IPAddress subnet(255,255,255,0);
 
 void setup() {
-  Serial.begin(115200);
-
-  // Modo cliente
-  WiFi.mode(WIFI_STA);
-}
-
-void loop() {
-  Serial.println("");
-
-  // Obtenemos el número de redes encontradas
-  int n = WiFi.scanNetworks();
-  Serial.print(n);
-  Serial.println(" redes encontradas");
-
-  // Se imprimen las redes encontradas (SSID e RSSI)
-  for (int i = 0; i < n; i++){
-    Serial.print(i + 1);
-    Serial.print(": ");
-    Serial.print(WiFi.SSID(i));
-    Serial.print(" (");
-    Serial.print(WiFi.RSSI(i));
-    Serial.println(")");
-    delay(100);
-  }
-
-  delay(5000);
-}
-```
-
-## Conectar a una red WiFi
-
-Una vez tenemos el listado de redes WiFi disponibles, vamos a conectarnos a una mediante SSID y password conocido.
-
-![](img/conectar.png)
-
-Además de importar la librería, vamos a establecer las constantes SSID y PASSWORD que utilizaremos en la función `setup()` para establecer la conexión.
-
-En la función `loop()` simplemente comprobaremos si estamos conectados a la WiFi mediante la función `WiFi.status()` la cual me indica si estoy conectado o no.
-
-```arduino
-#include <ESP8266WiFi.h>
- 
-const char* ssid = "NOMBRE";
-const char* password = "PASSWORD";
- 
-void setup () {
   Serial.begin(115200);
 
   // Conectar a la WiFi
@@ -99,21 +63,89 @@ void setup () {
 
   // Modo cliente
   WiFi.mode(WIFI_STA);
+  WiFi.config(ip, gateway, subnet);
 
   // Esperar hasta conectar
   while (WiFi.status() != WL_CONNECTED)
     delay(200);
 }
- 
-void loop() {
+
+void loop(){
   // Comprobar si estamos conectados
   if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("Conectado");
+    Serial.print("Conectado a ");
+    Serial.println(WiFi.localIP());
   }
   
   delay(5000);
 }
 ```
+
+## Servidor Web en ESP8266
+
+Una vez tenemos fija la dirección IP, vamos a añadir la funcionalidad para comunicarnos con la placa ESP8266 a través de un navegador conectado a la misma red.
+
+En primer lugar vamos a mostrar un código HTML con el mensaje *Hola Mundo*.
+
+![](img/hola-mundo.png)
+
+En primer lugar necesitamos añadir la librería `ESP8266WebServer.h` encargada de controlar el servidor web. Además, le indicamos que el puerto por el cual se va a escuchar es el puerto 80.
+
+En la función `setup()` le indicamos que tras la petición "/" o raiz, llamaremos a la función `handleRoot()` encargada de mostrar el mensaje 'Hola Mundo'.
+
+En la función `loop()` solamente hemos añadido la escucha de clientes en caso de estar conectados a la WiFi.
+
+```arduino
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h> 
+
+const char* ssid     = "******";
+const char* password = "******";
+
+// Establecer IP, Puerta de Enlace y Máscara
+IPAddress ip(192,168,0,200);
+IPAddress gateway(192,168,0,1);
+IPAddress subnet(255,255,255,0);
+
+// Puerto del servidor web
+ESP8266WebServer server(80);
+
+void setup() {
+  Serial.begin(115200);
+
+  // Conectar a la WiFi
+  WiFi.begin(ssid, password);
+
+  // Modo cliente
+  WiFi.mode(WIFI_STA);
+  WiFi.config(ip, gateway, subnet);
+
+  // Esperar hasta conectar
+  while (WiFi.status() != WL_CONNECTED)
+    delay(200);
+
+  // Arrancar el servidor
+  server.on("/", handleRoot);
+  server.begin();
+}
+
+void loop(){
+  // Comprobar si estamos conectados
+  if (WiFi.status() == WL_CONNECTED) {
+    server.handleClient();
+  }
+  
+}
+
+void handleRoot() {
+  server.send(200, "text/plain", "Hola Mundo");
+}
+```
+
+## Pines GPIO mediante webservice
+
+
+
 
 ---
 
