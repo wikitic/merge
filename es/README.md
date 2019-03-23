@@ -214,6 +214,7 @@ void apagar() {
 }
 ```
 
+![](img/html-href.gif)
 
 
 ---
@@ -228,4 +229,6 @@ Como hemos visto, es muy sencillo utilizar las funciones de servidor web e inter
 
 1.- Añade un semáforo para controlarlo desde la web en otro PC o movil de la misma red.
 
-2.- Añade más componentes de electrónica, como servomotores, etc.
+2.- Añade un código en html para mostrar un botón de on y otro de off.
+
+3.- Añade más componentes de electrónica, como servomotores, etc.
