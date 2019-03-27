@@ -168,7 +168,19 @@
       }
     ]
   },
-
+  {
+    "alias": "raspberry_pi-hotspot",
+    "url": "https://github.com/wikitic/raspberry_pi-hotspot",
+    "title": "Punto de acceso WiFi con Raspberry Pi",
+    "description": "Crea un punto de acceso con RaspAp Webgui para tu raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-hotspot/master/preview.png",
+    "tags": ["raspberry pi", "hotspot", "raspap"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
   {
     "alias": "nodemcu-esp8266",
     "url": "https://github.com/wikitic/nodemcu-esp8266",
