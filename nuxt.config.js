@@ -123,6 +123,7 @@ export default {
         '/tag/microbit',
         '/tag/mu',
         '/tag/micropython',
+        '/tag/python',
         '/tag/nodemcu',
         '/tag/esp8266',
         '/tag/arduino+ide',
