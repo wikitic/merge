@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Servidor web con Flask en Python
+    description: Controlar los pines GPIO a través de un servidor web en Python.
     authors:
-      - author-1
+      - migueabellan
