@@ -39,7 +39,7 @@ La imagen del sistema operativo se instalará sobre una tarjeta SD. Por ello, mi
 
 ## Clonar la imagen con Etcher
 
-Una vez descargada la imagen de Raspbian e instalado el programa Etcher, lo abrimos y seleccionamos la imagen y la tarjeta donde queremos copiar el sistema operativo. Hacemos clic sobre el boton `Flash` y esperamos a que el proceso finalice. Este proceso suele tardar 20 minutos aproximadamente.
+Una vez descargada la imagen de Raspbian e instalado el programa Etcher, lo abrimos y seleccionamos la imagen y la tarjeta donde queremos copiar el sistema operativo. Hacemos clic en `Flash` y esperamos a que el proceso finalice. Este proceso suele tardar 20 minutos aproximadamente.
 
 Una vez finalizado el proceso de copiado conectamos la tarjeta SD a la Raspberry Pi y al encenderla arrancará directamente el sistema operativo Raspbian.
 
