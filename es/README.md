@@ -84,7 +84,7 @@ Al instalar el sistema operativo Raspbian, el usuario por defecto es `pi` y la c
 
 # Resumen
 
-Piclone es una gran herramienta si queremos tener una copia o respaldo de nuestra configuración preferida de Raspbian. De esta forma no tenemos que preocuparnos por hacer un mal uso del sistema operativo cuando estamos probando programas, ya que en caso de error podemos restaurar la copia de la tarjeta SD auxiliar sin necesidad de volver a instalar todos los programas que teníamos.
+En la práctica es una buena solución habilitar la conexión por SSH de nuestra Raspberry Pi cuando queremos controlarla desde el exterior. Cada vez que queramos conectar debemos introducir el comando de SSH mediante la IP (recuerda que es buena idea establecer la IP fija) e introducir el usuario y contraseña de la máquina a la cual nos queremos conectar.
 
 ---
 
