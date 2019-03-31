@@ -92,6 +92,6 @@ En la práctica es una buena solución habilitar la conexión por SSH de nuestra
 
 1.- Habilita la conexión SSH de tu Raspberry Pi mediante entorno gráfico y prueba a conectarte desde otro equipo.
 
-2.- Ahora deshabilita la conexión SSH mediante la consola y prueba a conectarne nuevamente. ¿Qué ocurre?
+2.- Ahora deshabilita la conexión SSH mediante la consola y prueba a conectarte nuevamente. ¿Qué ocurre?
 
 3.- Recuerda cambiar la contraseña para que otros no puedan acceder a tu Raspberry Pi.
