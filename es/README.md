@@ -1,27 +1,25 @@
 En este tutorial vamos a explicar cómo **instalar el sistema operativo Raspbian en Raspberry Pi** utilizando el asistente guiado NOOBs.
 
+## ¿Qué materiales voy a necesitar?
+
+- Raspberry Pi con accesorios
+- PC con conexión a Internet
+- Lector de tarjetas SD
+
 <div class="toc">
 
-- [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
-  - [Requisitos](#requisitos)
+- [Raspbian NOOBs](#raspbian-noobs)
   - [Descargar Raspbian con NOOBs](#descargar-raspbian-con-noobs)
   - [Instalar SD Card Formatter](#instalar-sd-card-formatter)
-  - [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs-1)
+  - [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
 </div>
 
-# Instalar Raspbian con NOOBs
+# Raspbian NOOBs
 
 NOOBS es el acrónimo de *New Out Of Box Software* y consiste en un instalador sencillo guiado paso a paso. NOOBS incluye también un método de edición rápida de configuración del nuevo sistema, un navegador web preinstalado y un modo de recuperación por línea de comandos a partir de una partición de rescate que se crea automáticamente.
-
-## Requisitos
-
-Debemos disponer de los siguientes componentes:
-
-- PC con conexión a internet
-- Lector de tarjetas SD
 
 ## Descargar Raspbian con NOOBs
 
@@ -62,7 +60,9 @@ Una forma sencilla de instalar Raspbian es copiando todos los archivos de la ima
 
 # Ejercicios propuestos
 
-1.- Instala el sistema operativo Raspbian a partir de una imagen utilizando el asistente NOOBs. Además deberás calcular el tiempo aproximado de la instalación de los diferentes programas utilizados.
+1.- Formatea la tarjeta SD y comprueba que se ha formateado correctamente.
+
+2.- Instala el sistema operativo Raspbian con NOOBs. Calcula el tiempo aproximado de la instalación.
 
 |                          | Tiempo |
 | ------------------------ | ------ |
