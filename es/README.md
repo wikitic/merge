@@ -1,4 +1,18 @@
-En este tutorial vamos a explicar cómo **actualizar el sistema operativo Raspbian desde la línea de comandos** ya que es conveniente actualizarlo constantemente e incluso antes de instalar un determinado programa.
+En este tutorial vamos a explicar cómo **actualizar el sistema operativo Raspbian** desde la línea de comandos para tenerlo actualizado.
+
+## Antes de empezar
+
+Vas a necesitar los siguientes componentes:
+
+- Raspberry Pi con Raspbian
+- Conexión a internet
+
+Vas a necesitar los siguientes conocimientos previos:
+
+- [Instalar Raspbian en Raspberry Pi con NOOBs](raspberry_pi-raspbian-noobs)
+- [Instalar Raspbian en Raspberry Pi con Etcher](raspberry_pi-raspbian-etcher)
+
+<hr>
 
 <div class="toc">
 
