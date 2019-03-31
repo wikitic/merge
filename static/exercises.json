@@ -52,12 +52,12 @@
     ]
   },
   {
-    "alias": "raspberry_pi-ssh",
-    "url": "https://github.com/wikitic/raspberry_pi-ssh",
-    "title": "Acceso remoto a través de SSH",
-    "description": "Accede a tu Raspberry Pi desde otro ordenador a través del protocolo SSH.",
-    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ssh/master/preview.png",
-    "tags": ["raspberry pi", "ssh"],
+    "alias": "raspberry_pi-ip",
+    "url": "https://github.com/wikitic/raspberry_pi-ip",
+    "title": "Direcciones IP en Raspberry Pi",
+    "description": "Establecer una dirección IP Fija a nuestra Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ip/master/preview.png",
+    "tags": ["raspberry pi", "ip"],
     "authors": [
       {
         "author": "migueabellan"
@@ -65,12 +65,12 @@
     ]
   },
   {
-    "alias": "raspberry_pi-ip",
-    "url": "https://github.com/wikitic/raspberry_pi-ip",
-    "title": "Direcciones IP en Raspberry Pi",
-    "description": "Establecer una dirección IP Fija a nuestra Raspberry Pi.",
-    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ip/master/preview.png",
-    "tags": ["raspberry pi", "ip"],
+    "alias": "raspberry_pi-ssh",
+    "url": "https://github.com/wikitic/raspberry_pi-ssh",
+    "title": "Acceso remoto a través de SSH",
+    "description": "Accede a tu Raspberry Pi desde otro ordenador a través del protocolo SSH.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-ssh/master/preview.png",
+    "tags": ["raspberry pi", "ssh"],
     "authors": [
       {
         "author": "migueabellan"
