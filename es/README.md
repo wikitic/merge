@@ -7,11 +7,6 @@ Vas a necesitar los siguientes componentes:
 - Raspberry Pi con Raspbian
 - Conexión a internet
 
-Vas a necesitar los siguientes conocimientos previos:
-
-- [Instalar Raspbian en Raspberry Pi con NOOBs](raspberry_pi-raspbian-noobs)
-- [Instalar Raspbian en Raspberry Pi con Etcher](raspberry_pi-raspbian-etcher)
-
 <hr>
 
 <div class="toc">
