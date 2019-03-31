@@ -123,6 +123,6 @@ En la práctica es una buena solución establecer direcciones IP fijas a nuestra
 
 # Ejercicios propuestos
 
-1.- Averigua tu dirección IP y prueba hacer un ping desde otro equipo a tu IP.
+1.- Averigua tu dirección IP y prueba hacer un ping desde otro equipo a tu IP. Comprueba que la respuesta es correcta.
 
 2.- Asigna una dirección IP fija a tu Raspberry Pi y reinicia el sistema para comprobar el correcto funcionamiento. (Recuerda establecer una IP disponible y fuera del rango DHCP de tu router).
