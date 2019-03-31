@@ -1,10 +1,14 @@
 En este tutorial vamos a explicar cómo **instalar el sistema operativo Raspbian en Raspberry Pi** utilizando el clonado de una imagen con Etcher.
 
-## ¿Qué materiales voy a necesitar?
+## Antes de empezar
 
-- Raspberry Pi con accesorios
+Vas a necesitar los siguientes componentes:
+
+- Raspberry Pi
 - PC con conexión a Internet
 - Lector de tarjetas SD
+
+<hr>
 
 <div class="toc">
 
