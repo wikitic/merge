@@ -1,11 +1,24 @@
-En este tutorial vamos a explicar cómo **montar un servidor web para POython con Flask** en nuestra Raspberry Pi.
+En este tutorial vamos a explicar cómo **montar un servidor web para Python con Flask** en nuestra Raspberry Pi.
+
+## Antes de empezar
+
+Para este tutorial vas a necesitar los siguientes componentes:
+
+- Raspberry Pi con Raspbian
+
+Es recomendable acceder a los siguientes tutoriales:
+
+- [Aprender a programar en Python]([nodemcu-esp8266](https://www.aprendeprogramando.es/cursos-online/python))
+
+
+---
 
 <div class="toc">
 
 - [Servidor Web con Flask](#servidor-web-con-flask)
   - [Instalar Flask](#instalar-flask)
   - [Hola Mundo](#hola-mundo)
-- [Encendido y apagado de un LED](#encendido-y-apagado-de-un-led)
+  - [Encendido y apagado de un LED](#encendido-y-apagado-de-un-led)
 - [Resumen](#resumen)
 - [Ejercicios propuestos](#ejercicios-propuestos)
 
@@ -53,7 +66,7 @@ Por último jecuta el código haciendo clic en el botón de ejecutar "Run" y acc
 URL: localhost:5000
 ```
 
-# Encendido y apagado de un LED
+## Encendido y apagado de un LED
 
 Vamos a realizar el encendido y apagado de un LED conectado al `Pin 11 - GPIO 17` de nuestra Raspberry Pi.
 
