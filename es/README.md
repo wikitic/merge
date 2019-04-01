@@ -1,8 +1,30 @@
-# Botones en Micro:bit con MicroPython
+En este tutorial vamos a explicar cómo **utilizar los botones de micro:bit** para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
 
-En este tutorial se van a utilizar los botones delanteros de la tarjeta Micro:bit para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
+## Antes de empezar
 
-> Si todavía no estás familiarizado con el lenguaje de programación Python, visita el proyecto [AprendeProgramando](https://www.aprendeprogramando.es/cursos-online/python) para aprender programación en Python paso a paso y a tu ritmo.
+Vas a necesitar los siguientes componentes:
+
+- Raspberry Pi con Raspbian
+- Micro:Bit
+
+Es recomendable acceder a los siguientes tutoriales:
+
+- [Instalar Mu Editor en Raspbian](raspberry_pi-microbit-mu)
+- [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
+
+<hr>
+
+<div class="toc">
+
+- [Botones en Micro:bit](#botones-en-microbit)
+  - [Función is_pressed()](#funci%C3%B3n-ispressed)
+  - [Función get_presses()](#funci%C3%B3n-getpresses)
+- [Resumen](#resumen)
+- [Ejercicios propuestos](#ejercicios-propuestos)
+
+</div>
+
+# Botones en Micro:bit
 
 La placa Micro:bit consta de 2 botones en la parte frontal situados a la izquierda y a la derecha bajo las serigrafías `A` y `B` respectivamente.
 
@@ -43,11 +65,18 @@ display.show(pulsaciones)
 display.scroll(pulsaciones)
 ```
 
+---
 
-## Ejercicios propuestos
+# Resumen
 
-#### 1.- Muestra la imagen de un corazón cada vez que pulses el botón A.
+Como puedes observar es muy sencillo utilizar las funciones de botones en MicroPython.
 
-#### 2.- Muestra la palabra 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
+---
 
-#### 3.- Enciende todos los LEDs si pulsas ambos botones A y B al mismo tiempo durante 5 segundos.
+# Ejercicios propuestos
+
+1.- Muestra la imagen de un corazón cada vez que pulses el botón A.
+
+2.- Muestra la palabra 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
+
+3.- Enciende todos los LEDs si pulsas ambos botones A y B al mismo tiempo durante 5 segundos.
