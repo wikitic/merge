@@ -135,7 +135,7 @@
     "title": "Primeros pasos con Micro:bit y Mu Editor",
     "description": "Programa tu Micro:bit en Raspberry Pi con MicroPython.",
     "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-microbit-mu/master/preview.png",
-    "tags": ["raspberry pi", "microbit", "mu"],
+    "tags": ["raspberry pi", "microbit", "mu editor"],
     "authors": [
       {
         "author": "migueabellan"

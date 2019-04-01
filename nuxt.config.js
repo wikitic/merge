@@ -123,7 +123,7 @@ export default {
         '/tag/cron',
         '/tag/motion',
         '/tag/microbit',
-        '/tag/mu',
+        '/tag/mu+editor',
         '/tag/micropython',
         '/tag/python',
         '/tag/nodemcu',
