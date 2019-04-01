@@ -81,7 +81,7 @@ display.show(barco)
 
 # Resumen
 
-Como puedes observar puede crear una gran cantidad de imágenes utilizando la matriz de LEDs en MicroPython de una forma muy sencilla.
+Como puedes observar es muy sencillo crear imágenes utilizando la matriz de LEDs en MicroPython.
 
 ---
 
