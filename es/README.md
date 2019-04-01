@@ -1,14 +1,38 @@
-# Detecta movimientos con una webcam y Motion en Raspberry Pi
+En este tutorial vamos a explicar cómo **instalar y configurar motion** para montar un sistema de videovigilancia.
+
+## Antes de empezar
+
+Vas a necesitar los siguientes componentes:
+
+- Raspberry Pi con Raspbian
+- Webcam USB
+
+Es recomendable acceder a los siguientes tutoriales:
+
+- [Configurar Webcam en Raspberry Pi](raspberry_pi-webcam-luvcview)
+
+<hr>
+
+<div class="toc">
+
+- [Software Motion](#software-motion)
+  - [Instalar Motion](#instalar-motion)
+  - [Detectar movimientos](#detectar-movimientos)
+  - [Acceder a Motion de forma remota](#acceder-a-motion-de-forma-remota)
+  - [Arrancar Motion al encender la Raspberry Pi](#arrancar-motion-al-encender-la-raspberry-pi)
+- [Resumen](#resumen)
+- [Ejercicios propuestos](#ejercicios-propuestos)
+
+</div>
+
+
+# Software Motion
 
 [Motion](https://motion-project.github.io/) es uno de los programas más populares para utilizar con webcams, cuya utilidad es la de detectar movimientos. De esta forma podemos grabar momentos en los cuales se ha detectado movimiento. 
 
-> Recordamos que antes de instalar Motion debemos asegurarnos que nuestra webcam ha sido reconocida por el Sistema Operativo como se explica en el tutorial [Raspberry Pi - Webcam - LUVCview](raspberry_pi-webcam-luvcview)
-
 ## Instalar Motion
 
-> Recordamos que antes de instalar cualquier software es conveniente tener actualizado el listado de repositorios con el comando `apt-get update` como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspian-update)
- 
-Una vez actualizada la lista de paquetes del repositorio, podemos instalar Motion mediante el comando `apt-get install motion`.
+Antes de instalar un programa es recomendable actualizar Raspbian como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update). Una vez actualizada la lista de paquetes del repositorio, podemos instalar Motion mediante el comando `apt-get install motion`.
 
 ```sh
 pi@raspberrypi:~ $ sudo apt-get install motion
@@ -25,8 +49,6 @@ ToDo
 ## Acceder a Motion de forma remota
 
 Probablemente lo que nos interese sea ver el contenido de la webcam desde fuera de la Raspberry Pi, por ejemplo, para controlar un bebe desde otra habitación. Para ello vamos a configurar Motion para que nos permita acceder desde la propia red local.
-
-### Configurar Motion
 
 En primer lugar accedemos al fichero `/etc/motion/motion.conf` donde aparecen todas las opciones de configuración de Motion. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/motion/motion.conf`.
 
@@ -49,7 +71,7 @@ stream_port 8081
 stream_localhost off
 ```
 
-### Arrancar Motion al enceder la Raspberry Pi
+## Arrancar Motion al encender la Raspberry Pi
 
 En este caso vamos a configurar el fichero de configuración encargado de habilitar el daemon de Motion al iniciar la Raspberry Pi. Para ello accedemos al fichero `/etc/default/motion`. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/default/motion`.
 
@@ -70,9 +92,18 @@ pi@raspberrypi:~ $ sudo service motion restart
 
 ![](img/remoto.png)
 
+---
 
-## Siguiente tutorial
+# Resumen
 
 Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
 
 Para ello lo que tenemos que hacer es configurar un tunel SSH a través de una Red Privada Virtual y eso lo explicamos en el tutorial [Raspberry Pi - OpenVPN](raspberry_pi-openvpn)
+
+---
+
+# Ejercicios propuestos
+
+1.- Conecta una webcam USB e instala y configura Motion correctamente.
+
+2.- Accede desde un dispositivo móvil en la misma red para comprobar que puedes ver la webcam desde el móvil.
