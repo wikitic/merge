@@ -1,10 +1,29 @@
-# Matriz de LEDs en Micro:bit con MicroPython
+En este tutorial vamos a explicar cómo **utilizar la matriz de LEDs de micro:bit** para representar y construir diferentes tipos de imágenes utilizando el lenguaje de programación MicroPython.
 
-En este tutorial se va a utilizar la matriz de LEDs (5x5) de la tarjeta Micro:bit para representar y construir diferentes tipos de imágenes utilizando el lenguaje de programación MicroPython.
+## Antes de empezar
 
-> Si todavía no estás familiarizado con el lenguaje de programación Python, visita el proyecto [AprendeProgramando](https://www.aprendeprogramando.es/cursos-online/python) para aprender programación en Python paso a paso y a tu ritmo.
+Vas a necesitar los siguientes componentes:
 
-## Imágenes predefinidas
+- Raspberry Pi con Raspbian
+- Micro:Bit
+
+Es recomendable acceder a los siguientes tutoriales:
+
+- [Instalar Mu Editor en Raspbian](raspberry_pi-microbit-mu)
+- [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
+
+<hr>
+
+<div class="toc">
+
+- [Imágenes en micro:bit](#im%C3%A1genes-en-microbit)
+  - [Crear imágenes propias](#crear-im%C3%A1genes-propias)
+- [Resumen](#resumen)
+- [Ejercicios propuestos](#ejercicios-propuestos)
+
+</div>
+
+# Imágenes en micro:bit
 
 MicroPython viene con muchas imágenes integradas para mostrar en la pantalla aunque probablemente queramos construir las nuestras propias.
 
@@ -26,11 +45,11 @@ display.show(Image.HEART)
 
 El resultado de este código debe ser el que se muestra un corazón en la matriz de LEDs de nuestra placa Micro:bit.
 
-## Imágenes propias
+## Crear imágenes propias
 
 En algunas ocasiones puede que nos interese construir nuestras propias imágenes. Esto es posible ya que podemos representar sobre la matriz de LEDs cualquier imagen que se nos ocurra. Además de encender o apagar cada LED, podemos establecer una intensidad de luz de 0 (mínima luz) a 9 (máxima luz).
 
-Para ello utilizaremos la función `Imagen()` la cual contiene 25 números (correspondientes a los 25 LEDs) agrupados de 5 en 5 y separados por el caracter `:` cada grupo. Los LEDs están numerados desde la esquina superior izquierda hasta la inferior derecha. Con lo cual, cada grupo hace referencia a una fila desde arriba hacia abajo.
+Para ello utilizaremos la función `Imagen()` la cual contiene 25 números (correspondientes a los 25 LEDs) agrupados de 5 en 5 y separados por el carácter `:` cada grupo. Los LEDs están numerados desde la esquina superior izquierda hasta la inferior derecha. Con lo cual, cada grupo hace referencia a una fila desde arriba hacia abajo.
 
 ```python
 # 1 1 1 1 1
@@ -58,10 +77,18 @@ barco = Image("01010:03030:05050:99999:09990")
 display.show(barco)
 ```
 
-## Ejercicios propuestos
+---
 
-#### 1.- Muestra diferentes imágenes predefinidas en bucle.
+# Resumen
 
-#### 2.- Crea las letras de tu nombre en mayúsculas y muéstralas en bucle de 1 en 1.
+Como puedes observar puede crear una gran cantidad de imágenes utilizando la matriz de LEDs en MicroPython de una forma muy sencilla.
 
-#### 3.- Construye un degradado de izquierda a derecha utilizando diferentes intensidades de luz.
+---
+
+# Ejercicios propuestos
+
+1.- Muestra diferentes imágenes predefinidas en bucle.
+
+2.- Crea las letras de tu nombre en mayúsculas y muéstralas en bucle de 1 en 1.
+
+3.- Construye un degradado de izquierda a derecha utilizando diferentes intensidades de luz.
