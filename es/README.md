@@ -1,8 +1,16 @@
 En este tutorial vamos a explicar las **principales características de la placa de desarrollo NodeMCU** para posteriormente utilizarla en proyectos educativos a través de dispositivos conectados.
 
+## Antes de empezar
+
+Vas a necesitar los siguientes componentes:
+
+- NodeMCU ESP8266
+
+<hr>
+
 <div class="toc">
 
-- [Kit de desarrollo NodeMCU](#kit-de-desarrollo-nodemcu)
+- [Placa NodeMCU](#placa-nodemcu)
   - [NodeMCU Lolin / Wemos Versión 3](#nodemcu-lolin--wemos-versi%C3%B3n-3)
   - [Pinout de NodeMCU](#pinout-de-nodemcu)
   - [Internet de las cosas](#internet-de-las-cosas)
@@ -11,7 +19,7 @@ En este tutorial vamos a explicar las **principales características de la placa
 
 </div>
 
-# Kit de desarrollo NodeMCU
+# Placa NodeMCU
 
 NodeMCU es una placa de desarrollo de hardware y software abierto utilizada principalmente en el internet de las cosas (IoT - Internet of Things). Al igual que ocurre con otras placas similares, todo está dispuesto para que pueda ser programado de una forma sencilla.
 
@@ -20,7 +28,7 @@ La NodeMCU está basada en el módulo ESP12E, el cual contiene un chip SoC ESP82
 - SoC (System on a Chip) ESP8266. Es un módulo WiFi de 2,4GHz compatible con la mayoría de routers del mercado.
 - Microcontrolador MCU Tensilica de 32-bit. Encargado de ejecutar las sentencias del programa y gestionar las entradas y salidas de los pines GPIO.
 
-> Al ser hardware abierto podemos encontrar diferentes modelos de fabricantes, aunque todos ellos incluyen el mismo módulo y SoC.
+Al ser hardware abierto podemos encontrar diferentes modelos de fabricantes, aunque todos ellos incluyen el mismo módulo y SoC.
 
 ## NodeMCU Lolin / Wemos Versión 3
 
