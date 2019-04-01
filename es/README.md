@@ -1,16 +1,38 @@
-# Conectando Raspberry Pi con Arduino
+En este tutorial vamos a **conectar Raspberry Pi con Arduino** para controlar diferentes sensores y actuadores haciendo que se comuniquen entre ellos a través del puerto serie.
 
-Mediante Raspberry Pi podemos controlar diferentes pines GPIO para entradas y salidas, sin embargo este número de pines es limitado. Además, nos encontramos con que los tiempos de respuestas son demasiado lentos cuando programamos con elnguajes como Python. Con Arduino no nos encontramos con estas limitaciones.
+## Antes de empezar
+
+Vas a necesitar los siguientes componentes:
+
+- Raspberry Pi con Raspbian
+- Arduino UNO
+
+Es recomendable acceder a los siguientes tutoriales:
+
+- [Instalar Arduino IDE en Raspbian](raspberry_pi-arduino_ide)
+
+<hr>
+
+<div class="toc">
+
+- [Raspberry Pi vs Arduino](#raspberry-pi-vs-arduino)
+  - [Instalar Python Serial](#instalar-python-serial)
+  - [Enviar datos desde Raspberry Pi hacia Arduino](#enviar-datos-desde-raspberry-pi-hacia-arduino)
+  - [Enviar datos desde Arduino hacia Raspberry Pi](#enviar-datos-desde-arduino-hacia-raspberry-pi)
+- [Resumen](#resumen)
+- [Ejercicios propuestos](#ejercicios-propuestos)
+
+</div>
+
+# Raspberry Pi vs Arduino
+
+Mediante Raspberry Pi podemos controlar diferentes pines GPIO para entradas y salidas, sin embargo este número de pines es limitado. Además, nos encontramos con que los tiempos de respuestas son demasiado lentos cuando programamos con lenguajes como Python. Con Arduino no nos encontramos con estas limitaciones.
 
 En este tutorial vamos a combinar las ventajas que ofrece Raspberry Pi en cuanto a sistema operativo como controlador maestro, y las ventajas que ofrece Arduino para controlar diferentes sensores y actuadores como esclavo, haciendo que se comuniquen entre ellos a través del puerto serie.
-
-> Si todavía no has instalado el IDE de Arduino en tu Raspberry Pi accede al tutorial [Raspberry Pi - Arduino IDE](raspberry_pi-arduino_ide)
 
 ## Instalar Python Serial
 
 Como hemos comentado, vamos a utilizar las ventajas de ambas plataformas para conectarlas juntas a través del puerto serie. Por ello, vamos a necesitar instalar la librería *python-serial* con el comando `apt-get install python-serial` la cual nos permitirá utilizar el puerto serie desde Python para comunicarnos con Arduino. 
-
-> Recordamos que antes de instalar cualquier software es conveniente tener actualizado el listado de repositorios con el comando `apt-get update` como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update)
 
 ```sh
 pi@raspberrypi:~ $ sudo apt-get install python-serial
@@ -25,7 +47,7 @@ Con el comando 'E' se encenderá el LED 13
 Con el comando 'A' se apagará el LED 13
 ```
 
-### Maestro: Enviar datos hacia el serial
+**Maestro: Enviar datos hacia el serial**
 
 En primer lugar se importa la librería previamente instalada. A continuación se crea el objeto *Serial* estableciendo el puerto y la velocidad de transmisión. En nuestro caso tenemos un Arduino UNO conectado al puerto `/dev/ttyACM0` el cual se comunica a 9600 baudios. 
 
@@ -44,7 +66,7 @@ while True:
 
 ![](img/maestro.png)
 
-### Esclavo: Recibir datos desde el serial
+**Esclavo: Recibir datos desde el serial**
 
 Desde Arduino, establecemos la velocidad de transmisión a 9600 baudios como ya hicimos en Python. En el interior del bucle `loop()` estaremos escuchando el serial hasta que encontremos nueva información, en cuyo caso solamente comprobaremos si la información añadida al serial es una 'E' para encender el pin 13 o una 'A' para apagarlo.
 
@@ -80,7 +102,7 @@ void loop () {
 De forma similar, podemos enviar datos desde arduino. Por ejemplo, supongamos que tenemos un sensor de temperatura que queremos controlar para enviar la información a la Raspberry Pi.
 
 
-## Esclavo: Enviar datos hacia el serial
+**Esclavo: Enviar datos hacia el serial**
 
 En este ejemplo, vamos enviar el mensaje "Hola Mundo" desde la placa de Arduino hacia el serial.
 
@@ -96,7 +118,7 @@ void loop () {
 }
 ```
 
-## Maestro: Recibir datos desde el serial
+**Maestro: Recibir datos desde el serial**
 
 De forma similar, el maestro estará leyendo del serial y mostrará el contenido por la pantalla. Hemos añadido la librería `time` para esperar unos segundos entre lectura y lectura. Además, fíjate como si en el caso anterior, teníamos que codificar la cadena, en este caso tenemos que decodificarla utilizando la función `decode()`.
 
@@ -117,3 +139,19 @@ arduino.close()
 ```
 
 ![](img/arduino-raspberry-pi.png)
+
+---
+
+# Resumen
+
+Arduino es ideal para todo tipo de proyectos de electrónica. Con sus conectores se puede conectar directamente a componentes y sensores, siendo más rápida a la hora de realizar cambios o proyectos sencillos que no requieran tareas complejas. Además, nada más enchufarla, empezará a ejecutar la tarea para la que ha sido programada.
+
+Por otro lado, mediante Python en Raspberry Pi podemos analizar dichos datos para procesarlos según sea nuestro interés.
+
+---
+
+# Ejercicios propuestos
+
+1.- Envía datos desde la Raspberry Pi hacia Arduino para encender o apagar un LED.
+
+2.- Envía datos desde el Arduino hacia Raspberry Pi para mostrar un mensaje u otro por la pantalla.
