@@ -1,13 +1,13 @@
 En este tutorial vamos a crear un **servidor web para controlar los pines GPIO** de nuestra placa NodeMCU ESP8266 y encender o apagar un LED desde el móvil conectado a la WiFi.
 
-## Requisitos
+## Antes de empezar
 
 Para este tutorial vas a necesitar los siguientes componentes:
 
 - NodeMCU o equivalente
 - Arduino IDE con placa NodeMCU ESP12
 
-Antes de comenzar es recomendable visitar los siguientes tutoriales:
+Es recomendable acceder a los siguientes tutoriales:
 
 - [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
 - [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
