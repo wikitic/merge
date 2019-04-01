@@ -119,6 +119,8 @@ export default {
         '/tag/ip',
         '/tag/webcam',
         '/tag/luvcview',
+        '/tag/fswebcam',
+        '/tag/cron',
         '/tag/motion',
         '/tag/microbit',
         '/tag/mu',
