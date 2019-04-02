@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **instalar y configurar motion** para montar un sistema de videovigilancia.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -10,21 +10,6 @@ Vas a necesitar los siguientes componentes:
 Es recomendable acceder a los siguientes tutoriales:
 
 - [Configurar Webcam en Raspberry Pi](raspberry_pi-webcam-luvcview)
-
-<hr>
-
-<div class="toc">
-
-- [Software Motion](#software-motion)
-  - [Instalar Motion](#instalar-motion)
-  - [Detectar movimientos](#detectar-movimientos)
-  - [Acceder a Motion de forma remota](#acceder-a-motion-de-forma-remota)
-  - [Arrancar Motion al encender la Raspberry Pi](#arrancar-motion-al-encender-la-raspberry-pi)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
-
 
 # Software Motion
 
@@ -92,15 +77,11 @@ pi@raspberrypi:~ $ sudo service motion restart
 
 ![](img/remoto.png)
 
----
-
 # Resumen
 
 Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
 
 Para ello lo que tenemos que hacer es configurar un tunel SSH a través de una Red Privada Virtual y eso lo explicamos en el tutorial [Raspberry Pi - OpenVPN](raspberry_pi-openvpn)
-
----
 
 # Ejercicios propuestos
 
