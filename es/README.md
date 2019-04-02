@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **buscar señales WiFi con la ESP8266** para conectarnos en modo cliente o estación a una red conociendo el SSID y la contraseña.
 
-## Antes de empezar
+# Antes de empezar
 
 Para este tutorial vas a necesitar los siguientes componentes:
 
@@ -11,18 +11,6 @@ Es recomendable acceder a los siguientes tutoriales:
 
 - [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
 - [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
-
----
-
-<div class="toc">
-
-- [NodeMCU ESP8266 WiFi](#nodemcu-esp8266-wifi)
-  - [Buscar señales WiFi](#buscar-se%C3%B1ales-wifi)
-  - [Conectar a una red WiFi](#conectar-a-una-red-wifi)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # NodeMCU ESP8266 WiFi
 
@@ -115,13 +103,9 @@ void loop() {
 }
 ```
 
----
-
 # Resumen
 
 Como hemos visto, es muy sencillo utilizar la WiFi gracias a la librería `ESP8266WiFi.h`. Aunque realmente hay muchas más funcioones disponibles que puedes encontrar en la [documentación](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html).
-
----
 
 # Ejercicios propuestos
 
