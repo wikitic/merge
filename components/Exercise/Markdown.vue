@@ -1,12 +1,18 @@
 <template>
-  <vue-markdown
-    :toc="true"
-    :toc-first-level="2"
-    :toc-anchor-link="false"
-    :anchor-attributes="anchorAttrs"
-    :source="source"
-    class="markdown"
-  />
+  <div>
+    <div
+      v-html="menu"
+      class="toc"
+    />
+    <vue-markdown
+      :toc="true"
+      :toc-first-level="1"
+      :toc-anchor-link="false"
+      :source="content"
+      v-on:toc-rendered="tocAllRight"
+      class="markdown"
+    />
+  </div>
 </template>
 
 <script>
@@ -29,25 +35,44 @@ export default {
   },
   data() {
     return {
-      anchorAttrs: {
-        // target: '_blank',
-        // rel: 'noopener noreferrer nofollow'
-      }
+      menu: ''
     }
   },
-  computed: {
-    source: function() {
-      let content = this.content
-      // Internal link #
-      content = content.split('](#').join(`](/${this.exercise.alias}#`)
-
-      return content
+  methods: {
+    tocAllRight: function(tocHtmlStr) {
+      tocHtmlStr = tocHtmlStr.split('"#').join(`"/${this.exercise.alias}#`)
+      this.menu = tocHtmlStr
     }
   }
 }
 </script>
 
 <style lang="scss">
+.toc {
+  margin: 0 0 60px;
+  padding: 10px 20px;
+  border-left: 5px solid #333;
+  background: #e0e0e0;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      &:before {
+        content: '';
+      }
+      li {
+        margin: 0 0 0 30px;
+      }
+      a {
+        display: inline-block;
+        margin: 5px 0;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+  }
+}
 .markdown {
   h1 {
     margin-bottom: 20px;
@@ -87,29 +112,6 @@ export default {
     }
     em {
       font-style: italic;
-    }
-  }
-  .toc {
-    margin: 0 0 60px;
-    padding: 10px 20px;
-    border-left: 5px solid #333;
-    background: #e0e0e0;
-    ul {
-      margin: 0;
-      ul {
-        margin: 0 0 0 30px;
-      }
-      li {
-        &:before {
-          content: '';
-        }
-        a {
-          display: inline-block;
-          margin: 5px 0;
-          text-decoration: none;
-          font-weight: 500;
-        }
-      }
     }
   }
   ul {

@@ -5,7 +5,11 @@
     />
     <b-container>
       <b-row>
-        <b-col cols="12" sm="12" md="1" lg="2" />
+        <b-col cols="12" sm="12" md="1" lg="2">
+          <div
+            class="position-sticky sticky-top"
+          />
+        </b-col>
         <b-col cols="12" sm="12" md="10" lg="8">
           <Metas
             :metas="exercise"
@@ -43,16 +47,20 @@ export default {
     const API_EX = 'https://raw.githubusercontent.com/wikitic/'
     const repo = `${API_EX}${params.alias}/master/es/`
     const raw = `${repo}/README.md`
-    const content = await axios.get(raw).then(res => {
+    const doc = await axios.get(raw).then(res => {
       return res.data
     })
     const url = `https://github.com/wikitic/${params.alias}/tree/master/es`
+
+    let content = doc
+    content = content.split('![](').join('![](' + repo + '')
+    content = content.split('](#').join(`](/${params.alias}#`)
 
     return {
       exercise: exercises.find(e => {
         return e.alias === params.alias
       }),
-      content: content.split('![](').join('![](' + repo + ''),
+      content: content,
       url: url
     }
   }
