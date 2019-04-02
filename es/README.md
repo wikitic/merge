@@ -1,15 +1,10 @@
 En este tutorial vamos a explicar cómo **utilizar Node-RED desde Raspberry Pi** de una forma muy sencilla para crear aplicaciones IoT sin saber programar en lenguaje de programación textual.
 
-<div class="toc">
+# Antes de empezar
 
-- [Node-RED](#node-red)
-  - [Instalación de Node-RED](#instalaci%C3%B3n-de-node-red)
-  - [Node-RED en Raspberry Pi](#node-red-en-raspberry-pi)
-  - [Hola Mundo](#hola-mundo)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
+Vas a necesitar los siguientes componentes:
 
-</div>
+- Raspberry Pi con Raspbian
 
 # Node-RED
 
@@ -53,8 +48,6 @@ Para probar este primer flujo tenemos que abrir el panel de debug que está situ
 # Resumen
 
 En este tutorial hemos podido ver lo fácil que es programar utilizando nodos en vez de un lenguaje de programación. Aunque se puede complicar mucho más ya que tenemos diferentes tipos de nodos para conectarnos a tecnologías el IoT.
-
----
 
 # Ejercicios propuestos
 
