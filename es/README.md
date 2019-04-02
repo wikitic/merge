@@ -1,17 +1,14 @@
 En este tutorial vamos a explicar cómo **utilizar los pines GPIO a través de Node-RED desde Raspberry Pi** de una forma muy sencilla para crear aplicaciones IoT sin saber programar en lenguaje de programación textual.
 
-> Para más información sobre los pines GPIO accede al tutorial [Raspberry Pi - GPIO](raspberry_pi-gpio).
+# Antes de empezar
 
-<div class="toc">
+Vas a necesitar los siguientes componentes:
 
-- [Pines GPIO en Node-RED](#pines-gpio-en-node-red)
-  - [Requisitos](#requisitos)
-  - [Node-RED en Raspberry Pi](#node-red-en-raspberry-pi)
-  - [Encendido y apagado de un LED](#encendido-y-apagado-de-un-led)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
+- Raspberry Pi con Raspbian
 
-</div>
+Es recomendable acceder a los siguientes tutoriales:
+
+- [GPIO en Raspberry Pi](raspberry_pi-gpio)
 
 # Pines GPIO en Node-RED
 
@@ -67,8 +64,6 @@ Por último solamente nos queda unir los conectores y cargar el código haciendo
 # Resumen
 
 ToDo
-
----
 
 # Ejercicios propuestos
 
