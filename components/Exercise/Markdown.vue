@@ -86,13 +86,14 @@ export default {
 }
 .markdown {
   h1 {
+    margin-top: 60px;
     margin-bottom: 20px;
     font-size: 1.75em;
     font-weight: 600;
     line-height: 50px;
   }
   h2 {
-    margin-top: 60px;
+    margin-top: 40px;
     margin-bottom: 20px;
     font-size: 1.5rem;
     font-weight: 700;
