@@ -1,6 +1,6 @@
 En este tutorial vamos a crear un **servidor web para controlar los pines GPIO** de nuestra placa NodeMCU ESP8266 y encender o apagar un LED desde el móvil conectado a la WiFi.
 
-## Antes de empezar
+# Antes de empezar
 
 Para este tutorial vas a necesitar los siguientes componentes:
 
@@ -12,19 +12,6 @@ Es recomendable acceder a los siguientes tutoriales:
 - [Placa de desarrollo NodeMCU ESP8266](nodemcu-esp8266)
 - [Programar ESP8266 con el IDE de Arduino](nodemcu-esp8266-arduino_ide)
 - [Conectar a la WiFi una ESP8266](nodemcu-esp8266-wifi)
-
----
-
-<div class="toc">
-
-- [Conectando a la WiFi](#conectando-a-la-wifi)
-  - [IP Fija en ESP8266](#ip-fija-en-esp8266)
-  - [Servidor Web en ESP8266](#servidor-web-en-esp8266)
-  - [Pines GPIO mediante webservice](#pines-gpio-mediante-webservice)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Conectando a la WiFi
 
@@ -216,14 +203,9 @@ void apagar() {
 
 ![](img/html-href.gif)
 
-
----
-
 # Resumen
 
 Como hemos visto, es muy sencillo utilizar las funciones de servidor web e interactuar con los pines GPIO gracias a las librerías incluídas en la ESP8266. Aunque realmente hay muchas más funcioones disponibles que puedes encontrar en la [documentación](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html).
-
----
 
 # Ejercicios propuestos
 
