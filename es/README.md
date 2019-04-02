@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **utilizar los botones de micro:bit** para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -11,18 +11,6 @@ Es recomendable acceder a los siguientes tutoriales:
 
 - [Instalar Mu Editor en Raspbian](raspberry_pi-microbit-mu)
 - [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
-
-<hr>
-
-<div class="toc">
-
-- [Botones en Micro:bit](#botones-en-microbit)
-  - [Función is_pressed()](#funci%C3%B3n-ispressed)
-  - [Función get_presses()](#funci%C3%B3n-getpresses)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Botones en Micro:bit
 
@@ -65,13 +53,9 @@ display.show(pulsaciones)
 display.scroll(pulsaciones)
 ```
 
----
-
 # Resumen
 
 Como puedes observar es muy sencillo utilizar las funciones de botones en MicroPython.
-
----
 
 # Ejercicios propuestos
 
