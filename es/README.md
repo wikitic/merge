@@ -45,8 +45,6 @@ Una vez finalizada la instalación arrancará el sistema operativo Raspbian como
 
 ![](img/raspbian.png)
 
----
-
 # Resumen
 
 Una forma sencilla de instalar Raspbian es copiando todos los archivos de la imagen descargada desde la página oficial de Raspberry Pi y seguir el asistente guiado de instalación.
