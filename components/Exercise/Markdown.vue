@@ -1,18 +1,28 @@
 <template>
-  <div>
-    <div
-      v-html="menu"
-      class="toc"
-    />
-    <vue-markdown
-      :toc="true"
-      :toc-first-level="1"
-      :toc-anchor-link="false"
-      :source="content"
-      v-on:toc-rendered="tocAllRight"
-      class="markdown"
-    />
-  </div>
+  <b-container>
+    <b-row>
+      <b-col md="12" lg="3">
+        <div
+          class="position-sticky sticky-top"
+        >
+          <div
+            v-html="menu"
+            class="toc"
+          />
+        </div>
+      </b-col>
+      <b-col md="12" lg="9">
+        <vue-markdown
+          :toc="true"
+          :toc-first-level="1"
+          :toc-anchor-link="false"
+          :source="content"
+          v-on:toc-rendered="tocAllRight"
+          class="markdown"
+        />
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -51,8 +61,9 @@ export default {
 .toc {
   margin: 0 0 60px;
   padding: 10px 20px;
-  border-left: 5px solid #333;
-  background: #e0e0e0;
+  border-right: 5px solid #f0f0f0;
+  border-bottom: 5px solid #f0f0f0;
+  font-size: 16px;
   ul {
     margin: 0;
     padding: 0;
@@ -62,7 +73,7 @@ export default {
         content: '';
       }
       li {
-        margin: 0 0 0 30px;
+        margin: 0 0 0 20px;
       }
       a {
         display: inline-block;

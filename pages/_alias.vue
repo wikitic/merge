@@ -5,12 +5,7 @@
     />
     <b-container>
       <b-row>
-        <b-col cols="12" sm="12" md="1" lg="2">
-          <div
-            class="position-sticky sticky-top"
-          />
-        </b-col>
-        <b-col cols="12" sm="12" md="10" lg="8">
+        <b-col cols="12" sm="12" md="12" lg="12">
           <Metas
             :metas="exercise"
           />
@@ -22,7 +17,6 @@
             :url="url" 
           />
         </b-col>
-        <b-col cols="12" sm="12" md="1" lg="2" />
       </b-row>
     </b-container>
   </div>
