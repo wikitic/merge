@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **clonar el sistema operativo Raspbian** para crear una imagen con nuestros programas e instalación preferida.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
