@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **instalar Mu Editor** para programar placas de electrónica en MicroPython.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -10,20 +10,6 @@ Vas a necesitar los siguientes componentes:
 Es recomendable acceder a los siguientes tutoriales:
 
 - [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
-
-<hr>
-
-<div class="toc">
-
-- [Instalar Mu Editor](#instalar-mu-editor)
-  - [Conectar Micro:bit a Raspberry Pi](#conectar-microbit-a-raspberry-pi)
-  - [Software Mu Editor](#software-mu-editor)
-  - [¡Hola Mundo!](#%C2%A1hola-mundo)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
-
 
 # Instalar Mu Editor
 
@@ -77,13 +63,9 @@ display.scroll('¡Hola Mundo!')
 
 ![](img/hola-mundo.gif)
 
----
-
 # Resumen
 
 Con Mu Editor podemos programar en MicroPython todo tipo de placas de electrónica que admita el editor. Una de las placas es Micro:bit.
-
----
 
 # Ejercicios propuestos
 
