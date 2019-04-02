@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **acceder a través de SSH a nuestra Raspberry Pi** para controlarla desde un equipo remoto en la misma red local.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -9,19 +9,6 @@ Vas a necesitar los siguientes componentes:
 Es recomendable acceder a los siguientes tutoriales:
 
 - [Direcciones IP en Raspberry Pi](raspberry_pi-ip)
-
-<hr>
-
-<div class="toc">
-
-- [Secure Shell (SSH)](#secure-shell-ssh)
-  - [Habilitar SSH en Raspbian](#habilitar-ssh-en-raspbian)
-  - [Acceder por SSH](#acceder-por-ssh)
-  - [Recomendaciones de seguridad](#recomendaciones-de-seguridad)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Secure Shell (SSH)
 
@@ -80,13 +67,9 @@ pi@raspberrypi:~ $
 
 Al instalar el sistema operativo Raspbian, el usuario por defecto es `pi` y la contraseña `raspberry`. Con lo cual es una buena práctica cambiar la contraseña inicial para que no se conecte personal no autorizado.
 
----
-
 # Resumen
 
 En la práctica es una buena solución habilitar la conexión por SSH de nuestra Raspberry Pi cuando queremos controlarla desde el exterior. Cada vez que queramos conectar debemos introducir el comando de SSH mediante la IP (recuerda que es buena idea establecer la IP fija) e introducir el usuario y contraseña de la máquina a la cual nos queremos conectar.
-
----
 
 # Ejercicios propuestos
 
