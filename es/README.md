@@ -1,23 +1,10 @@
 En este tutorial vamos a explicar cómo **configurar el IDE de Arduino** para programar con módulos NodeMCU como ESP8266.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
 - NodeMCU ESP8266
-
-<hr>
-
-<div class="toc">
-
-- [Arduino IDE](#arduino-ide)
-  - [Drivers de la ESP8266](#drivers-de-la-esp8266)
-  - [Agregar tarjeta ESP8266 en el IDE de Arduino](#agregar-tarjeta-esp8266-en-el-ide-de-arduino)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
-
 
 # Arduino IDE
 
@@ -67,13 +54,9 @@ void loop() {
 
 ![](img/blink.png)
 
----
-
 # Resumen
 
 Hay que tener en cuenta que a diferencia de Arduino, las placas de desarrollo basadas en ESP8266 han evolucionado a saltos y de la mano de distintos fabricantes.
-
----
 
 # Ejercicios propuestos
 
