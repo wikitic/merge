@@ -10,17 +10,6 @@ Vas a necesitar los siguientes componentes:
 
 <hr>
 
-<div class="toc">
-
-- [Raspbian NOOBs](#raspbian-noobs)
-  - [Descargar Raspbian con NOOBs](#descargar-raspbian-con-noobs)
-  - [Instalar SD Card Formatter](#instalar-sd-card-formatter)
-  - [Instalar Raspbian con NOOBs](#instalar-raspbian-con-noobs)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
-
 # Raspbian NOOBs
 
 Raspbian es el sistema operativo recomendado para Raspberry Pi (al estar optimizado para su hardware) y se basa en una distribución de GNU/Linux llamada Debian.
