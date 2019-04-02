@@ -8,8 +8,6 @@ Vas a necesitar los siguientes componentes:
 - PC con conexión a Internet
 - Lector de tarjetas SD
 
-<hr>
-
 # Raspbian NOOBs
 
 Raspbian es el sistema operativo recomendado para Raspberry Pi (al estar optimizado para su hardware) y se basa en una distribución de GNU/Linux llamada Debian.
@@ -52,8 +50,6 @@ Una vez finalizada la instalación arrancará el sistema operativo Raspbian como
 # Resumen
 
 Una forma sencilla de instalar Raspbian es copiando todos los archivos de la imagen descargada desde la página oficial de Raspberry Pi y seguir el asistente guiado de instalación.
-
----
 
 # Ejercicios propuestos
 
