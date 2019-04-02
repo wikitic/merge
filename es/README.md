@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **utilizar la matriz de LEDs de micro:bit** para representar y construir diferentes tipos de imágenes utilizando el lenguaje de programación MicroPython.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -11,17 +11,6 @@ Es recomendable acceder a los siguientes tutoriales:
 
 - [Instalar Mu Editor en Raspbian](raspberry_pi-microbit-mu)
 - [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
-
-<hr>
-
-<div class="toc">
-
-- [Imágenes en micro:bit](#im%C3%A1genes-en-microbit)
-  - [Crear imágenes propias](#crear-im%C3%A1genes-propias)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Imágenes en micro:bit
 
@@ -77,13 +66,9 @@ barco = Image("01010:03030:05050:99999:09990")
 display.show(barco)
 ```
 
----
-
 # Resumen
 
 Como puedes observar es muy sencillo crear imágenes utilizando la matriz de LEDs en MicroPython.
-
----
 
 # Ejercicios propuestos
 
