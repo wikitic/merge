@@ -1,6 +1,6 @@
 En este tutorial vamos a explicar cómo **montar un servidor web para Python con Flask** en nuestra Raspberry Pi.
 
-## Antes de empezar
+# Antes de empezar
 
 Para este tutorial vas a necesitar los siguientes componentes:
 
@@ -9,20 +9,6 @@ Para este tutorial vas a necesitar los siguientes componentes:
 Es recomendable acceder a los siguientes tutoriales:
 
 - [Aprender a programar en Python]([nodemcu-esp8266](https://www.aprendeprogramando.es/cursos-online/python))
-
-
----
-
-<div class="toc">
-
-- [Servidor Web con Flask](#servidor-web-con-flask)
-  - [Instalar Flask](#instalar-flask)
-  - [Hola Mundo](#hola-mundo)
-  - [Encendido y apagado de un LED](#encendido-y-apagado-de-un-led)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Servidor Web con Flask
 
@@ -107,13 +93,9 @@ URL: localhost:5000/on
 URL: localhost:5000/off
 ```
 
----
-
 # Resumen
 
 Con este sencillo ejemplo hemos visto la forma de controlar los pines GPIO a través de un sencillo servidor web en Flask con Python.
-
----
 
 # Ejercicios propuestos
 
