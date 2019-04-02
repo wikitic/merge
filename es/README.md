@@ -1,23 +1,10 @@
 En este tutorial vamos a explicar las **principales características de la placa de desarrollo NodeMCU** para posteriormente utilizarla en proyectos educativos a través de dispositivos conectados.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
 - NodeMCU ESP8266
-
-<hr>
-
-<div class="toc">
-
-- [Placa NodeMCU](#placa-nodemcu)
-  - [NodeMCU Lolin / Wemos Versión 3](#nodemcu-lolin--wemos-versi%C3%B3n-3)
-  - [Pinout de NodeMCU](#pinout-de-nodemcu)
-  - [Internet de las cosas](#internet-de-las-cosas)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Placa NodeMCU
 
@@ -51,15 +38,11 @@ Una vez vista la placa NodeMCU vamos a ver una visión general de la distribuci�
 
 ToDo
 
----
-
 # Resumen
 
 NodeMCU es una placa de hardware libre similar a Arduino MKR1000, con la diferencia que es mucho más económica, ya que podemos encontrarla por 7€ aproximadamente.
 
 Sin embargo, la documentación no es tan extensa y clara como ocurre con las placas de Arduino que todo aparece bien documentado.
-
----
 
 # Ejercicios propuestos
 
