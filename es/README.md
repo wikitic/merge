@@ -1,25 +1,11 @@
 En este tutorial vamos a explicar cómo **actualizar el sistema operativo Raspbian** desde la línea de comandos para tenerlo actualizado.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
 - Raspberry Pi con Raspbian
 - Conexión a internet
-
-<hr>
-
-<div class="toc">
-
-- [Actualizar Raspbian](#actualizar-raspbian)
-  - [Comando: update](#comando-update)
-  - [Comando: upgrade](#comando-upgrade)
-  - [Comando: dist-upgrade](#comando-dist-upgrade)
-  - [Comandos: autoremove y autoclean](#comandos-autoremove-y-autoclean)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Actualizar Raspbian
 
@@ -60,15 +46,11 @@ pi@raspberrypi: ~ $ sudo apt autoclean
 pi@raspberrypi: ~ $ sudo apt autoremove
 ```
 
----
-
 # Resumen
 
 Tras actualizar la versión de Raspbian con `update` y luego `dist-upgrade` tendremos el sistema prácticamente igual que si descargáramos e instaláramos la nueva versión de Raspbian desde cero pero conservando todos nuestros datos y los programas instalados tras la instalación inicial.
 
 Recuerda que tras la actualización es conveniente eliminar la cache y paquetes huérfanos con los comandos `autoremove` y `autoclean`.
-
----
 
 # Ejercicios propuestos
 
