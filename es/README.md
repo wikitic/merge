@@ -1,25 +1,12 @@
 En este tutorial vamos a explicar cómo **instalar el sistema operativo Raspbian en Raspberry Pi** utilizando el clonado de una imagen con Etcher.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
 - Raspberry Pi
 - PC con conexión a Internet
 - Lector de tarjetas SD
-
-<hr>
-
-<div class="toc">
-
-- [Raspbian Etcher](#raspbian-etcher)
-  - [Descargar imagen de Raspbian](#descargar-imagen-de-raspbian)
-  - [Instalar Etcher](#instalar-etcher)
-  - [Clonar la imagen con Etcher](#clonar-la-imagen-con-etcher)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Raspbian Etcher
 
@@ -49,13 +36,9 @@ Una vez finalizado el proceso de copiado conectamos la tarjeta SD a la Raspberry
 
 ![](img/raspbian.png)
 
----
-
 # Resumen
 
 Una forma sencilla de instalar Raspbian es clonando la imagen descargada desde la página oficial de Raspberry Pi. De esta forma no tendremos que seguir ningún proceso de instalación ya que se está clonando un sistema operativo con las características de la imagen.
-
----
 
 # Ejercicios propuestos
 
