@@ -1,6 +1,6 @@
 En este tutorial vamos a **conectar Raspberry Pi con Arduino** para controlar diferentes sensores y actuadores haciendo que se comuniquen entre ellos a través del puerto serie.
 
-## Antes de empezar
+# Antes de empezar
 
 Vas a necesitar los siguientes componentes:
 
@@ -10,19 +10,6 @@ Vas a necesitar los siguientes componentes:
 Es recomendable acceder a los siguientes tutoriales:
 
 - [Instalar Arduino IDE en Raspbian](raspberry_pi-arduino_ide)
-
-<hr>
-
-<div class="toc">
-
-- [Raspberry Pi vs Arduino](#raspberry-pi-vs-arduino)
-  - [Instalar Python Serial](#instalar-python-serial)
-  - [Enviar datos desde Raspberry Pi hacia Arduino](#enviar-datos-desde-raspberry-pi-hacia-arduino)
-  - [Enviar datos desde Arduino hacia Raspberry Pi](#enviar-datos-desde-arduino-hacia-raspberry-pi)
-- [Resumen](#resumen)
-- [Ejercicios propuestos](#ejercicios-propuestos)
-
-</div>
 
 # Raspberry Pi vs Arduino
 
@@ -140,15 +127,11 @@ arduino.close()
 
 ![](img/arduino-raspberry-pi.png)
 
----
-
 # Resumen
 
 Arduino es ideal para todo tipo de proyectos de electrónica. Con sus conectores se puede conectar directamente a componentes y sensores, siendo más rápida a la hora de realizar cambios o proyectos sencillos que no requieran tareas complejas. Además, nada más enchufarla, empezará a ejecutar la tarea para la que ha sido programada.
 
 Por otro lado, mediante Python en Raspberry Pi podemos analizar dichos datos para procesarlos según sea nuestro interés.
-
----
 
 # Ejercicios propuestos
 
