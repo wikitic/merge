@@ -62,4 +62,4 @@ Hay que tener en cuenta que a diferencia de Arduino, las placas de desarrollo ba
 
 1.- Instala Arduino IDE con la configuración para programar placas NodeMCU.
 
-2.- Carga el programa Blick y realiza la configuración necesaria para hacerlo funcionar.
+2.- Carga el programa Blink y realiza la configuración necesaria para hacerlo funcionar.
