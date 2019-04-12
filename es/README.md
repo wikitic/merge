@@ -8,7 +8,7 @@ Vas a necesitar los siguientes componentes:
 
 # Arduino IDE
 
-Lógicamente lo primero que tenemos que hacer es descargar el *IDE de Arduino* desde la web oficial.
+Lo primero que tenemos que hacer es descargar el *IDE de Arduino* desde la web oficial.
 
 ```
 URL: https://www.arduino.cc/en/Main/Software
