@@ -8,7 +8,7 @@ Vas a necesitar los siguientes componentes:
 
 # Primeros pasos
 
-Antes de encender la Raspberry Pi por primera vez, veamos unas cuantas recomendaciones a tener en cuenta.
+En el primer arranque de la Raspberry Pi te aparecerá una ventana dándote la bienvenida a Raspberry Pi. Siguiendo el asistente podrás configurar el sistema operativo Raspbian de forma inicial.
 
 ## Fuentes de alimentación
 
