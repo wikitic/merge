@@ -26,6 +26,19 @@
     ]
   },
   {
+    "alias": "raspberry_pi-raspbian",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian",
+    "title": "Primeros pasos en Raspbian",
+    "description": "Primeros pasos y configuración básica del Sistema Operativo Raspbian para Raspberry Pi.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian/master/preview.png",
+    "tags": ["raspberry pi", "raspbian"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-raspbian-update",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-update",
     "title": "Actualizar el sistema operativo Raspbian",
