@@ -8,7 +8,49 @@ Vas a necesitar los siguientes componentes:
 
 # Primeros pasos
 
-Una de las formas de actualizar y tener al día nuestro sistema operativo Raspbian es hacerlo desde la propia terminal. Para ello, lo único que debemos hacer es asegurarnos de estar conectados a internet y ejecutar los siguientes comandos.
+Antes de encender la Raspberry Pi por primera vez, veamos unas cuantas recomendaciones a tener en cuenta.
+
+## Fuentes de alimentación
+
+En muchas ocasiones se suele adquirir la fuente de alimentación de la Raspberry Pi por separado. En este caso tienes que tener en cuenta que la especificación eléctrica adecuada para una Raspberry Pi es de 5V.
+
+Además, la cantidad de corriente que la fuente de alimentación debe ser capaz de proporcionar depende del modelo y de la cantidad de periféricos conectados a la misma. Como mínimo necesitará 700mA, pero si utilizas teclado y ratón necesitarás una fuente de alimentación de 1.5A o incluso 2A que es lo que recomienda la fundación Raspberry Pi.
+
+## Conectar Raspberry Pi al monitor
+
+Probablemente no dispongas de un monitor con HDMI al cual quieres conectar la Raspberry Pi. En este caso, una opción económica pasa por adquirir por separado un conversor de VGA-HDMI.
+ 
+## Conectar teclado y ratón
+
+Lo ideal sería conectar el teclado y ratón mediante USB aunque también podríamos conectarlos mediante bluetooth para minimizar el uso de puertos. En este último caso debemos instalar los drivers en el sistema operativo si todavía no ha sido instalado.
+
+## Encender y apagar la Raspberry Pi
+
+Por defecto, nuestra Raspberry Pi no dispone de botón de encendido y apagado. Por ello, debemos seguir una serie de pasos para encenderla y apagarla de forma correcta.
+
+**Encender Raspberry Pi**
+
+- Introduce la tarjeta micro SD con el sistema operativo debidamente instalado.
+- Conecta los periféricos (teclado, ratón, monitor, etc.).
+- Conecta la fuente de alimentación y espera a que inicie el sistema operativo.
+
+**Apagar Raspberry Pi**
+
+En modo gráfico puedes acceder a `Menú > Shutdown` y hacer click sobre el botón Shutdown. Espera hasta que se apague por completo para desconectar la fuente de alimentación.
+
+En modo consola puedes apagarla mediante el comando `shutdown -h now`.
+
+```sh
+pi@raspberrypi: ~ $ sudo shutdown -h now
+```
+
+## Hora del sistema
+
+La forma más sencilla de poner en hora una Raspberry Pi es accediendo a la terminal y estableciendo la hora mediante el comando `date mmddHHMMyy`, donde los 2 primeros números corresponden al mes, los 2 siguientes al día del mes, los 4 siguientes representan la hora y minutos, y los 2 últimos el año.
+
+```sh
+pi@raspberrypi: ~ $ sudo date 0416113019
+```
 
 # Resumen
 
