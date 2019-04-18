@@ -87,7 +87,8 @@ Con Mu Editor podemos programar en MicroPython todo tipo de placas de electróni
 
 1.- Muestra tu nombre completo utilizando la matriz de LEDs de la placa Micro:bit.
 
-2.- Muestra tu nombre pero esta vez caracter a caracter.
+2.- Muestra tu nombre pero esta vez letra a letra.
 
 3.- Muestra una cuentra atrás de 9 a 0 utilizando un bucle.
 
+4.- Muestra números aleatorios de 0 a 9 de forma indefinida cada 500 milisegundos. Deberás importar la librería `import random` y llamar a la función `random.randint(num_inicial, num_final)`.
