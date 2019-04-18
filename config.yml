@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Primeros pasos en Raspbian
+    description: Primeros pasos y configuración básica del Sistema Operativo Raspbian para Raspberry Pi.
+    authors:
+      - migueabellan
