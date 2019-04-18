@@ -18,7 +18,7 @@ Es recomendable acceder a los siguientes tutoriales:
 Antes de instalar un programa es recomendable actualizar Raspbian como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update). Una vez actualizada la lista de paquetes del repositorio podemos instalar el editor desde la terminal mediante el comando `apt-get install mu`. El proceso suele tardar unos minutos.
 
 ```sh
-pi@raspberrypi:~ $ sudo apt-get install mu
+pi@raspberrypi:~ $ sudo apt install mu
 ...
 Do you want to continue? [Y/n] Y
 ...
@@ -63,6 +63,22 @@ display.scroll('¡Hola Mundo!')
 
 ![](img/hola-mundo.gif)
 
+Otra opción consiste en mostrar una a una cada una de las letras de la frase `¡Hola Mundo!` utilizando la función `show()`. Para hacer un retardo entre una letra y la siguiente utilizamos la función `sleep(500)` que hará un retardo de 500 milisegundos.
+
+```python
+from microbit import *
+display.show('H')
+sleep(500)
+display.show('O')
+sleep(500)
+display.show('L')
+sleep(500)
+display.show('A')
+sleep(500)
+...
+```
+
+
 # Resumen
 
 Con Mu Editor podemos programar en MicroPython todo tipo de placas de electrónica que admita el editor. Una de las placas es Micro:bit.
@@ -70,3 +86,8 @@ Con Mu Editor podemos programar en MicroPython todo tipo de placas de electróni
 # Ejercicios propuestos
 
 1.- Muestra tu nombre completo utilizando la matriz de LEDs de la placa Micro:bit.
+
+2.- Muestra tu nombre pero esta vez caracter a caracter.
+
+3.- Muestra una cuentra atrás de 9 a 0 utilizando un bucle.
+
