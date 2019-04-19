@@ -195,6 +195,19 @@
     ]
   },
   {
+    "alias": "microbit-micropython-iopins",
+    "url": "https://github.com/wikitic/microbit-micropython-iopins",
+    "title": "Pines IO en Micro:bit con MicroPython",
+    "description": "Utiliza los pines de entrada y salida de Micro:bit con MicroPython.",
+    "image": "https://raw.githubusercontent.com/wikitic/microbit-micropython-iopins/master/preview.png",
+    "tags": ["microbit", "micropython"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-webserver-python",
     "url": "https://github.com/wikitic/raspberry_pi-webserver-python",
     "title": "Servidor web con Flask en Python",
