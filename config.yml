@@ -1,6 +1,6 @@
 languages:
   - es
-    title: Acceso remoto a través de SSH
-    description: Accede a tu Raspberry Pi desde otro ordenador a través del protocolo SSH.
+    title: Escritorio remoto a través de VNC
+    description: Accede a tu Raspberry Pi desde otro ordenador a través de un escritorio remoto con VNC.
     autors:
       - migueabellan
