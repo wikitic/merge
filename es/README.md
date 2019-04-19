@@ -1,4 +1,4 @@
-En este tutorial vamos a explicar cómo **utilizar los botones de micro:bit** para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
+En este tutorial vamos a explicar cómo **utilizar los pines IO de micro:bit** para interactuar con ellos y construir diferentes programas utilizando el lenguaje de programación MicroPython.
 
 # Antes de empezar
 
@@ -12,55 +12,97 @@ Es recomendable acceder a los siguientes tutoriales:
 - [Instalar Mu Editor en Raspbian](raspberry_pi-microbit-mu)
 - [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
 
-# Botones en Micro:bit
+# Pines en Micro:bit
 
-La placa Micro:bit consta de 2 botones en la parte frontal situados a la izquierda y a la derecha bajo las serigrafías `A` y `B` respectivamente.
+Micro:bit tiene 25 conexiones externas llamadas *pines*. Dispone de cinco pines de conexión conectados con los agujeros en la placa marcados con las serigrafías *0, 1, 2, 3V y GND*, y 20 pequeños pines que se pueden utilizar al conectar micro:bit a un conector de borde.
 
-> Puedes acceder a la referencia de los [botones](https://microbit-micropython.readthedocs.io/en/latest/tutorials/buttons.html) desde la documentación oficial de Micro:bit.
+> Puedes acceder a la referencia de los [pines](https://microbit-micropython.readthedocs.io/en/latest/pin.html) desde la documentación oficial de Micro:bit.
 
-## Función is_pressed()
+![](img/pines.png)
 
-La primera función que vamos a ver es `is_pressed()` encargada de comprobar si hemos pulsado un botón. Sin embargo, a esta función tiene que añadirse el botón en concreto que estamos pulsando `button_a` o `button_b`. De tal manera que el código encargado de comprobar si estamos pulsando el botón A será `button_a.is_pressed()`.
+Los pines 0, 1 y 2 son flexibles y se puede utilizar como pines de propósito general de entrada y salida (GPIO). Tiene la habilidad de leer voltajes analógicos usando un convertidor de analógico a digital (ADC) con lo cual se puede utilizar para el efecto de las placas makey-makey. Las clavijas 3V y GND se utilizan para la alimentación.
 
-En el siguiente ejemplo vamos a mostrar [imágenes en la matriz de LEDs](microbit-micropython-images). Una cara feliz `Image.Happy` si estamos pulsando el botón y en caso contrario una cara triste `Image.SAD`.
+El resto de pines pequeños tienen algunas diferencias entre ellos. Algunos son compartidos con otros componentes en la placa, como el pin 3 es compartido con algunos de los LEDs de la matriz de LEDs.
+
+> Para la utilización de los pines pequeños se recomienda utilizar un conector de borde comprado por separado normalmente.
+
+
+## Función is_touched()
+
+La primera función que vamos a ver es `is_touched()` encargada de comprobar si estamos tocando un determinado pin. De tal manera que el código encargado de comprobar si estamos tocando el pin 0 será `pin0.is_touched()`.
+
+En el siguiente ejemplo al tocar con una mano el pin GND y con la otra el pin 0 deberá mostrarse una cara feliz en la matriz de LEDs.
 
 ```python
 from microbit import *
 
 while True:
-   if button_a.is_pressed():
+   if pin0.is_touched():
       display.show(Image.HAPPY)
    else:
       display.show(Image.SAD)
 ```
 
-## Función get_presses()
+## Función read_digital()
 
-Con esta función podemos capturar las veces que hemos pulsado un determinado botón. El valor devuelto por la función es un número, con lo cual, si queremos mostrarlo por la matriz de LEDs debemos transformarlo a cadena (string) utilizando la función `str()`.
-
-Por ejmplo, vamos a mostrar por la matriz de led las veces que hemos pulsado el botón A. Para ello, tenemos que esperar 5 segundos utilizando la función `sleep()` hasta que se muestre el número en la matriz de LEDs.
+De forma similar a la anterior, con la función `read_digital()` podemos leer un valor digital en un determinado pin. 
 
 ```python
 from microbit import *
 
-sleep(5000) # 5000 milisegundos = 5 segundos
-
-pulsaciones = str(button_a.get_presses())
-
-display.show(pulsaciones)
-
-# En caso de más de 1 dígito utilizar la función display.scroll()
-display.scroll(pulsaciones)
+while True:
+   if pin0.read_digital():
+      display.show(Image.HAPPY)
+   else:
+      display.show(Image.SAD)
 ```
+
+## Función write_digital()
+
+Con la función `write_digital()` podemos escribir un valor digital en un determinado pin. Por ejemplo, vamos a programar un LED intermitente utilizando el pin 0. 
+
+```python
+from microbit import *
+
+while True:
+   pin0.write_digital(1)
+   sleep(1000)
+   pin0.write_digital(0)
+   sleep(1000)
+```
+
+## Función read_analog()
+
+ToDo
+
+```python
+from microbit import *
+
+while True:
+   if pin0.read_analog() > 100:
+      display.show(Image.HAPPY)
+   else:
+      display.show(Image.SAD)
+```
+
+## Función write_analog()
+
+ToDo
+
+```python
+from microbit import *
+
+while True:
+   for i in range(0, 256, 1):
+      pin0.write_analog(i)
+      sleep(50)
+```
+
 
 # Resumen
 
-Como puedes observar es muy sencillo utilizar las funciones de botones en MicroPython.
+Como puedes observar es muy sencillo utilizar los pines GPIO en MicroPython.
 
 # Ejercicios propuestos
 
-1.- Muestra la imagen de un corazón cada vez que pulses el botón A.
-
-2.- Muestra la palabra 'IZQUIERDA' se pulsa el botón A o 'DERECHA' si se pulsa el botón B.
-
-3.- Enciende todos los LEDs si pulsas ambos botones A y B al mismo tiempo durante 5 segundos.
+ToDo
