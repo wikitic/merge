@@ -116,6 +116,7 @@ export default {
         '/tag/update',
         '/tag/piclone',
         '/tag/ssh',
+        '/tag/vnc',
         '/tag/ip',
         '/tag/webcam',
         '/tag/luvcview',
