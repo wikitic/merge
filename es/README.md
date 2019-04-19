@@ -106,3 +106,7 @@ Como puedes observar es muy sencillo utilizar los pines GPIO en MicroPython.
 # Ejercicios propuestos
 
 ToDo
+
+1.- Utilizando un sensor LDR enciende o apaga la matriz de LEDs dependiendo de la intensidad de luz en el ambiente.
+
+2.- Mueve un servomotor utilizando los pines los botones de la microbit.
