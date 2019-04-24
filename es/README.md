@@ -27,6 +27,27 @@ Para comprobar que se ha instalado correctamente, abrimos un navegador en la mis
 
 ![](img/motion.png)
 
+## Configuración (solo para módulo PICAM)
+
+Solo si dispones de un módulo PICAM deberás activar el driver que haga funcionar el programa motion. En caso de disponer de una webcam omite esta sección.
+
+```sh
+pi@raspberrypi:~ $ sudo modprobe bcm2835-v4l2
+```
+
+Añadimos el módulo de PICAM.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/modules
+```
+
+```
+# añadir al final del fichero
+bcm2835-v4l2
+```
+
+Reinicia el sistema antes de continuar con el siguiente paso.
+
 ## Detectar movimientos
 
 ToDo
