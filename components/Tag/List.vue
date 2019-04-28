@@ -1,5 +1,5 @@
 <template>
-  <div class="tag-list">
+  <div class="tag-list position-sticky sticky-top">
     <h4>Tags</h4>
     <div class="tags">
       <TagItem
@@ -28,7 +28,7 @@ export default {
       })
     })
     return {
-      list: list
+      list: list.sort()
     }
   }
 }
