@@ -1,12 +1,9 @@
 <template>
   <footer class="footer">
-    <b-container>
-      <b-row>
-        <b-col cols="12">
-          Made with <span>&hearts;</span> by <a target="_blank" href="https://github.com/migueabellan">@migueabellan</a>
-        </b-col>
-      </b-row>
-    </b-container>
+    <p>Esta obra está bajo una licencia de <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+    <p>{{ new Date().getFullYear() }} - <a target="_blank" rel="noopener noreferrer" href="https://www.programoergosum.com">Asociación Programo Ergo Sum</a></p>
+    <hr>
+    <p>Made with <span>&hearts;</span> by <a target="_blank" href="https://github.com/migueabellan">@migueabellan</a></p>
   </footer>
 </template>
 
@@ -19,19 +16,25 @@ export default {
 <style lang="scss" scoped>
 .footer {
   margin: 60px 0 0;
-  padding: 30px 10px 10px;
+  padding: 20px 10px;
+  background: #2d2d2d;
   text-align: center;
-  font-size: 14px;
-  color: #888;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #f0f0f0;
   span {
     color: #dc3545;
   }
   a {
     color: #888;
     &:hover {
-      color: #333;
+      color: #fff;
       text-decoration: none;
     }
+  }
+  p {
+    margin: 0;
+    padding: 0;
   }
 }
 </style>
