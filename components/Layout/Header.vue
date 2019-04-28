@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+    <Forkme />
     <b-container>
       <b-row>
         <b-col cols="12" md="12">
@@ -17,8 +18,13 @@
 </template>
 
 <script>
+import Forkme from '@/components/Layout/Forkme'
+
 export default {
-  name: 'Header'
+  name: 'Header',
+  components: {
+    Forkme
+  }
 }
 </script>
 
