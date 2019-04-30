@@ -16,7 +16,7 @@ Virtual Network Computing (VNC) es un programa de escritorio remoto de software 
 
 ![](img/vnc.png)
 
-## Habilitar VNC en Raspbian
+## Habilitar VNC Server
 
 La conexión por VNC en Raspbian viene deshabilitada por defecto, con lo cual, lo primero que tenemos que hacer es habilitarla desde el **entorno gráfico** o **desde la terminal**.
 
@@ -32,9 +32,9 @@ pi@raspberrypi:~ $ sudo raspi-config
 
 ![](img/vnc-terminal.png)
 
-## Acceder por VNC
+## Instalar VNC Viewer
 
-Una vez habilitada la conexión, deberemos descargar en otro PC el cliente para VNC desde la propia [web del fabricante](https://www.realvnc.com/en/connect/download/vnc/). Este programa es multiplataforma para distitntos sistemas operativos.
+Una vez habilitada la conexión, deberemos descargar en otro PC el cliente para VNC (**VNC Viewer**) desde la propia [web del fabricante](https://www.realvnc.com/en/connect/download/viewer/). Este programa es multiplataforma para distitntos sistemas operativos.
 
 Una vez descargado, lo instalamos y al abrirlo observaremos una ventana donde tendremos que introducir la dirección IP de la Raspberry Pi a la cual queremos conectar.
 
