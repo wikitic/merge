@@ -15,7 +15,7 @@
   {
     "alias": "raspberry_pi-raspbian-etcher",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-etcher",
-    "title": "Instalar Raspbian en Raspberry Pi con Etcher",
+    "title": "Instalar imagen de Raspbian en Raspberry Pi con Etcher",
     "description": "Instalación del sistema operativo Raspbian a través de una imagen con Etcher.",
     "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-etcher/master/preview.png",
     "tags": ["raspberry pi", "raspbian", "etcher"],
