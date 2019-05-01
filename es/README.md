@@ -68,6 +68,12 @@ Una vez guardado te aparecerá el documento en el repositorio.
 
 ![](img/guardado.png)
 
+## Formato Markdown
+
+Markdown es un lenguaje de marcado ligero, con extensión `.md`, cuyo objetivo es conseguir la máxima legibilidad y facilidad de publicación usando texto plano.
+
+En el siguiente [repositorio](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) podemos ver un resumen de las etiquetas utilizadas en este formato.
+
 # Resumen
 
 En este tutorial solamente se explica cómo crear una cuenta y un repositorio en GitHub. En siguientes tutoriales se explicará conceptos un pelín más avanzados.
@@ -77,3 +83,5 @@ En este tutorial solamente se explica cómo crear una cuenta y un repositorio en
 1.- Entra a tu perfil de GitHub para añadir una foto y una descripción a tu perfil.
 
 2.- Añade un documento desde el escritorio arrastrándolo a la ventana de GitHub. *Recuerda que todo el contenido compartido es público. No subas datos sensibles*.
+
+3.- Crea un fichero llamado `prueba.md` e introduce al menos 5 etiquetas diferentes utilizando el formato Markdown.
