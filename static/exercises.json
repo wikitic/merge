@@ -161,7 +161,7 @@
     "title": "Primeros pasos en GitHub",
     "description": "Primeros pasos en GitHub desde la web para principiantes.",
     "image": "https://raw.githubusercontent.com/wikitic/git_github/master/preview.png",
-    "tags": ["git", "github"],
+    "tags": ["git", "github", "markdown"],
     "authors": [
       {
         "author": "migueabellan"

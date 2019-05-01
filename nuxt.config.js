@@ -138,7 +138,8 @@ export default {
         '/tag/hotspot',
         '/tag/raspap',
         '/tag/git',
-        '/tag/github'
+        '/tag/github',
+        '/tag/markdown'
       ]
 
       const e = await exercises.map(exercise => {
