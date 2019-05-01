@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Primeros pasos en GitHub
+    description: Primeros pasos en GitHub desde la web para principiantes.
     authors:
-      - author-1
+      - migueabellan
