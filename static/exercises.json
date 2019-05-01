@@ -157,10 +157,10 @@
   },
   {
     "alias": "git_github",
-    "url": "https://github.com/wikitic/git_github",
+    "url": "https://github.com/wikitic/git-github",
     "title": "Primeros pasos en GitHub",
     "description": "Primeros pasos en GitHub desde la web para principiantes.",
-    "image": "https://raw.githubusercontent.com/wikitic/git_github/master/preview.png",
+    "image": "https://raw.githubusercontent.com/wikitic/git-github/master/preview.png",
     "tags": ["git", "github", "markdown"],
     "authors": [
       {
