@@ -136,7 +136,9 @@ export default {
         '/tag/node+red',
         '/tag/webserver',
         '/tag/hotspot',
-        '/tag/raspap'
+        '/tag/raspap',
+        '/tag/git',
+        '/tag/github'
       ]
 
       const e = await exercises.map(exercise => {
