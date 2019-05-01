@@ -38,38 +38,39 @@ Viendo esto podemos ver que aunque en la última versión de nuestro documento n
 ![](img/carta.png)
 
 
+## Crear una cuenta en GitHub
 
-## Aliquam ante felis
+Para crear una cuenta GitHub accedemos a la [Web](https://github.com/join) e introducimos los datos solicitados. A continuación nos llegará un correo para confirmar la cuenta.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+![](img/join.png)
 
-```sh
-pi@raspberrypi:~ $ lsusb
-```
+Una vez registrados podemos editar nuestro perfil para añadir una imagen, descripción, y datos que queramos mostrar de forma pública.
 
-### Aliquam ante felis
+![](img/perfil.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+### Repositorios
 
-```python
-import RPi.GPIO as GPIO
-import time
+Un Git, un repositorio es un espacio utilizado para almacenar algún tipo de información. Por ejemplo, podemos crear un repositorio para guardar la carta que anteriormente mencionábamos. En ese mismo repositorio podemos guardar las imágenes utilizadas en la carta u otros documentos relacionados. Podría decirse que un repositorio es una carpeta donde guardamos uno o más documentos.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+Para añadir un repositorio hacemos clic sobre el icono `+` situado en la parte superior derecha de la pantalla y a continuación `New repository`. El siguiente paso será añadir el nombre del repositorio y de forma opcional una breve descripción. Por último creamos el repositorio.
 
-led = GPIO.PWM(7, 100)
+![](img/perfil.png)
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
-```
+Una vez creado el repositorio vamos a crear un documento con el texto `Hola Mundo`. Para crear el documento hacemos clic sobre `creating a new file`.
+
+![](img/file.png)
+
+Por último, añadimos el nombre del fichero `hola` y en la descripción `Hola Mundo`. Abajo del todo hacemos clic sobre el botón `Commit new file` para guardar el documento. 
+
+> Si te fijas, puedes observar que puedes añadir un título y descripción a la versión que vas a guardar de ese documento.
+
+Una vez guardado te aparecerá el documento en el repositorio.
+
+![](img/guardado.png)
 
 # Resumen
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+
 
 # Ejercicios propuestos
 
