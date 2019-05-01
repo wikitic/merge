@@ -156,7 +156,7 @@
     ]
   },
   {
-    "alias": "git_github",
+    "alias": "git-github",
     "url": "https://github.com/wikitic/git-github",
     "title": "Primeros pasos en GitHub",
     "description": "Primeros pasos en GitHub desde la web para principiantes.",
