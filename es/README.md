@@ -70,11 +70,10 @@ Una vez guardado te aparecerá el documento en el repositorio.
 
 # Resumen
 
-
+En este tutorial solamente se explica cómo crear una cuenta y un repositorio en GitHub. En siguientes tutoriales se explicará conceptos un pelín más avanzados.
 
 # Ejercicios propuestos
 
-1.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+1.- Entra a tu perfil de GitHub para añadir una foto y una descripción a tu perfil.
 
-2.- Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
-
+2.- Añade un documento desde el escritorio arrastrándolo a la ventana de GitHub. *Recuerda que todo el contenido compartido es público. No subas datos sensibles*.
