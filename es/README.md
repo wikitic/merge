@@ -35,12 +35,9 @@ Supongamos que nos arrepentimos del texto redactado en el 2º párrafo y lo borr
 
 Viendo esto podemos ver que aunque en la última versión de nuestro documento no aparece el 2º párrafo, realmente lo tenemos guardado en la versión 2 y 3 de nuestro historial, con lo cual en un futuro podríamos acceder a dichas versiones para recuperar el texto del 2º párrafo.
 
+![](img/carta.png)
 
 
-
-
-
-![](img/default.jpg)
 
 ## Aliquam ante felis
 
