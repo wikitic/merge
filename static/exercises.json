@@ -156,6 +156,19 @@
     ]
   },
   {
+    "alias": "git_github",
+    "url": "https://github.com/wikitic/git_github",
+    "title": "Primeros pasos en GitHub",
+    "description": "Primeros pasos en GitHub desde la web para principiantes.",
+    "image": "https://raw.githubusercontent.com/wikitic/git_github/master/preview.png",
+    "tags": ["git", "github"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-microbit-mu",
     "url": "https://github.com/wikitic/raspberry_pi-microbit-mu",
     "title": "Primeros pasos con Micro:bit y Mu Editor",
