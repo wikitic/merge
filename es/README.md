@@ -38,7 +38,7 @@ Viendo esto podemos ver que aunque en la última versión de nuestro documento n
 ![](img/carta.png)
 
 
-## Crear una cuenta en GitHub
+## Crear una cuenta
 
 Para crear una cuenta GitHub accedemos a la [Web](https://github.com/join) e introducimos los datos solicitados. A continuación nos llegará un correo para confirmar la cuenta.
 
@@ -48,7 +48,7 @@ Una vez registrados podemos editar nuestro perfil para añadir una imagen, descr
 
 ![](img/perfil.png)
 
-### Repositorios
+## Crear un repositorio
 
 Un Git, un repositorio es un espacio utilizado para almacenar algún tipo de información. Por ejemplo, podemos crear un repositorio para guardar la carta que anteriormente mencionábamos. En ese mismo repositorio podemos guardar las imágenes utilizadas en la carta u otros documentos relacionados. Podría decirse que un repositorio es una carpeta donde guardamos uno o más documentos.
 
