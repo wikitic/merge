@@ -58,7 +58,7 @@ La mejor forma de conocer un sistema operativo a nivel de usuario es utilizarlo 
 
 # Ejercicios propuestos
 
-1.- Revisa la configuración de tu teclado para que aparezca en español de España. `Menú > Preferencias > Teclado y ratón`.
+1.- Revisa la configuración de tu teclado para que aparezca en español de España. `Menú > Preferencias Configuración de Raspberry Pi > Localización > Configuración teclado`.
 
 2.- Conéctate a la WiFi y navega por el navegador Chromium para comprobar la correcta configuración.
 
@@ -66,6 +66,6 @@ La mejor forma de conocer un sistema operativo a nivel de usuario es utilizarlo 
 
 4.- En el menú de aplicaciones encontrarás el programa de programación Scratch 2.0. Ábrelo y carga el proyecto `Asteroid Blaster` situado en la carpeta Documents de tu carpeta principal de usuario `/home/pi`.
 
-5.- En el menú de aplicaciones, entra a los juegos programados en Python, en concreto al juego `Wormy`.
+5.- En `Menú > Juegos > Python Games` entra a los juegos programados en Python, en concreto al juego `Wormy`.
 
-6.- Busca en tu directorio de usuario, dentro de la carpeta python_games, el fichero `wormy.py` y ábrelo (clic derecho) con el programa Thonny Python IDE. Remplaza el valor de la tercera línea `FPS = 15` por el nuevo valor `FPS = 5`. Y vuelve a abrir el juego para jugar. ¿Has encontrado alguna diferencia?
+6.- Entra a `/usr/shared/python_games` y busca el `wormy.py`. Ábrelo (clic derecho) con el programa Thonny Python IDE. Remplaza el valor de la tercera línea `FPS = 15` por el nuevo valor `FPS = 5`. Ejecuta el programa y notarás la diferencia.
