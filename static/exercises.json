@@ -185,7 +185,7 @@
     "alias": "microbit-micropython-images",
     "url": "https://github.com/wikitic/microbit-micropython-images",
     "title": "Matriz de LEDs en Micro:bit con MicroPython",
-    "description": "Crear imágenes en la matriz de LEDs de Micro:bit con MicroPython.",
+    "description": "Crear imágenes en la matriz de LED de Micro:bit con MicroPython.",
     "image": "https://raw.githubusercontent.com/wikitic/microbit-micropython-images/master/preview.png",
     "tags": ["microbit", "micropython"],
     "authors": [
