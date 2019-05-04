@@ -36,6 +36,25 @@ Una vez finalizado el proceso de copiado conectamos la tarjeta SD a la Raspberry
 
 ![](img/raspbian.png)
 
+## Primer arranque
+
+En el primer arranque de nuestro sistema operativo Raspbian clonado a partir de una imagen, se ejecuta un proceso para asignar el espacio completo de nuestra tarjeta SD para aprovechar al máximo su capacidad.
+
+Esto podemos comprobarlo ejecutando el comando `df -h` donde deberá aparecer el tamaño total de nuestra SD. En el ejemplo tenemos una tarjeta SD de 32GB.
+
+```sh
+pi@raspberrypi:~ $ df -h
+S.ficheros     Tamaño Usados  Disp Uso% Montado en
+/dev/root         30G   4,7G   24G  17% /
+devtmpfs         460M      0  460M   0% /dev
+tmpfs            464M      0  464M   0% /dev/shm
+tmpfs            464M    12M  452M   3% /run
+tmpfs            5,0M   4,0K  5,0M   1% /run/lock
+tmpfs            464M      0  464M   0% /sys/fs/cgroup
+/dev/mmcblk0p1    43M    22M   21M  51% /boot
+tmpfs             93M      0   93M   0% /run/user/1000
+```
+
 # Resumen
 
 Una forma sencilla de instalar Raspbian es clonando la imagen descargada desde la página oficial de Raspberry Pi. De esta forma no tendremos que seguir ningún proceso de instalación ya que se está clonando un sistema operativo con las características de la imagen.
