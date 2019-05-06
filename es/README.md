@@ -112,6 +112,8 @@ output_pictures on
 target_dir /var/lib/motion
 ```
 
+![](img/capturas.png)
+
 Recuerda que al cambiar parámetros del fichero de configuración deberás reiniciar el servicio motion con el comando `sudo service motion restart`.
 
 ```sh
