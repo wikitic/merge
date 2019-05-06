@@ -96,10 +96,6 @@ Reiniciamos el sistema y accedemos desde otro dispositivo conectado a la misma r
 
 ![](img/remoto.png)
 
-## Detectar movimientos
-
-ToDo
-
 # Resumen
 
 Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
