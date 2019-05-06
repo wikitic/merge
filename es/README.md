@@ -129,3 +129,5 @@ Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Ra
 1.- Conecta una webcam USB e instala y configura Motion correctamente.
 
 2.- Accede desde un dispositivo móvil en la misma red para comprobar que puedes ver la webcam desde el móvil.
+
+3.- Deshabilita la captura de movimiento y grabación automática en Motion.
