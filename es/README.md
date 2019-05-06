@@ -48,9 +48,24 @@ bcm2835-v4l2
 
 Reinicia el sistema antes de continuar con el siguiente paso.
 
-## Detectar movimientos
+## Arrancar Motion al encender la Raspberry Pi
 
-ToDo
+En este caso vamos a configurar el fichero de configuración encargado de habilitar el daemon de Motion al iniciar la Raspberry Pi. Para ello accedemos al fichero `/etc/default/motion`. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/default/motion`.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/default/motion
+```
+
+```
+# set to 'yes' to enable the motion daemon
+start_motion_daemon=yes
+```
+
+Por último, reseteamos el servicio con el comando `service motion restart` para que los cambios tengan efecto y una vez reiniciado el servicio ya podemos acceder a través de la dirección `localhost:8081`.
+
+```sh
+pi@raspberrypi:~ $ sudo service motion restart
+```
 
 ## Acceder a Motion de forma remota
 
@@ -77,32 +92,17 @@ stream_port 8081
 stream_localhost off
 ```
 
-## Arrancar Motion al encender la Raspberry Pi
-
-En este caso vamos a configurar el fichero de configuración encargado de habilitar el daemon de Motion al iniciar la Raspberry Pi. Para ello accedemos al fichero `/etc/default/motion`. Para abrirlo de una forma sencilla y con privilegios de administrador introducimos el comando `sudo leafpad /etc/default/motion`.
-
-```sh
-pi@raspberrypi:~ $ sudo leafpad /etc/default/motion
-```
-
-```
-# set to 'yes' to enable the motion daemon
-start_motion_daemon=yes
-```
-
-Por último, reseteamos el servicio con el comando `service motion restart` para que los cambios tengan efecto y una vez reiniciado el servicio ya podemos acceder desde la propia red local a la dirección IP de la Rasbperry Pi, en nuestro caso, la ip `192.168.0.138:8081`.
-
-```sh
-pi@raspberrypi:~ $ sudo service motion restart
-```
+Reiniciamos el sistema y accedemos desde otro dispositivo conectado a la misma red local.
 
 ![](img/remoto.png)
+
+## Detectar movimientos
+
+ToDo
 
 # Resumen
 
 Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
-
-Para ello lo que tenemos que hacer es configurar un tunel SSH a través de una Red Privada Virtual y eso lo explicamos en el tutorial [Raspberry Pi - OpenVPN](raspberry_pi-openvpn)
 
 # Ejercicios propuestos
 
