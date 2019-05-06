@@ -17,10 +17,10 @@ Es recomendable acceder a los siguientes tutoriales:
 
 ## Instalar Motion
 
-Antes de instalar un programa es recomendable actualizar Raspbian como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update). Una vez actualizada la lista de paquetes del repositorio, podemos instalar Motion mediante el comando `apt-get install motion`.
+Antes de instalar un programa es recomendable actualizar Raspbian como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update). Una vez actualizada la lista de paquetes del repositorio, podemos instalar Motion mediante el comando `apt install motion`.
 
 ```sh
-pi@raspberrypi:~ $ sudo apt-get install motion
+pi@raspberrypi:~ $ sudo apt install motion
 ```
 
 Para comprobar que se ha instalado correctamente, abrimos un navegador en la misma Raspberry Pi, accedemos a la dirección `localhost:8081` y se debe ver la webcam.
