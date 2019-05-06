@@ -96,6 +96,28 @@ Reiniciamos el sistema y accedemos desde otro dispositivo conectado a la misma r
 
 ![](img/remoto.png)
 
+## Detectar movimientos
+
+Por defecto, Motion guarda en imagen y vídeo cualquier evento que ocurra delante de la webcam y lo guarda en el directorio `/var/lib/motion`. Estos ajustes podemos modificarlos en el fichero de onfiguración.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/motion/motion.conf
+```
+
+```
+# Output 'normal' pictures when motion is detected (default: on)
+output_pictures on
+
+# Recommended to use absolute path. (Default: current working directory)
+target_dir /var/lib/motion
+```
+
+Recuerda que al cambiar parámetros del fichero de configuración deberás reiniciar el servicio motion con el comando `sudo service motion restart`.
+
+```sh
+pi@raspberrypi:~ $ sudo service motion restart
+```
+
 # Resumen
 
 Hasta ahora ya tenemos Motion configurado para ver una webcam desde la propia Raspberry Pi o desde la red local. Sin embargo, en ocasiones nos gustaría poder ver qué ocurre desde fuera de la red, es decir, desde el trabajo o desde nuestro lugar de vacaciones.
