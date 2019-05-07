@@ -61,6 +61,8 @@ Instalamos *OpenVPN Connect - Fast & Safe SSL VPN Client* en nuestro dispositivo
 
 Incoorporamos el fichero `*.ovpn` e introducimos la contraseña del usuario creado anteriormente y al conectar estaremos dentro de la misma red.
 
+### Abrir puertos en el router
+
 Ya solamente nos faltará abrir el puerto seleccionado en el paso anterior en nuestro router para que se permita el acceso desde el exterior. En nuestro caso hemos seleccionado el puerto que viene por defecto al instalar OpenVPN con la dirección IP de nuestra Raspberry Pi.
 
 ![](img/router.png)
