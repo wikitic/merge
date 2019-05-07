@@ -234,6 +234,19 @@
     ]
   },
   {
+    "alias": "microbit-micropython-accelerometer",
+    "url": "https://github.com/wikitic/microbit-micropython-accelerometer",
+    "title": "Acelerómetro en Micro:bit con MicroPython",
+    "description": "Utiliza el acelerómetro de Micro:bit con MicroPython.",
+    "image": "https://raw.githubusercontent.com/wikitic/microbit-micropython-accelerometer/master/preview.png",
+    "tags": ["microbit", "micropython"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "raspberry_pi-webserver-python",
     "url": "https://github.com/wikitic/raspberry_pi-webserver-python",
     "title": "Servidor web con Flask en Python",
