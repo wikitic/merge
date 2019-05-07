@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Red Privada Virtual con OpenVPN
+    description: Configura una red privada virtual con OpenVPN.
     authors:
-      - author-1
+      - migueabellan
