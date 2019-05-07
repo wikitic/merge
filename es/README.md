@@ -15,16 +15,7 @@ Es recomendable acceder a los siguientes tutoriales:
 
 [Mu Editor](https://codewith.mu/) es un editor de Python muy sencillo para principantes de la programación que permite programar en MicroPython. [MicroPython](http://micropython.org/) es una versión reducida de Python 3 diseñada para funcionar en microcontroladores, como es el caso de la placa micro:bit.
 
-Antes de instalar un programa es recomendable actualizar Raspbian como se explica en el tutorial [Raspberry Pi - Raspbian - Update](raspberry_pi-raspbian-update). Una vez actualizada la lista de paquetes del repositorio podemos instalar el editor desde la terminal mediante el comando `apt-get install mu`. El proceso suele tardar unos minutos.
-
-```sh
-pi@raspberrypi:~ $ sudo apt install mu
-...
-Do you want to continue? [Y/n] Y
-...
-```
-
-Una vez instalado ya podemos acceder al editor desde el menú `Inicio > Programming > Mu`
+En primer lugar tenemos que habilitar el editor Mu desde `Inicio > Programas recomendados` y una vez instalado ya podemos acceder al editor desde el menú `Inicio > Programming > Mu`
 
 ![](img/mu.png)
 
@@ -85,9 +76,9 @@ Con Mu Editor podemos programar en MicroPython todo tipo de placas de electróni
 
 # Ejercicios propuestos
 
-1.- Muestra tu nombre completo utilizando la matriz de LEDs de la placa Micro:bit.
+1.- Muestra tu nombre completo utilizando la función `scroll()`.
 
-2.- Muestra tu nombre pero esta vez letra a letra.
+2.- Muestra tu nombre pero esta vez letra a letra utilizando la función `show()`.
 
 3.- Muestra una cuentra atrás de 9 a 0 utilizando un bucle.
 
