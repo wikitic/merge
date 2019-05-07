@@ -139,7 +139,8 @@ export default {
         '/tag/raspap',
         '/tag/git',
         '/tag/github',
-        '/tag/markdown'
+        '/tag/markdown',
+        '/tag/openvpn'
       ]
 
       const e = await exercises.map(exercise => {

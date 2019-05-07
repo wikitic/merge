@@ -156,6 +156,19 @@
     ]
   },
   {
+    "alias": "raspberry_pi-openvpn",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-openvpn",
+    "title": "Red Privada Virtual con OpenVPN",
+    "description": "Configura una red privada virtual con OpenVPN.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-openvpn/master/preview.png",
+    "tags": ["raspberry pi", "openvpn"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
     "alias": "git-github",
     "url": "https://github.com/wikitic/git-github",
     "title": "Primeros pasos en GitHub",
