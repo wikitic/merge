@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Pines IO en Micro:bit con MicroPython
+    description: Utiliza los pines de entrada y salida de Micro:bit con MicroPython.
+    authors:
+      - migueabellan
