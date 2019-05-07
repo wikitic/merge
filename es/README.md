@@ -1,4 +1,4 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+En este tutorial aprenderás a **conectarte de forma remota a través de una Red Privada Virtual (VPN)** para acceder a tu red o equipos desde fuera de tu casa.
 
 # Antes de empezar
 
@@ -6,49 +6,70 @@ Vas a necesitar los siguientes componentes:
 
 - Raspberry Pi con Raspbian
 
-Es recomendable acceder a los siguientes tutoriales:
+# Virtual Private Network (VPN)
 
-- [Lorem ipsum](lorem-impsum)
+Una conexión VPN lo que te permite es crear una red local sin necesidad de que sus integrantes estén físicamente conectados entre sí, sino a través de Internet. Dicho de otro modo, imagina que tienes un cable imaginario conectado a tu teléfono móvil y conectado a tu router aunque estés a cientos o miles de kilómetros.
 
-# Lorem ipsum dolor
+![](img/vpn.png)
 
-![](img/default.jpg)
+Cuando te conectas a una conexión VPN, tu tráfico de red sigue yendo desde tu dispositivo a tu proveedor de Internet. La conexión está cifrada para aseguridad la conexión y los datos.
 
-## Aliquam ante felis
+Por un lado vamos a contar con el **Servidor de VPN instalado en tu Raspberry Pi** y el **Cliente de VPN instalado en tu dispositivo móvil o PC**. Ambos compartirán un fichero cifrado y con contraseña, de tal manera que solamente tú podrás acceder desde el cliente al servidor.
 
-In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+## Instalar OpenVPN Server
+
+En primer lugar instalamos *OpenVPN Server para Raspberry Pi*. Es decir, vamos a convertir nuestra Raspberry Pi en Servidor para VPN. Para instalar el software introducimos el siguiente comando:
 
 ```sh
-pi@raspberrypi:~ $ lsusb
+pi@raspberrypi:~ $ curl -L https://install.pivpn.io | bash
 ```
 
-### Aliquam ante felis
+Según se vaya descargando e instalando nos irá pidiendo datos de configuración básicos. De todas las pantallas que aparecerán en el instalador de OpenVPN, marcamos las opciones que vienen por defecto. Una vez finalizado el proceso de instalación nos aparecerá el siguiente pasos que debemos realizar, pero antes, reiniciamos el sistema.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. 
+![](img/s-1.png)
 
-```python
-import RPi.GPIO as GPIO
-import time
+Recuerda fijar una dirección que esté fuera del rango de direcciones DHCP del router.
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(7, GPIO.OUT)
+![](img/s-2.png)
 
-led = GPIO.PWM(7, 100)
+El protocolo UDP es útil para aplicaciones que necesitan transmisión rápida y efectiva de datos sin comprobación de errores.
 
-while True:
-   led.start(0)
-   for i in range(0, 100, 25):
-      led.ChangeDutyCycle(i)
-      time.sleep(0.5)
+![](img/s-3.png)
+
+Seleccionamos una encriptación segura.
+
+![](img/s-4.png)
+
+Con el comando "pivpn add" creamos los ficheros de perfiles de los clientes. Es decir, si queremos acceder desde un PC, creremos un perfil para ese PC y desde el mismo PC se importará en el OpenVPN como cliente. Realizaremos lo mismo para cada dispositivo que queramos tener, además cada cliente podrá tener una clave distinta de acceso.
+
+```sh
+pi@raspberrypi:~ $ sudo pivpn add
+Enter a Name for the Client: 
+Enter the password for the client:  
+Enter the password again to verify: 
 ```
+
+Si nos fijamos, en nuestro caso hemos creado el usuario que compartiremos con el dispositivo cliente y lo tenemos en la carpeta "/home/pi/ovpns".
+
+En nuestro caso se han creado los ficheros de claves para un portatil y un móvil. Así podemos tenerlos controlados y habilitarlos o cancelarlos según nos interese.
+
+![](img/key.png)
+
+### Instalar OpenVPN Cliente
+
+Instalamos *OpenVPN Connect - Fast & Safe SSL VPN Client* en nuestro dispositivo Android o también descargarlo desde la [web oficial](https://openvpn.net/community-downloads/) para PC.
+
+Incoorporamos el fichero `*.ovpn` e introducimos la contraseña del usuario creado anteriormente y al conectar estaremos dentro de la misma red.
+
+Ya solamente nos faltará abrir el puerto seleccionado en el paso anterior en nuestro router para que se permita el acceso desde el exterior. En nuestro caso hemos seleccionado el puerto que viene por defecto al instalar OpenVPN con la dirección IP de nuestra Raspberry Pi.
+
+![](img/router.png)
 
 # Resumen
 
-Nullam in tortor congue, *scelerisque lorem ut*, congue odio. In hac habitasse platea dictumst, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
+Con este sencillo ejemplo podemos conectarnos a nuestra propia red desde el exterior simulando que estamos dentro de ella.
 
 # Ejercicios propuestos
 
-1.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam.
-
-2.- Aliquam ante felis, elementum sit amet purus et, feugiat pharetra diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ante felis, elementum sit amet purus et.
+1.- Crea una VPN y conéctate desde tu dispositivo móvil para probar el correcto funcionamiento.
 
