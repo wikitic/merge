@@ -44,7 +44,9 @@ while True:
 
 ## Función get_y()
 
-ToDo
+La segunda función que vamos a ver es `get_y()` encargada de medir la inclinación sobre el eje y. El valor devuelto por la función oscila entre -20 y 20, siendo 0 su posición en nivel.
+
+En el siguiente ejemplo comprobamos la inclinación sobre el eje y mostrando su valor en la matriz de led.
 
 ```python
 from microbit import *
@@ -61,7 +63,7 @@ while True:
 
 ## Función get_z()
 
-ToDo
+La tercera función que vamos a ver es `get_z()` encargada de medir la aceleración sobre el eje z.
 
 ```python
 from microbit import *
@@ -82,4 +84,4 @@ Como puedes observar es muy sencillo utilizar el acelerómetro en MicroPython.
 
 # Ejercicios propuestos
 
-ToDo
+1.- Muestra diferentes imágenes según los movimientos de la placa. 
