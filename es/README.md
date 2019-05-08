@@ -73,7 +73,7 @@ while True:
 
 ## Función read_analog()
 
-ToDo
+De forma similar a la anterior, con la función `read_analog()` podemos leer un valor analógico en un determinado pin. 
 
 ```python
 from microbit import *
@@ -87,7 +87,7 @@ while True:
 
 ## Función write_analog()
 
-ToDo
+Con la función `write_analog()` podemos escribir un valor analógico en un determinado pin. Por ejemplo, vamos a programar un LED para que se encienda poco a poco. 
 
 ```python
 from microbit import *
