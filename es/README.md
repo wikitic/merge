@@ -46,6 +46,25 @@ pi@raspberrypi:~ $ gpio readall
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
+### Salidas digitales
+
+En primer lugar se importa la librería `GPIO` y `time`. Vamos a utilizar el pin situado en su posición de la placa 7. La siguiente instrucción será la inicialización del pin, es decir, los pines pueden ser utilizados como entradas o salidas. Por último, solamente nos quedará activar (True) o desactivar (False) el pin seleccionado. Para ello, se va a situar el código dentro de un bucle infinito.
+
+```python
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(7, GPIO.OUT)
+
+while True:
+  GPIO.output(7, True)
+  time.sleep(1)
+  GPIO.output(7, False)
+  time.sleep(1)
+```
+
+![](img/salida-digital.png)
 
 # Resumen
 
