@@ -46,7 +46,7 @@ pi@raspberrypi:~ $ gpio readall
  +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-### Salidas digitales
+## Salidas digitales
 
 En primer lugar se importa la librería `GPIO` y `time`. Vamos a utilizar el pin situado en su posición de la placa 7. La siguiente instrucción será la inicialización del pin, es decir, los pines pueden ser utilizados como entradas o salidas. Por último, solamente nos quedará activar (True) o desactivar (False) el pin seleccionado. Para ello, se va a situar el código dentro de un bucle infinito.
 
@@ -66,7 +66,7 @@ while True:
 
 ![](img/salida-digital.png)
 
-### Entradas digitales
+## Entradas digitales
 
 El interruptor lo declaramos de tipo entrada y en la condición se puede observar que al pulsar sobre el botón se encenderá el led situado en la posición 7 de nuestro pin GPIO y en caso contrario se apagará.
 
