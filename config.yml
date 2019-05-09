@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Título
-    description: Descripción 140 caracteres.
+    titulo: Pines GPIO en Raspberry Pi
+    description: Programación en Python de los pines GPIO.
     authors:
-      - author-1
+      - migueabellan
