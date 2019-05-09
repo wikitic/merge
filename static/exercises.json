@@ -250,7 +250,7 @@
     "alias": "raspberry_pi-gpio",
     "url": "https://github.com/wikitic/raspberry_pi-gpio",
     "title": "Pines GPIO en Raspberry Pi",
-    "description": "Programación en Python de los pines GPIO.",
+    "description": "Programación en Python de los pines GPIO en Raspberry Pi.",
     "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-gpio/master/preview.png",
     "tags": ["raspberry pi", "python", "gpio"],
     "authors": [
