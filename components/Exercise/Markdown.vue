@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-row>
       <b-col md="12" lg="3">
         <div
@@ -62,7 +62,6 @@ export default {
   margin: 0 0 60px;
   padding: 10px 20px;
   border-right: 5px solid #f0f0f0;
-  border-bottom: 5px solid #f0f0f0;
   font-size: 16px;
   ul {
     margin: 0;

@@ -3,21 +3,17 @@
     <Head
       :exercise="exercise"
     />
-    <b-container>
-      <b-row>
-        <b-col cols="12">
-          <Metas
-            :metas="exercise"
-          />
-          <Markdown
-            :exercise="exercise"
-            :content="content" 
-          />
-          <Contributing
-            :url="url" 
-          />
-        </b-col>
-      </b-row>
+    <b-container fluid>
+      <Metas
+        :metas="exercise"
+      />
+      <Markdown
+        :exercise="exercise"
+        :content="content" 
+      />
+      <Contributing
+        :url="url" 
+      />
     </b-container>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-row>
-      <b-col md="12" order-lg="2" lg="2" xl="4">
+      <b-col md="12" order-lg="2" lg="2" xl="5">
         <TagList />
       </b-col>
-      <b-col md="12" order-lg="1" lg="10" xl="8">
+      <b-col md="12" order-lg="1" lg="10" xl="7">
         <div
           v-for="exercise in exercises" 
           :key="exercise.alias"

@@ -7,7 +7,7 @@
       <Menu />
     </div>
     <div id="center-column">
-      <nuxt class="content" />
+      <nuxt />
       <Footer />
     </div>
   </div>
@@ -56,7 +56,11 @@ export default {
     background-size: 15px 30px;
   }
   #center-column {
+    padding-top: 50px;
     margin-left: 210px;
+    .sticky-top {
+      top: 4.5em;
+    }
   }
 }
 @media (max-width: 1300px) {
