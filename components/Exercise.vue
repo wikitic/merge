@@ -31,6 +31,13 @@
         <TagItem :tag="tag" />
       </span>
     </div>
+    <nuxt-link 
+        :to="`/${exercise.alias}`"
+        :title="exercise.title"
+        class="readmore"
+      >
+      acceder al tutorial
+    </nuxt-link>
   </div>
 </template>
 
@@ -53,26 +60,46 @@ export default {
 
 <style lang="scss">
 .exercise {
-  margin: 0 0 60px;
-  padding: 0 0 60px;
-  border-bottom: 1px solid #f0f0f0;
+  margin: 15px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  &:hover {
+    box-shadow: 0px 0px 10px 5px #ccc;
+  }
+  .image {
+    padding: 0 0 20px;
+  }
   .title {
-    margin: 0 0 15px;
-    font-size: 30px;
+    min-height: 55px;
+    margin-bottom: 10px;
+    font-size: 18px;
     font-weight: 600;
-    line-height: 35px;
+    line-height: 1.5;
     a {
       &:hover {
         text-decoration: none;
       }
     }
   }
-  .image {
-    padding: 0 0 20px;
-  }
   .description {
-    margin: 0 0 10px;
-    font-size: 20px;
+    min-height: 55px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #686868;
+    line-height: 1.5;
+  }
+  .tags {
+    margin-bottom: 10px;
+  }
+  .readmore {
+    display: block;
+    padding: 5px;
+    background: #2d2d2d;
+    color: #f0f0f0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
   }
 }
 </style>

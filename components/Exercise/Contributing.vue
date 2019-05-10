@@ -23,11 +23,9 @@ export default {
 
 <style lang="scss">
 .contributing {
-  margin: 60px 0 0;
-  padding: 15px 0 0;
-  border-top: 1px solid #f0f0f0;
-  text-align: right;
+  margin-top: 30px;
   font-size: 16px;
+  text-align: center;
   a {
     color: #666;
     &:hover {

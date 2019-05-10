@@ -23,13 +23,13 @@ export default {
 
 <style lang="scss">
 .head {
-  margin: 0 0 60px;
+  margin-bottom: 15px;
   padding: 70px 0 100px;
   background-size: 100%;
   h1 {
     display: block;
     text-align: center;
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600;
   }
 }

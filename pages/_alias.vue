@@ -3,18 +3,16 @@
     <Head
       :exercise="exercise"
     />
-    <b-container fluid>
-      <Metas
-        :metas="exercise"
-      />
-      <Markdown
-        :exercise="exercise"
-        :content="content" 
-      />
-      <Contributing
-        :url="url" 
-      />
-    </b-container>
+    <Metas
+      :metas="exercise"
+    />
+    <Markdown
+      :exercise="exercise"
+      :content="content" 
+    />
+    <Contributing
+      :url="url" 
+    />
   </div>
 </template>
 

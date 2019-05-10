@@ -42,6 +42,7 @@ export default {
 }
 #body {
   padding-top: 65px;
+  background: #f0f0f0;
   #left-column {
     position: fixed;
     left: 0;
@@ -56,8 +57,7 @@ export default {
     background-size: 15px 30px;
   }
   #center-column {
-    padding-top: 50px;
-    margin-left: 210px;
+    margin-left: 215px;
     .sticky-top {
       top: 4.5em;
     }

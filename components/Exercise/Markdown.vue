@@ -1,17 +1,7 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col md="12" lg="3">
-        <div
-          class="position-sticky sticky-top"
-        >
-          <div
-            v-html="menu"
-            class="toc"
-          />
-        </div>
-      </b-col>
-      <b-col md="12" lg="9">
+      <b-col md="12" order-md="2" lg="9" order-lg="1">
         <vue-markdown
           :toc="true"
           :toc-first-level="1"
@@ -20,6 +10,16 @@
           v-on:toc-rendered="tocAllRight"
           class="markdown"
         />
+      </b-col>
+      <b-col md="12" order-md="1" lg="3" order-lg="2">
+        <div
+          class="position-sticky sticky-top"
+        >
+          <div
+            v-html="menu"
+            class="toc"
+          />
+        </div>
       </b-col>
     </b-row>
   </b-container>
@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss">
 .toc {
-  margin: 0 0 60px;
+  margin-bottom: 30px;
   padding: 10px 20px;
   border-right: 5px solid #f0f0f0;
   font-size: 16px;
@@ -84,6 +84,8 @@ export default {
   }
 }
 .markdown {
+  padding: 20px;
+  background: #fff;
   h1 {
     margin-top: 60px;
     margin-bottom: 20px;

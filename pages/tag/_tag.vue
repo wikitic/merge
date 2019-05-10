@@ -1,16 +1,14 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col md="12" order-lg="2" lg="2" xl="5">
-        <TagList />
-      </b-col>
-      <b-col md="12" order-lg="1" lg="10" xl="7">
-        <div
-          v-for="exercise in exercises" 
-          :key="exercise.alias"
-        >
-          <Exercise :exercise="exercise" />
-        </div>
+      <b-col
+        v-for="exercise in exercises" 
+        :key="exercise.alias"
+        sm="12"
+        md="6"
+        lg="4"
+      >
+        <Exercise :exercise="exercise" />
       </b-col>
     </b-row>
   </b-container>
@@ -19,12 +17,10 @@
 <script>
 import exercises from '@/static/exercises.json'
 import Exercise from '@/components/Exercise'
-import TagList from '@/components/Tag/List'
 
 export default {
   components: {
-    Exercise,
-    TagList
+    Exercise
   },
   asyncData({ params }) {
     return {
