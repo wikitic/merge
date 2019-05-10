@@ -32,10 +32,10 @@
       </span>
     </div>
     <nuxt-link 
-        :to="`/${exercise.alias}`"
-        :title="exercise.title"
-        class="readmore"
-      >
+      :to="`/${exercise.alias}`"
+      :title="exercise.title"
+      class="readmore"
+    >
       acceder al tutorial
     </nuxt-link>
   </div>
