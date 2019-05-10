@@ -7,13 +7,13 @@
           Tutoriales
         </b-nav-text>
         <div class="icon-down" />
-        <b-nav-item href="/tag/raspberry+pi">
+        <b-nav-item :to="{ path: '/tag/raspberry+pi' }" active-class="active">
           Raspberry Pi
         </b-nav-item>
-        <b-nav-item href="/tag/microbit">
+        <b-nav-item :to="{ path: '/tag/microbit' }" active-class="active">
           Micro:bit
         </b-nav-item>
-        <b-nav-item href="/tag/esp8266">
+        <b-nav-item :to="{ path: '/tag/esp8266' }" active-class="active">
           ESP8266
         </b-nav-item>
       </b-nav>
