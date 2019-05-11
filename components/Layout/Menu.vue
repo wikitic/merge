@@ -34,8 +34,8 @@ export default {
   font-weight: 500;
   .navbar-text {
     padding: 0.5rem 1rem;
-    background: #fff;
-    color: #2d2d2d;
+    background: #2d2d2d;
+    color: #fff;
   }
   .icon-down {
     width: 0px;
@@ -43,18 +43,17 @@ export default {
     background: none;
     border-left: 45px solid transparent;
     border-right: 15px solid transparent;
-    border-top: 20px solid #fff;
+    border-top: 20px solid #2d2d2d;
   }
   ul {
     width: 100%;
     li {
       margin-top: 1px;
       a {
-        color: #fff;
+        color: #2d2d2d;
         &.active,
         &:hover {
           background: #f0f0f0;
-          color: #2d2d2d;
         }
       }
     }

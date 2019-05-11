@@ -8,6 +8,6 @@ Vue.use(Bootstrap)
 describe('Footer', () => {
   it('renders', () => {
     const wrapper = mount(Footer)
-    expect(wrapper.html()).toContain('Made')
+    expect(wrapper.html()).toContain('Asociación Programo Ergo Sum')
   })
 })

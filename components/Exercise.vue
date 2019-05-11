@@ -60,7 +60,7 @@ export default {
 
 <style lang="scss">
 .exercise {
-  margin: 15px 0;
+  margin-bottom: 10px;
   padding: 10px;
   background: #fff;
   border: 1px solid #f0f0f0;

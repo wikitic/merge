@@ -50,14 +50,11 @@ export default {
     bottom: 0;
     width: 215px;
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(115deg, transparent 75%, #2f2f2f 75%) 0 0,
-      linear-gradient(245deg, transparent 75%, #2f2f2f 75%) 0 0,
-      linear-gradient(115deg, transparent 75%, #2f2f2f 75%) 7px -15px,
-      linear-gradient(245deg, transparent 75%, #2f2f2f 75%) 7px -15px, #2d2d2d;
-    background-size: 15px 30px;
+    background: #fff;
   }
   #center-column {
     margin-left: 215px;
+    padding: 15px 10px;
     .sticky-top {
       top: 4.5em;
     }
