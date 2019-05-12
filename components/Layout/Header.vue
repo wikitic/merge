@@ -1,34 +1,47 @@
 <template>
-  <header class="header">
-    <nuxt-link to="/" class="logo">
+  <b-navbar toggleable="true">
+    <b-navbar-toggle target="nav" />
+    <b-navbar-brand to="/" class="logo">
       <span class="wiki">Wiki</span>
       <span class="tic">TIC</span>
       <span class="v">(v1.1.1)</span>
-    </nuxt-link>
+    </b-navbar-brand>
     <!--
-    <nuxt-link to="#" rel="noopener noreferrer" class="login float-right">
+    <b-navbar-brand to="#" rel="noopener noreferrer" class="login float-right">
       <span>Entra o Colabora</span>
       <i class="fa fa-user" />
-    </nuxt-link>
+    </b-navbar-brand>
     -->
-    <Forkme />
-  </header>
+    <b-collapse id="nav" is-nav>
+      <Menu />
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
-import Forkme from '@/components/Layout/Forkme'
+import Menu from '@/components/Layout/Menu'
 
 export default {
   name: 'Header',
   components: {
-    Forkme
+    Menu
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.header {
+.navbar {
+  display: block;
+  margin: 0;
+  padding: 0;
+  .nav {
+    padding: 5px 0 0;
+  }
+  .navbar-toggler {
+    display: none;
+  }
   .logo {
+    padding: 0;
     text-decoration: none;
     .wiki {
       display: inline-block;
@@ -48,8 +61,10 @@ export default {
       font-size: 12px;
     }
   }
+  /*
   .login {
     margin-right: 65px;
+    padding: 0;
     text-decoration: none;
     span {
       display: inline-block;
@@ -64,6 +79,16 @@ export default {
     i {
       font-size: 48px;
       color: #d0d0d0;
+    }
+  }
+  */
+}
+@media (max-width: 1300px) {
+  .navbar {
+    .navbar-toggler {
+      display: inline-block;
+      margin-right: 10px;
+      line-height: 0;
     }
   }
 }

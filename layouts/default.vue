@@ -1,11 +1,12 @@
 <template>
   <div>
-    <Header id="header">
+    <header id="header">
       <Header />
-    </Header>
-    <Sidebar id="left-column">
+      <Forkme />
+    </header>
+    <aside id="left-column">
       <Menu />
-    </Sidebar>
+    </aside>
     <main id="center-column">
       <nuxt />
       <Footer v-show="!home" />
@@ -15,12 +16,14 @@
 
 <script>
 import Header from '@/components/Layout/Header'
+import Forkme from '@/components/Layout/Forkme'
 import Menu from '@/components/Layout/Menu'
 import Footer from '@/components/Layout/Footer'
 
 export default {
   components: {
     Header,
+    Forkme,
     Menu,
     Footer
   },
@@ -68,11 +71,7 @@ export default {
     position: relative;
   }
   #left-column {
-    position: relative;
-    left: auto;
-    top: auto;
-    bottom: auto;
-    width: auto;
+    display: none;
   }
   #center-column {
     margin-left: auto;
