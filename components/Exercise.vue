@@ -60,19 +60,14 @@ export default {
 
 <style lang="scss">
 .exercise {
-  margin-bottom: 10px;
-  padding: 10px;
   background: #fff;
   border: 1px solid #f0f0f0;
   &:hover {
     box-shadow: 0px 0px 10px 5px #ccc;
   }
-  .image {
-    padding: 0 0 20px;
-  }
   .title {
     min-height: 55px;
-    margin-bottom: 10px;
+    padding: 10px;
     font-size: 18px;
     font-weight: 600;
     line-height: 1.5;
@@ -84,16 +79,17 @@ export default {
   }
   .description {
     min-height: 55px;
-    margin-bottom: 10px;
+    padding: 10px;
     font-size: 16px;
     color: #686868;
     line-height: 1.5;
   }
   .tags {
-    margin-bottom: 10px;
+    padding: 10px;
   }
   .readmore {
     display: block;
+    margin: 10px;
     padding: 5px;
     background: #2d2d2d;
     color: #f0f0f0;

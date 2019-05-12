@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="mt-3">
     <b-row>
       <b-col
         v-for="exercise in exercises" 
@@ -7,6 +7,7 @@
         sm="12"
         md="6"
         lg="4"
+        class="p-2"
       >
         <Exercise :exercise="exercise" />
       </b-col>
