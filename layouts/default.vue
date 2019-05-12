@@ -39,7 +39,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  padding: 5px 0;
+  padding: 5px;
   border-top: 5px solid #2d2d2d;
   border-bottom: 1px solid #f0f0f0;
   background: rgba(255, 255, 255, 0.99);
