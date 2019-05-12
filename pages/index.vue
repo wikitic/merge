@@ -12,7 +12,7 @@
           </p>
           <p class="italic">
             Otro proyeco más de la
-            <b-link href="https://www.programoergosum.com" target="_blank">
+            <b-link href="https://www.programoergosum.com" target="_blank" rel="noopener noreferrer">
               Asociación Programo Ergo Sum
             </b-link>.
           </p>
