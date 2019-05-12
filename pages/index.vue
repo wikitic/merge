@@ -1,5 +1,6 @@
 <template>
   <main class="index">
+    <Metas />
     <b-container class="d-flex h-100">
       <b-row align-v="center">
         <b-col class="v-100">
@@ -23,11 +24,11 @@
 </template>
 
 <script>
+import Metas from '@/components/Layout/Metas'
+
 export default {
-  head() {
-    return {
-      title: 'Wiki TIC - Asociación Programo Ergo Sum'
-    }
+  components: {
+    Metas
   }
 }
 </script>

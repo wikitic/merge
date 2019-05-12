@@ -5,12 +5,20 @@
 </template>
 
 <script>
+// import seo from '@/static/seo.js'
+
 export default {
   name: 'Metas',
   props: {
     metas: {
       type: Object,
-      default: () => ({})
+      default: () => ({
+        title: 'Wiki TIC - Proyecto educativo',
+        description:
+          'Proyecto educativo de código abierto para fomentar el uso de las TIC en los niveles de ESO y Bachiller.',
+        tags: ['código abierto', 'educación', 'raspberry pi', 'esp8266'],
+        image: process.env.canonical + '/default.png'
+      })
     }
   },
   head() {
