@@ -5,8 +5,6 @@
 </template>
 
 <script>
-// import seo from '@/static/seo.js'
-
 export default {
   name: 'Metas',
   props: {
