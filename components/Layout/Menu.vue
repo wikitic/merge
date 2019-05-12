@@ -32,7 +32,6 @@ export default {
   padding: 0;
   font-size: 1.1rem;
   font-weight: 500;
-  background: #fff;
   .navbar-text {
     padding: 0.5rem 1rem;
     background: #2d2d2d;
@@ -54,7 +53,7 @@ export default {
         color: #2d2d2d;
         &.active,
         &:hover {
-          background: #f0f0f0;
+          background: #fff;
         }
       }
     }

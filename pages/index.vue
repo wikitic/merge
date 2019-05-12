@@ -8,7 +8,7 @@
             <span class="tic">TIC</span>
           </div>
           <p class="lead">
-            Proyecto educativo de <strong>código abierto</strong> para fomentar el uso de las <abbr title="Tecnologías de la Información y Comunicación">TIC</abbr> en los niveles de ESO y Bachiller.
+            Proyecto educativo de <strong>código abierto</strong> para fomentar el uso de las TIC en los niveles de ESO y Bachiller.
           </p>
           <p class="italic">
             Otro proyeco más de la
@@ -34,7 +34,9 @@ export default {
 
 <style lang="scss" scoped>
 .index {
-  height: 80vh;
+  height: -webkit-calc(100vh - 65px);
+  height: -moz-calc(100vh - 65px);
+  height: calc(100vh - 65px);
   text-align: center;
   .logo {
     margin-bottom: 40px;

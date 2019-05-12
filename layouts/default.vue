@@ -41,8 +41,9 @@ export default {
   right: 0;
   padding: 5px 0;
   border-top: 5px solid #2d2d2d;
+  border-bottom: 1px solid #f0f0f0;
   background: rgba(255, 255, 255, 0.99);
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  // box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
 }
 #left-column {
   position: fixed;
@@ -50,8 +51,9 @@ export default {
   top: 65px;
   bottom: 0;
   width: 215px;
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
-  background: #fff;
+  border-right: 1px solid #f0f0f0;
+  // box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  background: #f0f0f0;
 }
 #center-column {
   position: relative;
