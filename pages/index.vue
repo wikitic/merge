@@ -11,12 +11,18 @@
           <p class="lead">
             Proyecto educativo de <strong>código abierto</strong> para fomentar el uso de las TIC en los niveles de ESO y Bachiller.
           </p>
+          <hr>
           <p class="italic">
-            Otro proyeco más de la
-            <b-link href="https://www.programoergosum.com" target="_blank" rel="noopener noreferrer">
-              Asociación Programo Ergo Sum
-            </b-link>.
+            Más proyectos de la <strong>Asociación Programo Ergo Sum</strong>.
           </p>
+          <div>
+            <b-link href="https://www.programoergosum.com" target="_blank" rel="noopener noreferrer">
+              <img src="logo-programoergosum.png" alt="Programo Ergo Sum">
+            </b-link>
+            <b-link href="https://www.aprendeprogramando.es" target="_blank" rel="noopener noreferrer">
+              <img src="logo-aprendeprogramando.png" alt="Aprende Programando">
+            </b-link>
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -64,9 +70,17 @@ export default {
       font-weight: 600;
     }
   }
+  hr {
+    margin-top: 75px;
+    padding-top: 75px;
+    border-top: 1px solid #f0f0f0;
+  }
   .italic {
-    margin-top: 50px;
     font-style: italic;
+  }
+  img {
+    max-width: 230px;
+    margin: 0 15px;
   }
 }
 @media (max-width: 1300px) {
@@ -80,7 +94,7 @@ export default {
       }
     }
     .lead {
-      font-size: 25px;
+      font-size: 35px;
     }
   }
 }
