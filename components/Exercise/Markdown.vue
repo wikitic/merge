@@ -61,7 +61,7 @@ export default {
 .toc {
   margin-bottom: 30px;
   padding: 10px 20px;
-  border-right: 5px solid #f0f0f0;
+  border-left: 1px solid #f0f0f0;
   font-size: 16px;
   ul {
     margin: 0;
