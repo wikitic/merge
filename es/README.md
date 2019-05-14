@@ -43,13 +43,52 @@ def home():
    return '<html><body>¡Hola Mundo!</body></html>'
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',debug=True)
+   app.run(host='0.0.0.0', debug=True)
 ```
 
 Por último jecuta el código haciendo clic en el botón de ejecutar "Run" y accede mediante el navegador a la dirección `localhost:5000`. También podrás acceder desde introduciendo la IP de tu Raspberry Pi desde otro dispositivo situado en la misma red local.
 
 ```
 URL: localhost:5000
+```
+
+Por defecto, el puerto seleccionado por flask es el 5000, pero en caso de querer utilizar el puerto 80 u otro debemos especificarlo al ejecutar el servidor.
+
+```python
+
+...
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=80, debug=True)
+```
+
+## Añadir un template
+
+Al devolver el valor de la función en el caso anterior se devuelve el código en HTML. En ocasiones nos vemos en la necesidad de generar el código HTML y CSS como ficheros externos. En este caso debemos renderizar el template en la función.
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+   return render_template('home.html')
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', debug=True)
+```
+
+A continuación, debemos crear una carpeta `template` en el mismo directorio raiz y dentro un fichero llamado `home.html` con el código anterior en HTML de 'Hola Mundo'.
+
+```html
+<html>
+<head>
+   <title>Hola Mundo</title>
+</head>
+<body>
+   <h1>¡Hola Mundo!</h1>
+</body>
+</html>
 ```
 
 ## Encendido y apagado de un LED
