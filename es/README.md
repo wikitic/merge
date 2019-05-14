@@ -99,8 +99,8 @@ void setup () {
 }
 
 void loop () {
-  String cadena = 'Hola Mundo';
-  Serial.println(cadena)
+  String cadena = "Hola Mundo";
+  Serial.println(cadena);
   delay(1000);
 }
 ```
