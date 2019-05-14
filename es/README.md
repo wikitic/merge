@@ -31,7 +31,7 @@ pi@raspberrypi:~ $ sudo apt install python3-flask
 El primer ejemplo que vamos a crear es el típico "Hola Mundo", es decir, vamos a crear un servicio que al acceder a una determinada URL se muestre por la pantalla dicho mensaje. Para ello, vamos a crear un directorio llamado `web` y dentro un fichero llamado `index.py` con el siguiente código.
 
 ```python
-from flask import Flask
+from flask import *
 app = Flask(__name__)
 
 @app.route('/')
@@ -48,12 +48,14 @@ Como hemos dicho, Flask se utiliza para servicios, en este caso, hemos creado el
 URL: localhost:8080
 ```
 
+![](img/hola-mundo.png)
+
 ## Añadir un template HTML
 
-En ocasiones nos vemos en la necesidad de generar el código HTML y CSS como ficheros externos para mostrar una web. Para ello debemos renderizar el template en la función y crear un fichero dentro de una carpeta llamada `templates`. Dentro de esta crearemos el fichero con el código HTML.
+En ocasiones nos vemos en la necesidad de generar el código HTML como fichero externo para mostrar una web con su estructura en HTML, código CSS y JS, etc. Para ello debemos renderizar el template en la función y crear un fichero dentro de una carpeta llamada `templates`. Dentro de esta crearemos el fichero con el código HTML, por ejemplo `home.html`.
 
 ```python
-from flask import Flask
+from flask import *
 app = Flask(__name__)
 
 @app.route('/')
@@ -61,7 +63,7 @@ def home():
    return render_template('home.html')
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', debug=True)
+   app.run(host='0.0.0.0', port=8080, debug=True)
 ```
 
 ```html
@@ -75,12 +77,18 @@ if __name__ == '__main__':
 </html>
 ```
 
+```
+URL: localhost:8080
+```
+
+![](img/template.png)
+
 ## Pasar parámetros al template
 
-En ocasiones nos gustaría pasar parámetros desde el código principal al template en HTML. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos desde el HTML.
+En ocasiones nos gustaría pasar parámetros desde el código principal al template. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos pasados el HTML.
 
 ```python
-from flask import Flask
+from flask import *
 app = Flask(__name__)
 
 @app.route('/')
@@ -92,7 +100,7 @@ def home():
    return render_template('home.html', **templateData)
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0', debug=True)
+   app.run(host='0.0.0.0', port=8080, debug=True)
 ```
 
 ```html
@@ -101,15 +109,24 @@ if __name__ == '__main__':
    <title>Hola Mundo</title>
 </head>
 <body>
+   <p>Si la variable {{ numero }} es igual a 5 se mostrará el título a continuación.</p>
    {% if numero == 5 %}
-      <h1>{{ titulo }}</h1>
-      <p>Se muestra el título porque el parámetro número es igual a 5</p>
+      <h1>Se muestra: {{ titulo }}</h1>
+   {% endif %}
+   {% if numero != 5 %}
+      <h1>NO se muestra: {{ titulo }}</h1>
    {% endif %}
 </body>
 </html>
 ```
 
-## Añadir otra dirección
+```
+URL: localhost:8080
+```
+
+![](img/parametros.png)
+
+## Añadir otra ruta
 
 De momento solamente estamos accediendo a una dirección web. Supongamos que queremos acceder a una dirección web donde muestre información adicional o un formulario de contacto. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
 
