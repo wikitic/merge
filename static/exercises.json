@@ -285,8 +285,6 @@
       }
     ]
   },
-
-
   {
     "alias": "raspberry_pi-raspbian-boot",
     "url": "https://github.com/wikitic/raspberry_pi-raspbian-boot",
@@ -300,8 +298,6 @@
       }
     ]
   },
-
-
   {
     "alias": "raspberry_pi-arduino_ide",
     "url": "https://github.com/wikitic/raspberry_pi-arduino_ide",
