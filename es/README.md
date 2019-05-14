@@ -95,6 +95,41 @@ A continuación, debemos crear una carpeta `templates` en el mismo directorio ra
 </html>
 ```
 
+## Pasar parámetros al template
+
+En ocasiones nos gustaría pasar parámetros desde el código principal al template en HTML. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos desde el HTML.
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+   templateData = {
+      'titulo' : 'Hola Mundo',
+      'numero' : 5
+   }
+   return render_template('home.html', **templateData)
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', debug=True)
+```
+
+```html
+<html>
+<head>
+   <title>Hola Mundo</title>
+</head>
+<body>
+   {% if numero == 5 %}
+      <h1>{{ titulo }}</h1>
+      <p>Se muestra el título porque el parámetro número es igual a 5</p>
+   {% endif %}
+</body>
+</html>
+```
+
+
 ## Añadir otra dirección
 
 De momento solamente estamos accediendo a una dirección web. Supongamos que queremos acceder a una dirección web donde muestre información adicional o un formulario de contacto. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
@@ -159,6 +194,7 @@ Por último jecuta el código haciendo clic en el botón de ejecutar "Run" y acc
 URL: localhost:5000/on
 URL: localhost:5000/off
 ```
+
 
 # Resumen
 
