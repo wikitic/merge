@@ -62,6 +62,10 @@ if __name__ == '__main__':
    app.run(host='0.0.0.0', port=80, debug=True)
 ```
 
+```
+URL: localhost o IP (no es necesario especificar el puerto 80 ya que es por defecto)
+```
+
 ## Añadir un template
 
 Al devolver el valor de la función en el caso anterior se devuelve el código en HTML. En ocasiones nos vemos en la necesidad de generar el código HTML y CSS como ficheros externos. En este caso debemos renderizar el template en la función.
@@ -78,7 +82,7 @@ if __name__ == '__main__':
    app.run(host='0.0.0.0', debug=True)
 ```
 
-A continuación, debemos crear una carpeta `template` en el mismo directorio raiz y dentro un fichero llamado `home.html` con el código anterior en HTML de 'Hola Mundo'.
+A continuación, debemos crear una carpeta `templates` en el mismo directorio raiz y dentro un fichero llamado `home.html` con el código anterior en HTML de 'Hola Mundo'.
 
 ```html
 <html>
@@ -91,15 +95,39 @@ A continuación, debemos crear una carpeta `template` en el mismo directorio rai
 </html>
 ```
 
+## Añadir otra dirección
+
+De momento solamente estamos accediendo a una dirección web. Supongamos que queremos acceder a una dirección web donde muestre información adicional o un formulario de contacto. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
+
+```python
+...
+
+@app.route('/otra-direccion')
+def otra():
+   return render_template('otra.html')
+
+...
+```
+
+```html
+<html>
+<head>
+   <title>Otra dirección</title>
+</head>
+<body>
+   <h1>Esto es otra dirección</h1>
+   <a href="/">Al hacer clic aquí te lleva al home</a>
+</body>
+</html>
+```
+
 ## Encendido y apagado de un LED
 
 Vamos a realizar el encendido y apagado de un LED conectado al `Pin 11 - GPIO 17` de nuestra Raspberry Pi.
 
 ![](img/led-fritzing.png)
 
-En la programación, añadimos la librería para controlar los pines GPIO así como el modo de pin.
-
-A continuación se crean dos entradas de URL o endpoints para encender y apagar dicho LED. Además mostramos un mensaje por la pantalla de la web.
+En la programación, añadimos la librería para controlar los pines GPIO así como el modo de pin. A continuación se crean dos entradas de URL o endpoints para encender y apagar dicho LED. Además mostramos un mensaje por la pantalla de la web.
 
 ```python
 from flask import Flask
@@ -122,7 +150,7 @@ def off():
    return '<html><body>Led Apagado</body></html>'
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',debug=True)
+   app.run(host='0.0.0.0', debug=True)
 ```
 
 Por último jecuta el código haciendo clic en el botón de ejecutar "Run" y accede mediante el navegador a ambas direcciones para encender y apagar el LED.
