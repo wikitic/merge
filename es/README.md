@@ -128,14 +128,14 @@ URL: localhost:8080
 
 ## Añadir otra ruta
 
-De momento solamente estamos accediendo a una dirección web. Supongamos que queremos acceder a una dirección web donde muestre información adicional o un formulario de contacto. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
+De momento solamente estamos accediendo a la ruta principal `/`. Supongamos que queremos acceder a otra ruta `/quien-soy` donde se muestra información adicional. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
 
 ```python
 ...
 
-@app.route('/otra-direccion')
-def otra():
-   return render_template('otra.html')
+@app.route('/quien-soy')
+def quien():
+   return render_template('quien.html')
 
 ...
 ```
@@ -143,45 +143,21 @@ def otra():
 ```html
 <html>
 <head>
-   <title>Otra dirección</title>
+   <title>Quien soy</title>
 </head>
 <body>
-   <h1>Esto es otra dirección</h1>
+   <h1>Hola me llamo Migue</h1>
+   
    <a href="/">Al hacer clic aquí te lleva al home</a>
 </body>
 </html>
 ```
 
-## Inicio automático
-
-En ocasiones nos gustaría que el servidor que hemos programado se ejecutase al iniciar o encender la Raspberry Pi. En este caso, tenemos que añadir la ejecución del mismo en el fichero `/etc/rc.local` encargado para tal fin.
-
-En primer lugar debemos darle permisos de ejecución a nuestro fichero principal. Recuerda situarte sobre el directorio de tu proyecto.
-
-```sh
-pi@raspberrypi:~ $ cd web
-pi@raspberrypi:~/web $ sudo chmod +x index.py
+```
+URL: localhost:8080/quien-soy
 ```
 
-Para probar que nuestro proyecto funciona, podemos ejecutar el comando de ejecución de python3. Para pararlo, utiliza las teclas `ctrl + c`.
-
-```sh
-pi@raspberrypi:~/web $ python3 index.py
-```
-
-Una vez hemos comprobado que funciona correctamente, nos falta añadir la anterior instrucción al fichero `rc.local` justo antes de la última lína 'exit 0'. Observa en este caso como se añade la ruta absoluta del fichero a ejecutar.
-
-```sh
-pi@raspberrypi:~ $ sudo leafpad /etc/rc.local
-```
-
-```
-...
-
-python3 /home/pi/web/index.py
-
-exit 0
-```
+![](img/rutas.png)
 
 # Resumen
 
@@ -189,4 +165,6 @@ Con este sencillo ejemplo hemos visto como crear un sencillo servidor web en Pyt
 
 # Ejercicios propuestos
 
-1.- Crea una sencilla página web con 2 enlaces a otras páginas.
+1.- Crea una sencilla página web con 2 enlaces como se explica en el tutorial.
+
+2.- Añade código CSS para pintar de colores el fondo, el texto, cambia el tamaño de la fuente, etc.
