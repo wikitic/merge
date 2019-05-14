@@ -3,22 +3,20 @@
     <b-row>
       <b-col md="12" order-md="2" lg="9" order-lg="1">
         <vue-markdown
+          class="markdown"
           :toc="true"
           :toc-first-level="1"
           :toc-anchor-link="false"
           :source="content"
-          v-on:toc-rendered="tocAllRight"
-          class="markdown"
+          @toc-rendered="tocAllRight"
         />
       </b-col>
       <b-col md="12" order-md="1" lg="3" order-lg="2">
         <div
           class="position-sticky sticky-top"
         >
-          <div
-            v-html="menu"
-            class="toc"
-          />
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div class="toc" v-html="menu" />
         </div>
       </b-col>
     </b-row>
@@ -50,8 +48,7 @@ export default {
   },
   methods: {
     tocAllRight: function(tocHtmlStr) {
-      tocHtmlStr = tocHtmlStr.split('"#').join(`"/${this.exercise.alias}#`)
-      this.menu = tocHtmlStr
+      this.menu = tocHtmlStr.split('"#').join(`"/${this.exercise.alias}#`)
     }
   }
 }
