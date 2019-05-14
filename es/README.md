@@ -8,7 +8,7 @@ Para este tutorial vas a necesitar los siguientes componentes:
 
 Es recomendable acceder a los siguientes tutoriales:
 
-- [Aprender a programar en Python]([nodemcu-esp8266](https://www.aprendeprogramando.es/cursos-online/python))
+- [Aprender a programar en Python](https://www.aprendeprogramando.es/cursos-online/python)
 
 # Servidor Web con Flask
 
