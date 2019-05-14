@@ -26,11 +26,13 @@ Para probar que nuestro proyecto funciona, podemos ejecutar el comando de ejecuc
 pi@raspberrypi:~ $ python3 fichero.py
 ```
 
-Una vez hemos comprobado que funciona correctamente, nos falta añadir la anterior instrucción al fichero `rc.local` justo antes de la última línea 'exit 0'. Observa en este caso como se añade la ruta absoluta del fichero a ejecutar.
+Una vez hemos comprobado que funciona correctamente, nos falta añadir la anterior instrucción al fichero `rc.local` justo antes de la última línea 'exit 0'.
 
 ```sh
 pi@raspberrypi:~ $ sudo leafpad /etc/rc.local
 ```
+
+Observa en este caso como se añade la ruta absoluta del fichero a ejecutar justo antes de la instrucción `exit 0`.
 
 ```
 ...
