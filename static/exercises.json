@@ -263,8 +263,21 @@
     "alias": "raspberry_pi-webserver-python",
     "url": "https://github.com/wikitic/raspberry_pi-webserver-python",
     "title": "Servidor web con Flask en Python",
-    "description": "Controlar los pines GPIO a través de un servidor web en Python.",
+    "description": "Crear un servidor web en Python con Flask.",
     "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-webserver-python/master/preview.png",
+    "tags": ["raspberry pi", "webserver", "python"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+  {
+    "alias": "raspberry_pi-webserver-gpio",
+    "url": "https://github.com/wikitic/raspberry_pi-webserver-gpio",
+    "title": "Control de GPIO con Flask en Python",
+    "description": "Controlar los pines GPIO a través de un servidor web en Python.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-webserver-gpio/master/preview.png",
     "tags": ["raspberry pi", "webserver", "gpio", "python"],
     "authors": [
       {
@@ -272,6 +285,23 @@
       }
     ]
   },
+
+
+  {
+    "alias": "raspberry_pi-raspbian-boot",
+    "url": "https://github.com/wikitic/raspberry_pi-raspbian-boot",
+    "title": "Arranque automático en Raspbian",
+    "description": "Ejecutar programas de forma automática al arrancar Raspbian.",
+    "image": "https://raw.githubusercontent.com/wikitic/raspberry_pi-raspbian-boot/master/preview.png",
+    "tags": ["raspberry pi", "raspbian"],
+    "authors": [
+      {
+        "author": "migueabellan"
+      }
+    ]
+  },
+
+
   {
     "alias": "raspberry_pi-arduino_ide",
     "url": "https://github.com/wikitic/raspberry_pi-arduino_ide",
