@@ -275,6 +275,37 @@ if __name__ == '__main__':
 </html>
 ```
 
+## Inicio automático
+
+En ocasiones nos gustaría que el servidor que hemos programado se ejecutase al iniciar o encender la Raspberry Pi. En este caso, tenemos que añadir la ejecución del mismo en el fichero `/etc/rc.local` encargado para tal fin.
+
+En primer lugar debemos darle permisos de ejecución a nuestro fichero principal. Recuerda situarte sobre el directorio de tu proyecto.
+
+```sh
+pi@raspberrypi:~ $ cd web
+pi@raspberrypi:~/web $ sudo chmod +x index.py
+```
+
+Para probar que nuestro proyecto funciona, podemos ejecutar el comando de ejecución de python3. Para pararlo, utiliza las teclas `ctrl + c`.
+
+```sh
+pi@raspberrypi:~/web $ python3 index.py
+```
+
+Una vez hemos comprobado que funciona correctamente, nos falta añadir la anterior instrucción al fichero `rc.local` justo antes de la última lína 'exit 0'. Observa en este caso como se añade la ruta absoluta del fichero a ejecutar.
+
+```sh
+pi@raspberrypi:~ $ sudo leafpad /etc/rc.local
+```
+
+```
+...
+
+python3 /home/pi/web/index.py
+
+exit 0
+```
+
 # Resumen
 
 Con este sencillo ejemplo hemos visto la forma de controlar los pines GPIO a través de un sencillo servidor web en Flask con Python.
