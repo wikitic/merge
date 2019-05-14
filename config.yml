@@ -1,6 +1,6 @@
 languages:
   - es
-    titulo: Imágenes automáticas con fswebcam en Raspberry Pi
-    description: Tomar imágenes de forma automática con una webcam en Raspberry Pi.
+    titulo: Arranque automático en Raspbian
+    description: Ejecutar programas de forma automática al arrancar Raspbian.
     authors:
       - migueabellan
