@@ -1,10 +1,11 @@
 <template>
   <div class="contributing">
     <a
+      class="btn"
       :href="url"
       target="_blank"
     >
-      Edita página desde <i class="fab fa-github" /> GitHub
+      Edita página <i class="fab fa-github" /> GitHub
     </a>
   </div>
 </template>
@@ -23,9 +24,12 @@ export default {
 
 <style lang="scss">
 .contributing {
-  margin-top: 30px;
+  margin-bottom: 15px;
   font-size: 16px;
-  text-align: center;
+  text-align: right;
+  .btn {
+    border: 1px solid #f0f0f0;
+  }
   a {
     color: #666;
     &:hover {

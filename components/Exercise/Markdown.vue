@@ -2,6 +2,9 @@
   <b-container fluid>
     <b-row>
       <b-col md="12" order-md="2" lg="9" order-lg="1">
+        <Contributing
+          :url="url" 
+        />
         <vue-markdown
           class="markdown"
           :toc="true"
@@ -12,9 +15,7 @@
         />
       </b-col>
       <b-col md="12" order-md="1" lg="3" order-lg="2">
-        <div
-          class="position-sticky sticky-top"
-        >
+        <div class="position-sticky sticky-top">
           <!-- eslint-disable-next-line vue/no-v-html -->
           <div class="toc" v-html="menu" />
         </div>
@@ -24,14 +25,20 @@
 </template>
 
 <script>
+import Contributing from '@/components/Exercise/Contributing'
 import VueMarkdown from 'vue-markdown'
 
 export default {
   name: 'Markdown',
   components: {
+    Contributing,
     VueMarkdown
   },
   props: {
+    url: {
+      type: String,
+      default: ''
+    },
     exercise: {
       type: Object,
       default: () => {}

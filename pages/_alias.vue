@@ -8,10 +8,8 @@
     />
     <Markdown
       :exercise="exercise"
-      :content="content" 
-    />
-    <Contributing
-      :url="url" 
+      :content="content"
+      :url="url"
     />
   </div>
 </template>
@@ -22,14 +20,12 @@ import exercises from '@/static/exercises.json'
 import Metas from '@/components/Layout/Metas'
 import Head from '@/components/Exercise/Head'
 import Markdown from '@/components/Exercise/Markdown'
-import Contributing from '@/components/Exercise/Contributing'
 
 export default {
   components: {
     Metas,
     Head,
-    Markdown,
-    Contributing
+    Markdown
   },
   async asyncData({ params }) {
     const API_EX = 'https://raw.githubusercontent.com/wikitic/'
