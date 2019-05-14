@@ -129,7 +129,6 @@ if __name__ == '__main__':
 </html>
 ```
 
-
 ## Añadir otra dirección
 
 De momento solamente estamos accediendo a una dirección web. Supongamos que queremos acceder a una dirección web donde muestre información adicional o un formulario de contacto. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
@@ -195,6 +194,86 @@ URL: localhost:5000/on
 URL: localhost:5000/off
 ```
 
+## Controlar varios LEDs
+
+Una vez hemos visto la forma de utilizar código HTML junto con Python e interactuar con los pines GPIO, vamos a crear una aplicación para controlar los estados de los LED para encenderlos o apagarlos en cada caso.
+
+```python
+from flask import *
+app = Flask(__name__)
+
+import RPi.GPIO as GPIO
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+
+# leds
+amarillo = 17
+verde = 18
+GPIO.setup(amarillo, GPIO.OUT)
+GPIO.output(amarillo, GPIO.LOW)
+GPIO.setup(verde, GPIO.OUT)
+GPIO.output(verde, GPIO.LOW)
+
+@app.route('/')
+def home():
+   templateData = {
+      'amarillo' : GPIO.input(amarillo),
+      'verde' : GPIO.input(verde),
+   }
+   return render_template('home.html', **templateData)
+
+@app.route('/<led>/<action>')
+def led(led, action):
+   GPIO.output(int(led), int(action))
+   templateData = {
+      'amarillo' : GPIO.input(amarillo),
+      'verde' : GPIO.input(verde),
+   }
+   return render_template('home.html', **templateData)
+
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=80, debug=True)
+```
+
+```html
+<html>
+<head>
+   <style>
+      .btn { 
+         display:block;
+         margin: 20px;
+         padding: 20px 40px;
+         text-align: center;
+         border: 1px solid #000;
+         background: #ccc;
+         text-decoration: none;
+         font-size: 50px;
+         line-height: 3;
+         color: #000;
+      }
+      .btn.amarillo {
+         background: #ff0;
+      }
+      .btn.verde {
+         background: #0f0;
+      }
+   </style>
+</head>
+<body>
+   {% if amarillo == 0 %}
+      <a class="btn" href="/17/1">Amarillo</a>
+   {% else %}
+      <a class="btn amarillo" href="/17/0">Amarillo</a>
+   {% endif %}
+
+   {% if verde == 0 %}
+      <a class="btn" href="/18/1">Verde</a>
+   {% else %}
+      <a class="btn verde" href="/18/0">Verde</a>
+   {% endif %}
+</body>
+</html>
+```
 
 # Resumen
 
