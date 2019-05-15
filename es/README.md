@@ -148,7 +148,8 @@ if __name__ == '__main__':
    <title>Hola Mundo</title>
 </head>
 <body>
-   <p>Si la variable {{ numero }} es igual a 5 se mostrará el título a continuación.</p>
+   <p>Si la variable número "{{ numero }}" es igual a 5 se mostrará el título a continuación.</p>
+   
    {% if numero == 5 %}
       <h1>Se muestra: {{ titulo }}</h1>
    {% else %}
