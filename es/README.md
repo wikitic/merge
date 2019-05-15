@@ -83,6 +83,39 @@ URL: localhost:8080
 
 ![](img/template.png)
 
+## Añadir otra ruta
+
+De momento solamente estamos accediendo a la ruta principal `/`. Supongamos que queremos acceder a otra ruta `/quien-soy` donde se muestra información adicional. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
+
+```python
+...
+
+@app.route('/quien-soy')
+def quien():
+   return render_template('quien.html')
+
+...
+```
+
+```html
+<html>
+<head>
+   <title>Quien soy</title>
+</head>
+<body>
+   <h1>Hola me llamo Migue</h1>
+   
+   <a href="/">Al hacer clic aquí te lleva al home</a>
+</body>
+</html>
+```
+
+```
+URL: localhost:8080/quien-soy
+```
+
+![](img/rutas.png)
+
 ## Pasar parámetros al template
 
 En ocasiones nos gustaría pasar parámetros desde el código principal al template. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos pasados el HTML.
@@ -125,39 +158,6 @@ URL: localhost:8080
 ```
 
 ![](img/parametros.png)
-
-## Añadir otra ruta
-
-De momento solamente estamos accediendo a la ruta principal `/`. Supongamos que queremos acceder a otra ruta `/quien-soy` donde se muestra información adicional. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
-
-```python
-...
-
-@app.route('/quien-soy')
-def quien():
-   return render_template('quien.html')
-
-...
-```
-
-```html
-<html>
-<head>
-   <title>Quien soy</title>
-</head>
-<body>
-   <h1>Hola me llamo Migue</h1>
-   
-   <a href="/">Al hacer clic aquí te lleva al home</a>
-</body>
-</html>
-```
-
-```
-URL: localhost:8080/quien-soy
-```
-
-![](img/rutas.png)
 
 # Resumen
 
