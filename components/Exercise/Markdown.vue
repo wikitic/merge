@@ -218,6 +218,15 @@ export default {
         content: 'Arduino';
         color: #f0f0f0;
       }
+      // language-html
+      &.language-html {
+        border: 3px solid #616161;
+        border-top: 30px solid #616161;
+      }
+      &.language-html::before {
+        content: 'HTML';
+        color: #f0f0f0;
+      }
 
       &:before {
         display: block;
