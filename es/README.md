@@ -151,8 +151,7 @@ if __name__ == '__main__':
    <p>Si la variable {{ numero }} es igual a 5 se mostrará el título a continuación.</p>
    {% if numero == 5 %}
       <h1>Se muestra: {{ titulo }}</h1>
-   {% endif %}
-   {% if numero != 5 %}
+   {% else %}
       <h1>NO se muestra: {{ titulo }}</h1>
    {% endif %}
 </body>
