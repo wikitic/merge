@@ -88,13 +88,19 @@ URL: localhost:8080
 De momento solamente estamos accediendo a la ruta principal `/`. Supongamos que queremos acceder a otra ruta `/quien-soy` donde se muestra información adicional. En este caso necesitamos añadir una nueva función al fichero principal de nuestra aplicación así como un nuevo template donde mostrar dicha información.
 
 ```python
-...
+from flask import *
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+   return render_template('home.html')
 
 @app.route('/quien-soy')
 def quien():
    return render_template('quien.html')
 
-...
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', port=8080, debug=True)
 ```
 
 ```html
