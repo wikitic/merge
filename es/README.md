@@ -124,7 +124,7 @@ URL: localhost:8080/quien-soy
 
 ## Pasar parámetros al template
 
-En ocasiones nos gustaría pasar parámetros desde el código principal al template. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos pasados el HTML.
+En ocasiones nos gustaría pasar parámetros desde el código principal al template. Para ello, al renderizar el template tenemos que añadirle un array con los valores que serán leídos en el HTML.
 
 ```python
 from flask import *
