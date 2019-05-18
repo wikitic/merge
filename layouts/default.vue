@@ -14,7 +14,7 @@
       app
     >
       <v-toolbar-side-icon
-        class="hidden-md-and-up-"
+        class="hidden-md-and-up"
         @click="drawer = !drawer"
       />
       <router-link to="/" class="logo">
