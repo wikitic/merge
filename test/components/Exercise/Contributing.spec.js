@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
 import Contributing from '@/components/Exercise/Contributing.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('Contributing', () => {
   it('renders', () => {

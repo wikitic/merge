@@ -1,10 +1,33 @@
 <template>
-  <b-container fluid>
-    <b-row>
-      <b-col md="12" order-md="2" lg="9" order-lg="1">
+  <v-container
+    fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        xs12
+        sm12
+        md3
+        order-md9
+      >
         <Contributing
           :url="url" 
         />
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="toc" v-html="menu" />
+      </v-flex>
+      <v-flex
+        xs12
+        sm12
+        md9 
+        order-md3
+      >
+        <h1 class="mb-5 display-1">
+          {{ exercise.title }}
+        </h1>
         <vue-markdown
           class="markdown"
           :toc="true"
@@ -13,15 +36,9 @@
           :source="content"
           @toc-rendered="tocAllRight"
         />
-      </b-col>
-      <b-col md="12" order-md="1" lg="3" order-lg="2">
-        <div class="position-sticky sticky-top">
-          <!-- eslint-disable-next-line vue/no-v-html -->
-          <div class="toc" v-html="menu" />
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -88,8 +105,7 @@ export default {
   }
 }
 .markdown {
-  padding: 20px;
-  background: #fff;
+  font-size: 16px;
   h1 {
     margin-top: 60px;
     margin-bottom: 20px;
@@ -161,18 +177,20 @@ export default {
     }
   }
   code {
-    padding: 2px 7px;
+    padding: 1px 3px;
     background: #f0f0f0;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 200;
-    color: #333;
+    color: #2d2d2d;
+    background: #f0f0f0;
+    border-radius: 3px;
   }
   pre {
     display: block;
     margin: 0 0 30px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.75em;
+    font-size: 16px;
     font-weight: normal;
     line-height: 1.25rem;
     white-space: pre-wrap;

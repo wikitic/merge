@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
 import Forkme from '@/components/Layout/Forkme.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('Forkme', () => {
   it('renders', () => {

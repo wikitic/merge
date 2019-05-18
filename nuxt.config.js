@@ -1,3 +1,4 @@
+import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import exercises from './static/exercises.json'
 
 const canonical = 'https://wikitic.github.io'
@@ -37,6 +38,11 @@ export default {
       },
       {
         rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
+      },
+      {
+        rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
         integrity:
           'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
@@ -56,20 +62,22 @@ export default {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/bootstrap.scss', '~/assets/style/custom.scss'],
+  css: ['~/assets/style/app.styl'],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~plugins/ga.js', ssr: false }],
+  plugins: [
+    { src: '~plugins/vuetify.js' },
+    { src: '~plugins/ga.js', ssr: false }
+  ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    '@nuxtjs/axios'
   ],
   /*
   ** Axios module configuration
@@ -77,16 +85,18 @@ export default {
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-  bootstrapVue: {
-    // See https://bootstrap-vue.js.org/docs
-    bootstrapCSS: false, // or `css`
-    bootstrapVueCSS: false // or `bvCSS`
-  },
 
   /*
   ** Build configuration
   */
   build: {
+    transpile: ['vuetify/lib'],
+    plugins: [new VuetifyLoaderPlugin()],
+    loaders: {
+      stylus: {
+        import: ['~assets/style/variables.styl']
+      }
+    },
     /*
     ** You can extend webpack config here
     */

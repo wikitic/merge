@@ -1,81 +1,108 @@
 <template>
-  <div>
-    <header id="header">
-      <Header />
+  <v-app>
+    <v-navigation-drawer
+      v-model="drawer"
+      clipped
+      fixed
+      app
+    >
+      <Navigation />
+    </v-navigation-drawer>
+    <v-toolbar
+      clipped-left
+      fixed
+      app
+    >
+      <v-toolbar-side-icon
+        class="hidden-md-and-up-"
+        @click="drawer = !drawer"
+      />
+      <router-link to="/" class="logo">
+        <span class="wiki">Wiki</span>
+        <span class="tic">TIC</span>
+      </router-link>
+      <v-spacer />
+      <!--
+      <router-link to="/login" class="login">
+        <span>Entra o Colabora</span>
+        <v-icon>account_circle</v-icon>
+      </router-link>
+      -->
       <Forkme />
-    </header>
-    <aside id="left-column">
-      <Menu />
-    </aside>
-    <main id="center-column">
-      <nuxt />
-      <Footer v-show="!home" />
-    </main>
-  </div>
+    </v-toolbar>
+    <v-content>
+      <router-view />
+      <ToTop />
+    </v-content>
+    <v-footer
+      app
+      fixed
+      absolute
+      inset
+      height="auto"
+    >
+      <Footer />
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import Header from '@/components/Layout/Header'
 import Forkme from '@/components/Layout/Forkme'
-import Menu from '@/components/Layout/Menu'
+import Navigation from '@/components/Layout/Navigation'
+import ToTop from '@/components/Layout/ToTop'
 import Footer from '@/components/Layout/Footer'
 
 export default {
   components: {
-    Header,
     Forkme,
-    Menu,
+    Navigation,
+    ToTop,
     Footer
   },
-  computed: {
-    home: function() {
-      return this.$nuxt.$route.name === 'index'
+  data() {
+    return {
+      drawer: true
     }
   }
 }
 </script>
 
-<style lang="scss" scope>
-#header {
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 5px;
-  border-top: 5px solid #2d2d2d;
-  border-bottom: 1px solid #f0f0f0;
-  background: rgba(255, 255, 255, 0.99);
-  // box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
-}
-#left-column {
-  position: fixed;
-  left: 0;
-  top: 65px;
-  bottom: 0;
-  width: 215px;
-  border-right: 1px solid #f0f0f0;
-  // box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
-  background: #f0f0f0;
-}
-#center-column {
-  position: relative;
-  margin-left: 215px;
-  margin-top: 65px;
-  .sticky-top {
-    top: 4.5em;
+<style lang="scss" scoped>
+.logo {
+  text-decoration: none;
+  .wiki {
+    display: inline-block;
+    padding: 0 15px;
+    background: #2d2d2d;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 50px;
+  }
+  .tic {
+    color: #333;
+    font-size: 22px;
+    font-weight: 300;
   }
 }
-@media (max-width: 1300px) {
-  #header {
-    position: relative;
+/*
+.login {
+  margin-right: 65px;
+  padding: 0;
+  text-decoration: none;
+  span {
+    display: inline-block;
+    width: 80px;
+    padding-right: 5px;
+    font-size: 14px;
+    line-height: 15px;
+    text-align: right;
+    color: #666;
   }
-  #left-column {
-    display: none;
-  }
-  #center-column {
-    margin-left: auto;
-    margin-top: auto;
+  i {
+    font-size: 48px;
+    color: #d0d0d0;
   }
 }
+*/
 </style>

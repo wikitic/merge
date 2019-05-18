@@ -1,30 +1,37 @@
 <template>
-  <div>
-    <Head
-      :exercise="exercise"
-    />
-    <Metas
-      :metas="exercise"
-    />
-    <Markdown
-      :exercise="exercise"
-      :content="content"
-      :url="url"
-    />
-  </div>
+  <v-container
+    fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        xs12
+      >
+        <Metas
+          :metas="exercise"
+        />
+        <Markdown
+          :exercise="exercise"
+          :content="content"
+          :url="url"
+        />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
 import axios from 'axios'
 import exercises from '@/static/exercises.json'
 import Metas from '@/components/Layout/Metas'
-import Head from '@/components/Exercise/Head'
 import Markdown from '@/components/Exercise/Markdown'
 
 export default {
   components: {
     Metas,
-    Head,
     Markdown
   },
   async asyncData({ params }) {

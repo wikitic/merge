@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
 import Exercise from '@/components/Exercise.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('Exercise', () => {
   it('renders', () => {

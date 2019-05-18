@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
-
 import Index from '@/pages/index.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('Index', () => {
   test('mounts properly', () => {

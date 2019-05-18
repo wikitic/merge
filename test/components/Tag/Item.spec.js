@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
 import TagItem from '@/components/Tag/Item.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('TagItem', () => {
   it('renders tag', () => {
@@ -17,16 +17,5 @@ describe('TagItem', () => {
     expect(wrapper.props().tag).toBe('tag test')
     expect(wrapper.html()).toContain('/tag/tag+test')
     expect(wrapper.html()).toContain('tag test')
-  })
-
-  it('renders empty tag', () => {
-    const tag = ''
-    const wrapper = mount(TagItem, {
-      propsData: {
-        tag: tag
-      }
-    })
-    expect(wrapper.props().tag).toBe('')
-    expect(wrapper.html()).toBe(undefined)
   })
 })

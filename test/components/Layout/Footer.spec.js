@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Bootstrap from 'bootstrap-vue'
 import Footer from '@/components/Layout/Footer.vue'
+import Vuetify from 'vuetify'
 
-Vue.use(Bootstrap)
+Vue.use(Vuetify)
 
 describe('Footer', () => {
   it('renders', () => {

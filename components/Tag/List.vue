@@ -1,13 +1,10 @@
 <template>
-  <div class="tag-list position-sticky sticky-top">
-    <h4>Tags</h4>
-    <div class="tags">
-      <TagItem
-        v-for="tag in list"
-        :key="tag"
-        :tag="tag" 
-      />
-    </div>
+  <div>
+    <TagItem
+      v-for="tag in list"
+      :key="tag"
+      :tag="tag" 
+    />
   </div>
 </template>
 
@@ -35,10 +32,4 @@ export default {
 </script>
 
 <style lang="scss">
-.tag-list {
-  margin-bottom: 30px;
-  h4 {
-    margin-bottom: 20px;
-  }
-}
 </style>

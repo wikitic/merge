@@ -1,34 +1,74 @@
 <template>
-  <footer class="footer">
-    <p>Esta obra está bajo una licencia de <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es_ES">Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
-    <p>{{ new Date().getFullYear() }} - <a target="_blank" rel="noopener noreferrer" href="https://www.programoergosum.com">Asociación Programo Ergo Sum</a></p>
-  </footer>
+  <v-layout
+    justify-center
+    row
+    wrap
+  >
+    <v-flex
+      primary
+      darknes-2
+      py-3
+      text-xs-center
+      white--text
+      xs12
+    >
+      <div class="mb-3 text-center">
+        <v-btn
+          v-for="icon in icons"
+          :key="icon.icon"
+          :href="icon.link"
+          rel="noopener noreferrer"
+          target="_blank"
+          dark
+          icon
+        >
+          <v-icon>
+            {{ icon.icon }}
+          </v-icon>
+        </v-btn>
+      </div>
+      {{ new Date().getFullYear() }} - Asociación Programo Ergo Sum
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data: () => ({
+    icons: [
+      {
+        icon: 'fab fa-twitter',
+        link: 'https://twitter.com/ProgramoErgoSum'
+      },
+      {
+        icon: 'fab fa-youtube',
+        link: 'https://www.youtube.com/c/ProgramoErgoSum?sub_confirmation=1'
+      },
+      {
+        icon: 'fab fa-instagram',
+        link: 'https://www.instagram.com/programoergosum'
+      },
+      {
+        icon: 'fab fa-facebook',
+        link: 'https://www.facebook.com/ProgramoErgoSum'
+      },
+      {
+        icon: 'fab fa-linkedin',
+        link: 'https://www.linkedin.com/company/programo-ergo-sum'
+      },
+      {
+        icon: 'fab fa-slideshare',
+        link: 'https://www.slideshare.net/ProgramoErgoSum'
+      },
+      {
+        icon: 'fab fa-github',
+        link: 'https://github.com/ProgramoErgoSum'
+      }
+    ]
+  })
 }
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  padding: 20px 10px;
-  background: #2d2d2d;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #f0f0f0;
-  p {
-    margin: 0;
-    padding: 0;
-    a {
-      color: #888;
-      &:hover {
-        color: #fff;
-        text-decoration: none;
-      }
-    }
-  }
-}
 </style>

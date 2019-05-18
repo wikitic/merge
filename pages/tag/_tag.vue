@@ -1,18 +1,26 @@
 <template>
-  <b-container fluid class="mt-3">
-    <b-row>
-      <b-col
-        v-for="exercise in exercises" 
+  <v-container
+    fluid
+    grid-list-md
+  >
+    <v-layout
+      row
+      wrap
+    >
+      <v-flex
+        v-for="exercise in exercises"
         :key="exercise.alias"
-        sm="12"
-        md="6"
-        lg="4"
-        class="p-2"
+        xs12
+        sm6
+        md4
+        lg3
       >
-        <Exercise :exercise="exercise" />
-      </b-col>
-    </b-row>
-  </b-container>
+        <Exercise
+          :exercise="exercise"
+        />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -24,11 +32,16 @@ export default {
     Exercise
   },
   asyncData({ params }) {
+    const title = params.tag !== undefined ? params.tag : 'Tutoriales'
+    const all =
+      params.tag !== undefined
+        ? exercises.filter(e => {
+            return e.tags.includes(title.replace('+', ' '))
+          })
+        : exercises
     return {
-      title: params.tag,
-      exercises: exercises.filter(e => {
-        return e.tags.includes(params.tag.replace('+', ' '))
-      })
+      title: title,
+      exercises: all
     }
   },
   head() {

@@ -1,54 +1,34 @@
 <template>
-  <div class="exercise">
-    <div class="image">
-      <nuxt-link 
-        :to="`/${exercise.alias}`"
-        :title="exercise.title"
-      >
-        <img
-          :src="exercise.image"
-          :alt="exercise.title"
-          class="img-fluid" 
-        >
-      </nuxt-link>
-    </div>
-    <div class="title">
-      <nuxt-link 
-        :to="`/${exercise.alias}`"
-        :title="exercise.title"
-      >
-        {{ exercise.title }}
-      </nuxt-link>
-    </div>
-    <div class="description">
-      {{ exercise.description }}
-    </div>
-    <div class="tags">
-      <span
-        v-for="tag in exercise.tags"
-        :key="tag"
-      >
-        <TagItem :tag="tag" />
-      </span>
-    </div>
-    <nuxt-link 
-      :to="`/${exercise.alias}`"
-      :title="exercise.title"
-      class="readmore"
+  <v-hover>
+    <v-card 
+      class="card"
+      :href="`/${exercise.alias}`"
     >
-      acceder al tutorial
-    </nuxt-link>
-  </div>
+      <v-img
+        :src="exercise.image"
+        aspect-ratio="1.75"
+      />
+      <v-card-title 
+        primary-title
+      >
+        <h3
+          class="title mb-3 font-weight-medium"
+        >
+          {{ exercise.title }}
+        </h3>
+        <div
+          class="subheading font-weight-thin"
+        >
+          {{ exercise.description }}
+        </div>
+      </v-card-title>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>
-import TagItem from '@/components/Tag/Item'
-
 export default {
   name: 'Exercise',
-  components: {
-    TagItem
-  },
   props: {
     exercise: {
       type: Object,
@@ -59,43 +39,4 @@ export default {
 </script>
 
 <style lang="scss">
-.exercise {
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  &:hover {
-    box-shadow: 0px 0px 10px 5px #ccc;
-  }
-  .title {
-    min-height: 55px;
-    padding: 10px;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.5;
-    a {
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-  .description {
-    min-height: 55px;
-    padding: 10px;
-    font-size: 16px;
-    color: #686868;
-    line-height: 1.5;
-  }
-  .tags {
-    padding: 10px;
-  }
-  .readmore {
-    display: block;
-    margin: 10px;
-    padding: 5px;
-    background: #2d2d2d;
-    color: #f0f0f0;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-  }
-}
 </style>
