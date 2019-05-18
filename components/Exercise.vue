@@ -2,7 +2,7 @@
   <v-hover>
     <v-card 
       class="card"
-      :href="`/${exercise.alias}`"
+      :to="`/${exercise.alias}`"
     >
       <v-img
         :src="exercise.image"
