@@ -13,11 +13,19 @@
         md3
         order-md9
       >
-        <Contributing
-          :url="url" 
-        />
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="toc" v-html="menu" />
+        <v-btn
+          flat
+          small
+          :href="url"
+          target="_blank"
+        >
+          <v-icon left dark>
+            fab fa-github
+          </v-icon>
+          Edita página
+        </v-btn>
       </v-flex>
       <v-flex
         xs12
@@ -42,13 +50,11 @@
 </template>
 
 <script>
-import Contributing from '@/components/Exercise/Contributing'
 import VueMarkdown from 'vue-markdown'
 
 export default {
   name: 'Markdown',
   components: {
-    Contributing,
     VueMarkdown
   },
   props: {
