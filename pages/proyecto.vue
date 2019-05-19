@@ -12,71 +12,24 @@
       >
         <Metas />
         <main>
-          <h1 class="display-1 mb-5">
-            Proyecto Educativo WikiTIC
+          <h1 class="mb-3 display-1 font-weight-bold">
+            ¿Qué es WikiTIC?
           </h1>
-          <p class="title font-weight-light">
-            El proyecto WikiTIC es un proyecto educativo de código abierto creado por la Asociación Programo Ergo Sum.
+          <p class="headline font-weight-light">
+            WikiTIC es un proyecto educativo de código abierto que surge de la necesidad de fomentar el uso de las TIC (<i>Tecnologías de la Información y la Comunicación</i>) en los centros educativos, principalmente en los niveles de la ESO y Bachillerato.
           </p>
-          <p class="title font-weight-light">
-            Surge de la necesidad de fomentar el uso de las TIC (<i>Tecnologías de la Información y la Comunicación</i>) en los centros educativos, principalmente en los niveles de la ESO y Bachillerato.
+          <h1 class="mt-5 mb-3 display-1 font-weight-bold">
+            ¿Quién está detrás de WikiTIC?
+          </h1>
+          <p class="headline font-weight-light">
+            WikiTIC es otro proyecto educativo creado y gestionado por la <a href="https://www.programoergosum.com">Asociación Programo Ergo Sum</a>.
           </p>
-          <br>
-          <br>
-          <div class="licencia">
-            <h3 class="display-1 mb-3">
-              Licencia
-            </h3>
-            <v-list>
-              <v-list-tile>
-                <v-list-tile-title class="title font-weight-medium">
-                  Esta obra está bajo una licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional.
-                </v-list-tile-title>
-              </v-list-tile>
-              <v-list-tile class="mt-3">
-                <v-list-tile-title class="title font-weight-medium">
-                  Usted es libre:
-                </v-list-tile-title>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-icon>share</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content class="font-weight-light">
-                  Compartir y redistribuir el material en cualquier medio o formato.
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-icon>code</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content class="font-weight-light">
-                  Remezclar, transformar y crear a partir del material para cualquier finalidad, incluso comercial.
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile class="mt-3">
-                <v-list-tile-title class="title font-weight-medium">
-                  Bajo las siguientes condiciones:
-                </v-list-tile-title>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-icon>accessibility</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content class="font-weight-light">
-                  Debe reconocer adecuadamente la autoría, proporcionar un enlace a la licencia e indicar si se han realizado cambios.
-                </v-list-tile-content>
-              </v-list-tile>
-              <v-list-tile>
-                <v-list-tile-action>
-                  <v-icon>loop</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content class="font-weight-light">
-                  Si remezcla, transforma o crea a partir del material, deberá difundir sus contribuciones bajo la misma licencia que el original.
-                </v-list-tile-content>
-              </v-list-tile>
-            </v-list>
-          </div>      
+          <h1 class="mt-5 mb-3 display-1 font-weight-bold">
+            ¿Qué licencia tiene WikiTIC?
+          </h1>
+          <p class="headline font-weight-light">
+            Todo el contenido incluída la propia página web están alojados en repositorios públicos de GitHub. La página web tiene una licencia MIT y todo el contenido CC-BY-SA 4.0.
+          </p>
         </main>
       </v-flex>
     </v-layout>
