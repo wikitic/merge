@@ -25,7 +25,7 @@
         md9 
         order-md3
       >
-        <h1 class="mb-5 display-1">
+        <h1 class="mb-5 display-1 font-weight-bold">
           {{ exercise.title }}
         </h1>
         <vue-markdown
@@ -105,30 +105,30 @@ export default {
   }
 }
 .markdown {
-  font-size: 16px;
+  font-size: 18px;
   h1 {
     margin-top: 60px;
     margin-bottom: 20px;
-    font-size: 1.75em;
+    font-size: 1.5em;
     font-weight: 600;
     line-height: 50px;
   }
   h2 {
     margin-top: 40px;
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
   }
   h3 {
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 600;
   }
   h4 {
     margin-top: 30px;
     margin-bottom: 20px;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 500;
   }
   a {
@@ -190,16 +190,16 @@ export default {
     display: block;
     margin: 0 0 30px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: normal;
-    line-height: 1.25rem;
+    line-height: 1.6rem;
     white-space: pre-wrap;
     word-wrap: pre-wrap;
     code {
       display: block;
       position: relative;
-      padding: 15px;
-      line-height: 1.5rem;
+      padding: 1.6rem;
+      line-height: 2rem;
       background: #e0e0e0;
       border-radius: 2px 2px 0 0;
       // language-sh
