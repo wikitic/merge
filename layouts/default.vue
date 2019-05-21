@@ -2,22 +2,22 @@
   <v-app>
     <v-navigation-drawer
       v-model="drawer"
-      clipped
       fixed
       app
     >
+      <Logo />
+      <v-divider />
       <Navigation />
     </v-navigation-drawer>
     <v-toolbar
-      clipped-left
       fixed
+      dense
       app
     >
       <v-toolbar-side-icon
-        class="hidden-md-and-up"
         @click="drawer = !drawer"
       />
-      <router-link to="/" class="logo">
+      <router-link v-show="!drawer" to="/" class="logo">
         <span class="wiki">Wiki</span>
         <span class="tic">TIC</span>
       </router-link>
@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import Logo from '@/components/Layout/Logo'
 import Forkme from '@/components/Layout/Forkme'
 import Navigation from '@/components/Layout/Navigation'
 import ToTop from '@/components/Layout/ToTop'
@@ -61,6 +62,7 @@ import Footer from '@/components/Layout/Footer'
 
 export default {
   components: {
+    Logo,
     Forkme,
     Navigation,
     ToTop,
