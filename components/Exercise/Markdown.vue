@@ -78,7 +78,9 @@ export default {
   },
   methods: {
     tocAllRight: function(tocHtmlStr) {
-      this.menu = tocHtmlStr.split('"#').join(`"/${this.exercise.alias}#`)
+      this.menu = tocHtmlStr
+        .split('"#')
+        .join(`"/tutorial/${this.exercise.alias}#`)
     }
   }
 }
