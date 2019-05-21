@@ -17,10 +17,10 @@
       <v-toolbar-side-icon
         @click="drawer = !drawer"
       />
-      <router-link v-show="!drawer" to="/" class="logo">
+      <nuxt-link v-show="!drawer" to="/" class="logo">
         <span class="wiki">Wiki</span>
         <span class="tic">TIC</span>
-      </router-link>
+      </nuxt-link>
       <v-spacer />
       <!--
       <v-toolbar-items>
@@ -38,7 +38,7 @@
       <Forkme />
     </v-toolbar>
     <v-content>
-      <router-view />
+      <nuxt />
       <ToTop />
     </v-content>
     <v-footer
