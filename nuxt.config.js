@@ -119,6 +119,10 @@ export default {
   generate: {
     routes: async function() {
       const t = [
+        '/',
+        '/404',
+        '/tutorial',
+        '/tag',
         '/tag/raspberry+pi',
         '/tag/raspbian',
         '/tag/noobs',
@@ -154,7 +158,7 @@ export default {
       ]
 
       const e = await exercises.map(exercise => {
-        return `/${exercise.alias}`
+        return `/tutorial/${exercise.alias}`
       })
       return Promise.all([t, e]).then(v => {
         return [...v[0], ...v[1]]
