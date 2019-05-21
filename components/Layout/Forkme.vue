@@ -18,10 +18,8 @@ export default {
 .svg {
   fill: #2d2d2d;
   color: #fff;
-  position: absolute;
-  top: 0;
-  border: 0;
-  right: 0;
+  position: relative;
+  right: -25px;
 }
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;

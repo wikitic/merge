@@ -23,10 +23,17 @@
       </router-link>
       <v-spacer />
       <!--
-      <router-link to="/login" class="login">
-        <span>Entra o Colabora</span>
-        <v-icon>account_circle</v-icon>
-      </router-link>
+      <v-toolbar-items>
+        <v-btn
+          to="/mecenas"
+          flat
+        >
+          Mecenas
+          <v-icon right>
+            fa-users
+          </v-icon>
+        </v-btn>
+      </v-toolbar-items>
       -->
       <Forkme />
     </v-toolbar>
@@ -85,24 +92,4 @@ export default {
     font-weight: 300;
   }
 }
-/*
-.login {
-  margin-right: 65px;
-  padding: 0;
-  text-decoration: none;
-  span {
-    display: inline-block;
-    width: 80px;
-    padding-right: 5px;
-    font-size: 14px;
-    line-height: 15px;
-    text-align: right;
-    color: #666;
-  }
-  i {
-    font-size: 48px;
-    color: #d0d0d0;
-  }
-}
-*/
 </style>
