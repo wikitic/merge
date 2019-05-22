@@ -8,10 +8,24 @@
       wrap
     >
       <v-flex
-        xs12
         sm12
+        md9 
+      >
+        <h1 class="mb-5 display-1 font-weight-bold">
+          {{ exercise.title }}
+        </h1>
+        <vue-markdown
+          class="markdown"
+          :toc="true"
+          :toc-first-level="1"
+          :toc-anchor-link="false"
+          :source="content"
+          @toc-rendered="tocAllRight"
+        />
+      </v-flex>
+      <v-flex
         md3
-        order-md9
+        class="hidden-sm-and-down"
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="toc" v-html="menu" />
@@ -26,24 +40,6 @@
           </v-icon>
           Edita página
         </v-btn>
-      </v-flex>
-      <v-flex
-        xs12
-        sm12
-        md9 
-        order-md3
-      >
-        <h1 class="mb-5 display-1 font-weight-bold">
-          {{ exercise.title }}
-        </h1>
-        <vue-markdown
-          class="markdown"
-          :toc="true"
-          :toc-first-level="1"
-          :toc-anchor-link="false"
-          :source="content"
-          @toc-rendered="tocAllRight"
-        />
       </v-flex>
     </v-layout>
   </v-container>
