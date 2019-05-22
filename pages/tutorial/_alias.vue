@@ -1,26 +1,14 @@
 <template>
-  <v-container
-    fluid
-    grid-list-md
-  >
-    <v-layout
-      row
-      wrap
-    >
-      <v-flex
-        xs12
-      >
-        <Metas
-          :metas="exercise"
-        />
-        <Markdown
-          :exercise="exercise"
-          :content="content"
-          :url="url"
-        />
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <Metas
+      :metas="exercise"
+    />
+    <Markdown
+      :exercise="exercise"
+      :content="content"
+      :url="url"
+    />
+  </div>
 </template>
 
 <script>
