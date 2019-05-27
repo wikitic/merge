@@ -63,8 +63,10 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~plugins/vuetify.js' },
+    { src: '~plugins/vuetify.js' }
+    /*,
     { src: '~plugins/ga.js', ssr: false }
+    */
   ],
 
   /*
@@ -73,7 +75,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Simple usage
+    '@nuxtjs/google-analytics',
     '@nuxtjs/google-adsense'
   ],
   /*
@@ -81,6 +83,12 @@ export default {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  /*
+  ** google-analytics configuration
+  */
+  googleAnalytics: {
+    id: 'UA-60927212-4'
   },
   /*
   ** google-adsense configuration
