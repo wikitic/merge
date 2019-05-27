@@ -34,11 +34,6 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Noto+Serif+JP:200,300,400,500,700,900'
-      },
-      {
-        rel: 'stylesheet',
-        href:
           'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       },
       {
@@ -77,13 +72,22 @@ export default {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    // Simple usage
+    '@nuxtjs/google-adsense'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  /*
+  ** google-adsense configuration
+  */
+  'google-adsense': {
+    id: 'ca-pub-6757981017018187',
+    pageLevelAds: true
   },
 
   /*
