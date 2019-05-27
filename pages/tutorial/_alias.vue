@@ -42,6 +42,20 @@ export default {
       content: content,
       url: url
     }
+  },
+  head() {
+    return {
+      script: [
+        {
+          src: '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
+          async: true
+        },
+        {
+          innerHTML:
+            '(adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-6757981017018187", enable_page_level_ads: true});'
+        }
+      ]
+    }
   }
 }
 </script>
