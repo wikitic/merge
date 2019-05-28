@@ -27,22 +27,20 @@
             <img class="logo" src="~/static/logo-aytomurcia.png" title="Ayuntamiento de Murcia">
             <img class="logo" src="~/static/logo-cprmurcia.png" title="Centro de Profesorado y Recursos">
           </div>
-          <!--
           <div class="mb-5 text-xs-center">
             <h2>Patrocinadores</h2>
             <v-chip>
               <v-avatar>
-                <img src="https://avatars1.githubusercontent.com/u/12022187?s=460&v=4" />
+                <img src="https://avatars1.githubusercontent.com/u/12022187?s=460&v=4">
               </v-avatar>
               Miguel Ángel Abellán
             </v-chip>
-            <div class="mt-3">
-              <a target="_blank" href="https://www.patreon.com/ProgramoErgoSum">
+            <div class="mt-5">
+              <v-btn class="default" target="_blank" href="https://www.patreon.com/ProgramoErgoSum">
                 Conviértete en patrocinador
-              </a>
+              </v-btn>
             </div>
           </div>
-          -->
         </main>
       </v-flex>
     </v-layout>
@@ -80,7 +78,7 @@ main {
   .logo {
     display: inline-block;
     max-height: 50px;
-    margin: 10px 20px 30px;
+    margin: 0 20px;
   }
 }
 </style>
