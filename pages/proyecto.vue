@@ -35,6 +35,12 @@
               </v-avatar>
               Miguel Ángel Abellán
             </v-chip>
+            <v-chip>
+              <v-avatar>
+                <img src="https://avatars0.githubusercontent.com/u/1055699?s=460&v=4">
+              </v-avatar>
+              Miguel Manzano
+            </v-chip>
             <div class="mt-5">
               <v-btn class="default" target="_blank" href="https://www.patreon.com/ProgramoErgoSum">
                 Conviértete en patrocinador
