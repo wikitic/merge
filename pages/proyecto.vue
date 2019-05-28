@@ -15,17 +15,17 @@
           <div class="mb-5">
             <h1>Proyecto Educativo WikiTIC</h1>
             <p class="headline font-weight-light">
-              WikiTIC es un proyecto educativo <strong>100% código abierto</strong> creado y gestionado por la <a href="https://www.programoergosum.com">Asociación Programo Ergo Sum</a>, para fomentar el uso de las <strong>TIC</strong> (<i>Tecnologías de la Información y la Comunicación</i>) en los centros educativos en los niveles de la <strong>ESO</strong> y <strong>Bachillerato</strong>.
+              WikiTIC es un proyecto educativo de <strong>código abierto</strong> bajo licencia <b>Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</b> para fomentar el uso de las <b>TIC</b> (<i>Tecnologías de la Información y la Comunicación</i>) en los centros educativos en los niveles de la <b>ESO</b> y <b>Bachillerato</b>.
             </p>
           </div>
           <div class="mb-5 text-xs-center">
-            <h1>Patrocinadores</h1>
-            <img width="250px" src="~/static/logo-programoergosum.png" title="Asociación Programo Ergo Sum">
+            <h1>Creado y gestionado por</h1>
+            <img src="~/static/logo-programoergosum.png" title="Asociación Programo Ergo Sum">
           </div>
           <div class="mb-5 text-xs-center">
             <h1>Colaboradores</h1>
-            <img width="250px" src="~/static/logo-aytomurcia.png" title="Ayuntamiento de Murcia">
-            <img width="250px" src="~/static/logo-cprmurcia.png" title="Centro de Profesorado y Recursos">
+            <img src="~/static/logo-aytomurcia.png" title="Ayuntamiento de Murcia">
+            <img src="~/static/logo-cprmurcia.png" title="Centro de Profesorado y Recursos">
           </div>
         </main>
       </v-flex>
@@ -52,8 +52,13 @@ main {
     font-weight: 600;
     line-height: 50px;
   }
+  strong {
+    font-weight: 600;
+  }
   img {
-    margin: 10px 20px 40px;
+    display: inline-block;
+    max-height: 80px;
+    margin: 10px 30px 40px;
   }
 }
 </style>
