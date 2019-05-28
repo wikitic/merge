@@ -19,14 +19,30 @@
             </p>
           </div>
           <div class="mb-5 text-xs-center">
-            <h1>Creado y gestionado por</h1>
-            <img src="~/static/logo-programoergosum.png" title="Asociación Programo Ergo Sum">
+            <h2>Creado y gestionado por</h2>
+            <img class="logo" src="~/static/logo-programoergosum.png" title="Asociación Programo Ergo Sum">
           </div>
           <div class="mb-5 text-xs-center">
-            <h1>Colaboradores</h1>
-            <img src="~/static/logo-aytomurcia.png" title="Ayuntamiento de Murcia">
-            <img src="~/static/logo-cprmurcia.png" title="Centro de Profesorado y Recursos">
+            <h2>Colaboradores</h2>
+            <img class="logo" src="~/static/logo-aytomurcia.png" title="Ayuntamiento de Murcia">
+            <img class="logo" src="~/static/logo-cprmurcia.png" title="Centro de Profesorado y Recursos">
           </div>
+          <!--
+          <div class="mb-5 text-xs-center">
+            <h2>Patrocinadores</h2>
+            <v-chip>
+              <v-avatar>
+                <img src="https://avatars1.githubusercontent.com/u/12022187?s=460&v=4" />
+              </v-avatar>
+              Miguel Ángel Abellán
+            </v-chip>
+            <div class="mt-3">
+              <a target="_blank" href="https://www.patreon.com/ProgramoErgoSum">
+                Conviértete en patrocinador
+              </a>
+            </div>
+          </div>
+          -->
         </main>
       </v-flex>
     </v-layout>
@@ -52,13 +68,19 @@ main {
     font-weight: 600;
     line-height: 50px;
   }
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 50px;
+  }
   strong {
     font-weight: 600;
   }
-  img {
+  .logo {
     display: inline-block;
-    max-height: 80px;
-    margin: 10px 30px 40px;
+    max-height: 50px;
+    margin: 10px 20px 30px;
   }
 }
 </style>
