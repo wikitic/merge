@@ -2,9 +2,6 @@
 
 > Under construction
 
-[![Build Status](https://travis-ci.org/ProgramoErgoSum/aprendeprogramando.svg?branch=master)](https://travis-ci.org/ProgramoErgoSum/aprendeprogramando)
-
-
 ## Version
 
 ```sh
