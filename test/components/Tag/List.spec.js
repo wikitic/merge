@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import TagList from '@/components/Tag/List.vue'
 import Vuetify from 'vuetify'
+import TagList from '@/components/Tag/List.vue'
 
 Vue.use(Vuetify)
 

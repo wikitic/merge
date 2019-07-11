@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Metas from '@/components/Layout/Metas.vue'
 import Vuetify from 'vuetify'
+import Metas from '@/components/Layout/Metas.vue'
 
 Vue.use(Vuetify)
 

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Exercise from '@/components/Exercise.vue'
 import Vuetify from 'vuetify'
+import Exercise from '@/components/Exercise.vue'
 
 Vue.use(Vuetify)
 

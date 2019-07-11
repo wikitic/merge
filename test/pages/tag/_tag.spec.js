@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Tag from '@/pages/tag/_tag.vue'
 import Vuetify from 'vuetify'
+import Tag from '@/pages/tag/_tag.vue'
 
 Vue.use(Vuetify)
 

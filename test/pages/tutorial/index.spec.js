@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import Index from '@/pages/tutorial/index.vue'
 import Vuetify from 'vuetify'
+import Index from '@/pages/tutorial/index.vue'
 
 Vue.use(Vuetify)
 

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import ToTop from '@/components/Layout/ToTop.vue'
 import Vuetify from 'vuetify'
+import ToTop from '@/components/Layout/ToTop.vue'
 
 Vue.use(Vuetify)
 

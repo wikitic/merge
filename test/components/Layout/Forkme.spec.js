@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Forkme from '@/components/Layout/Forkme.vue'
 import Vuetify from 'vuetify'
+import Forkme from '@/components/Layout/Forkme.vue'
 
 Vue.use(Vuetify)
 

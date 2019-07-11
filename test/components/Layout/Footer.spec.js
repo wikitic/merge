@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { mount } from '@vue/test-utils'
-import Footer from '@/components/Layout/Footer.vue'
 import Vuetify from 'vuetify'
+import Footer from '@/components/Layout/Footer.vue'
 
 Vue.use(Vuetify)
 
