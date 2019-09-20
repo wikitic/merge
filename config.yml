@@ -1,6 +1,0 @@
-languages:
-  - es
-    titulo: Acelerómetro en Micro:bit con MicroPython
-    description: Utiliza el acelerómetro de Micro:bit con MicroPython.
-    authors:
-      - migueabellan
