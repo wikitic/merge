@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Matriz de LEDs en Micro:bit con MicroPython 
+    description: Crear imágenes en la madtriz de LEDs de Micro:bit con MicroPython.
+    authors:
+      - migueabellan
