@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Red Privada Virtual con OpenVPN
+    description: Configura una red privada virtual con OpenVPN.
+    authors:
+      - migueabellan
