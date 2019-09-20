@@ -1,0 +1,6 @@
+languages:
+  - es
+    title: Escritorio remoto a través de VNC
+    description: Accede a tu Raspberry Pi desde otro ordenador a través de un escritorio remoto con VNC.
+    autors:
+      - migueabellan
