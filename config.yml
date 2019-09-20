@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Pines GPIO en Raspberry Pi
+    description: Programación en Python de los pines GPIO.
+    authors:
+      - migueabellan
