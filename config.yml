@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Arranque automático en Raspbian
+    description: Ejecutar programas de forma automática al arrancar Raspbian.
+    authors:
+      - migueabellan
