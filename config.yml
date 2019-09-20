@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Conectar a la WiFi una ESP8266
+    description: Buscando señales de WiFi con la placa NodeMCU ESP8266.
+    authors:
+      - migueabellan
