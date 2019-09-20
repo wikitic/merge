@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Pines GPIO a través de Node-RED
+    description: Programando pines GPIO a través de Node-RED en Raspberry Pi.
+    authors:
+      - migueabellan
