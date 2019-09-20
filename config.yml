@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Instalar Raspbian en Raspberry Pi con NOOBs
+    description: Instalación del sistema operativo Raspbian a través del asistente NOOBs.
+    authors:
+      - migueabellan
