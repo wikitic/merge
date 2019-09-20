@@ -1,6 +1,0 @@
-languages:
-  - es
-    titulo: Instalar Raspbian en Raspberry Pi con Etcher
-    description: Instalación del sistema operativo Raspbian a través de una imagen con Etcher.
-    authors:
-      - migueabellan
