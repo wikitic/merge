@@ -1,6 +1,0 @@
-languages:
-  - es
-    titulo: Placa de desarrollo NodeMCU ESP8266
-    description: Introducción a la placa de prototipado NodeMCU con ESP8266.
-    authors:
-      - migueabellan
