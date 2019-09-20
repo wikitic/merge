@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <!--
     <v-row>
       <v-col cols="12">
         <h1>Cursos</h1>
@@ -16,6 +17,7 @@
         </v-list>
       </v-col>
     </v-row>
+    -->
   </v-container>
 </template>
 
