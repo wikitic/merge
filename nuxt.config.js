@@ -1,104 +1,111 @@
-import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
-import exercises from './static/exercises.json'
-
-const canonical = 'https://wikitic.github.io'
-const title = 'Wiki TIC'
-const description = 'Ejercicios prácticos aplicados a las TIC en educación'
-const routerBase = {
-  router: {
-    base: process.env.DEPLOY_ENV === 'MASTER' ? '/' : '/'
-  }
-}
+const www =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://wikitic.github.io'
+const cdn =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://wikitic.github.io'
 
 export default {
   mode: 'universal',
 
-  ...routerBase,
+  router: {
+    base: '/'
+  },
   env: {
-    canonical: canonical,
-    title: title,
-    description: description
+    www,
+    cdn
   },
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
+    htmlAttrs: {
+      lang: 'es'
+    },
     meta: [
       { charset: 'utf-8' },
+      { hreflang: 'es' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'robots', content: 'index, follow' },
+      { hid: 'robots', name: 'robots', content: 'index, follow' },
       {
         name: 'google-site-verification',
         content: 'Q62Pt4_HTSBH5qBIawSbbtoyC0o_AAz4Q4DlpCMMtco'
       }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      },
-      {
-        rel: 'stylesheet',
-        href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
-        integrity:
-          'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
-        crossorigin: 'anonymous'
-      }
+      { hreflang: 'es' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: {
-    color: '#2d2d2d',
-    height: '3px'
-  },
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#2d2d2d' },
 
   /*
-  ** Global CSS
-  */
-  css: ['~/assets/style/app.styl'],
+   ** Global CSS
+   */
+  css: ['~/assets/style/main.scss'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    { src: '~plugins/vuetify.js' },
-    { src: '~plugins/ga.js', ssr: false }
+   ** Plugins to load before mounting the App
+   */
+  plugins: [{ src: '~plugins/ga.js', ssr: false }],
+
+  buildModules: [
+    // Simple usage
+    '@nuxtjs/eslint-module',
+    // Doc: https://github.com/nuxt-community/vuetify-module/
+    '@nuxtjs/vuetify'
   ],
-
+  vuetify: {
+    theme: {
+      light: true,
+      themes: {
+        light: {
+          primary: '#2d2d2d',
+          secondary: '#101a24'
+        }
+      }
+    }
+  },
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios'
   ],
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
-  ** Build configuration
-  */
+   ** Generate
+   */
+  generate: {
+    routes() {
+      const p = ['/', '/404']
+      return Promise.all([p]).then(v => {
+        return [...v[0]]
+      })
+    }
+  },
+
+  /*
+   ** Build configuration
+   */
   build: {
-    transpile: ['vuetify/lib'],
-    plugins: [new VuetifyLoaderPlugin()],
-    loaders: {
-      stylus: {
-        import: ['~assets/style/variables.styl']
-      }
-    },
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
@@ -109,59 +116,6 @@ export default {
           exclude: /(node_modules)/
         })
       }
-    }
-  },
-
-  /*
-  ** generate
-  */
-  generate: {
-    routes: async function() {
-      const t = [
-        '/',
-        '/404',
-        '/tutorial',
-        '/tag',
-        '/tag/raspberry+pi',
-        '/tag/raspbian',
-        '/tag/noobs',
-        '/tag/etcher',
-        '/tag/update',
-        '/tag/piclone',
-        '/tag/ssh',
-        '/tag/vnc',
-        '/tag/ip',
-        '/tag/webcam',
-        '/tag/luvcview',
-        '/tag/fswebcam',
-        '/tag/cron',
-        '/tag/motion',
-        '/tag/microbit',
-        '/tag/mu+editor',
-        '/tag/micropython',
-        '/tag/python',
-        '/tag/nodemcu',
-        '/tag/esp8266',
-        '/tag/arduino+ide',
-        '/tag/wifi',
-        '/tag/pyserial',
-        '/tag/gpio',
-        '/tag/node+red',
-        '/tag/webserver',
-        '/tag/hotspot',
-        '/tag/raspap',
-        '/tag/git',
-        '/tag/github',
-        '/tag/markdown',
-        '/tag/openvpn'
-      ]
-
-      const e = await exercises.map(exercise => {
-        return `/tutorial/${exercise.alias}`
-      })
-      return Promise.all([t, e]).then(v => {
-        return [...v[0], ...v[1]]
-      })
     }
   }
 }

@@ -1,97 +1,40 @@
 <template>
   <v-app>
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      app
-    >
-      <Logo />
-      <v-divider />
-      <Navigation />
-    </v-navigation-drawer>
-    <v-toolbar
-      fixed
-      dense
-      app
-    >
-      <v-toolbar-side-icon
-        @click="drawer = !drawer"
-      />
-      <nuxt-link v-show="!drawer" to="/" class="logo">
-        <span class="wiki">Wiki</span>
-        <span class="tic">TIC</span>
-      </nuxt-link>
-      <v-spacer />
-      <!--
-      <v-toolbar-items>
-        <v-btn
-          to="/mecenas"
-          flat
-        >
-          Mecenas
-          <v-icon right>
-            fa-users
-          </v-icon>
-        </v-btn>
-      </v-toolbar-items>
-      -->
-      <Forkme />
-    </v-toolbar>
     <v-content>
-      <nuxt />
-      <ToTop />
+      <nuxt class="nuxt-content" />
     </v-content>
-    <v-footer
-      app
-      fixed
-      absolute
-      inset
-      height="auto"
-    >
-      <Footer />
-    </v-footer>
   </v-app>
 </template>
 
 <script>
-import Logo from '@/components/Layout/Logo'
-import Forkme from '@/components/Layout/Forkme'
-import Navigation from '@/components/Layout/Navigation'
-import ToTop from '@/components/Layout/ToTop'
-import Footer from '@/components/Layout/Footer'
-
 export default {
-  components: {
-    Logo,
-    Forkme,
-    Navigation,
-    ToTop,
-    Footer
-  },
-  data() {
+  components: {},
+  head() {
+    const canonical = `${process.env.www}${this.$route.path}`
     return {
-      drawer: null
+      link: [
+        { rel: 'canonical', href: canonical }
+        // { hid: 'description', name: 'description', content: description }
+      ],
+      meta: [
+        { property: 'og:locale', content: 'es' },
+        { property: 'og:site_name', content: 'Asociación Programo Ergo Sum' },
+        { property: 'og:type', content: 'article' }, // website
+        { property: 'og:url', content: canonical },
+        // { hid: 'o:t', property: 'og:title', content: title }
+        // { hid: 'o:d', property: 'og:description', content: description }
+        // { hid: 'o:i', property: 'og:image', content: image }
+
+        { name: 'twitter:site', content: '@ProgramoErgoSum' },
+        { name: 'twitter:creator', content: '@ProgramoErgoSum' },
+        { name: 'twitter:card', content: 'summary_large_image' }
+        // { hid: 't:t', name: 'twitter:title', content: title }
+        // { hid: 't:d', name: 'twitter:description', content: description }
+        // { hid: 't:i', name: 'twitter:image', content: image }
+      ]
     }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.logo {
-  text-decoration: none;
-  .wiki {
-    display: inline-block;
-    padding: 0 15px;
-    background: #2d2d2d;
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 50px;
-  }
-  .tic {
-    color: #333;
-    font-size: 22px;
-    font-weight: 300;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
