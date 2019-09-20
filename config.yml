@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Primeros pasos con micro:bit y Mu Editor
+    description: Programa tu micro:bit en Raspberry Pi con MicroPython.
+    authors:
+      - migueabellan
