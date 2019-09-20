@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Servidor Web en NodeMCU ESP8266
+    description: Crea una servidor web para controlar los pines GPIO de la ESP8266 desde el móvil.
+    authors:
+      - migueabellan
