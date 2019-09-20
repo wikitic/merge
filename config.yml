@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Actualizar el sistema operativo Raspbian
+    description: Proceso de actualización de paquetes y versión en Raspbian desde la terminal.
+    authors:
+      - migueabellan
