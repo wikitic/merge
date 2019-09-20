@@ -1,6 +1,0 @@
-languages:
-  - es
-    titulo: Botones en Micro:bit con MicroPython
-    description: Utiliza los botones de Micro:bit con MicroPython.
-    authors:
-      - migueabellan
