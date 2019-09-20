@@ -1,6 +1,0 @@
-languages:
-  - es
-    titulo: Direcciones IP en Raspberry Pi
-    description: Establecer una dirección IP Fija a nuestra Raspberry Pi.
-    authors:
-      - migueabellan
