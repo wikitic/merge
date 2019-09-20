@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Primeros pasos en GitHub
+    description: Primeros pasos en GitHub desde la web para principiantes.
+    authors:
+      - migueabellan
