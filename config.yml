@@ -1,0 +1,6 @@
+languages:
+  - es
+    titulo: Clonar tarjeta SD Raspbian en Raspberry Pi con piclone
+    description: Clonado de Raspbian utilizando el programa SD Card Copier (piclone).
+    authors:
+      - migueabellan
