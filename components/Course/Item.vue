@@ -1,29 +1,37 @@
 <template>
   <v-card :href="course.href" target="_blank">
-    <v-img :src="course.image" :title="course.title" height="350">
+    <v-img
+      :src="course.image"
+      :alt="course.title"
+      class="white--text"
+      height="250"
+      gradient="to bottom, rgba(16,26,36,0), rgba(16,26,36,1)"
+    >
       <template v-slot:placeholder>
-        <v-layout fill-height align-center justify-center ma-0>
+        <v-row class="fill-height ma-0" align="center" justify="center">
           <v-progress-circular indeterminate color="grey lighten-5" />
-        </v-layout>
+        </v-row>
       </template>
+      <v-card-title class="align-end fill-height">
+        {{ course.title }}
+      </v-card-title>
     </v-img>
     <!--
     <v-card-title primary-title>
-      <h3 class="mb-4 title">{{ course.title }}</h3>
       <div class="subtitle-1">{{ course.description }}</div>
     </v-card-title>
     <v-divider class="mx-3 my-3"></v-divider>
-    <v-card-text v-if="course.extra">
+    -->
+    <v-card-text v-if="course.extra" class="mt-4">
       <p>
         <v-icon>mdi-calendar</v-icon>
-        {{ course.extra.edition }} - {{ course.extra.date }}
+        <strong>{{ course.extra.edition }}</strong> - {{ course.extra.date }}
       </p>
       <p>
         <v-icon>mdi-map</v-icon>
         {{ course.extra.address }}
       </p>
     </v-card-text>
-    -->
   </v-card>
 </template>
 
