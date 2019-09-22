@@ -1,47 +1,42 @@
 <template>
-  <v-container>
-    <!--
+  <v-container fluid>
     <v-row>
       <v-col cols="12">
-        <h1>Cursos</h1>
-        <v-list class="mb-12">
-          <template v-for="course in courses">
-            <v-list-item :key="course.href" :href="course.href" target="_blank">
-              <v-list-item-content>
-                <v-list-item-title>
-                  {{ course.title }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </template>
-        </v-list>
+        <h1 class="pa-6 mb-6 primary white--text display-1">
+          Cursos de Formación del profesorado aplicados a las TIC.
+        </h1>
+      </v-col>
+      <v-col
+        v-for="course in courses"
+        :key="course.href"
+        cols="12"
+        xs="12"
+        sm="12"
+        md="6"
+        lg="4"
+      >
+        <Item :course="course" />
       </v-col>
     </v-row>
-    -->
   </v-container>
 </template>
 
 <script>
+import Item from '@/components/Course/Item'
+
 export default {
-  components: {},
-  data: () => ({
-    courses: [
-      {
-        title: 'Programación en Python con Raspberry Pi',
-        href:
-          'https://programoergosum.github.io/programacion-en-python-con-raspberry-pi/#/'
-      }
-    ]
-  }),
+  components: {
+    Item
+  },
   asyncData({ store }) {
     const metas = {
       title: 'WikiTIC - Proyecto Educativo',
-      description:
-        'Proyecto educativo de código abierto para fomentar el uso de las TIC en los niveles de ESO y Bachiller.',
+      description: 'Cursos de Formación del Profesorado aplicados a las TIC.',
       image: ''
     }
     return {
-      metas
+      metas,
+      courses: store.state.courses.list
     }
   },
   head() {
