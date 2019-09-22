@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12">
         <h1 class="pa-6 mb-6 primary white--text display-1">
-          Cursos de Formación del profesorado aplicados a las TIC.
+          Cursos de Formación del Profesorado aplicados a las TIC.
         </h1>
       </v-col>
       <v-col
