@@ -8,7 +8,7 @@
       </v-col>
       <v-col
         v-for="course in courses"
-        :key="course.href"
+        :key="course.title"
         cols="12"
         xs="12"
         sm="12"
