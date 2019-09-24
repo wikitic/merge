@@ -10,18 +10,7 @@
       "address": "IES Miguel de Cervantes, Murcia"
     }
   },
-  {
-    "href": "https://wikitic.github.io/iv-jornadas-robotica-educativa-2019-murcia",
-    "title": "IV Jornadas de Robótica Educativa",
-    "description": "Taller de Domótica e Internet de las Cosas (IoT) con Raspberry Pi en secundaria.",
-    "image": "iv-jornadas-robotica-educativa-2019-murcia.jpg",
-    "extra": {
-      "date": "Junio, 2019",
-      "edition": "4ª Edición",
-      "address": "Facultad de Informática, Universidad de Murcia"
-    }
-  },
-
+  
   {
     "href": "",
     "title": "Robótica Educativa en Infantil y Primaria",
@@ -64,6 +53,18 @@
       "date": "Marzo, 2020",
       "edition": "3ª Edición",
       "address": "IES Juan Carlos I, Murcia"
+    }
+  },
+
+  {
+    "href": "https://wikitic.github.io/iv-jornadas-robotica-educativa-2019-murcia",
+    "title": "IV Jornadas de Robótica Educativa",
+    "description": "Taller de Domótica e Internet de las Cosas (IoT) con Raspberry Pi en secundaria.",
+    "image": "iv-jornadas-robotica-educativa-2019-murcia.jpg",
+    "extra": {
+      "date": "Junio, 2019",
+      "edition": "4ª Edición",
+      "address": "Facultad de Informática, Universidad de Murcia"
     }
   }
 ]
