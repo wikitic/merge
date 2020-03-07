@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{672:function(t,n,e){"use strict";e.r(n);var c={asyncData:function(t){(0,t.redirect)("301","/tutoriales")}},r=e(15),component=Object(r.a)(c,(function(){var t=this.$createElement;return(this._self._c||t)("span")}),[],!1,null,"fd5b5370",null);n.default=component.exports}}]);
