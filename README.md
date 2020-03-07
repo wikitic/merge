@@ -1,14 +1,3 @@
-# El Cable Amarillo
+# Nuevo proyecto
 
-> Segunda versión de la web realizada en Ruby con Jekyll.
-
-## Desarrollo 
-
-```sh
-$ git clone git@github.com:ElCableAmarillo/ruby.elcableamarillo.github.io.git
-
-$ docker-compose build
-$ docker-compose up
-
-http://localhost:4000
-```
+Visita el proyecto [ElCableAmarillo](https://github.com/ElCableAmarillo)
