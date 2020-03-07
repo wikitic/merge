@@ -1,0 +1,17 @@
+---
+layout: base
+permalink: /practicas/secundaria/
+---
+
+<article class="practicas">
+
+    Listado de prácticas para secundaria
+    <ul>
+        {% for practica in site.secundaria %}
+          <li>
+            <a href="{{ practica.url | remove:'index.html' }}">{{ practica.title }}</a> 
+          </li>
+        {% endfor %}
+    </ul>
+  
+  </article>

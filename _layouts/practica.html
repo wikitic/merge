@@ -1,0 +1,18 @@
+---
+layout: base
+---
+
+<article class="practica">
+
+  <blockquote>
+    <span>Práctica realizada por:</span>
+    <ul>
+      {% for author in page.authors %}
+        <li>{{ author }}</li>
+      {% endfor %}
+    </ul>
+  </blockquote>
+  
+  {{content}}
+
+</article>
