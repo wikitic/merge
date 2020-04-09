@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <base href="{{ app.request.schemeAndHttpHost ~ app.request.baseUrl }}" />
+        <link rel="canonical" href="{{ app.request.uri }}" />
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="apple-touch-icon" href="{{ asset('favicon.ico') }}" />
+
+        {# metas #}
+        {% set baseuri = app.request.uri %}
+        {% set metatitle = 'seo.metatitle' | trans %}
+        {% set metadesc = 'seo.metadesc' | trans  %}
+        {% set metakey = 'seo.metakey' | trans %}
+        {% set metaimage = app.request.schemeAndHttpHost ~ asset('images/default.png') %}
+        {% set metaimage_width = 500 %}
+        {% set metaimage_height = 281 %}
+        {% set metasite = 'seo.metasite' | trans %}
+        {% set metacreator = 'seo.metacreator' | trans %}
+
+        {% block metas %}
+            <title>{{ metatitle }}</title>
+            <meta name="keywords" content="{{ metakey }}" />
+            <meta name="description" content="{{ metadesc }}" />
+            {# google #}
+            <meta itemprop="url" content="{{ baseuri }}">
+            <meta itemprop="name" content="{{ metatitle }}">
+            <meta itemprop="description" content="{{ metadesc }}">
+            <meta itemprop="image" content="{{ metaimage }}">
+            {# facebook #}
+            <meta property="og:locale" content="{{ app.request.locale }}" />
+            <meta property="og:site_name" content="{{ metasite }}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:url" content="{{ baseuri }}" />
+            <meta property="og:title" content="{{ metatitle }}" />
+            <meta property="og:image" content="{{ metaimage }}" />
+            <meta property="og:image:width" content="{{ metaimage_width }}" />
+            <meta property="og:image:height" content="{{ metaimage_height }}" />
+            <meta property="og:description" content="{{ metadesc }}" />
+            {# twitter #}
+            <meta name="twitter:creator" content="{{ metacreator }}" />
+            <meta name="twitter:domain" content="{{ metasite }}" />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content="{{ baseuri }}" />
+            <meta name="twitter:title" content="{{ metatitle }}" />
+            <meta name="twitter:image" content="{{ metaimage }}" />
+            <meta name="twitter:image:alt" content="{{ metatitle }}" />
+            <meta name="twitter:image:width" content="{{ metaimage_width }}" />
+            <meta name="twitter:image:height" content="{{ metaimage_height }}" />
+            <meta name="twitter:description" content="{{ metadesc }}" />
+        {% endblock %}
+
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('build/js/app.css') }}">
+    </head>
+    <body>
+        <div id="app">
+            {% block body %}{% endblock %}
+        </div>
+
+        <script src="{{ asset('build/js/app.js') }}"></script>
+    </body>
+</html>

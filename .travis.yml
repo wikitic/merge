@@ -1,0 +1,61 @@
+language: php
+sudo: false
+dist: trusty
+
+branches:
+  only:
+    - develop
+    - master
+
+php:
+  - 7.2
+
+services:
+  - mysql
+
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.yarn-cache
+    - vendor
+    - ./bin/.phpunit
+
+env:
+  global:
+    - APP_ENV: test
+    - DATABASE_URL_AP: mysql://root:@127.0.0.1:3306/ap_test
+    - DATABASE_URL_ASO: mysql://root:@127.0.0.1:3306/aso_test
+
+before_install:
+  - composer self-update
+  - node -v && yarn -V
+  - travis_retry yarn
+
+install:
+  - composer install
+  - yarn encore production
+  - php bin/phpunit install
+
+before_script:
+  - php bin/console doctrine:database:drop --connection default --if-exists --force
+  - php bin/console doctrine:database:drop --connection partner --if-exists --force
+  - php bin/console doctrine:database:create --connection default --if-not-exists
+  - php bin/console doctrine:database:create --connection partner --if-not-exists
+  - php bin/console doctrine:schema:update --em default --force
+  - php bin/console doctrine:schema:update --em partner --force
+  - php bin/console doctrine:fixtures:load --em default --group=default --no-interaction
+  - php bin/console doctrine:fixtures:load --em partner --group=partner --no-interaction
+
+script:
+  - php bin/phpunit
+
+  #- composer csfix
+  - composer cscheck
+  - composer phpstan
+
+  - php bin/console lint:yaml config
+  - php bin/console lint:twig templates
+  - php bin/console lint:xliff translations
+  - php bin/console security:check
+  - php bin/console doctrine:schema:validate --skip-sync -vvv --no-interaction

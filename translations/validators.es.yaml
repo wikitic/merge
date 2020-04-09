@@ -1,0 +1,13 @@
+partner.code.unique: El código ya existe
+partner.email.unique: El email ya existe
+partner.name.not_blank: El nombre es requerido
+partner.surname.not_blank: El apellido es requerido
+partner.email.not_blank: El email es requerido
+partner.email.email: El email no es válido
+
+subscription.indate.not_blank: La fecha de inicio es requerida
+subscription.indate.datetime: La fecha de inicio no es válida
+subscription.outdate.not_blank: La fecha de fin es requerida
+subscription.outdate.datetime: La fecha de fin no es válida
+subscription.info.not_blank: La info es requerida
+subscription.price.not_blank: El precio es requerido

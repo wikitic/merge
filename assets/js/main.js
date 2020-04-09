@@ -1,0 +1,33 @@
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import App from './App'
+import router from './router'
+import store from './store'
+
+
+import Meta from 'vue-meta';
+Vue.use(Meta);
+
+
+import 'vuetify/dist/vuetify.min.css'
+Vue.use(Vuetify,
+  {
+    theme: {
+      primary: '#1caff6',
+      //secondary: '#b0bec5',
+      //accent: '#8c9eff',
+      //error: '#b71c1c'
+    }
+  })
+
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+    el: '#app',
+    router,
+    store,
+    components: { App },
+    template: '<App/>'
+})
